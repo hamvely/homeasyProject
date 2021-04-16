@@ -83,7 +83,7 @@
 		           
 	 -->
 
-	<%@ include file="views/common/mypageMenubar.jsp" %>
+	 <%@ include file="views/common/mypageMenubar.jsp" %>
 
 </body>
 </html>
