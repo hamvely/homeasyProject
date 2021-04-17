@@ -4,14 +4,14 @@ import java.sql.Date;
 
 public class Product {
 
-	private int productNo;
-	private int cate2No;
-	private String productName;
-	private String productBrand;
-	private int productPrice;
-	private String productDetail;
-	private Date productDate;
-	private String productStatus;
+	private int productNo;			// 상품 고유번호
+	private int cate2No;			// 2차 카테고리 고유번호
+	private String productName;		// 상품명
+	private String productBrand;	// 상품 업체명
+	private int productPrice;		// 상품 가격
+	private String productDetail;	// 상품 상세내용
+	private Date productDate;		// 상품 등록 날짜
+	private String productStatus;	// 상품 등록 상태 (Y:등록 / N:미등록)
 	
 	public Product() {}
 
