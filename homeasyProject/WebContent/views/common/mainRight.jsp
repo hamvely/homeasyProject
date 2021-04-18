@@ -1,10 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <style>
     /*리모컨*/
@@ -40,7 +40,6 @@
         margin-top:1px; 
         cursor:pointer;
     }
-   
 </style>
 <body>
     <!-- 리모컨 -->   
@@ -54,6 +53,6 @@
             <div class="right_6" onclick="location.href='';">TOP</div>
         </div>
     </div>
-        
+
 </body>
 </html>
