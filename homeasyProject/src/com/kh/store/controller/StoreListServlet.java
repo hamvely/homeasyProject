@@ -33,6 +33,8 @@ public class StoreListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		ArrayList<Product> list = new StoreService().selectStoreList();
+		request.setAttribute("list", list);
+		
 		request.getRequestDispatcher("views/store/storeListView.jsp").forward(request, response);
 		
 	}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% String contextPath = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
     }
     .wrap {
         width: 1200px;
-        height: 1600px;
+        height: 250px;
         margin: auto;
         color: #2e363e;
     }
@@ -146,7 +147,7 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link active" href="#home">커뮤니티</a>
+                <a class="nav-link" href="#home">커뮤니티</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#menu1">스토어</a>
@@ -190,7 +191,7 @@
 
 
         
-
+</div>
 
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"

@@ -13,6 +13,8 @@ public class Product {
 	private Date productDate;		// 상품 등록 날짜
 	private String productStatus;	// 상품 등록 상태 (Y:등록 / N:미등록)
 	
+	private String titleImg;		// 해당 게시글의 대표이미지경로
+	
 	public Product() {}
 
 	public Product(int productNo, int cate2No, String productName, String productBrand, int productPrice,
@@ -28,6 +30,14 @@ public class Product {
 		this.productStatus = productStatus;
 	}
 
+	public String getTitleImg() {
+		return titleImg;
+	}
+
+	public void setTitleImg(String titleImg) {
+		this.titleImg = titleImg;
+	}
+	
 	public int getProductNo() {
 		return productNo;
 	}
@@ -91,7 +101,7 @@ public class Product {
 	public void setProductStatus(String productStatus) {
 		this.productStatus = productStatus;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Product [productNo=" + productNo + ", cate2No=" + cate2No + ", productName=" + productName

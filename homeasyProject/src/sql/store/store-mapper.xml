@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="selectList">
+		SELECT
+		       PRODUCT.PRODUCT_NO
+             , PRODUCT_BRAND  
+		     , PRODUCT_NAME
+		     , PRODUCT_PRICE
+		     , PRODUCT_DATE
+		     , PRODUCT_FILE_RENAME
+		  FROM PRODUCT, PRODUCT_FILE
+         WHERE PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
+           AND CATE2_NO = 1
+           AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
+	</entry>
+
+</properties>
