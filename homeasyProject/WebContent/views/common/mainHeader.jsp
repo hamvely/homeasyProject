@@ -114,7 +114,7 @@
         <div id="header">
 
             <div id="header_column">
-                <a href="#"><img src="resources/img/logo/logo (1).png" class="header_column_logo"></a>
+                <a href="#"><img src="resources/img/집이지 로고.png" class="header_column_logo"></a>
             </div>
 
 
@@ -196,7 +196,7 @@
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"
       crossorigin="anonymous"
-    ></script> 
+    ></script>
 
 
 </body>
