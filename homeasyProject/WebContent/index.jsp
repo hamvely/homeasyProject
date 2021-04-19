@@ -8,8 +8,10 @@
 </head>
 <body>
 
-가구는 집이지!
-
+	<!-- 작성자 : 김혜미 -->
+	<%@ include file="views/member/memberWithdrawal.jsp" %> 
+	
+	 
 	<!-- 	
 		1) 새로 워크스페이스 만들어서 이클립스로 열기
 		
@@ -82,8 +84,5 @@
 		7) 서버 Start 후 웹 애플리케이션 요청해서 index 잘 열리는지 확인해보기
 		           
 	 -->
-
-	 <%@ include file="views/common/mypageMenubar.jsp" %>
-
 </body>
 </html>
