@@ -60,11 +60,6 @@
     input {height:30px;}
     button {height:30px;}
 
-    button {
-        background-color:rgb(241, 196, 15);
-        color : white;
-        border: 1px; 
-    }
 </style>
 </head>
 <body>
@@ -86,7 +81,7 @@
                     </tr>
                     <tr>
                         <th colspan="6">
-                            <button type="submit" class="btn btn-warning">비밀번호 재설정</button>
+                            <button type="submit">비밀번호 재설정</button>
                             <button type="submit" onclick="enrollPage();">회원가입</button>
                         </th>
                     </tr>
