@@ -6,6 +6,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <style>
     .outer{
         width: 1200px;
@@ -34,7 +43,7 @@
         padding-top: 10px;
         padding-bottom: 20px;
         margin: auto;
-        height: 650px;
+        height: 700px;
     }
 
     #enrollForm div {
@@ -81,7 +90,7 @@
             <form action="" method="post" id="enrollForm">
                 <table>
                     <tr>
-                        <td>이메일<button type="button" onclick="emailCheck();" style="float: right;">중복확인</button></td>
+                        <td>이메일<button type="button" onclick="emailCheck();" style="float: right;" class="btn btn-secondary">중복확인</button></td>
                     </tr>
                     <tr>
                         <td><input type="email" name="userEmail" maxlength="20" placeholder="이메일" size="40" required></td>
@@ -136,8 +145,8 @@
                 </table>
 
                 <div align="center">
-                    <button type="submit" disabled>회원가입</button>
-                    <button type="reset">초기화</button>
+                    <button type="submit" class="btn btn-success btn-lg" style="background-color:rgb(3, 79, 6);">회원가입</button>
+                    <button type="reset" class="btn btn-warning" style="color:white; background-color:rgb(241, 196, 15);">초기화</button>
                 </div>
             </form>
         </div>

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-    div{ outline: 1px solid black; box-sizing: border-box; }
+    div{box-sizing: border-box; }
     
     .wrap {width: 1200px; }
  
@@ -57,7 +57,7 @@
         <div id="footer">
             <!-- 로고 -->
             <div id="footer_1">  
-                <a href=""><img src="resources/img/logo/logo1.png" style="width: 70%;"></a>
+                <a href=""><img src="resources/img/logo/logo (1).png" style="width: 70%;"></a>
     
             </div>
             
