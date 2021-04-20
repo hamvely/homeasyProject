@@ -277,27 +277,7 @@
 
                 <br><br>
 
-                <div align="center" class="pagingArea">
-                    <!--
-                    <% if(currentPage != 1) { %>
-                        <button onclick="location.href='<%=contextPath%>/list.bo?currentPage=<%=currentPage-1%>';">이전</button>
-                    <% } %>
-                    
-                    <% for(int p=startPage; p<=endPage; p++) { %>
-                        
-                        <% if(currentPage == p){ %>
-                            <button disabled><%= p %></button>
-                        <% }else{ %>
-                            <button onclick="location.href='<%=contextPath%>/list.bo?currentPage=<%= p %>';"><%= p %></button>
-                        <% } %>
-                        
-                    <% } %>
-                    
-                    <% if(currentPage != maxPage){ %>
-                        <button onclick="location.href='<%=contextPath%>/list.bo?currentPage=<%=currentPage+1%>';">다음</button>
-                    <% } %>
-                    -->
-                </div>
+                
 
             </div>
         </div>
@@ -309,21 +289,21 @@
             <div class="modal-content">
         
                 <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">상품삭제</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            
-            <!-- Modal body -->
-            <div class="modal-body">
-                해당 상품을 정말 삭제하시겠습니까?
-            </div>
-            
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-dismiss="modal">삭제</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
-            </div>
+	            <div class="modal-header">
+	                <h4 class="modal-title">상품삭제</h4>
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            </div>
+	            
+	            <!-- Modal body -->
+	            <div class="modal-body">
+	               	해당 상품을 정말 삭제하시겠습니까?
+	            </div>
+	            
+	            <!-- Modal footer -->
+	            <div class="modal-footer">
+	                <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">확인</button>
+                	<button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;">취소</button>
+	            </div>
         
             </div>
         </div>
