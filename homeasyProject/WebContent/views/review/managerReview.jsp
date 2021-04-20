@@ -136,7 +136,7 @@
                         <td>11111</td>
                         <td>상품명001</td>
                         <td>user01@never.com</td>
-                        <td>정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
+                        <td data-toggle="modal" data-target="#detailReview">정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
                         <td>5</td>
                     </tr>
                     <tr>
@@ -210,38 +210,64 @@
                         <td>user10@never.com</td>
                         <td>정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
                         <td>5</td>
-                    </tr>
-                                    
+                    </tr>                                    
                 </table>
-
-                <br><br>
-
-                <div align="center" class="pagingArea">
-                    <!--
-                    <% if(currentPage != 1) { %>
-                        <button onclick="location.href='<%=contextPath%>/list.bo?currentPage=<%=currentPage-1%>';">이전</button>
-                    <% } %>
-                    
-                    <% for(int p=startPage; p<=endPage; p++) { %>
-                        
-                        <% if(currentPage == p){ %>
-                            <button disabled><%= p %></button>
-                        <% }else{ %>
-                            <button onclick="location.href='<%=contextPath%>/list.bo?currentPage=<%= p %>';"><%= p %></button>
-                        <% } %>
-                        
-                    <% } %>
-                    
-                    <% if(currentPage != maxPage){ %>
-                        <button onclick="location.href='<%=contextPath%>/list.bo?currentPage=<%=currentPage+1%>';">다음</button>
-                    <% } %>
-                    -->
-                </div>
+                <br><br>                
 
             </div>
         </div>
     </div>
-  
+
+
+	<!-- 리뷰 조회 모달 -->
+    <div class="modal" id="detailReview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">리뷰 조회</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form class="Review_content">
+                        <table>
+                            <tr>
+                                <th>회원이메일</th>
+                                <td><input type="text" name="email" required></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>상품명</th>
+                                <td><input type="text" name="product_name" required></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>리뷰평점</th>
+                                <td><input type="number" name="re_mark" required></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>리뷰내용</th>
+                                <td><input type="text" name="re_content" required></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color:darkgray;">취소</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#deleteReview" style="background-color:rgb(241, 196, 15);">삭제</button>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+
     <!-- 리뷰 삭제 모달 -->
     <div class="modal" id="deleteReview">
         <div class="modal-dialog">
@@ -260,8 +286,8 @@
 	            
 	            <!-- Modal footer -->
 	            <div class="modal-footer">
-	                <button type="button" class="btn btn-success" data-dismiss="modal">삭제</button>
-	                <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+	                <button type="submit" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">확인</button>
+                	<button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;">취소</button>
 	            </div>
         
             </div>
