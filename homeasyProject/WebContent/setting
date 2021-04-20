@@ -1,18 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-	<!-- 작성자 : 김혜미 -->
-	<%@ include file="views/member/memberWithdrawal.jsp" %> 
-	
-	 
-	<!-- 	
+<!-- 	
 		1) 새로 워크스페이스 만들어서 이클립스로 열기
 		
 		2) 워크스페이스 셋팅하기 (워크스페이스 : 작업환경)
@@ -84,5 +70,3 @@
 		7) 서버 Start 후 웹 애플리케이션 요청해서 index 잘 열리는지 확인해보기
 		           
 	 -->
-</body>
-</html>

@@ -2,25 +2,32 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
+<!-- 
+	작성자 : 김혜미
+	작성날짜 : 2021년 04월 17일
+-->
 	<entry key="loginMember">
 		SELECT 
 			   USER_NO
-			 , USER_ID
-			 , USER_PWD
-			 , USER_NAME
-			 , PHONE
 			 , EMAIL
+			 , PWD
+			 , NAME
+			 , NICKNAME
+			 , GENDER
+			 , USER_FILE_RENAME
+			 , BIRTH
+			 , POST_CODE
 			 , ADDRESS
-			 , INTEREST
-			 , ENROLL_DATE
-			 , MODIFY_DATE
-			 , STATUS
+			 , PHONE
+             , JOIN_DATE
+             , USER_STATUS
+             , ADMIN
 		  FROM 
 		  	   MEMBER
 		 WHERE 
-		       STATUS = 'Y'
-		   AND USER_ID = ?
-		   AND USER_PWD = ?
+		       USER_STATUS = 'Y'
+		   AND EMAIL = ?
+		   AND PWD = ?
 	</entry>
 	
 </properties>
