@@ -20,7 +20,7 @@
 
         <div class="faqHeder">
             <div class="info faq">
-                <h1>FQA</h1>
+                <h1>FAQ</h1>
                 <p>
                     운영시간 : 평일 09:00 ~ 18:00(주말 & 공휴일 제외) <br>
                     이메일 문의 : homeasy@gmail.com <br>
