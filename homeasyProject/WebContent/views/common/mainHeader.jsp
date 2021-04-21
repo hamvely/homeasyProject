@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% String contextPath = request.getContextPath(); %>
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
+    
+<% 
+	Member loginUser = (Member)session.getAttribute("loginUser");
+
+	String contextPath = request.getContextPath(); 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,12 +119,13 @@
 	<div class="wrap">
 
         <div id="header">
-
+        
+			<!-- 로고 -->        
             <div id="header_column">
-                <a href="#"><img src="resources/img/logo/logo (1).png" class="header_column_logo"></a>
+                <a href="<%= request.getContextPath() %>"><img src="resources/img/logo/logo (1).png" class="header_column_logo"></a>
             </div>
 
-
+			<!-- 검색 -->   
             <div id="header_column">
                 <form class="search_form" action="">
                     <div class="search_form_text">
@@ -131,20 +137,41 @@
                 </form>
             </div>
 
-
+			<!-- 로그인 -->   
             <div id="header_column">
-                <div class="header_column_cart">
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="header_column_login">
-                    <a href="#">로그인</a>
-                </div>
-                <div class="header_column_join">
-                    <a href="#">회원가입</a>
-                </div>
+            
+                <% if(loginUser == null) { %>
+
+	                <div class="header_column_cart">
+	                    <a href="#"><img src="resources/img/icon/shopping-cart (1).png" width="25px"></a>
+	                </div>
+	                <div class="header_column_login">
+	                    <a href="#">로그인</a>
+	                </div>
+	                <div class="header_column_join">
+	                    <a href="#">회원가입</a>
+	                </div>
+	                
+                <% }else { %>
+
+	                <div class="header_column_likd">
+	                    <a href="#"><img src="resources/img/icon/heart (1).png" width="25px"></a>
+	                </div>
+	                <div class="header_column_cart">
+	                    <a href="#"><img src="resources/img/icon/shopping-cart (1).png" width="25px"></a>
+	                </div>
+	                <div class="header_column_profile">
+	                    <a href="#"><img src="resources/img/icon/user (1).png" width="25px"></a>
+	                </div>
+	                <div class="header_column_join">
+	                    <b><%= loginUser.getNickName() %>님</b>
+	                </div>
+           		<% } %>
+           
             </div>
         </div>
-
+		
+		<!-- 네비게이션 -->   
         <div class="container mt-3">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">

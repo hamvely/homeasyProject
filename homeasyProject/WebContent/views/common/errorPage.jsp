@@ -11,8 +11,11 @@
 </head>
 <body>
 	
+	
+	<!--작성자 : 김혜미-->
 	<%@ include file="mainHeader.jsp" %>
 	
+	<br><br>
 	<h1 align="center" style="color:red"><%= errorMsg %></h1>
 	
 	

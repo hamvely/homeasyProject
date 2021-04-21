@@ -14,9 +14,9 @@
             margin:auto;
         }
 
-        .logo{
-            width:246px;
-            height:85px;
+        .logo img{
+            padding-top:25px;
+            display:block; 
             margin:auto;
         }
 
@@ -27,21 +27,16 @@
             height:38px;
             border-radius:5px 5px 5px 5px;
         }
+
+
+        .img1, .img2{
+            width:23px;
+            margin:8px 0px 0px 10px;
+            float:left;
+        }
         
         .password{
             margin-top:10px;
-        }
-
-        .img1, .img2{
-            width:40px; 
-            height:38px;
-            border-radius:5px 0px 0px 5px;
-            margin-left:-0.8px;
-        }
-      
-        .img1{
-            margin-top:-0.3px;
-            float:left;
         }
 
         .id1{
@@ -58,7 +53,7 @@
             border:none;
         }
 
-        .loginbutton, .password_find, .nonuser{
+        .loginbutton, .password_find, .nonUser{
             margin-left:23%;
             padding-top:10px;
             float:left;
@@ -69,7 +64,8 @@
             margin-left:10px;
             padding-top:10px;
         }
-        .loginbutton1, .nonuser1{
+        
+        .loginbutton1, .nonUser1{
             width:213px;
             height:35px;
             border:1px;
@@ -100,41 +96,26 @@
 
         .text1{margin-left:25%; margin-top:-10px;}
 
-        .facebook, .kakao, .naver{float: left;}
 
-        .sns{margin-left:22%;}
-
-        .kakao{
-            margin-left:20px;
-            padding-top:3px;
-        }
-
-        .naver{
-            margin-left:20px;
-            padding-top:4px;
-        }
-        .facebook img{width:60px; height:58px;}
-        .kakao img{width:60px; height:55px;}
-        .naver img{width:60px; height:51px;}   
+        .sns{margin-left:25%;}
+        .sns img {max-width: 40px; margin-left: 20px; float: left;}
 </style> 
 </head>
 <body>
 		<div class="login">
-            <br>
+
             <div class="logo">
-                <a href="">
-                    <img src="" style="width:246px; height:85px;">
-                </a>
+                <a href=""><img src="resources/img/logo/logo (1).png" style="width:246px;"></a>
             </div>
-            <br>
-            <br>
+            <br><br>
+            
             <div class="id">
-                    <img class="img1" src="">
+                    <img class="img1" src="resources/img/icon/user (2).png">
                     <input class="id1" type="text" name="id">
             </div>
 
             <div class="password">
-                    <img class="img2"src="">
+                    <img class="img2" src="resources/img/icon/key (1).png">
                     <input class="password1" type="password" name="password">
             </div>
 
@@ -168,27 +149,22 @@
             
             <div class="sns">
                 <div class="facebook">
-                    <a href="">
-                        <img src="">
-                    </a>
+                    <a href=""><img src="resources/img/icon/facebook.png"></a>
                 </div>
 
                 <div class="kakao">
-                    <a href="">
-                        <img src="" >
-                    </a>
+                    <a href=""><img src="resources/img/icon/kakao.png"></a>
                 </div>
 
                 <div class="naver">
-                    <a href="">
-                        <img src="">
-                    </a>
+                    <a href=""><img src="resources/img/icon/naver.png"></a>
                 </div>
             </div>
 
-            <div class="nonuser">
+
+            <div class="nonUser">
                 <a href="">
-                    <div class="nonuser1">
+                    <div class="nonUser1">
                        <li>비회원 주문 조회하기</li>
                     </div>
                 </a>
