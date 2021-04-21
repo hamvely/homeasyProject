@@ -53,8 +53,8 @@
 
     #sns img {max-width: 40px;}
 
-    input {height:40x;}
-    fieldset input {vertical-align:-8px;}
+    input {height:40px;}
+    fieldset input {vertical-align: -15px;}
 
     .btn-success {
     	background-color:rgb(3, 79, 6); 
@@ -100,7 +100,7 @@
             <hr>
 
 
-            <form action="" method="post" id="enrollForm">
+            <form action="<%= request.getContextPath() %>/insert.me" method="post" id="enrollForm">
                 <table>
                     <tr>
                         <td>이메일<button type="button" onclick="emailCheck();" style="float: right;" class="btn btn-secondary">중복확인</button></td>
@@ -159,7 +159,7 @@
 
                 <div align="center">
                     <button type="submit" class="btn btn-success">회원가입</button>
-                    <button type="reset" class="btn btn-warning">초기화</button>
+                    <button type="reset" class="btn btn-secondary">초기화</button>
                 </div>
             </form>
         </div>

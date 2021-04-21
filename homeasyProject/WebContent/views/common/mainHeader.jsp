@@ -2,9 +2,9 @@
     pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
     
 <% 
-	Member loginUser = (Member)session.getAttribute("loginUser");
+   Member loginUser = (Member)session.getAttribute("loginUser");
 
-	String contextPath = request.getContextPath(); 
+   String contextPath = request.getContextPath(); 
 %>
 <!DOCTYPE html>
 <html>
@@ -97,6 +97,8 @@
     .afterLogin {position:absolute;}
     .afterLogin div {margin: 10px 10px;}
     .afterLogin div a {color:black; text-decoration:none; font-weight: bold; padding: 0px 5px 0px 5px;}
+    .afterLogin a:hover {color: rgb(3, 79, 6);}
+    
 
 
 </style>
@@ -104,16 +106,16 @@
 <body>
 
 
-	<div class="wrap">
+   <div class="wrap">
 
         <div id="header">
         
-			<!-- 로고 -->        
+         <!-- 로고 -->        
             <div id="header_column">
                 <a href="<%= request.getContextPath() %>"><img src="resources/img/logo/logo (1).png" class="header_column_logo" width="200px;"></a>
             </div>
 
-			<!-- 검색 -->   
+         <!-- 검색 -->   
             <div id="header_column">
                 <form class="search_form" action="">
                     <div class="search_form_text">
@@ -125,37 +127,37 @@
                 </form>
             </div>
 
-			<!-- 로그인 -->   
+         <!-- 로그인 -->   
             <div id="header_column">
             
                 <% if(loginUser == null) { %>
 
-	                <div class="beforeLogin">
-	                    <a href="#"><img src="resources/img/icon/shopping-cart (1).png" height="25px"></a>
-	                    <a href="#">로그인</a>
-	                    <a href="#">회원가입</a>
-	                </div>
-	                
+                   <div class="beforeLogin">
+                       <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                       <a href="#">로그인</a>
+                       <a href="#">회원가입</a>
+                   </div>
+                   
                 <% }else { %>
                     <div class="afterLogin">
                         <div class="">
-                            <a href="#"><img src="resources/img/icon/heart (1).png" height="25px"></a>
-                            <a href="#"><img src="resources/img/icon/shopping-cart (1).png" height="25px"></a>
-                            <a href="#"><img src="resources/img/icon/user (1).png" height="25px"></a>
+                            <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                            <a href="#"><i class="far fa-heart fa-lg"></i></a>
+                            <a href="#"><i class="far fa-user-circle fa-lg"></i></a>
                             <a href=""><%= loginUser.getNickName() %>님</a>
                         </div>
 
                         <div class="">
                             <a href="#" style="margin-left: 27px; font-size: 13px;">마이페이지</a>
-                            <a href="#" style="font-size: 13px;">로그아웃</a>
+                            <a href="<%= contextPath %>/logout.me" style="font-size: 13px;">로그아웃</a>
                         </div>
                     </div>
-           		<% } %>
+                 <% } %>
            
             </div>
         </div>
-		
-		<!-- 네비게이션 -->   
+      
+      <!-- 네비게이션 -->   
         <div class="container mt-3">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
@@ -214,4 +216,3 @@
 
 </body>
 </html>
-
