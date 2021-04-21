@@ -71,7 +71,7 @@
     <div class="outer">
         <div class="inner">
 
-            <a href="<%= request.getContextPath() %>" id="logo"><img src="resources/img/logo/logo (1).png (1).png" width="55%"></a>
+            <a href="<%= request.getContextPath() %>" id="logo"><img src="../../resources/img/logo/logo (1).png" width="55%"></a>
 
             <form action="<%= request.getContextPath() %>/login.me" method="post" id="loginForm">
                 <table>
@@ -87,7 +87,7 @@
                     <tr>
                         <th colspan="6">
                             <button type="button" class="btn btn-secondary">비밀번호 재설정</button>
-                            <button type="button" class="btn btn-secondary" onclick="enrollPage();">회원가입</button>
+                            <button type="button" class="btn btn-secondary" onclick="location.href='memberEnrollForm.jsp'">회원가입</button>
                         </th>
                     </tr>
                 </table>
@@ -99,9 +99,9 @@
                         <td colspan="6">SNS계정으로 간편 로그인/회원가입</td>
                     </tr>
                     <tr id="sns">
-                        <th colspan="2"><a href=""><img src="resources/img/icon/facebook.png" style="float: right;"></a></th>
-                        <th colspan="2"><a href=""><img src="resources/img/icon/kakao.png"></a></th>
-                        <th colspan="2"><a href=""><img src="resources/img/icon/naver.png" style="float: left;"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/facebook.png" style="float: right;"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/kakao.png"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/naver.png" style="float: left;"></a></th>
                     </tr>
                     <tr>
                         <th colspan="6">

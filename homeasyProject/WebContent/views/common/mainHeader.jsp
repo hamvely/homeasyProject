@@ -134,8 +134,8 @@
 
                    <div class="beforeLogin">
                        <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                       <a href="#">로그인</a>
-                       <a href="#">회원가입</a>
+                       <a href="views/member/memberLogin.jsp">로그인</a>
+                       <a href="views/member/memberEnrollForm.jsp">회원가입</a>
                    </div>
                    
                 <% }else { %>
@@ -144,7 +144,7 @@
                             <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
                             <a href="#"><i class="far fa-heart fa-lg"></i></a>
                             <a href="#"><i class="far fa-user-circle fa-lg"></i></a>
-                            <a href=""><%= loginUser.getNickName() %>님</a>
+                            <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
                         </div>
 
                         <div class="">

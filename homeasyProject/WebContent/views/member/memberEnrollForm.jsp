@@ -78,7 +78,7 @@
 <body>
     <div class="outer">
 
-        <a href="" id="logo"><img src="resources/img/logo/logo (1).png" width="10%"></a>
+        <a href="<%= request.getContextPath() %>" id="logo"><img src="../../resources/img/logo/logo (1).png" width="10%"></a>
 
         <div class="inner">
             
@@ -90,9 +90,9 @@
                         <td colspan="6">SNS계정으로 간편 로그인/회원가입</td>
                     </tr>
                     <tr id="sns">
-                        <th colspan="2"><a href=""><img src="resources/img/icon/facebook.png" style="float: right;"></a></th>
-                        <th colspan="2"><a href=""><img src="resources/img/icon/kakao.png"></a></th>
-                        <th colspan="2"><a href=""><img src="resources/img/icon/naver.png" style="float: left;"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/facebook.png" style="float: right;"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/kakao.png"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/naver.png" style="float: left;"></a></th>
                     </tr>
                 </table>
             </form>
