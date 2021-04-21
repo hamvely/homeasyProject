@@ -71,7 +71,7 @@
         padding: 0;
     }
     .mt-3, .my-3 {
-        margin: 0;
+        margin-top: 0!important;
     }
     .nav-tabs{
         height: 50px;
@@ -82,7 +82,6 @@
         height: 50px;
         font-size: 15px;
         font-weight: bold;
-        
     }
     .nav-tabs .nav-link{border: none;}
     .container a{
