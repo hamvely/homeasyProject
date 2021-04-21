@@ -160,7 +160,7 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link" href="#home">커뮤니티</a>
+                <a class="nav-link" href="<%=contextPath%>/list.ho">커뮤니티</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#menu1">스토어</a>
@@ -173,9 +173,9 @@
             <!-- Tab panes -->
             <div class="tab-content">
               <div id="home" class="container tab-pane active"><br>
-                <a href="#">집들이</a>
-                <a href="#">노하우</a>
-                <a href="#">질문과답변</a>
+                <a href="<%=contextPath%>/list.ho">집들이</a>
+                <a href="<%=contextPath%>/list.how">노하우</a>
+                <a href="<%=contextPath%>/list.qna">질문과답변</a>
               </div>
               <div id="menu1" class="container tab-pane fade"><br>
                 <a href="#">가구</a>
