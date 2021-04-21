@@ -53,10 +53,23 @@
 
     #sns img {max-width: 40px;}
 
-    input {height:30px;}
-    button {height:30px;}
-
+    input {height:40x;}
     fieldset input {vertical-align:-8px;}
+
+    .btn-success {
+    	background-color:rgb(3, 79, 6); 
+    	border-color:rgb(3, 79, 6);
+    }
+
+    .btn-warning {
+        background-color:rgb(241, 196, 15); 
+    	border-color:rgb(241, 196, 15);
+    }
+
+    .btn-secondary {
+    	background-color:rgb(158, 158, 158); 
+    	border-color:rgb(158, 158, 158);
+    }
 
     
 </style>
@@ -145,8 +158,8 @@
                 </table>
 
                 <div align="center">
-                    <button type="submit" class="btn btn-success btn-lg" style="background-color:rgb(3, 79, 6);">회원가입</button>
-                    <button type="reset" class="btn btn-warning" style="color:white; background-color:rgb(241, 196, 15);">초기화</button>
+                    <button type="submit" class="btn btn-success">회원가입</button>
+                    <button type="reset" class="btn btn-warning">초기화</button>
                 </div>
             </form>
         </div>

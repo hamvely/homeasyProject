@@ -2,10 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-<!-- 
-	작성자 : 김혜미
-	작성날짜 : 2021년 04월 17일
--->
+<!--작성자 : 김혜미-->
 	<entry key="loginMember">
 		SELECT 
 			   USER_NO

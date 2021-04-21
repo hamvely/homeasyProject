@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% String contextPath = request.getContextPath(); %>
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
+    
+<% 
+	Member loginUser = (Member)session.getAttribute("loginUser");
+
+	String contextPath = request.getContextPath(); 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +34,6 @@
     #wrap>div {width: 100%;}
     #header {height: 150px;}
     #navigator {height: 100px;}
-    #content {height: 1150px;}
-    #footer {height: 200px;}
 
     #header>div, #content>div {float: left; height: 100%;}
     #header_column {
@@ -38,32 +41,20 @@
         align-items: center;
         justify-content: center;
     }
-    #header_column:first-child {width: 300px;}
-    #header_column:nth-child(2) {width: 600px;}
-    #header_column:nth-child(3) {
-        width: 300px;
-        display: flex;
-        justify-content: space-between;
-        font-weight: bold;
-        padding: 0 70px;
-    }
-
-    a {
-        text-decoration: none;
-        color: #2e363e;
-    }
     
-    .header_column_logo {
-        width: 200px;
-    }
+    #header_column:first-child {width:300px;}
+    #header_column:nth-child(2) {width:600px;}
+    #header_column:nth-child(3) {width:300px;}
 
-    .search_form {
-        position: relative;
-    }
+    a {text-decoration: none; color: #2e363e;}
+
+    /* 검색창 */
+    .search_form {position: relative;}
+
     .search_form_text>input {
         width: 500px;
         height: 45px;
-        border: 3px solid green /*rgb(3, 79, 6);*/;
+        border: 3px solid rgb(3, 79, 6);
         border-radius: 5px;
     }
     .search_form_btn {
@@ -73,11 +64,8 @@
         color: rgb(3, 79, 6);
         font-size: 20px;
     }
-    .header_column_cart a:hover,
-    .header_column_login a:hover,
-    .header_column_join a:hover {
-        color: green;
-    }
+
+    /* 네비게이션 */
     .container, .mt-3{
         margin: 0;
         padding: 0;
@@ -96,16 +84,22 @@
         font-weight: bold;
         
     }
-    .nav-tabs .nav-link{
-        border: none;
-    }
+    .nav-tabs .nav-link{border: none;}
     .container a{
         margin-left: 15px;
         text-decoration: none;
     }
-    .container a:hover {
-        color: green;
-    }
+    .container a:hover {color: rgb(3, 79, 6);}
+
+    /* 로그인 */
+    .beforeLogin a {color:black; text-decoration:none; font-weight: bold; padding: 0px 5px 0px 5px;}
+    .beforeLogin a:hover {color: rgb(3, 79, 6);}
+
+    .afterLogin {position:absolute;}
+    .afterLogin div {margin: 10px 10px;}
+    .afterLogin div a {color:black; text-decoration:none; font-weight: bold; padding: 0px 5px 0px 5px;}
+
+
 </style>
 </head>
 <body>
@@ -114,12 +108,13 @@
 	<div class="wrap">
 
         <div id="header">
-
+        
+			<!-- 로고 -->        
             <div id="header_column">
-                <a href="#"><img src="resources/img/logo/logo (1).png" class="header_column_logo"></a>
+                <a href="<%= request.getContextPath() %>"><img src="resources/img/logo/logo (1).png" class="header_column_logo" width="200px;"></a>
             </div>
 
-
+			<!-- 검색 -->   
             <div id="header_column">
                 <form class="search_form" action="">
                     <div class="search_form_text">
@@ -131,20 +126,37 @@
                 </form>
             </div>
 
-
+			<!-- 로그인 -->   
             <div id="header_column">
-                <div class="header_column_cart">
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                </div>
-                <div class="header_column_login">
-                    <a href="#">로그인</a>
-                </div>
-                <div class="header_column_join">
-                    <a href="#">회원가입</a>
-                </div>
+            
+                <% if(loginUser == null) { %>
+
+	                <div class="beforeLogin">
+	                    <a href="#"><img src="resources/img/icon/shopping-cart (1).png" height="25px"></a>
+	                    <a href="#">로그인</a>
+	                    <a href="#">회원가입</a>
+	                </div>
+	                
+                <% }else { %>
+                    <div class="afterLogin">
+                        <div class="">
+                            <a href="#"><img src="resources/img/icon/heart (1).png" height="25px"></a>
+                            <a href="#"><img src="resources/img/icon/shopping-cart (1).png" height="25px"></a>
+                            <a href="#"><img src="resources/img/icon/user (1).png" height="25px"></a>
+                            <a href=""><%= loginUser.getNickName() %>님</a>
+                        </div>
+
+                        <div class="">
+                            <a href="#" style="margin-left: 27px; font-size: 13px;">마이페이지</a>
+                            <a href="#" style="font-size: 13px;">로그아웃</a>
+                        </div>
+                    </div>
+           		<% } %>
+           
             </div>
         </div>
-
+		
+		<!-- 네비게이션 -->   
         <div class="container mt-3">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">

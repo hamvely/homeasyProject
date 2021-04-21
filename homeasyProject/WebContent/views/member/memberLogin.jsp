@@ -15,10 +15,10 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<!--작성자 : 김혜미-->
 <style>
     .outer{
         width: 1200px;
-        height: 520px;
         margin: auto;
         padding-top: 50px;
     }
@@ -38,9 +38,8 @@
     
     #loginForm table {
         margin: auto;
-
         width: 350px;
-        height: 180px;
+        height: 200px;
         text-align:center !important;
     }
 
@@ -48,17 +47,23 @@
         padding-top: 20px;
         padding-bottom: 20px;
         margin: auto;
-
         width: 350px;
         height: 180px;
         text-align:center !important;
     }
 
     #sns img {max-width: 40px;}
+    input {height:40px;}
+    
+    .btn-success {
+    	background-color:rgb(3, 79, 6); 
+    	border-color:rgb(3, 79, 6);
+    }
 
-
-    input {height:30px;}
-    button {height:30px;}
+    .btn-secondary {
+    	background-color:rgb(158, 158, 158); 
+    	border-color:rgb(158, 158, 158);
+    }
 
 </style>
 </head>
@@ -66,23 +71,23 @@
     <div class="outer">
         <div class="inner">
 
-            <a href="" id="logo"><img src="resources/img/logo/logo (1).png" width="55%"></a>
+            <a href="<%= request.getContextPath() %>" id="logo"><img src="resources/img/logo/logo (1).png (1).png" width="55%"></a>
 
             <form action="<%= request.getContextPath() %>/login.me" method="post" id="loginForm">
                 <table>
                     <tr>
-                        <th colspan="6"><input type="email" name="userEmail" placeholder="이메일을 입력하세요" size="30" required></th>
+                        <th colspan="6"><input type="email" name="email" placeholder="이메일을 입력하세요" size="26" required></th>
                     </tr>
                     <tr>
-                        <th colspan="6"><input type="password" name="userPwd" placeholder="비밀번호를 입력하세요" size="30" required></th>
+                        <th colspan="6"><input type="password" name="userPwd" placeholder="비밀번호를 입력하세요" size="26" required></th>
                     </tr>
                     <tr>
-                        <th colspan="6"><button type="submit">로그인</button></th>
+                        <th colspan="6"><button type="submit" class="btn btn-success" style="width: 240px;">로그인</button></th>
                     </tr>
                     <tr>
                         <th colspan="6">
-                            <button type="submit">비밀번호 재설정</button>
-                            <button type="submit" onclick="enrollPage();">회원가입</button>
+                            <button type="button" class="btn btn-secondary">비밀번호 재설정</button>
+                            <button type="button" class="btn btn-secondary" onclick="enrollPage();">회원가입</button>
                         </th>
                     </tr>
                 </table>
@@ -100,7 +105,7 @@
                     </tr>
                     <tr>
                         <th colspan="6">
-                            <button type="submit">비회원 주문 조회하기</button>
+                            <button type="submit" class="btn btn-secondary" style="width: 240px;">비회원 주문 조회하기</button>
                         </th>
                     </tr>
                 </table> 
