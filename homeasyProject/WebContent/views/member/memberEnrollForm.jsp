@@ -53,8 +53,8 @@
 
     #sns img {max-width: 40px;}
 
-    input {height:40x;}
-    fieldset input {vertical-align:-8px;}
+    input {height:40px;}
+    fieldset input {vertical-align: -15px;}
 
     .btn-success {
     	background-color:rgb(3, 79, 6); 
@@ -78,7 +78,7 @@
 <body>
     <div class="outer">
 
-        <a href="" id="logo"><img src="resources/img/logo/logo (1).png" width="10%"></a>
+        <a href="<%= request.getContextPath() %>" id="logo"><img src="../../resources/img/logo/logo (1).png" width="10%"></a>
 
         <div class="inner">
             
@@ -90,9 +90,9 @@
                         <td colspan="6">SNS계정으로 간편 로그인/회원가입</td>
                     </tr>
                     <tr id="sns">
-                        <th colspan="2"><a href=""><img src="resources/img/icon/facebook.png" style="float: right;"></a></th>
-                        <th colspan="2"><a href=""><img src="resources/img/icon/kakao.png"></a></th>
-                        <th colspan="2"><a href=""><img src="resources/img/icon/naver.png" style="float: left;"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/facebook.png" style="float: right;"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/kakao.png"></a></th>
+                        <th colspan="2"><a href=""><img src="../../resources/img/icon/naver.png" style="float: left;"></a></th>
                     </tr>
                 </table>
             </form>
@@ -100,7 +100,7 @@
             <hr>
 
 
-            <form action="" method="post" id="enrollForm">
+            <form action="<%= request.getContextPath() %>/insert.me" method="post" id="enrollForm">
                 <table>
                     <tr>
                         <td>이메일<button type="button" onclick="emailCheck();" style="float: right;" class="btn btn-secondary">중복확인</button></td>
@@ -159,7 +159,7 @@
 
                 <div align="center">
                     <button type="submit" class="btn btn-success">회원가입</button>
-                    <button type="reset" class="btn btn-warning">초기화</button>
+                    <button type="reset" class="btn btn-secondary">초기화</button>
                 </div>
             </form>
         </div>
