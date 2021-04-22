@@ -86,6 +86,7 @@ public class PageInfo {
 				+ ", memberLimit=" + memberLimit + ", maxPage=" + maxPage + ", startPage=" + startPage + ", endPage="
 				+ endPage + "]";
 	}
+
 	
 	
 

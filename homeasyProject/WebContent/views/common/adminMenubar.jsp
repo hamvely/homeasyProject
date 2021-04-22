@@ -67,7 +67,7 @@
            <li><a href="">회원관리</a>
                <ul>
                    <li><a href="<%= contextPath %>/list.me?currentPage=1">회원조회/수정/삭제</a></li>
-                   <li><a href="">쿠폰 관리</a></li>
+                   <li><a href="<%= contextPath %>/list.co?currentPage=1">쿠폰 관리</a></li>
                </ul>
            </li>
 

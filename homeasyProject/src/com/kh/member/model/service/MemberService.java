@@ -59,9 +59,12 @@ public class MemberService {
 	}
 	
 	public ArrayList<Member> selectList(PageInfo pi) {
+		
 		Connection conn = getConnection();
 		ArrayList<Member> list = new MemberDao().selectList(conn, pi);
+		
 		close(conn);
+		
 		return list;
 	}
 
