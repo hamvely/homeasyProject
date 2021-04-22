@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.member.model.service.MemberService;
 
 /**
@@ -40,8 +41,21 @@ public class AdminMemberListServlet extends HttpServlet {
 		int endPage;		// 현재페이지에 하단에 보여질 페이징바의 끝 수 (startPage, pageLimit, maxPage를 가지고 구할것)
 		
 		listCount = new MemberService().selectListCount();
+		currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		pageLimit = 10;
+		memberLimit = 10;
+		maxPage = (int)Math.ceil((double)listCount / memberLimit);
+		startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
+		endPage = startPage + pageLimit - 1;
+		if(endPage > maxPage){
+			endPage = maxPage;
+		}
 		
-		System.out.println(listCount);
+		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, memberLimit, maxPage, startPage, endPage);
+		
+		System.out.println(pi);
+		
+		
 		
 	}
 
