@@ -16,7 +16,7 @@
 	#header { /*상단바 크기*/
 	    width: 1200px;
 	    height: 80px;
-	    background-color: rgb(6, 77, 11);
+	    background-color: rgb(5, 50, 5);
 	    display: flex;
 	    justify-content: space-between;
 	    padding: 0px 10px;
