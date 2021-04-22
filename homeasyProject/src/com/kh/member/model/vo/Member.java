@@ -43,6 +43,14 @@ public class Member {
 		this.admin = admin;
 	}
 
+	public Member(String email, String userPwd, String userName, String nickName) {
+		super();
+		this.email = email;
+		this.userPwd = userPwd;
+		this.userName = userName;
+		this.nickName = nickName;
+	}
+
 	public int getUserNo() {
 		return userNo;
 	}

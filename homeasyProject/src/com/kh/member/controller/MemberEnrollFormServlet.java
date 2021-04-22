@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/* 작성자 : 김혜미 */
 /**
  * Servlet implementation class MemberEnrollFormServlet
  */

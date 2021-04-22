@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/* 작성자 : 김혜미 */
 /**
  * Servlet implementation class LogoutServlet
  */
