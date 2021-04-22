@@ -48,10 +48,14 @@ public class LoginServlet extends HttpServlet {
 
 		if(m == null) { 
 						
-			request.setAttribute("errorMsg", "이메일 주소나 비밀번호가 틀립니다.");
+			//request.setAttribute("errorMsg", "이메일 주소나 비밀번호가 틀립니다.");
 
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
+			//RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
+			//view.forward(request, response);
+			
+			request.getSession().setAttribute("alertMsg", "이메일 주소나 비밀번호가 틀립니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/loginForm.me");
 			
 		}else { 
 			

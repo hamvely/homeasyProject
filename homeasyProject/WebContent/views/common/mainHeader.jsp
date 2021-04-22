@@ -99,11 +99,22 @@
     .afterLogin div a {color:black; text-decoration:none; font-weight: bold; padding: 0px 5px 0px 5px;}
     .afterLogin a:hover {color: rgb(3, 79, 6);}
     
+    .mypage{text-align:center; font-size: 13px;}
 
 
 </style>
 </head>
 <body>
+	<!-- 작성자 : 김혜미 -->
+	<script>
+		var msg = "<%= session.getAttribute("alertMsg") %>";
+		
+		if(msg != "null"){
+			alert(msg);
+			<% session.removeAttribute("alertMsg"); %>
+		}
+	</script>
+
 
 
    <div class="wrap">
@@ -147,9 +158,9 @@
                             <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
                         </div>
 
-                        <div class="">
-                            <a href="#" style="margin-left: 27px; font-size: 13px;">마이페이지</a>
-                            <a href="<%= contextPath %>/logout.me" style="font-size: 13px;">로그아웃</a>
+                        <div class="mypage">
+                            <a href="#">마이페이지</a>
+                            <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
                         </div>
                     </div>
                  <% } %>

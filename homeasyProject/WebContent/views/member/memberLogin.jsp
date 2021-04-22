@@ -87,6 +87,17 @@
 </style>
 </head>
 <body>
+	<!-- 작성자 : 김혜미 -->
+	<script>
+		var msg = "<%= session.getAttribute("alertMsg") %>";
+		
+		if(msg != "null"){
+			alert(msg);
+			<% session.removeAttribute("alertMsg"); %>
+		}
+	</script>
+
+
     <div class="outer">
         <div class="inner">
             <a href="<%= request.getContextPath() %>" id="logo"><img src="resources/img/logo/logo (1).png" width="55%"></a>
