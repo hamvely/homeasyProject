@@ -1,14 +1,17 @@
 package com.kh.member.model.dao;
 
+import static com.kh.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
-import static com.kh.common.JDBCTemplate.*;
+import com.kh.common.model.vo.PageInfo;
 import com.kh.member.model.vo.Member;
 
 /* 작성자 : 김혜미 */
@@ -16,6 +19,8 @@ public class MemberDao {
 	
 	private Properties prop = new Properties();
 	
+	
+	/* 작성자 : 김혜미 */
 	public MemberDao() {
 		
 		String fileName = MemberDao.class.getResource("/sql/member/member-mapper.xml").getPath();
@@ -28,6 +33,7 @@ public class MemberDao {
 		
 	}
 
+	/* 작성자 : 김혜미 */
 	public Member loginMember(Connection conn, String email, String userPwd) {
 		
 		Member m = null;
@@ -40,7 +46,6 @@ public class MemberDao {
 			pstmt.setString(1, email);
 			pstmt.setString(2, userPwd);
 			
-			// 실행
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
@@ -68,9 +73,108 @@ public class MemberDao {
 		}
 		
 		return m;
+	}
+	
+	
+	/* 작성자 : 김혜미 */
+	public int insertMember(Connection conn, Member m) {
+	      // insert문 => 처리된행수
+	      int result = 0;
+	      PreparedStatement pstmt = null;
+	      String sql = prop.getProperty("insertMember");
+	      
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, m.getEmail());
+	         pstmt.setString(2, m.getUserPwd());
+	         pstmt.setString(3, m.getUserName());
+	         pstmt.setString(4, m.getNickName());
+	         
+	         result = pstmt.executeUpdate();
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	   }
+
+	
+	
+	
+	
+	/* ----- 작성자 : 임지우 ----- */
+	public int selectListCount(Connection conn) {
+
+		int listCount = 0;
 		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("LISTCOUNT");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
 		
 	}
+	
+	public ArrayList<Member> selectList(Connection conn, PageInfo pi) {
+		ArrayList<Member> list = new ArrayList<> ();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pi.getCurrentPage() - 1) * (pi.getMemberLimit() + 1));
+			pstmt.setInt(2, pi.getCurrentPage() * pi.getMemberLimit());
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Member(rset.getInt("user_no"),
+								   rset.getString("email"),
+								   rset.getString("name"),
+								   rset.getString("nickname"),
+								   rset.getString("gender"),
+								   rset.getString("birth"),
+								   rset.getInt("post_code"),
+								   rset.getString("address"),
+								   rset.getString("phone"),
+								   rset.getDate("join_date"),
+								   rset.getString("user_status"),
+								   rset.getString("admin")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	
 
 	
 	

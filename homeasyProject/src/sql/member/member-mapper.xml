@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-<!--작성자 : 김혜미-->
+	<!--작성자 : 김혜미-->
 	<entry key="loginMember">
 		SELECT 
 			   USER_NO
@@ -25,6 +25,64 @@
 		       USER_STATUS = 'Y'
 		   AND EMAIL = ?
 		   AND PWD = ?
+	</entry>
+	
+	
+	<!--작성자 : 김혜미-->
+	<entry key="insertMember">
+      INSERT
+        INTO MEMBER
+             (
+               USER_NO
+             , EMAIL
+             , PWD
+             , NAME
+             , NICKNAME
+             )
+       VALUES
+             (
+               SEQ_UNO.NEXTVAL
+             , ?
+             , ?
+             , ?
+             , ?
+             )
+   </entry>
+	
+	
+	<!-- 작성자 : 임지우 -->
+	<entry key="selectListCount">
+		SELECT COUNT(*) LISTCOUNT
+		  FROM MEMBER
+		 WHERE ADMIN = 'U'
+	</entry>
+	
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		             , M.*
+		          FROM (
+		                SELECT 
+		                       USER_NO
+		                     , EMAIL
+		                     , NAME
+		                     , NICKNAME
+		                     , GENDER
+		                     , BIRTH
+		                     , POST_CODE
+		                     , ADDRESS
+		                     , PHONE
+		                     , JOIN_DATE
+		                     , USER_STATUS
+		                     , ADMIN
+		                  FROM MEMBER
+		                 ORDER
+		                    BY JOIN_DATE DESC
+		               ) M
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
 </properties>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 작성자 : 임지우 -->
+	<entry key="selectListCount">
+		SELECT COUNT(*) LISTCOUNT
+		  FROM COUPON
+	</entry>
+	
+	
+</properties>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<entry key="selectKnowHowList">
+		SELECT
+		         POST_TITLE
+		       , POST_CONTENT
+		       , POST_FILE_RENAME
+		 FROM POST P
+		  JOIN POST_FILE ON (P.POST_NO = POST_FILE.POST_NO)
+		 WHERE P.POST_STATUS = 'Y' 
+		 AND POST_TITLE LIKE '노하우%'
+	</entry>
+
+</properties>
