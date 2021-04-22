@@ -9,6 +9,7 @@ import com.kh.member.model.vo.Member;
 
 
 public class MemberService {
+	
 	/* 작성자 : 김혜미 */
 	public Member loginMember(String email, String userPwd) {
 
@@ -21,6 +22,24 @@ public class MemberService {
 	return loginMember;
 	
 	}
+	
+	
+	/* 작성자 : 김혜미 */
+	public int insertMember(Member m) {
+	      
+	      Connection conn = getConnection();
+	      int result = new MemberDao().insertMember(conn, m);
+	      
+	      if(result > 0) {
+	         commit(conn);
+	      }else {
+	         rollback(conn);
+	      }
+	      
+	      close(conn);
+	      return result;
+	}
+	
 	
 	/* ----- 작성자 : 임지우 ----- */
 	public int selectListCount() {

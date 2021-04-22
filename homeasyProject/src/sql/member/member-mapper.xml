@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-<!--작성자 : 김혜미-->
+	<!--작성자 : 김혜미-->
 	<entry key="loginMember">
 		SELECT 
 			   USER_NO
@@ -26,6 +26,28 @@
 		   AND EMAIL = ?
 		   AND PWD = ?
 	</entry>
+	
+	
+	<!--작성자 : 김혜미-->
+	<entry key="insertMember">
+      INSERT
+        INTO MEMBER
+             (
+               USER_NO
+             , EMAIL
+             , PWD
+             , NAME
+             , NICKNAME
+             )
+       VALUES
+             (
+               SEQ_UNO.NEXTVAL
+             , ?
+             , ?
+             , ?
+             , ?
+             )
+   </entry>
 	
 	
 	<!-- 작성자 : 임지우 -->
