@@ -1,9 +1,14 @@
 package com.kh.member.model.service;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.commit;
+import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.rollback;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.member.model.dao.MemberDao;
 import com.kh.member.model.vo.Member;
 
@@ -51,6 +56,13 @@ public class MemberService {
 		
 		return listCount;
 		
+	}
+	
+	public ArrayList<Member> selectList(PageInfo pi) {
+		Connection conn = getConnection();
+		ArrayList<Member> list = new MemberDao().selectList(conn, pi);
+		close(conn);
+		return list;
 	}
 
 	

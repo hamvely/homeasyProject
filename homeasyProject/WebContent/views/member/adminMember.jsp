@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.kh.member.model.vo.Member, com.kh.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Member> list = (ArrayList<Member>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,12 +116,16 @@
     <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
-        <div id="header"></div>
+        <div id="header">
+        	<%@ include file="../common/adminHeader.jsp" %>
+        </div>
 
         <!-- 본문 전체 -->
         <div id="content">
             <!-- 좌측 메뉴바 -->
-            <div id="content_1"></div>
+            <div id="content_1">
+            	<%@ include file="../common/adminMenubar.jsp" %>
+            </div>
 
             <!-- 우측 본문 -->
             <div id="content_2">
@@ -132,176 +147,74 @@
                 
                 <!-- 회원 리스트 테이블 -->
                 <table align="center" class="member_list" style="overflow-x:auto;">
-                    <tr>
-                        <th>선택</th>
-                        <th>회원번호</th>
-                        <th>회원이메일</th>
-                        <th>회원이름</th>
-                        <th>별명</th>
-                        <th>성별</th>
-                        <th>생년월일</th>
-                        <th>우편번호</th>
-                        <th>주소</th>
-                        <th>연락처</th>
-                        <th>가입일</th>
-                        <th>회원<br>상태</th>
-                        <th>관리자<br>유무</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>12345</td>
-                        <td>user01@never.com</td>
-                        <td>김혜미</td>
-                        <td>미미</td>
-                        <td>F</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>Y</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>23456</td>
-                        <td>user02@never.com</td>
-                        <td>김지환</td>
-                        <td>지화뉴</td>
-                        <td>M</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999 dkdkdkdkdkdkdkdk</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>Y</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>34567</td>
-                        <td>user03@never.com</td>
-                        <td>이선빈</td>
-                        <td>seonbin</td>
-                        <td>F</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>Y</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>22444</td>
-                        <td>user04@never.com</td>
-                        <td>임지우</td>
-                        <td>lim</td>
-                        <td>F</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>Y</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>78945</td>
-                        <td>user05@never.com</td>
-                        <td>장아영</td>
-                        <td>아영이</td>
-                        <td>F</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>Y</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>66666</td>
-                        <td>user06@never.com</td>
-                        <td>홍희나</td>
-                        <td>희나홍</td>
-                        <td>F</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>Y</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>88888</td>
-                        <td>user07@never.com</td>
-                        <td>김개똥</td>
-                        <td>개똥스</td>
-                        <td>F</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>Y</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>77777</td>
-                        <td>user08@never.com</td>
-                        <td>홍길동</td>
-                        <td>길동스</td>
-                        <td>M</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>N</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>55555</td>
-                        <td>user09@never.com</td>
-                        <td>손중기</td>
-                        <td>빈센조</td>
-                        <td>F</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>N</td>
-                        <td>U</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>33333</td>
-                        <td>user11@never.com</td>
-                        <td>오택연</td>
-                        <td>쭌우</td>
-                        <td>M</td>
-                        <td>021116</td>
-                        <td>78912</td>
-                        <td>서울시 강남구 대치동 999</td>
-                        <td>01011112222</td>
-                        <td>20200917</td>
-                        <td>N</td>
-                        <td>U</td>
-                    </tr>
+                	<thead>
+	                    <tr>
+	                        <th>선택</th>
+	                        <th>회원번호</th>
+	                        <th>회원이메일</th>
+	                        <th>회원이름</th>
+	                        <th>별명</th>
+	                        <th>성별</th>
+	                        <th>생년월일</th>
+	                        <th>우편번호</th>
+	                        <th>주소</th>
+	                        <th>연락처</th>
+	                        <th>가입일</th>
+	                        <th>회원<br>상태</th>
+	                        <th>관리자<br>유무</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                	<!-- 조회된 결과가 없을 경우 -->
+	                	<% if(list.isEmpty()) { %>
+	                		<tr>
+	                			<td colspan="13">조회된 리스트가 없습니다.</td>
+	                		</tr>
+	                	<% }else { %>
+	                	<!-- 조회된 결과가 있을 경우 -->
+	                		<% for(Member m : list) { %>
+			                    <tr>
+			                        <td><input type="checkbox"></td>
+			                        <td><%= m.getUserNo() %></td>
+			                        <td><%= m.getEmail() %></td>
+			                        <td><%= m.getUserName() %></td>
+			                        <td><%= m.getNickName() %></td>
+			                        <td><%= m.getGender() %></td>
+			                        <td><%= m.getBirth() %></td>
+			                        <td><%= m.getPostCode() %></td>
+			                        <td><%= m.getAddress() %></td>
+			                        <td><%= m.getPhone() %></td>
+			                        <td><%= m.getJoinDate() %></td>
+			                        <td><%= m.getUserStatus() %></td>
+			                        <td><%= m.getAdmin() %></td>
+			                    </tr>
+			                <% } %>
+	                    <% } %>
+                    </tbody>
                 </table>
 
                 <br><br>
 
-                
+                <div align="center" class="pagingArea">
+
+					<% if(currentPage != 1) { %>
+                    	<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= currentPage-1 %>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+					
+						<% if(currentPage == p) { %>
+                    		<button disabled><%= p %></button>
+                    	<% }else { %>
+                    		<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= p %>';"><%= p %></button>
+                    	<% } %>
+                    
+                    <% } %>
+                    
+                    <% if(currentPage != maxPage) { %>
+                    	<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= currentPage+1 %>';">다음</button>
+					<% } %>
+                </div>
 
                 <!-- 회원 조회 및 수정 모달 -->
                 <div class="modal" id="updateMember">

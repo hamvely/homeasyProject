@@ -42,6 +42,25 @@ public class Member {
 		this.userStatus = userStatus;
 		this.admin = admin;
 	}
+	
+	
+	/* 작성자 : 임지우 -- 회원관리 조회 매개변수 생성자 */
+	public Member(int userNo, String email, String userName, String nickName, String gender, String birth, int postCode,
+			String address, String phone, Date joinDate, String userStatus, String admin) {
+		super();
+		this.userNo = userNo;
+		this.email = email;
+		this.userName = userName;
+		this.nickName = nickName;
+		this.gender = gender;
+		this.birth = birth;
+		this.postCode = postCode;
+		this.address = address;
+		this.phone = phone;
+		this.joinDate = joinDate;
+		this.userStatus = userStatus;
+		this.admin = admin;
+	}
 
 	public int getUserNo() {
 		return userNo;

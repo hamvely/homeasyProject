@@ -1,6 +1,6 @@
 package com.kh.member.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,8 +8,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.member.model.vo.Member;
 
 /* 작성자 : 김혜미 */
@@ -131,6 +133,46 @@ public class MemberDao {
 		}
 		
 		return listCount;
+		
+	}
+	
+	public ArrayList<Member> selectList(Connection conn, PageInfo pi) {
+		ArrayList<Member> list = new ArrayList<> ();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pi.getCurrentPage() - 1) * (pi.getMemberLimit() + 1));
+			pstmt.setInt(2, pi.getCurrentPage() * pi.getMemberLimit());
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Member(rset.getInt("user_no"),
+								   rset.getString("email"),
+								   rset.getString("name"),
+								   rset.getString("nickname"),
+								   rset.getString("gender"),
+								   rset.getString("birth"),
+								   rset.getInt("post_code"),
+								   rset.getString("address"),
+								   rset.getString("phone"),
+								   rset.getDate("join_date"),
+								   rset.getString("user_status"),
+								   rset.getString("admin")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 		
 	}
 	
