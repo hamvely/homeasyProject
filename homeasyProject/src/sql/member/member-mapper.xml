@@ -57,4 +57,32 @@
 		 WHERE ADMIN = 'U'
 	</entry>
 	
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		             , M.*
+		          FROM (
+		                SELECT 
+		                       USER_NO
+		                     , EMAIL
+		                     , NAME
+		                     , NICKNAME
+		                     , GENDER
+		                     , BIRTH
+		                     , POST_CODE
+		                     , ADDRESS
+		                     , PHONE
+		                     , JOIN_DATE
+		                     , USER_STATUS
+		                     , ADMIN
+		                  FROM MEMBER
+		                 ORDER
+		                    BY JOIN_DATE DESC
+		               ) M
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
 </properties>
