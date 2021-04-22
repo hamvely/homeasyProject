@@ -32,10 +32,12 @@ public class knowHowServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		ArrayList<KnowHow> list = new KnowHowService().selectKnowHowList();
 		
-		System.out.println(list);
-		
+		//System.out.println(list);
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("views/knowHow/knowHow.jsp").forward(request, response);
 
 	}
 
