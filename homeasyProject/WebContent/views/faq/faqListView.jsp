@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.faq.model.vo.Faq"%>
+<%
+	ArrayList<Faq> list = (ArrayList<Faq>)request.getAttribute("list");
+
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +16,10 @@
     }
     .topquestion{
         margin: 10px;
+    }
+     .listArea>tbody>tr:hover{
+        background:gray;
+        cursor:pointer;
     }
 </style>
 </head>
@@ -37,53 +46,51 @@
         <div class="faqNavigator">
             <table class="nav">
                 <tr>
-                    <td><a href="">전체</a></td>
-                    <td><a href="">주문/결제</a></td>
-                    <td><a href="">배송</a></td>
-                    <td><a href="">취소/환불</a></td>
-                    <td><a href="">반품/교환</a></td>
-                    <td><a href="">기타/서비스</a></td>
+                    <td><a href="<%= contextPath %>/listAll.faq">전체</a></td>
+                    <td><a href="<%= contextPath %>/listPay.faq">주문/결제</a></td>
+                    <td><a href="<%= contextPath %>/listDel.faq">배송</a></td>
+                    <td><a href="<%= contextPath %>/listCancel.faq">취소/환불</a></td>
+                    <td><a href="<%= contextPath %>/listChange.faq">반품/교환</a></td>
+                    <td><a href="<%= contextPath %>/listEtc.faq">기타/서비스</a></td>
                 </tr>
             </table>
         </div>
 
         <hr>
-
-        <div class="faqList">
-            <h3><a href="">Q. 배송은 얼마나 걸리나요?</a></h3>
-        </div>
-
-        <hr>
-        <div class="faqList">
-            <h3><a href="">Q. 배송은 얼마나 걸리나요?</a></h3>
-        </div>
-
-        <hr><div class="faqList">
-            <h3><a href="">Q. 배송은 얼마나 걸리나요?</a></h3>
-        </div>
-
-        <hr><div class="faqList">
-            <h3><a href="">Q. 배송은 얼마나 걸리나요?</a></h3>
-        </div>
-
-        <hr><div class="faqList">
-            <h3><a href="">Q. 배송은 얼마나 걸리나요?</a></h3>
-        </div>
-
-        <hr><div class="faqList">
-            <h3><a href="">Q. 배송은 얼마나 걸리나요?</a></h3>
-        </div>
-
-        <hr><div class="faqList">
-            <h3><a href="">Q. 배송은 얼마나 걸리나요?</a></h3>
-        </div>
-
-        <hr><div class="faqList">
-            <h3><a href="">Q. 배송은 얼마나 걸리나요?</a></h3>
-        </div>
-
-        <hr>
+		
+		<table align="center" class="listArea">
+            <thead>
+                <tr>
+                	<th width="0">
+                    <th width="150">카테고리</th>
+                    <th width="600">제목 </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(list.isEmpty()) { %> <!-- 조회된 결과가 없을 경우 -->
+                <tr>
+                    <td colspan="3">조회된 리스트가 없습니다.</td>
+                </tr>
+               <% } else { %> <!-- 조회된 결과가 있을 경우 -->
+               		<% for(Faq f : list) { %>
+		                <tr>
+		                	<td><input type="hidden" value="<%=f.getFaqNo()%>"></td>
+		                    <td><%= f.getFaqCate() %></td>
+		                    <td><%= f.getFaqTitle() %></td>
+		                </tr>
+	                <% } %>
+                <% } %>
+            </tbody>
+    	</table> 
+    	<script>
+    		$(function(){
+    			$('.listArea').click(function(){
+    				location.href = '<%=contextPath%>/detail.faq?fno=' + $(this).children().eq(0).text();
+    			})
+    		})
+        </script> 
     </div>
+    
 	
 </body>
 </html>
