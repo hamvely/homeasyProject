@@ -101,7 +101,7 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 <body>
     <div class="outer">
 
-        <a href="<%= request.getContextPath() %>" id="logo"><img src="../../resources/img/logo/logo (1).png" width="10%"></a>
+        <a href="<%= request.getContextPath() %>" id="logo"><img src="resources/img/logo/logo (1).png" width="10%"></a>
 
         <div class="inner">
             
@@ -113,9 +113,9 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
                         <td colspan="6"><p>SNS계정으로 간편 로그인/회원가입</p></td>
                     </tr>
                     <tr id="sns">
-                        <th colspan="2"><a href=""><img src="../../resources/img/icon/facebook.png" style="float: right;"></a></th>
-                        <th colspan="2"><a href=""><img src="../../resources/img/icon/kakao.png"></a></th>
-                        <th colspan="2"><a href=""><img src="../../resources/img/icon/naver.png" style="float: left;"></a></th>
+                        <th colspan="2"><a href=""><img src="resources/img/icon/facebook.png" style="float: right;"></a></th>
+                        <th colspan="2"><a href=""><img src="resources/img/icon/kakao.png"></a></th>
+                        <th colspan="2"><a href=""><img src="resources/img/icon/naver.png" style="float: left;"></a></th>
                     </tr>
                 </table>
             </form>

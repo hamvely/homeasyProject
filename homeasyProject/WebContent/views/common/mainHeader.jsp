@@ -134,8 +134,8 @@
 
                    <div class="beforeLogin">
                        <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                       <a href="views/member/memberLogin.jsp">로그인</a>
-                       <a href="views/member/memberEnrollForm.jsp">회원가입</a>
+                       <a href="<%= request.getContextPath() %>/loginForm.me">로그인</a>
+                       <a href="<%= request.getContextPath() %>/enrollForm.me">회원가입</a>
                    </div>
                    
                 <% }else { %>
