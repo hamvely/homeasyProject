@@ -1,8 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.homeVisit.model.vo.HomeVisit"%>
 <%
 String contextPath = request.getContextPath();
 %>
+
+<%
+	ArrayList<HomeVisit> list = (ArrayList<HomeVisit>)request.getAttribute("list");
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,7 +121,6 @@ String contextPath = request.getContextPath();
         </div>
     
         <br>
-        
         <div class="content1">
             <div class="user">
                 <img class="user1" src="">
@@ -126,7 +129,7 @@ String contextPath = request.getContextPath();
                 </div>
             </div>
             
-			<a href="<%=contextPath%>/visit.po">
+			<a href="">
             <img class="postfile" src="">
             </a>
             
@@ -142,7 +145,8 @@ String contextPath = request.getContextPath();
 			<a href="">
             <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
             </a>
-            
+        
+        
             <table border="1" align="left">
                 <tr>
                     <td>USER01</td>
@@ -158,7 +162,8 @@ String contextPath = request.getContextPath();
                 </tr>
             </table>
         </div>
-
+        
+        
         <div class="content1">
             <div class="user">
                 <img class="user1" src="">

@@ -87,29 +87,23 @@
         </div>
         <br>
 		
-		<% if(list.isEmpty()){ %>
-		
-		<% }else{ %>
-			<% for(KnowHow k:list){ %>
 	        <br>
 	        <div class="content1">
 	                <a href="" class="title">
-	                    <h3><%= k.getPostTitle() %></h3>
+	                    <h3>제목</h3>
 	                </a>
 	                <div class="content1_1">
 	                <a href="" class="content1_2">
-	                    <p><%= k.getPostContent() %></p>
+	                    <p>내용</p>
 	                </a>
 	                </div>
 	                <a href="">
-	                <img src="<%= k.getPostFileRename() %>" class="imgfile1">
+	                <img src="" class="imgfile1">
 	            </a>
 	            <br><br>
 	            <hr>
 	        </div>
-		   <% } %>
-		<% } %>
-
+		
        
     </div>
 </body>

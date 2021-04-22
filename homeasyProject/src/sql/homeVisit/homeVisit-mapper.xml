@@ -3,21 +3,26 @@
 <properties>
 
 	<entry key="selectHomeVisit">
-		SELECT 
-		     NICKNAME
-		    ,POST_FILE_NO
-		    ,POST_NO
-		    ,USER_NO 
-		    ,POST_CONTENT
-		    ,PCOM_CONTENT
-		    ,POST_STATUS
-		 FROM POST P
-		 JOIN MEMBER ON (USER_NO = USER_NO)
-		 JOIN POST_FILE ON (POST_NO = POST_NO)
-		 JOIN POST_COMMENT ON (POST_NO = POST_NO)
-		 WHERE P.POST_STATUS = 'Y'
-		 ORDER
-		    BY POST_CREATE_DATE DESC
+		 SELECT
+		        USER_FILE_RENAME
+		       , NICKNAME
+		       , POST_FILE_RENAME
+		       , POST_CONTENT
+		       , PCOM_CONTENT
+		  FROM MEMBER M
+		  JOIN POST_FILE ON ( M.USER_NO = POST_FILE.POST_NO)
+		  JOIN POST ON (M.USER_NO = POST.USER_NO)
+		  JOIN POST_COMMENT ON ( M.USER_NO = POST_COMMENT.USER_NO)
+		 WHERE M.USER_STATUS = 'Y'
+		   AND POST_CONTENT LIKE '집들이%'
+	</entry>
+	
+	<entry	key="selectReplyList">
+		SELECT
+			  NICKNAME
+			, PCOM_CONTENT
+		 FROM MEMBER M
+		 JOIN POST_COMMENT ON (M.USER_NO = POST_COMMENT.USER_NO)
 	</entry>
 
 </properties>
