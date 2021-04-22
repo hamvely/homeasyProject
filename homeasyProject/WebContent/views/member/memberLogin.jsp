@@ -76,13 +76,13 @@
             <form action="<%= request.getContextPath() %>/login.me" method="post" id="loginForm">
                 <table>
                     <tr>
-                        <th colspan="6"><input type="email" name="email" placeholder="이메일을 입력하세요" size="26" required></th>
+                        <th colspan="6"><input type="email" name="email" placeholder="이메일을 입력하세요" size="28" required></th>
                     </tr>
                     <tr>
-                        <th colspan="6"><input type="password" name="userPwd" placeholder="비밀번호를 입력하세요" size="26" required></th>
+                        <th colspan="6"><input type="password" name="userPwd" placeholder="비밀번호를 입력하세요" size="28" required></th>
                     </tr>
                     <tr>
-                        <th colspan="6"><button type="submit" class="btn btn-success" style="width: 240px;">로그인</button></th>
+                        <th colspan="6"><button type="submit" class="btn btn-success" style="width: 237px;">로그인</button></th>
                     </tr>
                     <tr>
                         <th colspan="6">
@@ -105,7 +105,7 @@
                     </tr>
                     <tr>
                         <th colspan="6">
-                            <button type="submit" class="btn btn-secondary" style="width: 240px;">비회원 주문 조회하기</button>
+                            <button type="submit" class="btn btn-secondary" style="width: 237px;">비회원 주문 조회하기</button>
                         </th>
                     </tr>
                 </table> 
