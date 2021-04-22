@@ -34,7 +34,9 @@ public class knowHowServlet extends HttpServlet {
 		
 		ArrayList<KnowHow> list = new KnowHowService().selectKnowHowList();
 		
-		System.out.println(list);
+		request.setAttribute("list", list);
+		
+		request.getRequestDispatcher("views/knowHow/KnowHow.jsp").forward(request, response);
 		
 
 	}
