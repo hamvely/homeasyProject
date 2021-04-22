@@ -31,6 +31,7 @@
         margin: auto;
         width: 400px;
         height: 100px;
+        font-size: 13px;
         text-align:center !important;
     }
 
@@ -127,7 +128,7 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
                 <div class="form-group">
                     <button type="button" onclick="emailCheck();" style="float: right;" class="btn btn-secondary btn-sm">중복확인</button>
                     <label for="userEmail">이메일</label>
-                    <input type="email" class="form-control"id="email" maxlength="20" placeholder="이메일" required>
+                    <input type="email" class="form-control" id="email" maxlength="20" placeholder="이메일" required>
                 </div>
                 <div class="form-group">
                     <label for="userPwd">비밀번호</label>
