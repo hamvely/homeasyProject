@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<% String contextPath = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,6 +91,12 @@
                             <button type="button" class="btn btn-secondary">비밀번호 재설정</button>
                             <button type="button" class="btn btn-secondary" onclick="location.href='memberEnrollForm.jsp'">회원가입</button>
                         </th>
+                        <script>
+                        	function enrollPage(){
+                        		//location.href="/homeasy/views/member/memberEnrollForm.jsp";
+                        		location.href="<%= request.getContextPath() %>/enrollForm.me";
+                        	}
+                        </script>
                     </tr>
                 </table>
             </form>    

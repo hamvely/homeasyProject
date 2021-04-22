@@ -46,7 +46,7 @@
         margin: auto;
     }
 
-    #sns img {max-width: 40px;}
+    #sns img {max-width: 40px; margin-bottom: 20px;}
 
 
     
@@ -54,7 +54,6 @@
     .btn-success {
     	background-color:rgb(3, 79, 6); 
     	border-color:rgb(3, 79, 6);
-        margin-top: 20px;
     }
 
     .btn-warning {
@@ -81,23 +80,20 @@
 
     
 
-
-*{margin: 0;padding: 0;box-sizing: border-box}
+/* 이용약관 스타일 */
+*{margin: 0; padding: 0; box-sizing: border-box}
 ul>li{list-style: none}
 a{text-decoration: none;}
 .clearfix::after{content: "";display: block;clear: both;}
 
-#join{width: 400px; margin: 0 auto;}
+#join{width: 400px; margin:auto;}
 
 ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 .checkBox,.checkBox>ul{position: relative;}
 .checkBox>ul>li{float: left;}
 .checkBox>ul>li:first-child{width: 85%;padding: 15px;font-weight: 600;color: dimgray;}
-.checkBox>ul>li:nth-child(2){position: absolute;top: 50%;right: 30px;margin-top: -12px;}
+.checkBox>ul>li:nth-child(2){position: absolute; top: 50%; right: 30px; margin-top: -12px;}
 .checkBox textarea{width: 96%;height: 70px; margin: 0 2%;background-color: #f7f7f7;color: #888; border: none;}
-.footBtwrap{margin-top: 15px;}
-.footBtwrap>li{float: left;width: 50%;height: 60px;}
-.footBtwrap>li>button{display: block; width: 100%;height: 100%; font-size: 20px;text-align: center;line-height: 60px;}
 
 </style>
 </head>
@@ -127,14 +123,11 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
             <hr style="margin: auto; width: 400px;">
 
 
-
-
-
             <form action="<%= request.getContextPath() %>/insert.me" method="post" id="enrollForm">
                 <div class="form-group">
                     <button type="button" onclick="emailCheck();" style="float: right;" class="btn btn-secondary btn-sm">중복확인</button>
                     <label for="userEmail">이메일</label>
-                    <input type="email" class="form-control"id="userEmail" maxlength="20" placeholder="이메일" required>
+                    <input type="email" class="form-control"id="email" maxlength="20" placeholder="이메일" required>
                 </div>
                 <div class="form-group">
                     <label for="userPwd">비밀번호</label>
@@ -302,27 +295,26 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 -->
 
 
+ <!--
+<label for="userEmail">이메일</label>
 
-    <!--
-    <label for="userEmail">이메일</label>
-
-                <div class="input-group email-input">
-                    <span><input class="form-control" placeholder="이메일" size="10"></span>
-                    <span>@</span>
-                    <span>
-                        <select class="form-control empty">
-                            <option value="" disabled="">선택해주세요</option>
-                            <option value="naver.com">naver.com</option>
-                            <option value="hanmail.net">hanmail.net</option>
-                            <option value="daum.net">daum.net</option>
-                            <option value="gmail.com">gmail.com</option>
-                            <option value="nate.com">nate.com</option>
-                            <option value="hotmail.com">hotmail.com</option>
-                            <option value="outlook.com">outlook.com</option>
-                            <option value="icloud.com">icloud.com</option>
-                            <option value="_manual">직접입력</option>
-                        </select>
-                    </span>
-                    
-                </div>
-    -->
+<div class="input-group email-input">
+    <span><input class="form-control" placeholder="이메일" size="10"></span>
+    <span>@</span>
+    <span>
+        <select class="form-control empty">
+            <option value="" disabled="">선택해주세요</option>
+            <option value="naver.com">naver.com</option>
+            <option value="hanmail.net">hanmail.net</option>
+            <option value="daum.net">daum.net</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="nate.com">nate.com</option>
+            <option value="hotmail.com">hotmail.com</option>
+            <option value="outlook.com">outlook.com</option>
+            <option value="icloud.com">icloud.com</option>
+            <option value="_manual">직접입력</option>
+        </select>
+    </span>
+    
+</div>
+ -->
