@@ -210,69 +210,7 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
         </div>   
 </body>
 </html>
-            
 
-<!--
-<div class="user-sign-up-form__form-group">
-    <div class="user-sign-up-form__form-group__label">약관 동의</div>
-    <div class="user-sign-up-form__form-group__input">
-        <div class="user-sign-up__form__terms-agree">
-
-            <div class="user-sign-up__form__terms-agree__all">
-                <div class="form-check checkbox-input">
-                    <label class="form-check-label">
-                        <input class="form-check" type="checkbox">
-                        </span><span class="user-sign-up__form__terms-agree__all__text">전체동의</span>
-                    </label>
-                </div>
-            </div>
-
-            <div>
-                <div>
-                    <div class="form-check checkbox-input">
-                        <label class="form-check-label">
-                            <input class="form-check" type="checkbox">
-                            <span>만 14세 이상입니다.</span>
-                            <span class="user-sign-up__form__terms-agree__required">(필수)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="form-check checkbox-input">
-                        <label class="form-check-label">
-                            <input class="form-check" type="checkbox">
-                            <a class="user-sign-up__form__terms-agree__link" href="" target="_blank">이용약관</a>
-                            <span class="user-sign-up__form__terms-agree__required">(필수)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="form-check checkbox-input">
-                        <label class="form-check-label">
-                            <input class="form-check" type="checkbox">
-                            <a class="user-sign-up__form__terms-agree__link" href="" target="_blank">개인정보수집 및 이용동의</a>
-                            <span class="user-sign-up__form__terms-agree__required">(필수)</span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div>
-                    <div class="form-check checkbox-input">
-                        <label class="form-check-label">
-                            <input class="form-check" type="checkbox"
-                            <span>이벤트, 프로모션 알림 메일 및 SMS 수신</span>
-                            <span class="user-sign-up__form__terms-agree__chose">(선택)</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
--->
 
 <!--
 <tr>

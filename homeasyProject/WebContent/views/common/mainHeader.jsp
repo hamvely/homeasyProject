@@ -159,7 +159,7 @@
                         </div>
 
                         <div class="mypage">
-                            <a href="#">마이페이지</a>
+                            <a href="<%= contextPath %>/modification.me">마이페이지</a>
                             <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
                         </div>
                     </div>
