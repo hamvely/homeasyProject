@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
+    
+<% String contextPath = request.getContextPath(); %>   
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +84,7 @@
         <br>
 
         <div class="content1">
-                <a href="" class="title">
+                <a href="<%=contextPath %>/post.how" class="title">
                     <h3>하나씩 쏙쏙! 넣고 빼기 쉬운 신박한 이불 수납법</h3>
                 </a>
                 <div class="content1_1">
