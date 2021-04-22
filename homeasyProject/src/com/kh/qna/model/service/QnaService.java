@@ -15,6 +15,8 @@ public class QnaService {
 		
 		ArrayList<Qna> list = new QnaDao().selectQnaList(conn);
 		
+		close(conn);
+		
 		return list;
 	}
 }

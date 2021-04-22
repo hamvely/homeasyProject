@@ -98,7 +98,7 @@
                 </a>
                 <img src="" class="user">
                 <div class="id1">
-                    <h3><%=q.getUserFileRename() %></h3>
+                    <h3><%=q.getNickName() %></h3>
                 </div>
                 </div>
                 <a href="">

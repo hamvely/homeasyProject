@@ -36,7 +36,6 @@ public class qnaServlet extends HttpServlet {
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("views/qna/qna.jsp").forward(request, response);
-	
 	}
 
 	/**
