@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>  
+<%
+String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,16 +90,14 @@
         <div class="content1">
             <h1>집들이 글쓰기</h1>
 
-            <a href="">
-                <div class="file">
+                <div class="file" id="titleImg">
                     <br><br><br><br><br>
                         <div class="photoFile">
                             <img class="file1" src="">
                         </div>
                     <p class="f1">사진올리기</p>
                 </div>
-            </a>
-
+            
             
             <div class="content2">
                 <input class="title" type="text" name="name" placeholder="제목">
@@ -113,6 +114,7 @@
                     </a>
                 </div>
             </div>
+      
         </div>
     </div>
 </body>

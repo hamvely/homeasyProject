@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="selectHomeVisit">
+		SELECT 
+		     NICKNAME
+		    ,POST_FILE_NO
+		    ,POST_NO
+		    ,USER_NO 
+		    ,POST_CONTENT
+		    ,PCOM_CONTENT
+		    ,POST_STATUS
+		 FROM POST P
+		 JOIN MEMBER ON (USER_NO = USER_NO)
+		 JOIN POST_FILE ON (POST_NO = POST_NO)
+		 JOIN POST_COMMENT ON (POST_NO = POST_NO)
+		 WHERE P.POST_STATUS = 'Y'
+		 ORDER
+		    BY POST_CREATE_DATE DESC
+	</entry>
+
+</properties>
