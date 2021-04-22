@@ -10,7 +10,7 @@ import static com.kh.common.JDBCTemplate.*;
 public class KnowHowService {
 	
 	public ArrayList<KnowHow> selectKnowHowList(){
-		Connection conn = getConnecntion();
+		Connection conn = getConnection();
 		
 		ArrayList<KnowHow> list = new KnowHowDao().selectKnowHowList(conn);
 		
@@ -19,9 +19,6 @@ public class KnowHowService {
 		return list;
 	}
 
-	private Connection getConnecntion() {
-		return null;
-	}
 	
 	
 
