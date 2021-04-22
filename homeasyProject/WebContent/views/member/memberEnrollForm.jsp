@@ -73,6 +73,8 @@
     
     .terms input {vertical-align: -13px;}
 
+
+	/* input 네온스타일 */
     textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
         border-color: rgb(3, 79, 6); 
         box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
