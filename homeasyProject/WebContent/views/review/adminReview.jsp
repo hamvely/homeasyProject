@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.kh.review.model.vo.Review, com.kh.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Review> list = (ArrayList<Review>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -102,12 +112,16 @@
     <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
-        <div id="header"></div>
+        <div id="header">
+        	<%@ include file="../common/adminHeader.jsp" %>
+        </div>
 
         <!-- 본문 전체 -->
         <div id="content">
             <!-- 좌측 메뉴바 -->
-            <div id="content_1"></div>
+            <div id="content_1">
+            	<%@ include file="../common/adminMenubar.jsp" %>
+            </div>
 
             <!-- 우측 본문 -->
             <div id="content_2">
@@ -123,100 +137,66 @@
 
                 <!-- 리뷰 리스트 테이블 -->
                 <table align="center" class="product_list" style="overflow-x:auto;">
-                    <tr>
-                        <th>선택</th>
-                        <th>리뷰 번호</th>
-                        <th>상품명</th>
-                        <th>회원이메일</th><!--2차카테고리번호-->
-                        <th>리뷰 내용</th>
-                        <th>리뷰 평점</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>11111</td>
-                        <td>상품명001</td>
-                        <td>user01@never.com</td>
-                        <td data-toggle="modal" data-target="#detailReview">정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>2222</td>
-                        <td>상품명002</td>
-                        <td>user02@never.com</td>
-                        <td>구냥 그래요.................................................................................</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>3333</td>
-                        <td>상품명003</td>
-                        <td>user03@never.com</td>
-                        <td>정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>4444</td>
-                        <td>상품명004</td>
-                        <td>user04@never.com</td>
-                        <td>정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>5555</td>
-                        <td>상품명005</td>
-                        <td>user05@never.com</td>
-                        <td>정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>6666</td>
-                        <td>상품명006</td>
-                        <td>user06@never.com</td>
-                        <td>실망했어요ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>77777</td>
-                        <td>상품명007</td>
-                        <td>user07@never.com</td>
-                        <td>이게 뭐야잇</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>88888</td>
-                        <td>상품명008</td>
-                        <td>user08@never.com</td>
-                        <td>정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
-                        <td>5</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>9999</td>
-                        <td>상품명009</td>
-                        <td>user09@never.com</td>
-                        <td>정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>101010</td>
-                        <td>상품명010</td>
-                        <td>user10@never.com</td>
-                        <td>정말 좋아요 정말 추천해요 정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요정말 좋아요 정말 추천해요</td>
-                        <td>5</td>
-                    </tr>                                    
+                	<thead>
+	                    <tr>
+	                        <th>선택</th>
+	                        <th>리뷰 번호</th>
+	                        <th>상품명</th>
+	                        <th>회원이메일</th><!--2차카테고리번호-->
+	                        <th>리뷰 내용</th>
+	                        <th>리뷰 평점</th>
+	                    </tr>
+                    </thead>
+                    <tbody>
+                    	<!-- 조회된 결과가 없을 경우 -->
+	                	<% if(list.isEmpty()) { %>
+	                		<tr>
+	                			<td colspan="6">조회된 리스트가 없습니다.</td>
+	                		</tr>
+	                	<% }else { %>
+	                	<!-- 조회된 결과가 있을 경우 -->
+		                	<% for(Review r : list) { %>
+			                    <tr>
+			                        <td><input type="checkbox"></td>
+			                        <td><%= r.getReNo() %></td>
+			                        <td><%= r.getProductNo() %></td>
+			                        <td><%= r.getUserNo() %></td>
+			                        <td data-toggle="modal" data-target="#detailReview">
+			                        	<%= r.getReContent() %>
+			                        </td>
+			                        <td><%= r.getReMark() %></td>
+			                    </tr>
+			                <% } %>
+	                    <% } %>
+                    </tbody>                              
                 </table>
-                <br><br>                
+                <br><br>
+                
+                <div align="center" class="pagingArea">
+
+					<% if(currentPage != 1) { %>
+                    	<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= currentPage-1 %>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+					
+						<% if(currentPage == p) { %>
+                    		<button disabled><%= p %></button>
+                    	<% }else { %>
+                    		<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= p %>';"><%= p %></button>
+                    	<% } %>
+                    
+                    <% } %>
+                    
+                    <% if(currentPage != maxPage) { %>
+                    	<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= currentPage+1 %>';">다음</button>
+					<% } %>
+                </div>
 
             </div>
         </div>
     </div>
+    
 
 
 	<!-- 리뷰 조회 모달 -->
