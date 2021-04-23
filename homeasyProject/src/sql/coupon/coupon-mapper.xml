@@ -9,4 +9,28 @@
 	</entry>
 	
 	
+	<!-- 작성자 : 임지우 -->
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		              , C.*
+		          FROM (
+		                SELECT
+		                        CP_NO
+		                      , CP_NAME
+		                      , CP_PRICE
+		                      , CP_CONDITION
+		                      , CP_LIMIT
+		                      , CP_MEMO
+		                   FROM COUPON
+		                  ORDER
+		                     BY CP_LIMIT
+		               ) C
+		       )
+		 WHERE RNUM BETWEEN 1 AND 10
+	</entry>
+	
+	
 </properties>

@@ -19,7 +19,6 @@
 	    background-color: rgb(5, 50, 5);
 	    display: flex;
 	    justify-content: space-between;
-	    padding: 0px 10px;
 	}
 	.header_column {
 	    display: flex;
@@ -30,7 +29,8 @@
 	    margin-right: 15px;
 	}
 	.header_column img {
-	    width: 60px;
+	    width: 300px;
+	    margin-left: 10px;
 	}
 </style>
 </head>

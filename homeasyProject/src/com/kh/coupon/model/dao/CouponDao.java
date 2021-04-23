@@ -14,6 +14,7 @@ import java.util.Properties;
 import com.kh.common.model.vo.PageInfo;
 import com.kh.coupon.model.vo.Coupon;
 
+/* ----- 작성자 : 임지우 ----- */
 public class CouponDao {
 	
 	private Properties prop = new Properties();
@@ -23,7 +24,7 @@ public class CouponDao {
 		String fileName = CouponDao.class.getResource("/sql/coupon/coupon-mapper.xml").getPath();
 		
 		try {
-			prop.loadFromXML(new FileInputStream("fileName"));
+			prop.loadFromXML(new FileInputStream(fileName));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -67,8 +68,9 @@ public class CouponDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, (pi.getCurrentPage() - 1) * (pi.getCouponLimit() + 1));
-			pstmt.setInt(2, pi.getCurrentPage() * pi.getCouponLimit());
+			
+			pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1);
+			pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
 			
 			rset = pstmt.executeQuery();
 			

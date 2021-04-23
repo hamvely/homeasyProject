@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.kh.coupon.model.vo.Coupon, com.kh.common.model.vo.PageInfo" %>
 <%
-	String contextPath = request.getContextPath();
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Coupon> list = (ArrayList<Coupon>)request.getAttribute("list");
 	
@@ -105,12 +104,16 @@
 <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
-        <div id="header"></div>
+        <div id="header">
+        	<%@ include file="../common/adminHeader.jsp" %>
+        </div>
 
         <!-- 본문 전체 -->
         <div id="content">
             <!-- 좌측 메뉴바 -->
-            <div id="content_1"></div>
+            <div id="content_1">
+            	<%@ include file="../common/adminMenubar.jsp" %>
+            </div>
 
             <!-- 우측 본문 -->
             <div id="content_2">
@@ -143,7 +146,7 @@
                     	<!-- 조회된 결과가 없을 경우 -->
 	                	<% if(list.isEmpty()) { %>
 	                		<tr>
-	                			<td colspan="6">조회된 리스트가 없습니다.</td>
+	                			<td colspan="7">조회된 리스트가 없습니다.</td>
 	                		</tr>
 	                	<% }else { %>
 	                	<!-- 조회된 결과가 있을 경우 -->

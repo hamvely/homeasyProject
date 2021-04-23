@@ -1,6 +1,6 @@
 package com.kh.member.model.dao;
 
-import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -163,6 +163,7 @@ public class MemberDao {
 		
 	}
 	
+	/* ----- 작성자 : 임지우 ----- */
 	public ArrayList<Member> selectList(Connection conn, PageInfo pi) {
 		ArrayList<Member> list = new ArrayList<> ();
 		PreparedStatement pstmt = null;
@@ -172,8 +173,9 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, (pi.getCurrentPage() - 1) * (pi.getMemberLimit() + 1));
-			pstmt.setInt(2, pi.getCurrentPage() * pi.getMemberLimit());
+			
+			pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1);
+			pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
 			
 			rset = pstmt.executeQuery();
 			
