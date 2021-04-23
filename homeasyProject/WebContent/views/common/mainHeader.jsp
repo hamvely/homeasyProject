@@ -21,7 +21,6 @@
 
 <style>
     div {
-        outline: 1px solid orangered;
         box-sizing: border-box;
     }
     .wrap {
@@ -100,6 +99,18 @@
     .afterLogin a:hover {color: rgb(3, 79, 6);}
     
     .mypage{text-align:center; font-size: 13px;}
+    
+    /* 버튼스타일 */
+    .btn-success {
+    	background-color:rgb(3, 79, 6); 
+    	border-color:rgb(3, 79, 6);
+    }
+
+    .btn-secondary {
+    	background-color:rgb(158, 158, 158); 
+    	border-color:rgb(158, 158, 158);
+    }
+    
 
 
 </style>

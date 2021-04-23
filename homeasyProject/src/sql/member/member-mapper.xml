@@ -47,7 +47,19 @@
              , ?
              , ?
              )
-   </entry>
+	</entry>
+	
+		
+	<!--작성자 : 김혜미-->
+	<entry key="deleteMember">
+		UPDATE 
+			   MEMBER
+		   SET USER_STATUS = 'N'
+		 WHERE NICKNAME = ?
+		   AND PWD = ?
+	</entry>
+	
+	
 	
 	
 	<!-- 작성자 : 임지우 -->

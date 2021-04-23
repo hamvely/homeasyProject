@@ -45,6 +45,24 @@ public class MemberService {
 	      return result;
 	}
 	
+	public int deleteMember(String nickName, String userPwd) {
+		Connection conn = getConnection();
+		
+		int result = new MemberDao().deleteMember(conn, nickName, userPwd);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+	
+	
+	
 	
 	/* ----- 작성자 : 임지우 ----- */
 	public int selectListCount() {
@@ -67,6 +85,9 @@ public class MemberService {
 		
 		return list;
 	}
+
+
+
 
 	
 	
