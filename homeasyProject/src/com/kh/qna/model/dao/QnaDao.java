@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import static com.kh.common.JDBCTemplate.*;
+
+import com.kh.qna.model.vo.Attachment;
 import com.kh.qna.model.vo.Qna;
 
 public class QnaDao {
@@ -59,4 +61,54 @@ public class QnaDao {
 		return list;
 	}
 	
+	public int insertQnWrite(Connection conn, Qna q) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertQnWrite");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, q.getPostCateName());
+			pstmt.setString(2, q.getPostTitle());
+			pstmt.setString(3, q.getPostContent());
+			pstmt.setInt(3, Integer.parseInt(q.getUserNo()));
+			pstmt.setDate(4, q.getPostCreateDate());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int insertAttachmentList(Connection conn, ArrayList<Attachment> list) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertAttachmentList");
+		
+		try {
+			
+			for(Attachment at : list){
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, at.getPostFileReName());
+				
+				result = pstmt.executeUpdate();
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

@@ -1,5 +1,7 @@
 package com.kh.qna.model.vo;
 
+import java.sql.Date;
+
 public class Qna {
 
 	private String postTitle;
@@ -7,6 +9,9 @@ public class Qna {
 	private String userFileRename;
 	private String nickName;
 	private String postFileRename;
+	private String userNo;
+	private String postCateName;
+	private Date postCreateDate;
 	
 	public Qna() {}
 
@@ -18,6 +23,51 @@ public class Qna {
 		this.userFileRename = userFileRename;
 		this.nickName = nickName;
 		this.postFileRename = postFileRename;
+	}
+
+	public Qna(String postTitle, String postContent, String postFileRename, String userNo) {
+		super();
+		this.postTitle = postTitle;
+		this.postContent = postContent;
+		this.postFileRename = postFileRename;
+		this.userNo = userNo;
+	}
+
+	public Qna(String postTitle, String postContent, String userFileRename, String nickName, String postFileRename,
+			String userNo, String postCateName, Date postCreateDate) {
+		super();
+		this.postTitle = postTitle;
+		this.postContent = postContent;
+		this.userFileRename = userFileRename;
+		this.nickName = nickName;
+		this.postFileRename = postFileRename;
+		this.userNo = userNo;
+		this.postCateName = postCateName;
+		this.postCreateDate = postCreateDate;
+	}
+
+	public String getPostCateName() {
+		return postCateName;
+	}
+
+	public void setPostCateName(String postCateName) {
+		this.postCateName = postCateName;
+	}
+
+	public Date getPostCreateDate() {
+		return postCreateDate;
+	}
+
+	public void setPostCreateDate(Date postCreateDate) {
+		this.postCreateDate = postCreateDate;
+	}
+
+	public String getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(String userNo) {
+		this.userNo = userNo;
 	}
 
 	public String getPostTitle() {
@@ -63,9 +113,10 @@ public class Qna {
 	@Override
 	public String toString() {
 		return "Qna [postTitle=" + postTitle + ", postContent=" + postContent + ", userFileRename=" + userFileRename
-				+ ", nickName=" + nickName + ", postFileRename=" + postFileRename + "]";
+				+ ", nickName=" + nickName + ", postFileRename=" + postFileRename + ", userNo=" + userNo
+				+ ", postCateName=" + postCateName + ", postCreateDate=" + postCreateDate + "]";
 	}
-	
+
 	
 	
 	
