@@ -21,20 +21,22 @@
     }
 
 
-    th{float: left; margin: 20px 0 0 20px; font-size: 15px;}
+    th{float: left; margin: 15px 0 0 15px; font-size: 15px;}
     td{float: left; margin: 10px 0 20px 20px;}
     table hr {width: 840px;}
 
 </style>
 <body>
 
+    <%@ include file="../common/mainHeader.jsp" %>
+
 	<div class="outer">
 
         <div class="noticeHeader">
+            <br>
             <h1>공지사항</h1>
-            <hr>
+            <br><hr>
         </div>
-
         <br><br>
 
         <form action="" method="POST" id="noticeList">

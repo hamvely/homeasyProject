@@ -33,7 +33,7 @@ public class NoticeListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//ArrayList<Notice> list = new NoticeService().selectNoticeList();
+		ArrayList<Notice> list = new NoticeService().selectNoticeList();
 		
 		//request.setAttribute("list", list);
 

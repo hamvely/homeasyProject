@@ -184,10 +184,10 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link" href="">커뮤니티</a>
+                <a class="nav-link" href="#home">커뮤니티</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">스토어</a>
+                <a class="nav-link" href="#menu1">스토어</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#menu2">고객센터</a>
