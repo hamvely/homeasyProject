@@ -22,6 +22,13 @@ public class Notice {
 		this.createDate = createDate;
 		this.status = status;
 	}
+	
+	/* 공지사항 리스트조회*/
+	public Notice(String noticeTitle, Date createDate) {
+		super();
+		this.noticeTitle = noticeTitle;
+		this.createDate = createDate;
+	}
 
 	public int getNoticeNo() {
 		return noticeNo;

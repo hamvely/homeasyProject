@@ -4,13 +4,8 @@
 
 	<!--작성자 : 김혜미-->
 	<entry key="selectNoticeList">
-		SELECT
-		       NO_NO
-		     , NO_TITLE
-		     , NO_CONTENT
+		SELECT NO_TITLE
 		     , NO_CREATE_DATE
-		     , NO_COUNT
-		     , NO_STATUS
 		  FROM NOTICE N
 		 WHERE NO_STATUS = 'Y'
 		 ORDER 

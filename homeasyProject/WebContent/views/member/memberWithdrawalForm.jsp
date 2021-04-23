@@ -80,7 +80,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="terms" value="check" id="check">
+                            <input type="checkbox" name="terms" value="check" id="check" required>
                             <label for="check">위 내용을 모두 확인하였습니다. (필수)</label><br><br>
                         </td>
                     </tr>

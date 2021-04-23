@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.notice.model.vo.Notice"%>
+<%
+	ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,40 +42,27 @@
         </div>
         <br><br>
 
-        <form action="" method="POST" id="noticeList">
-            <table class="listArea" align="center">
-                <tr><th>6번 공지사항입니다.</th></tr>
-                <tr><td>2021.04.20</td></tr>
-                <tr><td><hr></td></tr>
-                
-                <tr><th>5번 공지사항입니다.</th></tr>
-                <tr><td>2021.04.20</td></tr>
-                <tr><td><hr></td></tr>
-
-
-                <tr><th>4번 공지사항입니다.</th></tr>
-                <tr><td>2021.04.20</td></tr>
-                <tr><td><hr></td></tr>
-
-              
-                <tr><th>3번 공지사항입니다.</th></tr>
-                <tr><td>2021.04.20</td></tr>
-                <tr><td><hr></td></tr>
-
-
-                <tr><th>2번 공지사항입니다.</th></tr>
-                <tr><td>2021.04.20</td></tr>
-                <tr><td><hr></td></tr>
-
-
-                <tr><th>1번 공지사항입니다.</th></tr>
-                <tr><td>2021.04.20</td></tr>
-                <tr><td><hr></td></tr>
-
-
-            </table>
-        </form>
-
+	<table class="listArea" align="center">
+		<!--  
+			<tr><th>6번 공지사항입니다.</th></tr>
+			<tr><td>2021.04.20</td></tr>
+			<tr><td><hr></td></tr>
+		-->
+		
+		<% if(list.isEmpty()) { %>
+			<tr><td>존재하는 공지사항이 없습니다.</td></tr>
+		<% }else{ %>
+		
+			<% for(Notice n:list){ %>
+			
+				 <tr><td><%= n.getNoticeTitle() %></td></tr>
+				 <tr><td><%= n.getCreateDate() %></td></tr>
+				 <tr><td><hr></td></tr>
+				 
+			<% } %>
+		<% } %>
+	
+	</table>
         
     </div>
 	

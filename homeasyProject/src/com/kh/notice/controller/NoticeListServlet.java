@@ -3,7 +3,6 @@ package com.kh.notice.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +34,7 @@ public class NoticeListServlet extends HttpServlet {
 
 		ArrayList<Notice> list = new NoticeService().selectNoticeList();
 		
-		//request.setAttribute("list", list);
+		request.setAttribute("list", list);
 
 		//RequestDispatcher view = request.getRequestDispatcher("views/notice/noticeList.jsp");
 		//view.forward(request, response);
