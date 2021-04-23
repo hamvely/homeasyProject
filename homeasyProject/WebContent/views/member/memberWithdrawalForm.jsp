@@ -1,10 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<!-- 부트스트랩 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <style>
     .outer{
@@ -31,16 +38,22 @@
 
     #withdrawalForm input{margin:5px; margin-left: 20px;}
     
-    button {height:30px; margin: 10px 0 0 10px;}
+    button {margin: 10px 0 0 10px;}
 
     label {vertical-align:+1px; margin:3px;}
 
     #title {font-size: 17px; margin-left: 13px;}
 
     fieldset, textarea {margin-left: 10px;}
+
+    
 </style>
 </head>
 <body>
+	<%@ include file="../common/mainHeader.jsp" %>
+
+	<% String nickName = loginUser.getNickName(); %>
+
     <div class="outer">
         <div class="inner">    
 
@@ -59,15 +72,15 @@
                             - 소비자보호에 관한 법률 제6조에 의거,계약 또는 청약철회 등에 관한 기록은 5년, 대금결제 및 재화 등의 공급에 관한 기록은 5년, 소비자의 불만 또는 분쟁처리에 관한 기록은 3년 동안 보관됩니다. 동 개인정보는 법률에 의한 보유 목적 외에 다른 목적으로는 이용되지 않습니다. <br><br>
 
                             <b>회원탈퇴 시 게시물 관리</b><br>
-                            회원탈퇴 후 집이지 서비스에 입력한 게시물 및 댓글은 삭제되지 않으며, 회원정보 삭제로 인해 작성자 본인을 확인할 수 없으므로 게시물 편집 및 삭제 처리가 원천적으로 불가능 합니다. 게시물 삭제를 원하시는 경우에는 먼저 해당 게시물을 삭제 하신 후, 탈퇴를 신청하시기 바랍니다. <br><br>
+                        	    회원탈퇴 후 집이지 서비스에 입력한 게시물 및 댓글은 삭제되지 않으며, 회원정보 삭제로 인해 작성자 본인을 확인할 수 없으므로 게시물 편집 및 삭제 처리가 원천적으로 불가능 합니다. 게시물 삭제를 원하시는 경우에는 먼저 해당 게시물을 삭제 하신 후, 탈퇴를 신청하시기 바랍니다. <br><br>
 
                             <b>회원탈퇴 후 재가입 규정</b><br>
-                            탈퇴 회원이 재가입하더라도 기존의 집이지 쿠폰은 이미 소멸되었기 때문에 양도되지 않습니다.
+                       	     탈퇴 회원이 재가입하더라도 기존의 집이지 쿠폰은 이미 소멸되었기 때문에 양도되지 않습니다.
                         </fieldset></td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="checkbox" name="terms" value="check" id="check" required>
+                            <input type="checkbox" name="terms" value="check" id="check">
                             <label for="check">위 내용을 모두 확인하였습니다. (필수)</label><br><br>
                         </td>
                     </tr>
@@ -122,16 +135,61 @@
                     </tr>
                     <tr>
                         <td>
-                            <button type="submit">탈퇴신청</button>
-                            <button type="submit">취소하기</button>
+         			       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#deleteModal">회원탈퇴</button>
+                           <button type="button" class="btn btn-secondary" onclick="myPage();">취소하기</button>
                         </td>
                     </tr>
                 </table>
-
             </form>    
-
-    
+            
+			<script>
+				function myPage(){
+					location.href="<%= request.getContextPath() %>/modification.me";
+				}
+			</script>
         </div>
     </div>
+    
+
+	
+	<!-- The Modal -->
+	<div class="modal" id="deleteModal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div class="modal-header">
+	        <h4 class="modal-title">회원탈퇴</h4>
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      </div>
+	
+	
+	      <!-- Modal body -->
+	      <div class="modal-body" align="center">
+
+			<b>
+	        	탈퇴 후 복구가 불가능합니다. <br>
+	        	정말로 탈퇴 하시겠습니까? 
+	        </b>
+	        <br><br>
+	        
+	        <form action="<%= request.getContextPath() %>/delete.me" method="post">
+	        	
+	        	비밀번호 : 
+	        	<input type="password" name="userPwd" required> <br><br>
+	        	<input type="hidden" name="nickName" value="<%= nickName %>">
+	        		        	
+				<button type="submit" class="btn btn-success">탈퇴하기</button>
+			</form>
+	        
+	      </div>
+
+	    </div>
+	  </div>
+	</div>
+    
+
 </body>
 </html>
+
+

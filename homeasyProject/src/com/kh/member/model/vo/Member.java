@@ -3,7 +3,6 @@ package com.kh.member.model.vo;
 import java.sql.Date;
 
 /* 작성자 : 김혜미 */
-
 public class Member {
 
 	private int userNo;
@@ -62,6 +61,7 @@ public class Member {
 		this.admin = admin;
 	}
 
+	/* 작성자 : 김혜미 -- 회원가입 매개변수 생성자 */
 	public Member(String email, String userPwd, String userName, String nickName) {
 		super();
 		this.email = email;

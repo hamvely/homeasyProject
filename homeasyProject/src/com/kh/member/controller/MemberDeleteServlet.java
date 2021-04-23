@@ -2,24 +2,26 @@ package com.kh.member.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.kh.member.model.service.MemberService;
 
 /**
- * Servlet implementation class MemberWithdrawalServlet
+ * Servlet implementation class MemberDeleteServlet
  */
-@WebServlet("/withdrawal.me")
-public class MemberWithdrawalServlet extends HttpServlet {
+@WebServlet("/delete.me")
+public class MemberDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MemberWithdrawalServlet() {
+    public MemberDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,10 +30,29 @@ public class MemberWithdrawalServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		RequestDispatcher view = request.getRequestDispatcher("views/member/memberWithdrawalForm.jsp");
-		view.forward(request, response);
 		
+		request.setCharacterEncoding("utf-8");
+
+		String nickName = request.getParameter("nickName");
+		String userPwd = request.getParameter("userPwd");
+	
+
+		int result = new MemberService().deleteMember(nickName, userPwd);
+		
+		if(result > 0) { 
+			
+			HttpSession session = request.getSession();
+			session.removeAttribute("loginUser");
+			session.setAttribute("alertMsg", "탈퇴되었습니다. 그동안 이용해주셔서 감사합니다.");
+			
+			response.sendRedirect(request.getContextPath());
+			
+		}else { 
+			
+			request.getSession().setAttribute("alertMsg", "회원 탈퇴 실패");
+			response.sendRedirect(request.getContextPath() + "/withdrawal.me");
+		}
+	
 	}
 
 	/**

@@ -21,7 +21,6 @@
 
 <style>
     div {
-        outline: 1px solid orangered;
         box-sizing: border-box;
     }
     .wrap {
@@ -100,6 +99,18 @@
     .afterLogin a:hover {color: rgb(3, 79, 6);}
     
     .mypage{text-align:center; font-size: 13px;}
+    
+    /* 버튼스타일 */
+    .btn-success {
+    	background-color:rgb(3, 79, 6); 
+    	border-color:rgb(3, 79, 6);
+    }
+
+    .btn-secondary {
+    	background-color:rgb(158, 158, 158); 
+    	border-color:rgb(158, 158, 158);
+    }
+    
 
 
 </style>
@@ -200,7 +211,7 @@
                 <a href="#">반려동물</a>
               </div>
               <div id="menu2" class="container tab-pane fade"><br>
-                <a href="#">공지사항</a>
+                <a href="<%= contextPath %>/list.no">공지사항</a>
                 <a href="<%= contextPath %>/listAll.faq">FAQ</a>
                 <a href="<%= contextPath %>">1:1문의</a>
               </div>

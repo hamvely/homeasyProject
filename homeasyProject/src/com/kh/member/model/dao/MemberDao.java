@@ -100,6 +100,35 @@ public class MemberDao {
 	      
 	      return result;
 	   }
+	
+	/* 작성자 : 김혜미 */
+	public int deleteMember(Connection conn, String nickName, String userPwd) {
+
+
+		System.out.println(nickName);
+		System.out.println(userPwd);
+
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("deleteMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, nickName);
+			pstmt.setString(2, userPwd);
+			
+			
+			result = pstmt.executeUpdate();
+						
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 	
 	
@@ -175,6 +204,8 @@ public class MemberDao {
 		return list;
 		
 	}
+
+	
 	
 	
 
