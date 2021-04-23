@@ -75,7 +75,7 @@
                <ul>
                    <li><a href="">상품조회/수정/삭제</a></li>
                    <li><a href="">재고관리</a></li>
-                   <li><a href="">리뷰관리</a></li>
+                   <li><a href="<%= contextPath %>/list.re?currentPage=1">리뷰관리</a></li>
                </ul>
            </li>
 

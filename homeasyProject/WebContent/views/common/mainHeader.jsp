@@ -184,7 +184,7 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
               <li class="nav-item">
-                <a class="nav-link" href="<%=contextPath%>/list.ho">커뮤니티</a>
+                <a class="nav-link" href="">커뮤니티</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="">스토어</a>
@@ -211,7 +211,7 @@
                 <a href="#">반려동물</a>
               </div>
               <div id="menu2" class="container tab-pane fade"><br>
-                <a href="#">공지사항</a>
+                <a href="<%= contextPath %>/list.no">공지사항</a>
                 <a href="<%= contextPath %>/listAll.faq">FAQ</a>
                 <a href="<%= contextPath %>">1:1문의</a>
               </div>

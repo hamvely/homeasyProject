@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!--작성자 : 김혜미-->
+	<entry key="selectNoticeList">
+		SELECT
+		       NO_NO
+		     , NO_TITLE
+		     , NO_CONTENT
+		     , NO_CREATE_DATE
+		     , NO_COUNT
+		     , NO_STATUS
+		  FROM NOTICE N
+		 WHERE NO_STATUS = 'Y'
+		 ORDER 
+		    BY NO_CREATE_DATE DESC
+	</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</properties>
+
+
+
