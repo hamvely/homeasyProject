@@ -47,7 +47,7 @@
     <div class="outer">
         <div class="inner">    
 
-            <a href="" style="float: right;">탈퇴하기</a>
+            <a href="<%= request.getContextPath() %>/withdrawal.me" style="float: right;">탈퇴하기</a>
             <h1>회원정보수정</h1>
 
             <form action="" method="post" id="modificationForm">

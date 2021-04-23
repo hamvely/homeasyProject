@@ -7,10 +7,11 @@
 		         POST_TITLE
 		       , POST_CONTENT
 		       , POST_FILE_RENAME
-		 FROM POST P
+		  FROM POST P
 		  JOIN POST_FILE ON (P.POST_NO = POST_FILE.POST_NO)
 		 WHERE P.POST_STATUS = 'Y' 
-		 AND POST_TITLE LIKE '노하우%'
+		   AND POST_TITLE LIKE '노하우%'
 	</entry>
 
+	
 </properties>

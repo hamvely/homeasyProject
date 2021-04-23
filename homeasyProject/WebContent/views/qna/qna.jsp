@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.qna.model.vo.Qna"%>
+    
+<% String contextPath = request.getContextPath(); %>  
+
+<%
+	ArrayList<Qna> list = (ArrayList<Qna>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,17 +87,18 @@
         </div>
         <br>
 
+		<% for(Qna q : list){ %>
         <div class="content1">
                 <a href="" class="title">
-                    <h3>현관 옆 화장실 어떻게 해야 할까요?</h3>
+                    <h3><%=q.getPostTitle()%></h3>
                 </a>
                 <div class="content1_1">
                 <a href="" class="content1_2">
-                    <p>철조망? 예전에 쓰던 걸 둘곳이 없어서 일단 뒀는데 애매하네요 예쁜 인테리어 공간 하고픈데 어떻게 해야 좋을까요?</p>
+                    <p><%=q.getPostContent() %></p>
                 </a>
                 <img src="" class="user">
                 <div class="id1">
-                    <h3>user01</h3>
+                    <h3><%=q.getNickName() %></h3>
                 </div>
                 </div>
                 <a href="">
@@ -99,7 +106,7 @@
                 </a>
                 <hr>
         </div>
-
+		<% } %>
         
         <div class="content1">
                 <a href="" class="title">

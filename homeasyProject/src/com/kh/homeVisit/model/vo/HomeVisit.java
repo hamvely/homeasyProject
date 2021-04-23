@@ -2,26 +2,30 @@ package com.kh.homeVisit.model.vo;
 
 public class HomeVisit {
 
+	private String userFileRename;
 	private String nickName;
-	private int postFileNo;
-	private int postNo;
-	private int userNo;
+	private String postFileRename;
 	private String postContent;
 	private String pcomContent;
-	private String postStatus;
 	
 	public HomeVisit() {}
 
-	public HomeVisit(String nickName, int postFileNo, int postNo, int userNo, String postContent, String pcomContent,
-			String postStatus) {
+	public HomeVisit(String userFileRename, String nickName, String postFileRename, String postContent,
+			String pcomContent) {
 		super();
+		this.userFileRename = userFileRename;
 		this.nickName = nickName;
-		this.postFileNo = postFileNo;
-		this.postNo = postNo;
-		this.userNo = userNo;
+		this.postFileRename = postFileRename;
 		this.postContent = postContent;
 		this.pcomContent = pcomContent;
-		this.postStatus = postStatus;
+	}
+
+	public String getUserFileRename() {
+		return userFileRename;
+	}
+
+	public void setUserFileRename(String userFileRename) {
+		this.userFileRename = userFileRename;
 	}
 
 	public String getNickName() {
@@ -32,28 +36,12 @@ public class HomeVisit {
 		this.nickName = nickName;
 	}
 
-	public int getPostFileNo() {
-		return postFileNo;
+	public String getPostFileRename() {
+		return postFileRename;
 	}
 
-	public void setPostFileNo(int postFileNo) {
-		this.postFileNo = postFileNo;
-	}
-
-	public int getPostNo() {
-		return postNo;
-	}
-
-	public void setPostNo(int postNo) {
-		this.postNo = postNo;
-	}
-
-	public int getUserNo() {
-		return userNo;
-	}
-
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+	public void setPostFileRename(String postFileRename) {
+		this.postFileRename = postFileRename;
 	}
 
 	public String getPostContent() {
@@ -72,21 +60,12 @@ public class HomeVisit {
 		this.pcomContent = pcomContent;
 	}
 
-	public String getPostStatus() {
-		return postStatus;
-	}
-
-	public void setPostStatus(String postStatus) {
-		this.postStatus = postStatus;
-	}
-
 	@Override
 	public String toString() {
-		return "HomeVisit [nickName=" + nickName + ", postFileNo=" + postFileNo + ", postNo=" + postNo + ", userNo="
-				+ userNo + ", postContent=" + postContent + ", pcomContent=" + pcomContent + ", postStatus="
-				+ postStatus + "]";
+		return "HomeVisit [userFileRename=" + userFileRename + ", nickName=" + nickName + ", postFileRename="
+				+ postFileRename + ", postContent=" + postContent + ", pcomContent=" + pcomContent + "]";
 	}
 	
 	
-	
+
 }

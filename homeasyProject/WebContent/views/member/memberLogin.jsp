@@ -75,9 +75,9 @@
     /* input 스타일 */
     input {height:40px;}
     
-    
     .terms input {vertical-align: -13px;}
 
+	/* input 네온스타일 */
     textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
         border-color: rgb(3, 79, 6); 
         box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
@@ -87,6 +87,17 @@
 </style>
 </head>
 <body>
+	<!-- 작성자 : 김혜미 -->
+	<script>
+		var msg = "<%= session.getAttribute("alertMsg") %>";
+		
+		if(msg != "null"){
+			alert(msg);
+			<% session.removeAttribute("alertMsg"); %>
+		}
+	</script>
+
+
     <div class="outer">
         <div class="inner">
             <a href="<%= request.getContextPath() %>" id="logo"><img src="resources/img/logo/logo (1).png" width="55%"></a>
