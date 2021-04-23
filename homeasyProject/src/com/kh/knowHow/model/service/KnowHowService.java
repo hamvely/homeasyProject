@@ -19,7 +19,12 @@ public class KnowHowService {
 		return list;
 	}
 
-	
+	public KnowHow selectKnowHow() {
+		Connection conn = getConnection();
+		KnowHow k = new KnowHowDao().selectKnowHow(conn);
+		close(conn);
+		return k;
+	}
 	
 
 }

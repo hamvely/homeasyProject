@@ -73,6 +73,10 @@
             height: 30px; 
             float:left;
         }
+        
+        .content1{
+        	margin-top:-10px;
+        }
 
 </style>
 </head>
@@ -85,91 +89,25 @@
                 </div>
             </a>
         </div>
-        <br>
-
+        
+	   <% for(KnowHow k:list) { %>
+	   <br><br><br>
         <div class="content1">
-             <a href="<%=contextPath %>/post.how" class="title">
-                 <h3>w4tw</h3>
+             <a href="<%=contextPath%>/post.how" class="title">
+                 <h3><%=k.getPostTitle() %></h3>
                 </a>
                 <div class="content1_1">
-                    <a href="" class="content1_2">
-                        <p>wtt4wt</p>
+                    <a href="<%=contextPath %>/post.how" class="content1_2">
+                        <p><%=k.getPostContent() %></p>
                     </a>
                 </div>
-                <a href="">
-                    <img src="" class="imgfile">
+                <a href="<%=contextPath %>/post.how">
+                    <img src="<%=k.getPostFileRename() %>" class="imgfile">
                 </a>
                 <br><br>
                 <hr>
         </div>
-
-        <br>
-        <div class="content1">
-                <a href="" class="title">
-                    <h3>하나씩 쏙쏙! 넣고 빼기 쉬운 신박한 이불 수납법</h3>
-                </a>
-                <div class="content1_1">
-                <a href="" class="content1_2">
-                    <p>벌써 봄날씨가 완연해졌는데요. 슬슬 이불을 바꿀 때죠? 오늘은 이불을 정리하는 저만의 방법을 소개 해보려고 해요.</p>
-                </a>
-                </div>
-                <a href="">
-                <img src="" class="imgfile1">
-            </a>
-            <br><br>
-            <hr>
-        </div>
-
-        <br>
-        <div class="content1">
-                <a href="" class="title">
-                    <h3>하나씩 쏙쏙! 넣고 빼기 쉬운 신박한 이불 수납법</h3>
-                </a>
-                <div class="content1_1">
-                    <a href="" class="content1_2">
-                        <p>벌써 봄날씨가 완연해졌는데요. 슬슬 이불을 바꿀 때죠? 오늘은 이불을 정리하는 저만의 방법을 소개 해보려고 해요.</p>
-                    </a>
-                </div>
-                <a href="">
-                <img src="" class="imgfile1">
-            </a>
-            <br><br>
-            <hr>
-        </div>
-
-        <br>
-        <div class="content1">
-                <a href="" class="title">
-                    <h3>하나씩 쏙쏙! 넣고 빼기 쉬운 신박한 이불 수납법</h3>
-                </a>
-                <div class="content1_1">
-                    <a href="" class="content1_2">
-                        <p>벌써 봄날씨가 완연해졌는데요. 슬슬 이불을 바꿀 때죠? 오늘은 이불을 정리하는 저만의 방법을 소개 해보려고 해요.</p>
-                    </a>
-                </div>
-                <a href="">
-                <img src="" class="imgfile1">
-            </a>
-            <br><br>
-            <hr>
-        </div>
-
-        <br>
-        <div class="content1">
-                <a href="" class="title">
-                    <h3>하나씩 쏙쏙! 넣고 빼기 쉬운 신박한 이불 수납법</h3>
-                </a>
-                <div class="content1_1">
-                    <a href="" class="content1_2">
-                        <p>벌써 봄날씨가 완연해졌는데요. 슬슬 이불을 바꿀 때죠? 오늘은 이불을 정리하는 저만의 방법을 소개 해보려고 해요.</p>
-                    </a>
-                </div>
-                <a href="">
-                <img src="" class="imgfile1">
-            </a>
-            <br><br>
-            <hr>
-        </div>
-    </div>
+		<% } %>
+		
 </body>
 </html>

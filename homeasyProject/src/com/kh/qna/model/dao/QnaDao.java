@@ -18,7 +18,7 @@ public class QnaDao {
 	
 	public QnaDao() {
 		
-		String fileName = QnaDao.class.getResource("sql/qna/qna-mapper.xml").getPath();
+		String fileName = QnaDao.class.getResource("/sql/qna/qna-mapper.xml").getPath();
 		
 		try {
 			prop.loadFromXML(new FileInputStream(fileName));
@@ -41,11 +41,12 @@ public class QnaDao {
 			
 			while(rset.next()) {
 				
-				list.add(new Qna(rset.getString("post_title"),
-								 rset.getString("post_content"),
-								 rset.getString("user_file_rename"),
-								 rset.getString("nickname"),
-								 rset.getString("post_file_rename")));
+			list.add(new Qna (rset.getString("post_title"),
+							  rset.getString("post_content"),
+			                  rset.getString("post_file_rename"),
+			                  rset.getString("user_file_rename"),
+			                  rset.getString("nickname")));
+			
 			}
 			
 		} catch (SQLException e) {

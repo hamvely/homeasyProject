@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.knowHow.model.vo.KnowHow"%>
+<%
+	KnowHow k = (KnowHow)request.getAttribute("k");
+%>
+<% String contextPath = request.getContextPath(); %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,10 +81,10 @@
     <div class="post">
         <div class="title">
             <span class="title1">
-                <h3>하나씩 쏙쏙! 넣고 빼기 쉬운 신박한 이불 수납법</h3>
+                <h3>ㅈㄷㄹ</h3>
             </span>
             <span class="admin">
-               <p>집이지 전문가</p>
+               <p>efw</p>
             </span>
         </div>
 
@@ -95,7 +99,7 @@
 
         <br><br>
         <div class="content">
-        <p>내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다</p>
+        <p>efwef</p>
         </div>
 
         <br>

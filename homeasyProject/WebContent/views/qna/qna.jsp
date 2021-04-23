@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.qna.model.vo.Qna"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.qna.model.vo.Qna" import="com.kh.member.model.vo.Member"%>
     
 <% String contextPath = request.getContextPath(); %>  
 
 <%
+	Member loginUser = (Member)session.getAttribute("loginUser");
 	ArrayList<Qna> list = (ArrayList<Qna>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
@@ -56,7 +57,7 @@
             width:150px; 
             height:150px; 
             float:right;
-            margin:-170px 80px;
+            margin:-150px 80px;
         }
 
         
@@ -74,19 +75,26 @@
         }
 
         .id1{padding-bottom:-1px;}
+        
+        .content1{padding-top:30px;}
+        
+       
 </style>
 </head>
 <body>
     <div class="content">
+    
+    	<% if(loginUser != null){ %>
         <div class="button">
-            <a href="" class="a1">
+            <a href="<%=contextPath%>/enrollForm.qna" class="a1">
                 <div class="question">
                    <li>질문하기</li>
                 </div>
             </a>
         </div>
+        <% } %>
         <br>
-
+	
 		<% for(Qna q : list){ %>
         <div class="content1">
                 <a href="" class="title">
@@ -103,90 +111,10 @@
                 </div>
                 <a href="">
                     <img src="" class="imgfile">
-                </a>
+                </a><br>
                 <hr>
         </div>
 		<% } %>
-        
-        <div class="content1">
-                <a href="" class="title">
-                    <h3>현관 옆 화장실 어떻게 해야 할까요?</h3>
-                </a>
-                <div class="content1_1">
-                <a href="" class="content1_2">
-                    <p>철조망? 예전에 쓰던 걸 둘곳이 없어서 일단 뒀는데 애매하네요 예쁜 인테리어 공간 하고픈데 어떻게 해야 좋을까요?</p>
-                </a>
-                <img src="" class="user">
-                <div class="id">
-                    <h3>user01</h3>
-                </div>
-            </div>
-            <a href="">
-                <img src="" class="imgfile1">
-            </a>
-            <br>
-            <hr>
-        </div>
-        
-        <div class="content1">
-                <a href="" class="title">
-                    <h3>현관 옆 화장실 어떻게 해야 할까요?</h3>
-                </a>
-                <div class="content1_1">
-                <a href="" class="content1_2">
-                    <p>철조망? 예전에 쓰던 걸 둘곳이 없어서 일단 뒀는데 애매하네요 예쁜 인테리어 공간 하고픈데 어떻게 해야 좋을까요?</p>
-                </a>
-                <img src="" class="user">
-                <div class="id">
-                    <h3>user01</h3>
-                </div>
-            </div>
-            <a href="">
-                <img src="" class="imgfile1">
-            </a>
-            <br>
-            <hr>
-        </div>
-
-        <div class="content1">
-                <a href="" class="title">
-                    <h3>현관 옆 화장실 어떻게 해야 할까요?</h3>
-                </a>
-                <div class="content1_1">
-                <a href="" class="content1_2">
-                    <p>철조망? 예전에 쓰던 걸 둘곳이 없어서 일단 뒀는데 애매하네요 예쁜 인테리어 공간 하고픈데 어떻게 해야 좋을까요?</p>
-                </a>
-                <img src="" class="user">
-                <div class="id">
-                    <h3>user01</h3>
-                </div>
-            </div>
-            <a href="">
-                <img src="" class="imgfile1">
-            </a>
-            <br>
-            <hr>
-        </div>
-
-        <div class="content1">
-                <a href="" class="title">
-                    <h3>현관 옆 화장실 어떻게 해야 할까요?</h3>
-                </a>
-                <div class="content1_1">
-                <a href="" class="content1_2">
-                    <p>철조망? 예전에 쓰던 걸 둘곳이 없어서 일단 뒀는데 애매하네요 예쁜 인테리어 공간 하고픈데 어떻게 해야 좋을까요?</p>
-                </a>
-                <img src="" class="user">
-                <div class="id">
-                    <h3>user01</h3>
-                </div>
-            </div>
-            <a href="">
-                <img src="" class="imgfile1">
-            </a>
-            <br>
-            <hr>
-        </div>
-    </div>
+     </div>
 </body>
 </html>
