@@ -3,24 +3,22 @@ package com.kh.review.model.vo;
 public class Review {
 	
 	private int reNo;
-	private int productNo;
-	private int userNo;
+	private String productName;
+	private String email;
 	private String reContent;
 	private int reMark;
 	
 	public Review() {}
 
-	public Review(int reNo, int productNo, int userNo, String reContent, int reMark) {
+	public Review(int reNo, String productName, String email, String reContent, int reMark) {
 		super();
 		this.reNo = reNo;
-		this.productNo = productNo;
-		this.userNo = userNo;
+		this.productName = productName;
+		this.email = email;
 		this.reContent = reContent;
 		this.reMark = reMark;
 	}
-	
-	
-	
+
 	public int getReNo() {
 		return reNo;
 	}
@@ -29,20 +27,20 @@ public class Review {
 		this.reNo = reNo;
 	}
 
-	public int getProductNo() {
-		return productNo;
+	public String getProductName() {
+		return productName;
 	}
 
-	public void setProductNo(int productNo) {
-		this.productNo = productNo;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 
-	public int getUserNo() {
-		return userNo;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getReContent() {
@@ -63,9 +61,13 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [reNo=" + reNo + ", productNo=" + productNo + ", userNo=" + userNo + ", reContent=" + reContent
+		return "Review [reNo=" + reNo + ", productName=" + productName + ", email=" + email + ", reContent=" + reContent
 				+ ", reMark=" + reMark + "]";
 	}
+	
+	
+
+	
 	
 	
 

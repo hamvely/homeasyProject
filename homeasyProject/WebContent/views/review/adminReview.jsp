@@ -159,8 +159,8 @@
 			                    <tr>
 			                        <td><input type="checkbox"></td>
 			                        <td><%= r.getReNo() %></td>
-			                        <td><%= r.getProductNo() %></td>
-			                        <td><%= r.getUserNo() %></td>
+			                        <td><%= r.getProductName() %></td>
+			                        <td><%= r.getEmail() %></td>
 			                        <td data-toggle="modal" data-target="#detailReview">
 			                        	<%= r.getReContent() %>
 			                        </td>
