@@ -36,7 +36,7 @@ public class AdminCouponListServlet extends HttpServlet {
 		int listCount;
 		int currentPage;
 		int pageLimit;
-		int couponLimit;
+		int boardLimit;
 		
 		int maxPage;
 		int startPage;
@@ -45,16 +45,16 @@ public class AdminCouponListServlet extends HttpServlet {
 		listCount = new CouponService().selectListCount();
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
-		couponLimit = 10;
-		maxPage = (int)Math.ceil((double)listCount / couponLimit);
+		boardLimit = 10;
+		maxPage = (int)Math.ceil((double)listCount / boardLimit);
 		startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
 		endPage = startPage + pageLimit - 1;
 		if(endPage > maxPage){
 			endPage = maxPage;
 		}
 		
-		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, couponLimit, maxPage, startPage, endPage);
-		System.out.println(pi);
+		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+		//System.out.println(pi);
 		
 		ArrayList<Coupon> list = new CouponService().selectList(pi);
 		

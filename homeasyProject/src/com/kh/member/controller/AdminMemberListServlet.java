@@ -33,10 +33,11 @@ public class AdminMemberListServlet extends HttpServlet {
 	 */
     /* 작성자 임지우 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		int listCount;
 		int currentPage;
 		int pageLimit;
-		int memberLimit;
+		int boardLimit;
 		
 		int maxPage;
 		int startPage;
@@ -45,16 +46,16 @@ public class AdminMemberListServlet extends HttpServlet {
 		listCount = new MemberService().selectListCount();
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
-		memberLimit = 10;
-		maxPage = (int)Math.ceil((double)listCount / memberLimit);
+		boardLimit = 10;
+		maxPage = (int)Math.ceil((double)listCount / boardLimit);
 		startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
 		endPage = startPage + pageLimit - 1;
 		if(endPage > maxPage){
 			endPage = maxPage;
 		}
 		
-		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, memberLimit, maxPage, startPage, endPage);
-		System.out.println(pi);
+		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+		//System.out.println(pi);
 		
 		ArrayList<Member> list = new MemberService().selectList(pi);
 		

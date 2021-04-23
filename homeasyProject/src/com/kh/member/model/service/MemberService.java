@@ -58,6 +58,7 @@ public class MemberService {
 		
 	}
 	
+	/* ----- 작성자 : 임지우 ----- */
 	public ArrayList<Member> selectList(PageInfo pi) {
 		
 		Connection conn = getConnection();

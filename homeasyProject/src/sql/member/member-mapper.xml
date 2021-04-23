@@ -57,6 +57,7 @@
 		 WHERE ADMIN = 'U'
 	</entry>
 	
+	<!-- 작성자 : 임지우 -->
 	<entry key="selectList">
 		SELECT *
 		  FROM (

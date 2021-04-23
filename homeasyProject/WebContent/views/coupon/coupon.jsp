@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +25,7 @@
     <table width="900px" height="1150px" border-collapse:collapse; >
         
         <tr style="height: 100px;">
-            <td  colspan="6"> 보유쿠폰</td>
+            <td  colspan="6"> ë³´ì ì¿ í°</td>
 
         </tr>
 
@@ -32,8 +34,8 @@
         <tr style="height: 100px" >
             <td></td>
             <th colspan="4" >
-                <p style="color: darkgreen;">무료배송</p>
-                <p style="font-size: 20px;"> 5만원 이상 구매시 무료배송</p>
+                <p style="color: darkgreen;">ë¬´ë£ë°°ì¡</p>
+                <p style="font-size: 20px;"> 5ë§ì ì´ì êµ¬ë§¤ì ë¬´ë£ë°°ì¡</p>
             </th>
             <td ></td>
         </tr>
@@ -42,8 +44,8 @@
         <tr style="height: 100px">
             <td ></td>
             <th colspan="4" >
-                <p  style="color: darkgreen;">3,000원할인</p>
-                <p style="font-size: 20px;">강아지 장난감 2만원 이상 구매시 3,000원 할인</p>
+                <p  style="color: darkgreen;">3,000ìí ì¸</p>
+                <p style="font-size: 20px;">ê°ìì§ ì¥ëê° 2ë§ì ì´ì êµ¬ë§¤ì 3,000ì í ì¸</p>
             </th>
             <td></td>
         </tr>
@@ -51,8 +53,8 @@
         <tr style="height: 100px" >
             <td></td>
             <th colspan="4">
-                <p  style="color: darkgreen;">5,000원할인</p>
-                <p style="font-size: 20px;">VIP 3만원 이상 구매시 5,000원 할인</p>
+                <p  style="color: darkgreen;">5,000ìí ì¸</p>
+                <p style="font-size: 20px;">VIP 3ë§ì ì´ì êµ¬ë§¤ì 5,000ì í ì¸</p>
             </th>
             <td></td>
         </tr>
@@ -60,8 +62,8 @@
         <tr style="height: 100px" >
             <td></td>
             <th colspan="4">
-                <p  style="color: darkgreen;">4,000원할인</p>
-                <p style="font-size: 20px;">조명 5만원 이상 구매시 3,000원 할인</p>
+                <p  style="color: darkgreen;">4,000ìí ì¸</p>
+                <p style="font-size: 20px;">ì¡°ëª 5ë§ì ì´ì êµ¬ë§¤ì 3,000ì í ì¸</p>
             </th>
             <td></td>
         </tr>
@@ -69,8 +71,8 @@
         <tr style="height: 100px" >
             <td></td>
             <th colspan="4" >
-                <p  style="color: darkgreen;">2,000원할인</p>
-                <p style="font-size: 20px;">생활용품 4만원 이상 구매시 3,000원 할인</p>
+                <p  style="color: darkgreen;">2,000ìí ì¸</p>
+                <p style="font-size: 20px;">ìíì©í 4ë§ì ì´ì êµ¬ë§¤ì 3,000ì í ì¸</p>
             </th>
             <td></td>
         </tr>
