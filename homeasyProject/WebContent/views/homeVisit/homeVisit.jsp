@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.homeVisit.model.vo.HomeVisit"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.homeVisit.model.vo.HomeVisit" import="com.kh.member.model.vo.Member"%>
 <%
 String contextPath = request.getContextPath();
 %>
 
 <%
+	Member loginUser = (Member)session.getAttribute("loginUser");
 	ArrayList<HomeVisit> list = (ArrayList<HomeVisit>)request.getAttribute("list");
 %> 
 <!DOCTYPE html>
@@ -111,7 +112,7 @@ String contextPath = request.getContextPath();
             </a>
         </div>
         
-     
+      <% if(loginUser != null){ %>
         <div class="button1">
 	         <a href="<%=contextPath %>/write.ho" class="a1">
 	                <div class="question">
@@ -119,13 +120,16 @@ String contextPath = request.getContextPath();
 	                </div>
 	         </a>
         </div>
-    
+       <% } %>
+       
         <br>
+        
+       <% for(HomeVisit h : list){ %> 
         <div class="content1">
             <div class="user">
                 <img class="user1" src="">
                 <div class="id">
-                    <h2>user01</h2>
+                    <h2><%=h.getUserFileRename() %></h2>
                 </div>
             </div>
             
@@ -143,293 +147,28 @@ String contextPath = request.getContextPath();
             </a>
             
 			<a href="">
-            <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
+            <p><%=h.getPostContent() %></p>
             </a>
         
         
             <table border="1" align="left">
                 <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
+                    <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
                 </tr>
                 <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
+                    <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
                 </tr>
                 <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
+                   <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
                 </tr>
             </table>
         </div>
+       <% } %>
         
         
-        <div class="content1">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2>user01</h2>
-                </div>
-            </div>
-            
-			<a href="">
-            <img class="postfile" src="">
-            </a>
-            
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            
-            <a href="">
-            <img class="chat" src="">
-            </a>
-            
-			<a href="">
-            <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
-            </a>
-            
-            <table border="1" align="left">
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-            </table>
-        </div>
-        
-        <div class="content1">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2>user01</h2>
-                </div>
-            </div>
-            
-			<a href="">
-            <img class="postfile" src="">
-            </a>
-            
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            
-            <a href="">
-            <img class="chat" src="">
-            </a>
-            
-			<a href="">
-            <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
-            </a>
-            
-            <table border="1" align="left">
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="content2">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2>user01</h2>
-                </div>
-            </div>
-
-			<a href="">
-            <img class="postfile" src="">
-            </a>
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            <a href="">
-            <img class="chat" src="">
-            </a>
-
-            <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
-            
-            <table border="1" align="left">
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="content1">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2>user01</h2>
-                </div>
-            </div>
-	
-			<a href="">
-            <img class="postfile" src="">
-            </a>
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            <a href="">
-            <img class="chat" src="">
-            </a>
-
-            <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
-            
-            <table border="1" align="left">
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="content1">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2>user01</h2>
-                </div>
-            </div>
-			
-			<a href="">
-            <img class="postfile" src="">
-            </a>
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            <a href="">
-            <img class="chat" src="">
-            </a>
-
-            <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
-            
-            <table border="1" align="left">
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="content1">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2>user01</h2>
-                </div>
-            </div>
-
-			<a href="">
-            <img class="postfile" src="">
-            </a>
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            <a href="">
-            <img class="chat" src="">
-            </a>
-
-            <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
-            
-            <table border="1" align="left">
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="content2">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2>user01</h2>
-                </div>
-            </div>
-
-			<a href="">
-            <img class="postfile" src="">
-            </a>
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            <a href="">
-            <img class="chat" src="">
-            </a>
-
-            <p>내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다내용입니다</p>
-            
-            <table border="1" align="left">
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-                <tr>
-                    <td>USER01</td>
-                    <td>댓글입니다**********</td>
-                </tr>
-            </table>
-        </div>
     </div>
 </body>
 </html>

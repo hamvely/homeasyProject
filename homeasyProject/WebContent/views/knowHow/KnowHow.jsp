@@ -93,15 +93,18 @@
 	   <% for(KnowHow k:list) { %>
 	   <br><br><br>
         <div class="content1">
-             <a href="<%=contextPath%>/post.how" class="title">
-                 <h3><%=k.getPostTitle() %></h3>
+        
+        <input type="hidden" value="<%=k.getPostTitle() %>">
+        
+             <a href="<%=contextPath%>/ class="title">
+                 <h3><%=k.getPostTitle()%></h3>
                 </a>
                 <div class="content1_1">
-                    <a href="<%=contextPath %>/post.how" class="content1_2">
+                    <a href="<%=contextPath %>/" class="content1_2">
                         <p><%=k.getPostContent() %></p>
                     </a>
                 </div>
-                <a href="<%=contextPath %>/post.how">
+                <a href="">
                     <img src="<%=k.getPostFileRename() %>" class="imgfile">
                 </a>
                 <br><br>
@@ -109,5 +112,13 @@
         </div>
 		<% } %>
 		
+		<script>
+			$(function(){
+				$(".content1").click(function(){
+					location.href='<%=contextPath%>/deatil.how?kno=' + $(this).children().eq(0).val();
+				})
+			})
+		</script>
+	</div>
 </body>
 </html>
