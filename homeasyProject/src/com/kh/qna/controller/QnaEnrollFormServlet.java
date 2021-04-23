@@ -1,27 +1,23 @@
-package com.kh.knowHow.controller;
+package com.kh.qna.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.knowHow.model.service.KnowHowService;
-import com.kh.knowHow.model.vo.KnowHow;
-
 /**
- * Servlet implementation class knowHowPostServlet
+ * Servlet implementation class QnaEnrollFormServlet
  */
-@WebServlet("/post.how")
-public class knowHowPostServlet extends HttpServlet {
+@WebServlet("/enrollForm.qna")
+public class QnaEnrollFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public knowHowPostServlet() {
+    public QnaEnrollFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,8 +26,9 @@ public class knowHowPostServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	request.getRequestDispatcher("views/qna/qnaWrite.jsp").forward(request, response);
 	
-	request.getRequestDispatcher("views/knowHow/knowHowPost.jsp").forward(request, response);
 	}
 
 	/**

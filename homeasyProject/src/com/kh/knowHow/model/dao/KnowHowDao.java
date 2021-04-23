@@ -61,4 +61,35 @@ public class KnowHowDao {
 			
 		}
 	
+	
+	public KnowHow selectKnowHow(Connection conn) {
+		
+		KnowHow k = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectKnowHow");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				
+			   k = new KnowHow(rset.getString("post_title"),
+								rset.getString("name"),
+								rset.getString("post_file_renmae"),
+								rset.getString("post_content"),
+								rset.getString("pcom_content"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return k;
+	}
 }

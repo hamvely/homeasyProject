@@ -10,6 +10,7 @@ public class Qna {
 	
 	public Qna() {}
 
+	//질문과답변하기메인
 	public Qna(String postTitle, String postContent, String userFileRename, String nickName, String postFileRename) {
 		super();
 		this.postTitle = postTitle;
