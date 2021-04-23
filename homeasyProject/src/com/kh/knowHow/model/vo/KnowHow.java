@@ -9,8 +9,26 @@ public class KnowHow {
 	private String postFileRename;
 	private String name;
 	private String pcomContent;
+	// 작성자:임지우 - 매개변수 추가
+	private int postNo;
+	private Date postCreateDate;
+	private int postCount;
+	private String postStatus; 
 	
 	public KnowHow() {}
+	
+	
+	// 작성자:임지우 - 노하우관리 리스트조회
+	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postStatus) {
+		super();
+		this.postNo = postNo;
+		this.postTitle = postTitle;
+		this.postCreateDate = postCreateDate;
+		this.postCount = postCount;
+		this.postStatus = postStatus;
+	}
+
+
 
 	//노하우메인
 	public KnowHow(String postTitle, String postContent, String postFileRename) {
@@ -53,12 +71,56 @@ public class KnowHow {
 	public void setPostFileRename(String postFileRename) {
 		this.postFileRename = postFileRename;
 	}
+	
+	
+	
+	public int getPostNo() {
+		return postNo;
+	}
+
+
+	public void setPostNo(int postNo) {
+		this.postNo = postNo;
+	}
+
+
+	public Date getPostCreateDate() {
+		return postCreateDate;
+	}
+
+
+	public void setPostCreateDate(Date postCreateDate) {
+		this.postCreateDate = postCreateDate;
+	}
+
+
+	public int getPostCount() {
+		return postCount;
+	}
+
+
+	public void setPostCount(int postCount) {
+		this.postCount = postCount;
+	}
+
+
+	public String getPostStatus() {
+		return postStatus;
+	}
+
+
+	public void setPostStatus(String postStatus) {
+		this.postStatus = postStatus;
+	}
+
 
 	@Override
 	public String toString() {
 		return "KnowHow [postTitle=" + postTitle + ", postContent=" + postContent + ", postFileRename=" + postFileRename
 				+ "]";
 	}
+	
+	
 	
 	
 	
