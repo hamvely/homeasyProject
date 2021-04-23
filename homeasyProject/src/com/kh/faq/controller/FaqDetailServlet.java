@@ -32,7 +32,7 @@ public class FaqDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int faqNo = Integer.parseInt(request.getParameter("fno"));
-			
+		
 		Faq f = new FaqService().selectFaq(faqNo);
 			
 		request.setAttribute("f", f);
