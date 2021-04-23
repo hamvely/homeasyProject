@@ -10,6 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
     .faq{
         display: inline-block;
@@ -73,24 +76,24 @@
                 </tr>
                <% } else { %> <!-- 조회된 결과가 있을 경우 -->
                		<% for(Faq f : list) { %>
-		                <tr>
-		                	<td><input type="hidden" value="<%=f.getFaqNo()%>"></td>
-		                    <td><%= f.getFaqCate() %></td>
-		                    <td><%= f.getFaqTitle() %></td>
-		                </tr>
+		                	<tr>
+							<input type="hidden" value="<%=f.getFaqNo()%>">
+                        		<td></td>
+                          		<td><%= f.getFaqCate() %></td>
+                         		<td><%= f.getFaqTitle() %></td>
+                      		</tr>
 	                <% } %>
                 <% } %>
             </tbody>
     	</table> 
     	<script>
     		$(function(){
-    			$('.listArea').click(function(){
-    				location.href = '<%=contextPath%>/detail.faq?fno=' + $(this).children().eq(0).text();
+    			$('.listArea>tbody>tr').click(function(){
+    				location.href = '<%=contextPath%>/detail.faq?fno=' + $(this).children().eq(0).val();
     			})
     		})
         </script> 
     </div>
     
-	
 </body>
 </html>

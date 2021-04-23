@@ -187,7 +187,7 @@
                 <a class="nav-link" href="<%=contextPath%>/list.ho">커뮤니티</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<%= contextPath %>/list.st">스토어</a>
+                <a class="nav-link" href="">스토어</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#menu2">고객센터</a>
@@ -202,7 +202,7 @@
                 <a href="<%=contextPath%>/list.qna">질문과답변</a>
               </div>
               <div id="menu1" class="container tab-pane fade"><br>
-                <a href="#">가구</a>
+                <a href="<%= contextPath %>/list.st">가구</a>
                 <a href="#">패브릭</a>
                 <a href="#">홈데코/조명</a>
                 <a href="#">수납/정리</a>
