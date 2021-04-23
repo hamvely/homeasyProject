@@ -211,7 +211,7 @@
                 <a href="#">반려동물</a>
               </div>
               <div id="menu2" class="container tab-pane fade"><br>
-                <a href="#">공지사항</a>
+                <a href="<%= contextPath %>/list.no">공지사항</a>
                 <a href="<%= contextPath %>/listAll.faq">FAQ</a>
                 <a href="<%= contextPath %>">1:1문의</a>
               </div>
