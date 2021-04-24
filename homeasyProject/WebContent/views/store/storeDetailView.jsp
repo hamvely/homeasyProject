@@ -39,7 +39,6 @@
 </head>
 <body>
 
-	<%@ include file="../common/mainHeader.jsp" %>
 	<br><br><br>
 
     <div class="outer">
