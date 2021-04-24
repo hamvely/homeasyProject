@@ -13,16 +13,16 @@ import com.kh.homeVisit.model.service.HomeVisitService;
 import com.kh.homeVisit.model.vo.HomeVisit;
 
 /**
- * Servlet implementation class homeVisitServlet
+ * Servlet implementation class HomeVisitServlet
  */
 @WebServlet("/list.ho")
-public class homeVisitServlet extends HttpServlet {
+public class HomeVisitServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public homeVisitServlet() {
+    public HomeVisitServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -124,17 +124,143 @@ String contextPath = request.getContextPath();
        
         <br>
         
-       <% for(HomeVisit h : list){ %> 
+        <%for(HomeVisit h:list) {%>
         <div class="content1">
             <div class="user">
                 <img class="user1" src="">
                 <div class="id">
-                    <h2><%=h.getUserFileRename() %></h2>
+                    <h2><%=h.getNickName() %></h2>
                 </div>
             </div>
             
 			<a href="">
-            <img class="postfile" src="">
+            <img class="postfile" src="<%= h.getUserFileRename()%>">
+            </a>
+            
+            <br>
+            <a href="">
+            <img class="heart" src="">
+            </a>
+            
+            <a href="">
+            <img class="chat" src="">
+            </a>
+            
+			<a href="">
+            <p><%=h.getPostContent() %></p>
+            </a>
+        
+        
+            <table border="1" align="left">
+                <tr>
+                    <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+                <tr>
+                    <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+                <tr>
+                   <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="content1">
+            <div class="user">
+                <img class="user1" src="">
+                <div class="id">
+                    <h2><%=h.getNickName() %></h2>
+                </div>
+            </div>
+            
+			<a href="">
+            <img class="postfile" src="<%= h.getUserFileRename()%>">
+            </a>
+            
+            <br>
+            <a href="">
+            <img class="heart" src="">
+            </a>
+            
+            <a href="">
+            <img class="chat" src="">
+            </a>
+            
+			<a href="">
+            <p><%=h.getPostContent() %></p>
+            </a>
+        
+        
+            <table border="1" align="left">
+                <tr>
+                    <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+                <tr>
+                    <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+                <tr>
+                   <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="content1">
+            <div class="user">
+                <img class="user1" src="">
+                <div class="id">
+                    <h2><%=h.getNickName() %></h2>
+                </div>
+            </div>
+            
+			<a href="">
+            <img class="postfile" src="<%= h.getUserFileRename()%>">
+            </a>
+            
+            <br>
+            <a href="">
+            <img class="heart" src="">
+            </a>
+            
+            <a href="">
+            <img class="chat" src="">
+            </a>
+            
+			<a href="">
+            <p><%=h.getPostContent() %></p>
+            </a>
+        
+        
+            <table border="1" align="left">
+                <tr>
+                    <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+                <tr>
+                    <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+                <tr>
+                   <td><%=h.getNickName() %></td>
+                    <td><%=h.getPcomContent() %></td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="content2">
+            <div class="user">
+                <img class="user1" src="">
+                <div class="id">
+                    <h2><%=h.getNickName() %></h2>
+                </div>
+            </div>
+            
+			<a href="">
+            <img class="postfile" src="<%= h.getUserFileRename()%>">
             </a>
             
             <br>
@@ -167,7 +293,7 @@ String contextPath = request.getContextPath();
             </table>
         </div>
        <% } %>
-        
+       
         
     </div>
 </body>
