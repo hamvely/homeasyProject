@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.product.model.vo.Product;
+import com.kh.product.model.vo.ProductFile;
+import com.kh.product.model.vo.ProductOption;
 
 public class StoreDao {
 	
@@ -65,5 +67,107 @@ public class StoreDao {
 		return list;
 		
 	}
-
+	
+	public Product selectStore(Connection conn, int productNo) {
+		// select문 => ResultSet객체 (한행)
+		Product p = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProduct");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, productNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				p = new Product(rset.getInt("product_no"),
+							    rset.getString("product_brand"),
+							    rset.getString("product_name"),
+							    rset.getInt("product_price"),
+							    rset.getString("product_detail"),
+							    rset.getDate("product_date"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return p;
+		
+	}
+	
+	public ArrayList<ProductFile> selectProductFileList(Connection conn, int productNo){
+		// select문 => ResultSet객체 (여러행)
+		ArrayList<ProductFile> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductFile");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, productNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				ProductFile pf = new ProductFile();
+				pf.setProductFileNo(rset.getInt("product_file_no"));
+				pf.setProductFileRename(rset.getString("product_file_rename"));
+				
+				list.add(pf);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
+	
+	public ArrayList<ProductOption> selectProductOptionList(Connection conn, int productNo) {
+		// select문 => ResultSet객체 (여러행)
+		ArrayList<ProductOption> optionList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductOption");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, productNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				ProductOption po = new ProductOption();
+				po.setOptionNo(rset.getInt("option_no"));
+				po.setProductNo(rset.getInt("product_no"));
+				po.setOptionName(rset.getString("option_name"));
+				po.setOptionPrice(rset.getInt("option_price"));
+				po.setOptionStock(rset.getInt("option_stock"));
+				
+				optionList.add(po);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return optionList;
+	}
+	
 }

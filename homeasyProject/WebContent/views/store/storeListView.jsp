@@ -8,6 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <style>
     .outer{
         width:1200px;
@@ -60,6 +64,14 @@
             <% } %>
             
         </div>
+        
+        <script>
+        	$(function(){
+        		$(".thumbnail").click(function(){
+        			location.href = '<%=contextPath%>/detail.st?pno=' + $(this).children().eq(0).val();
+        		})
+        	})
+        </script>
     </div>
 
 </body>
