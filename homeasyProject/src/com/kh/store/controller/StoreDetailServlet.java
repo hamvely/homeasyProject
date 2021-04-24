@@ -40,9 +40,9 @@ public class StoreDetailServlet extends HttpServlet {
 		ArrayList<ProductFile> list = new StoreService().selectProductFileList(productNo);
 		ArrayList<ProductOption> optionList = new StoreService().selectProductOptionList(productNo);
 		
-		System.out.println(p);
-		System.out.println(list);
-		System.out.println(optionList);
+		//System.out.println(p);
+		//System.out.println(list);
+		//System.out.println(optionList);
 		
 		request.setAttribute("p", p);
 		request.setAttribute("list", list);
