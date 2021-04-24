@@ -51,7 +51,7 @@
     } 
 
     /* 타이틀 */
-    h2 {
+    h3 {
         margin-bottom: 20px;
         font-weight:bold;
     }
@@ -105,7 +105,7 @@
             <!-- 우측 본문 -->
             <div id="content_2">
 
-                <h2>공지사항</h2>
+                <h3>공지사항</h2>
 
                 <div class="content_bar">
                     <br>
