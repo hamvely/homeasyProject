@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
+<%
+	Member loginUser = (Member)session.getAttribute("loginUser");
+%>
+<% String contextPath = request.getContextPath(); %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,15 +104,26 @@
                             <img class="file1" src="">
                         </div>
                     <p class="f1">사진올리기</p> --> 
-                       <img id="titleImg" width="250" height="170">
-                    
+                       <img id="titleImg" width="477" height="285">
                 </div>
                 
-            
+            <div id="fileArea">
             <input type="file" name="file2" id="file2" onchange="loadImg(this, 1);" required>
-
-			<script>
+			</div>
 			
+			<script>
+				
+				$(function(){
+					
+					$("#fileArea").hide();
+					
+					$("#titleImg").click(function(){
+						$("#file2").click();
+					});
+					
+				})
+				
+				
 				function loadImg(inputFile, num){
 					
 					//console.log(inputFile.files);
@@ -125,7 +140,7 @@
 						reader.onload = function(e){
 							//각 영역에 맞춰서 이미지 미리보기
 							switch(num){
-							case 1: $("#titlImg").attr("src", e.target.result); break;
+								case 1: $("#titlImg").attr("src", e.target.result); break;
 							}
 						}
 					} else{ //선택된 파일이 사라졌을 경우
@@ -139,19 +154,21 @@
 				}
 			</script>
 
+            <form action="<%=contextPath %>/insert.qna" id="enrollForm" method="post" enctype="multipart/form-data">
+            	<input type="hidden" name="userNo" value="<%=loginUser.getUserNo()%>">
+	            <div class="content2">
+	                <input class="title" type="text" name="name" placeholder="제목">
+	                <br><br>
+	
+	                <input class="postwrite" type="text" name="postwrite" placeholder="내용을 입력해주세요" >
+	                <br><br>
+					<div align="right">
+	                <button type="submit" class="btn btn-warning">올리기</button>
+	                </div>
+	            </div>
+           	</form>
             
-            <div class="content2">
-                <input class="title" type="text" name="name" placeholder="제목">
-                <br><br>
-
-                <input class="postwrite" type="text" name="postwrite" placeholder="내용을 입력해주세요" >
-                <br><br>
-
-				<div align="right">
-                <button type="submit" class="btn btn-warning">올리기</button>
-                </div>
-                
-            </div>
+            
         </div>
     </div>
 </body>

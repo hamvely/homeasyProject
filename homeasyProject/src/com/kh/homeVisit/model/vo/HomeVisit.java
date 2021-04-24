@@ -1,5 +1,7 @@
 package com.kh.homeVisit.model.vo;
 
+import java.sql.Date;
+
 public class HomeVisit {
 
 	private String userFileRename;
@@ -7,6 +9,11 @@ public class HomeVisit {
 	private String postFileRename;
 	private String postContent;
 	private String pcomContent;
+	private int postNo;
+	private String email;
+	private String postTitle;
+	private Date postCreateDate;
+	private int postCount;
 	
 	public HomeVisit() {}
 
@@ -18,6 +25,58 @@ public class HomeVisit {
 		this.postFileRename = postFileRename;
 		this.postContent = postContent;
 		this.pcomContent = pcomContent;
+	}
+
+	
+	public HomeVisit(int postNo, String email, String postTitle, Date postCreateDate, int postCount) {
+		super();
+		this.postNo = postNo;
+		this.email = email;
+		this.postTitle = postTitle;
+		this.postCreateDate = postCreateDate;
+		this.postCount = postCount;
+	}
+	
+	
+
+	public int getPostNo() {
+		return postNo;
+	}
+
+	public void setPostNo(int postNo) {
+		this.postNo = postNo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPostTitle() {
+		return postTitle;
+	}
+
+	public void setPostTitle(String postTitle) {
+		this.postTitle = postTitle;
+	}
+
+	public Date getPostCreateDate() {
+		return postCreateDate;
+	}
+
+	public void setPostCreateDate(Date postCreateDate) {
+		this.postCreateDate = postCreateDate;
+	}
+
+	public int getPostCount() {
+		return postCount;
+	}
+
+	public void setPostCount(int postCount) {
+		this.postCount = postCount;
 	}
 
 	public String getUserFileRename() {
@@ -63,8 +122,12 @@ public class HomeVisit {
 	@Override
 	public String toString() {
 		return "HomeVisit [userFileRename=" + userFileRename + ", nickName=" + nickName + ", postFileRename="
-				+ postFileRename + ", postContent=" + postContent + ", pcomContent=" + pcomContent + "]";
+				+ postFileRename + ", postContent=" + postContent + ", pcomContent=" + pcomContent + ", postNo="
+				+ postNo + ", email=" + email + ", postTitle=" + postTitle + ", postCreateDate=" + postCreateDate
+				+ ", postCount=" + postCount + "]";
 	}
+
+	
 	
 	
 

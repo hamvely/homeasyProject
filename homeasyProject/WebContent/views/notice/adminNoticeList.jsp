@@ -44,6 +44,10 @@
 </head>
 <body>
 
+    <%@ include file="../common/adminHeader.jsp" %>
+    <%@ include file="../common/adminMenubar.jsp" %>
+
+
     <div class="wrap">
         <br>
         <div class="content">

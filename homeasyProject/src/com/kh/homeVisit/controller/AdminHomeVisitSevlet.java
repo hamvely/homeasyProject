@@ -13,16 +13,16 @@ import com.kh.homeVisit.model.service.HomeVisitService;
 import com.kh.homeVisit.model.vo.HomeVisit;
 
 /**
- * Servlet implementation class homeVisitServlet
+ * Servlet implementation class AdminHomeVisitSevlet
  */
-@WebServlet("/list.ho")
-public class homeVisitServlet extends HttpServlet {
+@WebServlet("/adminList.home")
+public class AdminHomeVisitSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public homeVisitServlet() {
+    public AdminHomeVisitSevlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,10 +32,11 @@ public class homeVisitServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<HomeVisit> list = new HomeVisitService().selectHomeVisit();
+		ArrayList<HomeVisit> list = new HomeVisitService().adminHomeVisitList();
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/homeVisit/homeVisit.jsp").forward(request, response);
+		request.getRequestDispatcher("views/homeVisit/adminHomeVisit.jsp").forward(request, response);
+
 	
 	}
 

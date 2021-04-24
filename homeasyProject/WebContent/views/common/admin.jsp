@@ -52,7 +52,7 @@
     <div class="wrap">
 
         <!-- 상단바 -->
-        <div id="header"><%@ include file="views/common/adminHeader.jsp" %></div>
+        <div id="header"><%@ include file="adminHeader.jsp" %></div>
 
         <!-- 본문 전체 -->
         <div id="content">

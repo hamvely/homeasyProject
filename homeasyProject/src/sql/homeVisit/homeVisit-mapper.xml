@@ -17,12 +17,28 @@
 		   AND POST_CONTENT LIKE '집들이%'
 	</entry>
 	
+	
 	<entry	key="selectReplyList">
 		SELECT
 			  NICKNAME
 			, PCOM_CONTENT
 		 FROM MEMBER M
 		 JOIN POST_COMMENT ON (M.USER_NO = POST_COMMENT.USER_NO)
+	</entry>
+
+
+
+	<entry key="adminHomeVisitList">
+		SELECT
+		      POST_NO
+		    , EMAIL
+		    , POST_TITLE
+		    , POST_CREATE_DATE
+		    , POST_COUNT
+		FROM POST P
+		JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
+		WHERE POST_STATUS = 'Y'
+		  AND POST_TITLE LIKE '집들이%'
 	</entry>
 
 </properties>

@@ -10,9 +10,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Properties;
 
 import com.kh.homeVisit.model.vo.HomeVisit;
+import com.kh.qna.model.vo.Qna;
 
 
 public class HomeVisitDao {
@@ -37,7 +39,7 @@ public class HomeVisitDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selecHomeVisit");
+		String sql = prop.getProperty("selectHomeVisit");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -63,4 +65,37 @@ public class HomeVisitDao {
 		return list;
 	}
 
+
+	public ArrayList<HomeVisit> adminHomeVisitList(Connection conn){
+		
+		ArrayList<HomeVisit> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("adminHomeVisitList");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+			list.add(new HomeVisit (rset.getString("post_no"),
+									  rset.getString("email"),
+					                  rset.getString("post_title"),
+					                  rset.getString("post_create_date"),
+					                  rset.getString("post_count")));
+			
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
 }
