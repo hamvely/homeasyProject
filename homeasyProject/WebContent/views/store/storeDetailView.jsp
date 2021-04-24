@@ -60,15 +60,11 @@
 </head>
 <body>
 
-<<<<<<< HEAD
-	<br><br><br>
-=======
    <!-- 전체 화면 -->
    <div class="wrap">
 
         <!-- 상단바 -->
         <div class="header"><%@ include file="../common/mainHeader.jsp" %></div>
->>>>>>> b6295764f77065b94f08cb6eccbe258442d61f56
 
         <!-- 본문 전체 -->
         <div class="content">
@@ -83,15 +79,15 @@
                     <p><%= p.getProductName() %></p>
                     <p><%= p.getProductPrice() %></p>
                     
-                   	<form>
-                   	<select>
-                   	<option selected>옵션을 선택하세요</option>
+                      <form>
+                      <select>
+                      <option selected>옵션을 선택하세요</option>
                     <% for(int i=0; i<optionList.size(); i++) {%>
-                    	
+                       
                         <% if(optionList.get(i).getOptionStock() == 0) { %>
-                        	
+                           
                             <option value="<%= optionList.get(i).getOptionNo() %>" disabled>
-                            	
+                               
                                <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
                             </option>
                         <% } else { %>
