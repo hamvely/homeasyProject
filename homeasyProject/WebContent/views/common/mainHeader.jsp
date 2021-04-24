@@ -144,7 +144,7 @@
                         <input type="search">
                     </div>
                     <div class="search_form_btn">
-                        <a href="#"><i class="fas fa-search"></i></a>
+                        <a href="<%= contextPath %>/index.admin"><i class="fas fa-search"></i></a>
                     </div>
                 </form>
             </div>

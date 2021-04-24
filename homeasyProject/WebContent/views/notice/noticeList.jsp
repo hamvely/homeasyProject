@@ -42,12 +42,7 @@
         <br><br>
 
 		<table class="listArea" align="center">
-			<!--  
-				<tr><th>6번 공지사항입니다.</th></tr>
-				<tr><td>2021.04.20</td></tr>
-				<tr><td><hr></td></tr>
-			-->
-			
+
 			<% if(list.isEmpty()) { %>
 				<tr><td>존재하는 공지사항이 없습니다.</td></tr>
 			<% }else{ %>
