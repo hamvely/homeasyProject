@@ -58,4 +58,38 @@ private Properties prop = new Properties();
 				
 			}
 
+	/* 공지사항 리스트조회(관리자)*/
+	public ArrayList<Notice> selectNoticeListAdmin(Connection conn) {
+
+		ArrayList<Notice> adminList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNoticeListAdmin");
+		
+		try {
+			pstmt = conn.prepareStatement(sql); 
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				adminList.add(new Notice(rset.getInt("NO_NO"),
+										 rset.getString("NO_TITLE"),
+										 rset.getInt("NO_COUNT"),
+										 rset.getDate("NO_CREATE_DATE"),
+										 rset.getString("NO_STATUS")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return adminList;
+	
+	
+	}
+
 }

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.notice.model.vo.Notice"%>
+<%
+	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -131,14 +134,24 @@
 	                    </tr>
 					</thead>
 					<tbody>
-	                    <tr>
-	                        <td><input type="checkbox" /></td>
-	                        <td>1</td>
-	                        <td>Y</td>
-	                        <td>제목입니다</td>
-	                        <td>2021-04-22</td>
-	                        <td>1</td>
-	                    </tr>
+						<!-- 조회된 결과가 없을 경우 -->
+	                	<% if(adminList.isEmpty()) { %>
+	                		<tr>
+	                			<td colspan="13">조회된 리스트가 없습니다.</td>
+	                		</tr>
+	                	<% }else { %>
+						<!-- 조회된 결과가 있을 경우 -->
+	                		<% for(Notice n : adminList) { %>
+		                    <tr>
+		                        <td><input type="checkbox" /></td>
+		                        <td><%= n.getNoticeNo() %></td>
+		                        <td><%= n.getStatus() %></td>
+		                        <td><%= n.getNoticeTitle() %></td>
+		                        <td><%= n.getCreateDate() %></td>
+		                        <td><%= n.getCount() %></td>
+		                    </tr>
+			                <% } %>
+	                    <% } %>		                    
  					</tbody>
                 </table>
         

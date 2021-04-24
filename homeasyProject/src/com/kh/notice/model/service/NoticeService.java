@@ -10,6 +10,7 @@ import com.kh.notice.model.vo.Notice;
 
 public class NoticeService {
 
+	/* 공지사항 리스트조회(사용자)*/
 	public ArrayList<Notice> selectNoticeList(){
 		Connection conn = getConnection();
 		
@@ -18,6 +19,18 @@ public class NoticeService {
 		close(conn);
 		
 		return list;
+		
+	}	
+	
+	/* 공지사항 리스트조회(관리자)*/
+	public ArrayList<Notice> selectNoticeListAdmin(){
+		Connection conn = getConnection();
+		
+		ArrayList<Notice> adminList = new NoticeDao().selectNoticeListAdmin(conn);
+		
+		close(conn);
+		
+		return adminList;
 		
 	}	
 		
