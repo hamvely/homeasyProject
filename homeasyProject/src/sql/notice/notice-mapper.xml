@@ -3,12 +3,25 @@
 <properties>
 
 	<!--작성자 : 김혜미-->
+	<!-- 공지사항리스트(사용자) -->
 	<entry key="selectNoticeList">
 		SELECT NO_TITLE
 		     , NO_CREATE_DATE
 		  FROM NOTICE N
 		 WHERE NO_STATUS = 'Y'
 		 ORDER 
+		    BY NO_CREATE_DATE DESC
+	</entry>
+	
+	<!-- 공지사항리스트(관리자) -->
+	<entry key="selectNoticeListAdmin">
+		SELECT NO_NO
+             , NO_TITLE
+             , NO_CREATE_DATE
+             , NO_COUNT
+             , NO_STATUS
+          FROM NOTICE N
+	     ORDER 
 		    BY NO_CREATE_DATE DESC
 	</entry>
 	

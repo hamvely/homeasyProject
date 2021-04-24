@@ -23,11 +23,21 @@ public class Notice {
 		this.status = status;
 	}
 	
-	/* 공지사항 리스트조회*/
+	/* 공지사항 리스트조회(사용자)*/
 	public Notice(String noticeTitle, Date createDate) {
 		super();
 		this.noticeTitle = noticeTitle;
 		this.createDate = createDate;
+	}
+	
+	/* 공지사항 리스트조회(관리자)*/
+	public Notice(int noticeNo, String noticeTitle, int count, Date createDate, String status) {
+		super();
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+		this.count = count;
+		this.createDate = createDate;
+		this.status = status;
 	}
 
 	public int getNoticeNo() {

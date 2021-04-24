@@ -89,30 +89,7 @@
                 <td>2021-04-22</td>
                 <td>1</td>
             </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>1</td>
-                <td>Y</td>
-                <td>제목입니다</td>
-                <td>2021-04-22</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>1</td>
-                <td>Y</td>
-                <td>제목입니다</td>
-                <td>2021-04-22</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" /></td>
-                <td>1</td>
-                <td>Y</td>
-                <td>제목입니다</td>
-                <td>2021-04-22</td>
-                <td>1</td>
-            </tr>
+
 
         </table>
     

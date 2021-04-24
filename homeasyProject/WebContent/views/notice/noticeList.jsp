@@ -23,7 +23,6 @@
         height: 700px;
     }
 
-
     th{float: left; margin: 15px 0 0 15px; font-size: 15px;}
     td{float: left; margin: 10px 0 20px 20px;}
     table hr {width: 840px;}
@@ -42,28 +41,27 @@
         </div>
         <br><br>
 
-	<table class="listArea" align="center">
-		<!--  
-			<tr><th>6번 공지사항입니다.</th></tr>
-			<tr><td>2021.04.20</td></tr>
-			<tr><td><hr></td></tr>
-		-->
-		
-		<% if(list.isEmpty()) { %>
-			<tr><td>존재하는 공지사항이 없습니다.</td></tr>
-		<% }else{ %>
-		
-			<% for(Notice n:list){ %>
+		<table class="listArea" align="center">
+			<!--  
+				<tr><th>6번 공지사항입니다.</th></tr>
+				<tr><td>2021.04.20</td></tr>
+				<tr><td><hr></td></tr>
+			-->
 			
-				 <tr><td><%= n.getNoticeTitle() %></td></tr>
-				 <tr><td><%= n.getCreateDate() %></td></tr>
-				 <tr><td><hr></td></tr>
-				 
+			<% if(list.isEmpty()) { %>
+				<tr><td>존재하는 공지사항이 없습니다.</td></tr>
+			<% }else{ %>
+			
+				<% for(Notice n:list){ %>
+				
+					 <tr><td><%= n.getNoticeTitle() %></td></tr>
+					 <tr><td><%= n.getCreateDate() %></td></tr>
+					 <tr><td><hr></td></tr>
+					 
+				<% } %>
 			<% } %>
-		<% } %>
-	
-	</table>
-        
+		
+		</table>
     </div>
 	
 </body>
