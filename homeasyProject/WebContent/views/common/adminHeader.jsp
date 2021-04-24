@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 
 <style>
@@ -39,7 +37,7 @@
 	<!-- 상단바 -->
     <div id="header">
         <div class="header_column">
-            <img src="resources/img/logo/logo (4).png" class="header_column_logo">
+            <a href="#"><img src="resources/img/logo/logo (4).png" class="header_column_logo"></a>
         </div>
         <div class="header_column">
             <a href="#"><i class="fas fa-home fa-2x"></i></a>
