@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.homeVisit.model.vo.HomeVisit" import="com.kh.member.model.vo.Member"%>
+
+<%
+	ArrayList<HomeVisit> list = (ArrayList<HomeVisit>)request.getAttribute("list");
+	Member loginUser = (Member)session.getAttribute("loginUser");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,14 +54,33 @@
     </style>
 </head>
 <body>
+	
+	<table>
+		  <tr>
+	            <td colspan="2">
+	                <%@ include file="../common/adminHeader.jsp" %>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td>
+	                <%@ include file="../common/adminMenubar.jsp" %>
+	            </td>
+	            <td>
+	            
+	            
     <div class="wrap">
+    
+    <%if(loginUser != null){ %>
         <br>
         <div class="content">
         <h3 style="font-weight:600;">집들이 관리</h3>
         <br>
         <button type="button" class="btn btn-warning" style="color:white; width:100px; height:35px;">삭제</button>
         <br><br>
-        <table class="table1" border="0">
+  	<% } %>
+    
+        <table class="table1" border="0">	
+        
             <thead>
                 <tr>
                     <td width="50" height="40"><input type="checkbox"></td>
@@ -67,78 +92,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+      		<%for(HomeVisit h : list){ %>
+              <tr>
                     <td><input type="checkbox"></td>
-                    <td>1</td>
-                    <td>user01@naver.com</td>
-                    <td>제목1</td>
-                    <td>2021-03-28</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>2</td>
-                    <td>user02@naver.com</td>
-                    <td>제목2</td>
-                    <td>2021-03-28</td>
-                    <td>18</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>3</td>
-                    <td>user03@naver.com</td>
-                    <td>제목3</td>
-                    <td>2021-03-28</td>
-                    <td>53</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>4</td>
-                    <td>user04@naver.com</td>
-                    <td>제목4</td>
-                    <td>2021-03-27</td>
-                    <td>184</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>5</td>
-                    <td>user05@naver.com</td>
-                    <td>제목5</td>
-                    <td>2021-03-27</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>6</td>
-                    <td>user06@naver.com</td>
-                    <td>제목6</td>
-                    <td>2021-03-27</td>
-                    <td>302</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>7</td>
-                    <td>user07@naver.com</td>
-                    <td>제목7</td>
-                    <td>2021-03-26</td>
-                    <td>85</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>8</td>
-                    <td>user08@naver.com</td>
-                    <td>제목8</td>
-                    <td>2021-03-26</td>
-                    <td>288</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>9</td>
-                    <td>user09@naver.com</td>
-                    <td>제목9</td>
-                    <td>2021-03-26</td>
-                    <td>7</td>
-                </tr>
+                    <td><%=h.getPostNo() %></td>
+                    <td><%=h.getEmail() %></td>
+                    <td><%=h.getPostTitle() %></td>
+                    <td><%=h.getPostCreateDate() %></td>
+                    <td><%=h.getPostCount() %></td>
+                </tr>           
+        	<% } %>   
+             </tbody>
         </table>
 
         <br>
@@ -152,7 +116,9 @@
             <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〉</p></button>
         </div>
 
-    </div>
-    </div>
+   		</div>
+   	</div>
+   	
+</table>
 </body>
 </html>
