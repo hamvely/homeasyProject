@@ -29,17 +29,6 @@ public class Product {
 		this.productDate = productDate;
 		this.productStatus = productStatus;
 	}
-	
-	public Product(int productNo, String productBrand, String productName, int productPrice,
-			String productDetail, Date productDate) {
-		super();
-		this.productNo = productNo;
-		this.productBrand = productBrand;
-		this.productName = productName;
-		this.productPrice = productPrice;
-		this.productDetail = productDetail;
-		this.productDate = productDate;
-	}
 
 	public String getTitleImg() {
 		return titleImg;

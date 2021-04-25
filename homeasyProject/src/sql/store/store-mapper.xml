@@ -15,37 +15,5 @@
            AND CATE2_NO = 1
            AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
 	</entry>
-	
-	<entry key="selectProduct">
-		SELECT
-		       PRODUCT_NO
-		     , PRODUCT_BRAND
-		     , PRODUCT_NAME
-		     , PRODUCT_PRICE
-		     , PRODUCT_DETAIL
-		     , PRODUCT_DATE
-		  FROM PRODUCT
-		 WHERE PRODUCT_NO = ?
-		   AND PRODUCT_STATUS = 'Y'
-	</entry>
-	
-	<entry key="selectProductFile">
-		SELECT
-		       PRODUCT_FILE_NO
-		     , PRODUCT_FILE_RENAME
-		  FROM PRODUCT_FILE
-		 WHERE PRODUCT_NO = ?
-	</entry>
-	
-	<entry key="selectProductOption">
-		SELECT
-		       OPTION_NO
-		     , PRODUCT_NO
-		     , OPTION_NAME
-		     , OPTION_PRICE
-		     , OPTION_STOCK
-		  FROM PRODUCT_OPTION
-		 WHERE PRODUCT_NO = ?
-	</entry>
 
 </properties>

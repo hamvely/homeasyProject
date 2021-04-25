@@ -37,4 +37,14 @@ public class QnaService {
 		return result1 * result2;
 		
 	}
+	
+	public ArrayList<Qna> adminQnaList(){
+		Connection conn = getConnection();
+		
+		ArrayList<Qna> list = new QnaDao().adminQnaList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
 }

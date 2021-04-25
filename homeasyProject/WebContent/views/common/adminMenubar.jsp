@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-	String contextPath = request.getContextPath();
+   String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
@@ -59,8 +59,8 @@
 <body>
 
 
-	<div id="navigator">
-		<ul id="navi">
+   <div id="navigator">
+      <ul id="navi">
            <li><a href="">회원관리</a>
                <ul>
                    <li><a href="<%= contextPath %>/adminlist.me?currentPage=1">회원조회/수정/삭제</a></li>
@@ -78,7 +78,7 @@
 
            <li><a href="">커뮤니티 관리</a>
                <ul>
-				   <li><a href="<%= contextPath %>/adminList.ho?currentPage=1">집들이 관리</a></li>
+               <li><a href="<%= contextPath %>/adminList.ho?currentPage=1">집들이 관리</a></li>
                    <li><a href="<%= contextPath %>/adminlist.kh?currentPage=1">노하우 관리</a></li>
                    <li><a href="">질문과답변 관리</a></li>
                </ul>
@@ -97,4 +97,3 @@
 
 </body>
 </html>
-

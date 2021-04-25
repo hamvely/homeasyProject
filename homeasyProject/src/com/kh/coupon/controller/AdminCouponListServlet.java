@@ -16,7 +16,7 @@ import com.kh.coupon.model.vo.Coupon;
 /**
  * Servlet implementation class CouponListServlet
  */
-@WebServlet("/adminlist.co")
+@WebServlet("/list.co")
 public class AdminCouponListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -96,26 +96,28 @@
         
         <input type="hidden" value="<%=k.getPostTitle() %>">
         
-             <a href="<%=contextPath%>/ class="title">
+             <a href="" class="content1_2">
                  <h3><%=k.getPostTitle()%></h3>
-                </a>
-                <div class="content1_1">
-                    <a href="<%=contextPath %>/" class="content1_2">
-                        <p><%=k.getPostContent() %></p>
-                    </a>
-                </div>
-                <a href="">
-                    <img src="<%=k.getPostFileRename() %>" class="imgfile">
-                </a>
-                <br><br>
-                <hr>
+             </a>
+             
+             <div class="content1_1">
+                 <a href="" class="content1_2">
+                    <p><%=k.getPostContent() %></p>
+                 </a>
+             </div>
+             
+              <a href="">
+                  <img src="<%=k.getPostFileRename() %>" class="imgfile">
+              </a>
+              <br><br>
+              <hr>
         </div>
 		<% } %>
 		
 		<script>
 			$(function(){
 				$(".content1").click(function(){
-					location.href='<%=contextPath%>/deatil.how?kno=' + $(this).children().eq(0).val();
+					location.href='<%=contextPath%>/post.how?kno=' + $(this).children().eq(0).val();
 				})
 			})
 		</script>

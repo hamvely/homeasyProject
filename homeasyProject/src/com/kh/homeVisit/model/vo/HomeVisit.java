@@ -10,10 +10,13 @@ public class HomeVisit {
 	private String postContent;
 	private String pcomContent;
 	private int postNo;
+	private String rowNum;
 	private String email;
 	private String postTitle;
 	private Date postCreateDate;
 	private int postCount;
+	private String userNo;
+	private String postCateName;
 	
 	public HomeVisit() {}
 
@@ -38,6 +41,52 @@ public class HomeVisit {
 	}
 	
 	
+
+	public HomeVisit(String postContent, int postNo, String postTitle, Date postCreateDate, String userNo,
+			String postCateName) {
+		super();
+		this.postContent = postContent;
+		this.postNo = postNo;
+		this.postTitle = postTitle;
+		this.postCreateDate = postCreateDate;
+		this.userNo = userNo;
+		this.postCateName = postCateName;
+	}
+	
+	
+	public HomeVisit(String rowNum, String email, String postTitle, Date postCreateDate, int postCount) {
+		super();
+		this.rowNum = rowNum;
+		this.email = email;
+		this.postTitle = postTitle;
+		this.postCreateDate = postCreateDate;
+		this.postCount = postCount;
+	}
+	
+
+	public String getRowNum() {
+		return rowNum;
+	}
+
+	public void setRowNum(String rowNum) {
+		this.rowNum = rowNum;
+	}
+
+	public String getPostCateName() {
+		return postCateName;
+	}
+
+	public void setPostCateName(String postCateName) {
+		this.postCateName = postCateName;
+	}
+
+	public String getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(String userNo) {
+		this.userNo = userNo;
+	}
 
 	public int getPostNo() {
 		return postNo;
@@ -123,8 +172,9 @@ public class HomeVisit {
 	public String toString() {
 		return "HomeVisit [userFileRename=" + userFileRename + ", nickName=" + nickName + ", postFileRename="
 				+ postFileRename + ", postContent=" + postContent + ", pcomContent=" + pcomContent + ", postNo="
-				+ postNo + ", email=" + email + ", postTitle=" + postTitle + ", postCreateDate=" + postCreateDate
-				+ ", postCount=" + postCount + "]";
+				+ postNo + ", rowNum=" + rowNum + ", email=" + email + ", postTitle=" + postTitle + ", postCreateDate="
+				+ postCreateDate + ", postCount=" + postCount + ", userNo=" + userNo + ", postCateName=" + postCateName
+				+ "]";
 	}
 
 	

@@ -51,35 +51,40 @@
         td{
             border-bottom:1px solid #ccc;
         }
+        
+        .table1>tbody>tr:hover{
+        	background:#ccc;
+        	cursor:pointer;
+        }
     </style>
 </head>
 <body>
-	
-	<table>
-		  <tr>
-	            <td colspan="2">
-	                <%@ include file="../common/adminHeader.jsp" %>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>
-	                <%@ include file="../common/adminMenubar.jsp" %>
-	            </td>
-	            <td>
+<table>
+	 <tr>
+	     <td colspan="2">
+	        <%@ include file="../common/adminHeader.jsp" %>
+	     </td> 
+    </tr>
+	 <tr>     
+	 	<td>
+	        <%@ include file="../common/adminMenubar.jsp" %>
+	   </td>
+	</tr>
 	            
 	            
     <div class="wrap">
     
-    <%if(loginUser != null){ %>
-        <br>
-        <div class="content">
-        <h3 style="font-weight:600;">집들이 관리</h3>
-        <br>
-        <button type="button" class="btn btn-warning" style="color:white; width:100px; height:35px;">삭제</button>
-        <br><br>
-  	<% } %>
+	    <%if(loginUser != null){ %>
+	        <br>
+	        <div class="content">
+		        <h3 style="font-weight:600;">집들이 관리</h3>
+		        <br>
+		        <button type="button" class="btn btn-warning" style="color:white; width:100px; height:35px;">삭제</button>
+		        <br><br>
+	        </div>
+	  	<% } %>
     
-        <table class="table1" border="0">	
+        <table class="table1" class="listArea" border="0">	
         
             <thead>
                 <tr>
@@ -95,30 +100,39 @@
       		<%for(HomeVisit h : list){ %>
               <tr>
                     <td><input type="checkbox"></td>
-                    <td><%=h.getPostNo() %></td>
-                    <td><%=h.getEmail() %></td>
-                    <td><%=h.getPostTitle() %></td>
-                    <td><%=h.getPostCreateDate() %></td>
-                    <td><%=h.getPostCount() %></td>
+                    <td><%=h.getRowNum()%></td>
+                    <td><%=h.getEmail()%></td>
+                    <td><%=h.getPostTitle()%></td>
+                    <td><%=h.getPostCreateDate()%></td>
+                    <td><%=h.getPostCount()%></td>
                 </tr>           
         	<% } %>   
              </tbody>
-        </table>
+    	</table>
 
         <br>
+        
+        <script>
+        	$(function(){
+        		$(".listArea>tbody>tr").click(function(){
+        			        					
+        			location.href = '<%=contextPath%>/detail.ho?hno=' + $(this).children().eq(0).text();
+        			
+        		})
+        	})
+        
+        </script>
 
-        <div align="center" class="pageinArea">
-            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〈</p></button>
-            <button onclick="location.href='';" type="button" class="btn btn-warning" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">1</p></button>
-            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">2</p></button>
-            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">3</p></button>
-            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">4</p></button>
-            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〉</p></button>
-        </div>
-
-   		</div>
-   	</div>
-   	
+	        <!--<div align="center" class="pageinArea">
+	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〈</p></button>
+	            <button onclick="location.href='';" type="button" class="btn btn-warning" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">1</p></button>
+	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">2</p></button>
+	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">3</p></button>
+	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">4</p></button>
+	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〉</p></button>
+	        </div>
+			-->
+   </div>	
 </table>
 </body>
 </html>
