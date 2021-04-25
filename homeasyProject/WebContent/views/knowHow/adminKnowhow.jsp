@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.kh.knowHow.model.vo.KnowHow, com.kh.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<KnowHow> list = (ArrayList<KnowHow>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,12 +103,16 @@
     <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
-        <div id="header"></div>
+        <div id="header">
+        	<%@ include file="../common/adminHeader.jsp" %>
+        </div>
 
         <!-- 본문 전체 -->
         <div id="content">
             <!-- 좌측 메뉴바 -->
-            <div id="content_1"></div>
+            <div id="content_1">
+            	<%@ include file="../common/adminMenubar.jsp" %>
+            </div>
 
             <!-- 우측 본문 -->
             <div id="content_2">
@@ -116,88 +130,57 @@
 
                 <!-- 노하우 리스트 테이블 -->
                 <table align="center" class="knowhow_list" style="overflow-x:auto;">
-                    <tr>
-                        <th>선택</th>
-                        <th>노하우 게시글 제목</th>
-                        <th>작성일</th>
-                        <th>조회수</th>
-                        <th>노출상태</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td data-toggle="modal" data-target="#updateKnowhow">봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>봄처럼 따스한 인테리어 노하우</td>
-                        <td>2020-04-20</td>
-                        <td>244</td>
-                        <td>Y</td>
-                    </tr>
-                    
+                	<thead>
+	                    <tr>
+	                        <th>선택</th>
+	                        <th>노하우 게시글 제목</th>
+	                        <th>작성일</th>
+	                        <th>조회수</th>
+	                        <th>노출상태</th>
+	                    </tr>
+                    </thead>
+                    <tbody>
+                    	<!-- 조회된 결과가 없을 경우 -->
+	                	<% if(list.isEmpty()) { %>
+	                		<tr>
+	                			<td colspan="5">조회된 리스트가 없습니다.</td>
+	                		</tr>
+	                	<% }else { %>
+	                	<!-- 조회된 결과가 있을 경우 -->
+	                		<% for(KnowHow k : list) { %>
+			                    <tr>
+			                        <td><input type="checkbox"></td>
+			                        <td data-toggle="modal" data-target="#updateKnowhow"><%= k.getPostTitle() %></td>
+			                        <td><%= k.getPostUpdateDate() %></td>
+			                        <td><%= k.getPostCount() %></td>
+			                        <td><%= k.getPostStatus() %></td>
+			                    </tr>
+			                <% } %>
+	                    <% } %>
+                    </tbody>                    
                 </table>
-
                 <br><br>
 
+                <div align="center" class="pagingArea">
+
+					<% if(currentPage != 1) { %>
+                    	<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= currentPage-1 %>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+					
+						<% if(currentPage == p) { %>
+                    		<button disabled><%= p %></button>
+                    	<% }else { %>
+                    		<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= p %>';"><%= p %></button>
+                    	<% } %>
+                    
+                    <% } %>
+                    
+                    <% if(currentPage != maxPage) { %>
+                    	<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= currentPage+1 %>';">다음</button>
+					<% } %>
+                </div>
                 
                 <!-- 노하우 조회 모달 -->
                 <div class="modal" id="updateKnowhow">

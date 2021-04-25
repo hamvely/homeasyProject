@@ -63,7 +63,7 @@ public class AdminKnowHowListServlet extends HttpServlet {
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/coupon/adminCoupon.jsp").forward(request, response);
+		request.getRequestDispatcher("views/knowHow/adminKnowHow.jsp").forward(request, response);
 		
 		
 	}
