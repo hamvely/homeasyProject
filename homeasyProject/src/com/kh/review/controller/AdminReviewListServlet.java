@@ -55,7 +55,7 @@ public class AdminReviewListServlet extends HttpServlet {
 		}
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		System.out.println(pi);
+		//System.out.println(pi);
 		
 		ArrayList<Review> list = new ReviewService().selectList(pi);
 		

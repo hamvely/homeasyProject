@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.common.model.vo.PageInfo;
-import com.kh.coupon.model.service.CouponService;
 import com.kh.knowHow.model.service.KnowHowService;
 import com.kh.knowHow.model.vo.KnowHow;
 
@@ -43,7 +42,7 @@ public class AdminKnowHowListServlet extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new CouponService().selectListCount();
+		listCount = new KnowHowService().selectListCount();
 		//System.out.println(listCount);
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
