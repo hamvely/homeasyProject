@@ -57,7 +57,7 @@
         <!-- 본문 전체 -->
         <div id="content">
             <!-- 좌측 메뉴바 -->
-            <div id="content_1"></div>
+            <div id="content_1"><%@ include file="adminMenubar.jsp" %></div>
             <!-- 우측 본문 -->
             <div id="content_2"></div>
         </div>

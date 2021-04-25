@@ -11,7 +11,7 @@ public class KnowHow {
 	private String pcomContent;
 	// 작성자:임지우 - 매개변수 추가
 	private int postNo;
-	private Date postCreateDate;
+	private Date postUpdateDate;
 	private int postCount;
 	private String postStatus; 
 	
@@ -19,11 +19,11 @@ public class KnowHow {
 	
 	
 	// 작성자:임지우 - 노하우관리 리스트조회
-	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postStatus) {
+	public KnowHow(int postNo, String postTitle, Date postUpdateDate, int postCount, String postStatus) {
 		super();
 		this.postNo = postNo;
 		this.postTitle = postTitle;
-		this.postCreateDate = postCreateDate;
+		this.postUpdateDate = postUpdateDate;
 		this.postCount = postCount;
 		this.postStatus = postStatus;
 	}
@@ -84,13 +84,13 @@ public class KnowHow {
 	}
 
 
-	public Date getPostCreateDate() {
-		return postCreateDate;
+	public Date getPostUpdateDate() {
+		return postUpdateDate;
 	}
 
 
-	public void setPostCreateDate(Date postCreateDate) {
-		this.postCreateDate = postCreateDate;
+	public void setPostUpdateDate(Date postUpdateDate) {
+		this.postUpdateDate = postUpdateDate;
 	}
 
 

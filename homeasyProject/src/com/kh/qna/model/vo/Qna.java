@@ -12,6 +12,9 @@ public class Qna {
 	private String userNo;
 	private String postCateName;
 	private Date postCreateDate;
+	private String postNo;
+	private String email;
+	private int postCount;
 	
 	public Qna() {}
 
@@ -44,6 +47,40 @@ public class Qna {
 		this.userNo = userNo;
 		this.postCateName = postCateName;
 		this.postCreateDate = postCreateDate;
+	}
+
+	public Qna(String postTitle, Date postCreateDate, String postNo, String email, int postCount) {
+		super();
+		this.postTitle = postTitle;
+		this.postCreateDate = postCreateDate;
+		this.postNo = postNo;
+		this.email = email;
+		this.postCount = postCount;
+	}
+
+
+	public String getPostNo() {
+		return postNo;
+	}
+
+	public void setPostNo(String postNo) {
+		this.postNo = postNo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getPostCount() {
+		return postCount;
+	}
+
+	public void setPostCount(int postCount) {
+		this.postCount = postCount;
 	}
 
 	public String getPostCateName() {
@@ -114,7 +151,8 @@ public class Qna {
 	public String toString() {
 		return "Qna [postTitle=" + postTitle + ", postContent=" + postContent + ", userFileRename=" + userFileRename
 				+ ", nickName=" + nickName + ", postFileRename=" + postFileRename + ", userNo=" + userNo
-				+ ", postCateName=" + postCateName + ", postCreateDate=" + postCreateDate + "]";
+				+ ", postCateName=" + postCateName + ", postCreateDate=" + postCreateDate + ", postNo=" + postNo
+				+ ", email=" + email + ", postCount=" + postCount + "]";
 	}
 
 	

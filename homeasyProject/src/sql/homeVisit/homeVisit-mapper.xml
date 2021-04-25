@@ -3,18 +3,20 @@
 <properties>
 
 	<entry key="selectHomeVisit">
-		 SELECT
-		        USER_FILE_RENAME
+		  SELECT
+                 USER_FILE_RENAME
 		       , NICKNAME
 		       , POST_FILE_RENAME
 		       , POST_CONTENT
 		       , PCOM_CONTENT
 		  FROM MEMBER M
+          JOIN POST ON (M.USER_NO = POST.USER_NO)
 		  JOIN POST_FILE ON ( M.USER_NO = POST_FILE.POST_NO)
-		  JOIN POST ON (M.USER_NO = POST.USER_NO)
 		  JOIN POST_COMMENT ON ( M.USER_NO = POST_COMMENT.USER_NO)
 		 WHERE M.USER_STATUS = 'Y'
 		   AND POST_CONTENT LIKE '집들이%'
+         ORDER
+            BY POST_CREATE_DATE DESC
 	</entry>
 	
 	
@@ -25,20 +27,68 @@
 		 FROM MEMBER M
 		 JOIN POST_COMMENT ON (M.USER_NO = POST_COMMENT.USER_NO)
 	</entry>
-
-
-
-	<entry key="adminHomeVisitList">
-		SELECT
-		      POST_NO
-		    , EMAIL
+	
+		<entry key="insertHomeVisitWrite">
+		INSERT
+		    INTO POST
+		    (
+		      USER_NO
 		    , POST_TITLE
-		    , POST_CREATE_DATE
-		    , POST_COUNT
-		FROM POST P
-		JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
-		WHERE POST_STATUS = 'Y'
-		  AND POST_TITLE LIKE '집들이%'
+		    , POST_CONTENT
+		    )
+		 VALUES
+		    (
+		     SEQ_PONO.NEXTVAL
+		    ,?
+		    ,?
+		    )
 	</entry>
+
+	<entry key="insertHomeVisitWriteAttachmentList">
+		INSERT
+		    INTO POST_FILE
+		    (
+		      POST_FILE_NO
+		    , POST_NO
+		    ,POST_FILE_RENAME
+		    )
+		VALUES
+		    (
+		      SEQ_POFNO.NEXTVAL
+		    , SEQ_PONO.CURRVAL
+		    , ?
+		    )
+	</entry>
+	
+	<entry key="selectListCount">
+		SELECT COUNT(*) LISTCOUNT
+		  FROM POST
+		 WHERE POST_CATE_NAME = '집들이'
+		   AND POST_STATUS = 'Y'
+	</entry>
+
+	<entry key="selectList"> <!-- 집들이관리 조회 -->
+		SELECT *
+		  FROM (
+		        SELECT
+		                ROWNUM NO
+		         , A.* 
+		       FROM(
+		           SELECT  
+		              EMAIL
+		            , POST_TITLE
+		            , POST_CREATE_DATE
+		            , POST_COUNT
+		        FROM POST P
+		        JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
+		        WHERE POST_STATUS = 'Y'
+		          AND POST_CATE_NAME LIKE '집들이'
+		        ORDER
+		           BY POST_CREATE_DATE DESC
+		          ) A
+		    )
+		WHERE NO BETWEEN ? AND ?
+	</entry>
+
 
 </properties>

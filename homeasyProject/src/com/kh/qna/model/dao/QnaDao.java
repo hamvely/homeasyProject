@@ -71,9 +71,9 @@ public class QnaDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, q.getPostCateName());
 			pstmt.setString(2, q.getPostTitle());
-			pstmt.setString(3, q.getPostContent());
-			pstmt.setInt(3, Integer.parseInt(q.getUserNo()));
-			pstmt.setDate(4, q.getPostCreateDate());
+			pstmt.setString(4, q.getPostContent());
+			pstmt.setInt(5, Integer.parseInt(q.getUserNo()));
+			pstmt.setDate(6, q.getPostCreateDate());
 			
 			result = pstmt.executeUpdate();
 			
@@ -111,4 +111,38 @@ public class QnaDao {
 		
 		return result;
 	}
+	
+
+	public ArrayList<Qna> adminQnaList(Connection conn){
+		
+		ArrayList<Qna> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("adminQnaList");
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rset=pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+			list.add(new Qna (rset.getString("post_no"),
+							  rset.getString("email"),
+			                  rset.getString("post_title"),
+			                  rset.getString("post_create_date"),
+			                  rset.getString("post_count")));
+			
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+	}
+	
 }

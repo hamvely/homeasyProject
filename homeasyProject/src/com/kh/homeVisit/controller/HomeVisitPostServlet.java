@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class homeVisitPostServlet
+ * Servlet implementation class HomeVisitPostServlet
  */
-@WebServlet("/visit.po")
-public class homeVisitPostServlet extends HttpServlet {
+@WebServlet("/detail.ho")
+public class HomeVisitPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public homeVisitPostServlet() {
+    public HomeVisitPostServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,9 @@ public class homeVisitPostServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		request.getRequestDispatcher("/views/homeVisit/homeVisitPost.jsp").forward(request, response);
+
 	}
 
 	/**

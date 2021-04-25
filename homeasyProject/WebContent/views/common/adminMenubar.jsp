@@ -10,10 +10,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 
 <style>
@@ -66,8 +63,8 @@
 		<ul id="navi">
            <li><a href="">회원관리</a>
                <ul>
-                   <li><a href="<%= contextPath %>/list.me?currentPage=1">회원조회/수정/삭제</a></li>
-                   <li><a href="<%= contextPath %>/list.co?currentPage=1">쿠폰 관리</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.me?currentPage=1">회원조회/수정/삭제</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.co?currentPage=1">쿠폰 관리</a></li>
                </ul>
            </li>
 
@@ -75,21 +72,26 @@
                <ul>
                    <li><a href="">상품조회/수정/삭제</a></li>
                    <li><a href="">재고관리</a></li>
-                   <li><a href="<%= contextPath %>/list.re?currentPage=1">리뷰관리</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.re?currentPage=1">리뷰관리</a></li>
                </ul>
            </li>
 
            <li><a href="">커뮤니티 관리</a>
                <ul>
+<<<<<<< HEAD
                    <li><a href="<%= contextPath %>/adminList.ho?currentPage=1">집들이 관리</a></li>
                    <li><a href="<%= contextPath %>/list.kh?currentPage=1">노하우 관리</a></li>
+=======
+                   <li><a href="">집들이 관리</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.kh?currentPage=1">노하우 관리</a></li>
+>>>>>>> b72f59d7393331586689dc057f06972c02d1457d
                    <li><a href="">질문과답변 관리</a></li>
                </ul>
            </li>
 
            <li><a href="">고객센터 관리</a>
                <ul>
-                   <li><a href="">공지사항 관리</a></li>
+                   <li><a href="<%= contextPath %>/adminList.no">공지사항 관리</a></li>
                    <li><a href="">fAQ 관리</a></li>
                    <li><a href="">1:1문의 관리</a></li>
                </ul>

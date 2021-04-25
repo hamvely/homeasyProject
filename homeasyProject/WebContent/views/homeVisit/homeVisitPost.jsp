@@ -69,37 +69,39 @@
 </style>
 <body>
     <div class="post">
-        <div class="user">
-            <img class="user1" src="">
-            <div class="id">
-                <h1>user01</h1>
-            </div>
-        </div>
+    
+	     <div class="user">
+		      <img class="user1" src="">
+		      <div class="id">
+		        <h1>user01</h1>
+		      </div>
+		 </div>
+	
+	        <img class="postfile" src="/homeasy/resources/ejkf_upfile/xxxx.jpg">
+	        <a href="">
+	        <img class="heart" src="">
+	        </a>
+	        <a href="">
+	        <img class="chat" src="">
+	        </a>
+	
+	        <p>내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
+	        	내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다
+	        	 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
+	        	 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
+	        	 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다
+	        </p>
+	
+	        <input class="comment" type="text" name="comment" placeholder="댓글달기...">
+	        <br><br>
+	      <div class="submit">
+	        <a href="">
+	            <div class="submit1">
+	               <li>게시</li>
+	            </div>
+	        </a>
+	      </div>
 
-        <img class="postfile" src="">
-        <a href="">
-        <img class="heart" src="">
-        </a>
-        <a href="">
-        <img class="chat" src="">
-        </a>
-
-        <p>내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-        	내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다
-        	 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-        	 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-        	 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다
-        </p>
-
-        <input class="comment" type="text" name="comment" placeholder="댓글달기...">
-        <br><br>
-        <div class="submit">
-        <a href="">
-            <div class="submit1">
-               <li>게시</li>
-            </div>
-        </a>
-        </div>
     </div>
 </body>
 </html>

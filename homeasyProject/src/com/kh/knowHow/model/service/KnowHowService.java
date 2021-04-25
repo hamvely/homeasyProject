@@ -21,10 +21,15 @@ public class KnowHowService {
 	}
 
 	public KnowHow selectKnowHow() {
+		
 		Connection conn = getConnection();
+		
 		KnowHow k = new KnowHowDao().selectKnowHow(conn);
+		
 		close(conn);
+		
 		return k;
+		
 	}
 	
 	// 작성자:임지우 - 노하우관리 리스트카운트조회

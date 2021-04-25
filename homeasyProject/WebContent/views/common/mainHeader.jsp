@@ -2,10 +2,10 @@
     pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
     
 <% 
-   Member loginUser = (Member)session.getAttribute("loginUser");
-
-   String contextPath = request.getContextPath(); 
+	Member loginUser = (Member)session.getAttribute("loginUser"); 
+	String contextPath = request.getContextPath(); 
 %>
+
 <!DOCTYPE html>
 <html>
 <head>

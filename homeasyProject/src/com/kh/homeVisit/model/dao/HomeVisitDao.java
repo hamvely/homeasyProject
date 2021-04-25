@@ -1,7 +1,6 @@
 package com.kh.homeVisit.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
-
+import static com.kh.common.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,11 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Properties;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.homeVisit.model.vo.HomeVisit;
-import com.kh.qna.model.vo.Qna;
+import com.kh.homeVisit.model.vo.Post;
+import com.kh.qna.model.vo.Attachment;
 
 
 public class HomeVisitDao {
@@ -96,6 +96,118 @@ public class HomeVisitDao {
 		}
 		
 		return list;
+	}
+	
+
+	public int insertHomeVisitWrite(Connection conn, Post p) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertHomeVisitWrite");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, p.getUserNo());
+			pstmt.setString(2, p.getPostTitle());
+			pstmt.setString(3, p.getPostContent());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int insertHomeVisitAttachmentList(Connection conn, ArrayList<Attachment> list) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertHomeVisitAttachmentList");
+		
+		try {
+			
+			for(Attachment at : list){
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, at.getPostFileNo());
+				pstmt.setInt(2, at.getPostNo());
+				pstmt.setString(3, at.getPostFileReName());
+				
+				result = pstmt.executeUpdate();
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int selectListCount(Connection conn) {
+		
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("LISTCOUNT");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+		
+	}
+	
+	public ArrayList<HomeVisit> selectList(Connection conn, PageInfo pi){
+		ArrayList<HomeVisit> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1);
+			pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new HomeVisit(rset.getString("rownum"),
+										rset.getString("email"),
+										rset.getString("post_title"),
+										rset.getDate("post_create_date"),
+										rset.getInt("post_count")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
 	}
 	
 }
