@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.kh.product.model.vo.Product, com.kh.common.model.vo.PageInfo" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,12 +111,16 @@
     <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
-        <div id="header"></div>
+        <div id="header">
+        	<%@ include file="../common/adminHeader.jsp" %>
+        </div>
 
         <!-- 본문 전체 -->
         <div id="content">
             <!-- 좌측 메뉴바 -->
-            <div id="content_1"></div>
+            <div id="content_1">
+            	<%@ include file="../common/adminMenubar.jsp" %>
+            </div>
 
             <!-- 우측 본문 -->
             <div id="content_2">
@@ -152,132 +166,65 @@
 
                 <!-- 상품 리스트 테이블 -->
                 <table align="center" class="product_list" style="overflow-x:auto;">
-                    <tr>
-                        <th>선택</th>
-                        <th>상품번호</th>
-                        <th>분류</th><!--2차카테고리번호-->
-                        <th>상품명</th>
-                        <th>업체명</th>
-                        <th>가격</th>
-                        <th>재고</th>
-                        <th>등록일</th>
-                        <th>진열여부</th>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>7907211</td>
-                        <td>침실가구</td>
-                        <td>완전추천상품</td>
-                        <td>보람가구</td>
-                        <td>2000000</td>
-                        <td>112</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>0303931</td>
-                        <td>서재가구</td>
-                        <td>서재엔이책상이지</td>
-                        <td>보람가구</td>
-                        <td>170000</td>
-                        <td>251</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>666161</td>
-                        <td>거실가구</td>
-                        <td>푹신왕소파</td>
-                        <td>보람가구</td>
-                        <td>6100000</td>
-                        <td>91</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>777333</td>
-                        <td>침구</td>
-                        <td>포근해서이틀동안자도모르는이불</td>
-                        <td>BORAMFAB</td>
-                        <td>370000</td>
-                        <td>924</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>775333</td>
-                        <td>커튼/블라인드</td>
-                        <td>암막커튼아무것도안보임주의</td>
-                        <td>BORAMFAB</td>
-                        <td>60000</td>
-                        <td>1097</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>86754</td>
-                        <td>카페트/러그</td>
-                        <td>라탄카페트짱쉬원</td>
-                        <td>BORAMFAB</td>
-                        <td>90000</td>
-                        <td>1124</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>546798</td>
-                        <td>쿠션/방석</td>
-                        <td>버터모양쿠션</td>
-                        <td>BORAMFAB</td>
-                        <td>24000</td>
-                        <td>244</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>7878781</td>
-                        <td>조명</td>
-                        <td>펜던트조명</td>
-                        <td>조명사보람</td>
-                        <td>11111</td>
-                        <td>500</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>999921</td>
-                        <td>식물</td>
-                        <td>행운나무</td>
-                        <td>보람식물</td>
-                        <td>11111</td>
-                        <td>500</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>11182</td>
-                        <td>그릇</td>
-                        <td>깨지지않아요접시</td>
-                        <td>보람주방</td>
-                        <td>11111</td>
-                        <td>500</td>
-                        <td>20210417</td>
-                        <td>Y</td>
-                    </tr>                    
+                	<thead>
+	                    <tr>
+	                        <th>선택</th>
+	                        <th>상품번호</th>
+	                        <th>1차분류</th><!--2차카테고리번호-->
+	                        <th>2차분류</th>
+	                        <th>상품명</th>
+	                        <th>업체명</th>
+	                        <th>가격</th>
+	                        <th>등록일</th>
+	                        <th>진열여부</th>
+	                    </tr>
+                    </thead>
+                    <tbody>
+                    	<!-- 조회된 결과가 없을 경우 -->
+	                	<% if(list.isEmpty()) { %>
+	                		<tr>
+	                			<td colspan="9">조회된 리스트가 없습니다.</td>
+	                		</tr>
+	                	<% }else { %>
+	                	<!-- 조회된 결과가 있을 경우 -->
+	                		<% for(Product p : list) { %>
+			                    <tr>
+			                        <td><input type="checkbox"></td>
+			                        <td><%= p.getProductNo() %></td>
+			                        <td><%= p.getCate1Name() %></td>
+			                        <td><%= p.getCate2Name() %></td>
+			                        <td><%= p.getProductName() %></td>
+			                        <td><%= p.getProductBrand() %></td>
+			                        <td><%= p.getProductPrice() %></td>
+			                        <td><%= p.getProductDate() %></td>
+			                        <td><%= p.getProductStatus() %></td>
+			                    </tr>
+			                <% } %>
+	                    <% } %>
+                    </tbody>                                        
                 </table>
-
                 <br><br>
 
-                
+                <div align="center" class="pagingArea">
+
+					<% if(currentPage != 1) { %>
+                    	<button onclick="location.href='<%= contextPath %>/adminlist.pd?currentPage=<%= currentPage-1 %>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+					
+						<% if(currentPage == p) { %>
+                    		<button disabled><%= p %></button>
+                    	<% }else { %>
+                    		<button onclick="location.href='<%= contextPath %>/adminlist.pd?currentPage=<%= p %>';"><%= p %></button>
+                    	<% } %>
+                    
+                    <% } %>
+                    
+                    <% if(currentPage != maxPage) { %>
+                    	<button onclick="location.href='<%= contextPath %>/adminlist.pd?currentPage=<%= currentPage+1 %>';">다음</button>
+					<% } %>
+                </div>
 
             </div>
         </div>

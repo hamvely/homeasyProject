@@ -15,6 +15,9 @@ public class Product {
 	
 	private String titleImg;		// 해당 게시글의 대표이미지경로
 	
+	private String cate1Name;		// 1차 카테고리명
+	private String cate2Name;		// 2차 카테고리명
+	
 	public Product() {}
 
 	public Product(int productNo, int cate2No, String productName, String productBrand, int productPrice,
@@ -39,6 +42,22 @@ public class Product {
 		this.productPrice = productPrice;
 		this.productDetail = productDetail;
 		this.productDate = productDate;
+	}
+	
+	
+	// 관리자 상품관리 리스트 조회
+	public Product(int productNo, String cate1Name, String cate2Name, String productName, String productBrand, int productPrice, Date productDate,
+			String productStatus) {
+		super();
+		this.productNo = productNo;
+		this.cate1Name = cate1Name;
+		this.cate2Name = cate2Name;
+		this.productName = productName;
+		this.productBrand = productBrand;
+		this.productPrice = productPrice;
+		this.productDate = productDate;
+		this.productStatus = productStatus;
+
 	}
 
 	public String getTitleImg() {
@@ -113,6 +132,24 @@ public class Product {
 		this.productStatus = productStatus;
 	}
 	
+	
+	
+	public String getCate1Name() {
+		return cate1Name;
+	}
+
+	public void setCate1Name(String cate1Name) {
+		this.cate1Name = cate1Name;
+	}
+
+	public String getCate2Name() {
+		return cate2Name;
+	}
+
+	public void setCate2Name(String cate2Name) {
+		this.cate2Name = cate2Name;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [productNo=" + productNo + ", cate2No=" + cate2No + ", productName=" + productName

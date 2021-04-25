@@ -70,7 +70,7 @@
 
            <li><a href="">상품관리</a>
                <ul>
-                   <li><a href="">상품조회/수정/삭제</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.pd?currentPage=1">상품조회/수정/삭제</a></li>
                    <li><a href="">재고관리</a></li>
                    <li><a href="<%= contextPath %>/adminlist.re?currentPage=1">리뷰관리</a></li>
                </ul>
