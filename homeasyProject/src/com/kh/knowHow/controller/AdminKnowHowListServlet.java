@@ -17,7 +17,7 @@ import com.kh.knowHow.model.vo.KnowHow;
 /**
  * Servlet implementation class AdminKnowHowListServlet
  */
-@WebServlet("/list.kh")
+@WebServlet("/adminlist.kh")
 public class AdminKnowHowListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
