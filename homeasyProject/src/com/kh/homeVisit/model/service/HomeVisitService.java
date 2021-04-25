@@ -42,7 +42,7 @@ public class HomeVisitService {
 
 		Connection conn = getConnection();
 			
-			int result1 = new HomeVisitDao().insertHomeVisitWrite(conn, p);
+			int result1 = new HomeVisitDao().insertHvWrite(conn, p);
 			int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, list);
 			
 			if(result1> 0 && result2>0) {

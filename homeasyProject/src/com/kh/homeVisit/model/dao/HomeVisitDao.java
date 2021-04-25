@@ -99,17 +99,16 @@ public class HomeVisitDao {
 	}
 	
 
-	public int insertHomeVisitWrite(Connection conn, Post p) {
+	public int insertHvWrite(Connection conn, Post p) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertHomeVisitWrite");
+		String sql = prop.getProperty("insertHvWrite");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, p.getUserNo());
-			pstmt.setString(2, p.getPostTitle());
-			pstmt.setString(3, p.getPostContent());
+			pstmt.setString(1, p.getPostTitle());
+			pstmt.setString(2, p.getPostContent());
 			
 			result = pstmt.executeUpdate();
 			

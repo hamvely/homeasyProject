@@ -50,7 +50,7 @@ public class HomeVisitInsertServlet extends HttpServlet {
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
 			Post p = new Post();
-			p.setUserNo(multiRequest.getParameter("UserNo"));
+			p.setUserNo(multiRequest.getParameter("userNo"));
 			p.setPostTitle(multiRequest.getParameter("postTitle"));
 			p.setPostContent(multiRequest.getParameter("postContent"));
 			

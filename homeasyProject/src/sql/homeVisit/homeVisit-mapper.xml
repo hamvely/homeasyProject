@@ -28,17 +28,20 @@
 		 JOIN POST_COMMENT ON (M.USER_NO = POST_COMMENT.USER_NO)
 	</entry>
 	
-		<entry key="insertHomeVisitWrite">
+		<entry key="insertHvWrite">
 		INSERT
 		    INTO POST
 		    (
-		      USER_NO
+		      POST_NO
+		    , USER_NO
 		    , POST_TITLE
 		    , POST_CONTENT
+		    
 		    )
 		 VALUES
 		    (
 		     SEQ_PONO.NEXTVAL
+		    ,SEQ_UNO.NEXTVAL
 		    ,?
 		    ,?
 		    )
@@ -50,7 +53,7 @@
 		    (
 		      POST_FILE_NO
 		    , POST_NO
-		    ,POST_FILE_RENAME
+		    , POST_FILE_RENAME
 		    )
 		VALUES
 		    (

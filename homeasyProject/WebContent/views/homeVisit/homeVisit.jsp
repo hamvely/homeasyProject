@@ -15,6 +15,7 @@ String contextPath = request.getContextPath();
 <title>Insert title here</title>
 <style>
 		.outer{
+			border:1px solid gray;
             width:1100px;
             height:1150px;
             margin:auto;
@@ -54,6 +55,15 @@ String contextPath = request.getContextPath();
             font-size:14px;
         }
         
+        .thumbnail{
+       		border:1px solid gray; 
+        	width:220px;
+        	display:inline-block;
+        }
+        
+        img:hover{cursor:pointer;}
+        
+
 </style> 
 </head>
 <body>
@@ -74,39 +84,171 @@ String contextPath = request.getContextPath();
 		    </div>
  	     </a>
  	   </div>
-	  <% } %>
+	  <% } %><br><br>
    	
-   		<table class="detailArea">
-   			<tr>
-   				<th width="58" height="50"><img src=""></th>
-   				<td colspan="3">user01</td>
-   			</tr>
-   			<tr>
-   				<td colspan="3">
-   					<div>
-   						<img src="homeasy/resources/fejio_upfiles/xxxxxx.jpg" width="220" height="220">
-   					</div>
-   				</td>
-   			</tr>
-   			<tr>
-   				<th>좋아요</th>
-   				<td></td>
-   				<td>댓글창</td>
-   			</tr>
-   			<tr>
-   				<td colspan="3">
-   					<p style="height:50px;">xxxxxxxxxxxxxxxxxxxxxxxxx</p>
-   				</td>
-   			</tr>
-   			<tr>
-   				<th>user01</th>
-   				<td>댓글입니다</td>
-   			</tr>
-   			<tr>
-   				<th>user01</th>
-   				<td>댓글입니다</td>
-   			</tr>
-   		</table>
+   		<div class="listArea">
+   			<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		
+		</div>
 		
 	</div>
 </body>
