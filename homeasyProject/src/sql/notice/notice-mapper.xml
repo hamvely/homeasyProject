@@ -3,7 +3,7 @@
 <properties>
 
 	<!--작성자 : 김혜미-->
-	<!-- 공지사항리스트(사용자) -->
+	<!-- 공지사항 리스트조회(사용자) -->
 	<entry key="selectNoticeList">
 		SELECT NO_TITLE
 		     , NO_CREATE_DATE
@@ -13,7 +13,7 @@
 		    BY NO_CREATE_DATE DESC
 	</entry>
 	
-	<!-- 공지사항리스트(관리자) -->
+	<!-- 공지사항 리스트조회(관리자) -->
 	<entry key="selectNoticeListAdmin">
 		SELECT NO_NO
              , NO_TITLE
@@ -23,6 +23,24 @@
           FROM NOTICE N
 	     ORDER 
 		    BY NO_CREATE_DATE DESC
+	</entry>
+	
+	
+	<!-- 공지사항 작성(관리자) -->
+	<entry key="insertNotice">
+		INSERT 
+		  INTO NOTICE
+		  (
+		    NO_NO
+		  , NO_TITLE
+          , NO_CONTENT
+		  )
+		  VALUES
+		  (
+		    SEQ_NNO.NEXTVAL
+		  , ?
+		  , ?
+          )
 	</entry>
 	
 	

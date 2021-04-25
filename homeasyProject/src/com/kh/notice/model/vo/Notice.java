@@ -39,6 +39,8 @@ public class Notice {
 		this.createDate = createDate;
 		this.status = status;
 	}
+	
+	/* 공지사항 작성(관리자) */
 
 	public int getNoticeNo() {
 		return noticeNo;

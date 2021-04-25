@@ -68,14 +68,14 @@
     button {
         margin: 10px 5px 10px 0;
     }
-
+    
     /* input 스타일 */
     input {height:40px;}
     
     .terms input {vertical-align: -13px;}
 
 	/* input 네온스타일 */
-    textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
         border-color: rgb(3, 79, 6); 
         box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
         outline: 0 none;

@@ -62,7 +62,11 @@
         display: flex;
         /*position: absolute;*/
     }
-
+    .btn-success {
+    	background-color:rgb(3, 79, 6); 
+    	border-color:rgb(3, 79, 6);
+        width:100px; 
+    }
     .btn-warning {
         background-color:rgb(241, 196, 15); 
     	border-color:rgb(241, 196, 15);
@@ -70,22 +74,50 @@
         width:100px; 
         margin-right: 10px;
     }
-
     .btn-secondary {
         background-color:rgb(158, 158, 158); 
         border-color:rgb(158, 158, 158);
         width:100px; 
     }
 
+    /* input 스타일 */
+    input {height:40px;}
+    
+    .terms input {vertical-align: -13px;}
 
+	/* input 네온스타일 */
+    textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+        border-color: rgb(3, 79, 6); 
+        box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
+        outline: 0 none;
+    }
 
-    table {
+    /* 모달 가운데정렬 */
+    /*
+    .modal {
+        text-align: center;
+    }
+    @media screen and (min-width: 768px) { 
+            .modal:before {
+                    display: inline-block;
+                    vertical-align: middle;
+                    content: " ";
+                    height: 100%;
+            }
+    }
+    .modal-dialog {
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+    }
+    */
+
+    /* */
+    #content_2 table {
         width: 100%;
         text-align: center;
         margin: 20px 0 20px 0;
     }
-
-
 
 </style>
 </head>
@@ -109,9 +141,9 @@
 
                 <div class="content_bar">
                     <br>
-                    <button type="button" class="btn btn-warning">글 작성</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#insertNotice">글 작성</button>
                     <button type="button" class="btn btn-warning">글 수정</button>
-                    <button type="button" class="btn btn-secondary">글 삭제</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteNotice">글 삭제</button>
                 </div>
 
                 <table class="table table-hover">
@@ -154,22 +186,84 @@
 	                    <% } %>		                    
  					</tbody>
                 </table>
-        
-                <div align="center" class="pageinArea">
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〈</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-warning" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">1</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">2</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">3</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">4</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">5</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〉</p></button>
+   
+            </div>
+            
+<!-- ------------------------------------------------------------------------------------------------------------------- -->            
+            
+            <!-- 공지사항 작성 모달 -->
+            <!-- The Modal -->
+            <div class="modal" id="insertNotice">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+	                        <h3 class="modal-title">공지사항 작성</h3>
+	                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                
+                       
+						<form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.no" method="post">
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+								<table class="table table-borderless">
+								    <tr>
+								        <td><input type="text" name="title" class="form-control" placeholder="제목을 입력해주세요." required></td>
+								    </tr>
+								    <tr>
+								        <td><textarea name="content" class="form-control" rows="10" style="resize:none;" placeholder="내용을 입력해주세요." required></textarea></td>
+								    </tr>
+								</table>
+
+                            </div>
+                                
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                    <button type="submit" class="btn btn-warning">작성</button>    
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                            </div>
+						</form>
+                    </div>
                 </div>
-    
             </div>
 
-        </div>
+<!-- ------------------------------------------------------------------------------------------------------------------- -->   
+	
+			<!-- 공지사항 삭제 모달 -->
+            <div class="modal" id="deleteNotice">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h3 class="modal-title">공지사항 삭제</h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                        	해당 공지사항을 정말 삭제하시겠습니까?
+                        </div>
+                        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">확인</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                        </div>                    
+                    </div>
+                </div>
+            </div>         
 
-    </div>
+
+
+
+        </div><!--컨텐츠-->
+    </div><!--본문-->
+
+
+
 
 </body>
 </html>

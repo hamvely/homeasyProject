@@ -92,4 +92,31 @@ private Properties prop = new Properties();
 	
 	}
 
+	public int insertNotice(Connection conn, Notice n) {
+
+		System.out.println(n);
+
+
+		// insert문 => 처리된 행수
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertNotice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql); // 미완성된 sql
+			pstmt.setString(1, n.getNoticeTitle());
+			pstmt.setString(2, n.getNoticeContent());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+				
 }
