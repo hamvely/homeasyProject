@@ -48,13 +48,13 @@
 		          FROM (
 		                SELECT
 		                       PRODUCT_NO
-		                     , CATE2_NAME -- CATE2조인
+		                     , CATE2_NAME
 		                     , PRODUCT_BRAND
 		                     , PRODUCT_NAME
 		                     , PRODUCT_PRICE
-		                     , OPTION_NAME -- PRODUCT_OPTION조인
-		                     , OPTION_PRICE -- PRODUCT_OPTION조인
-		                     , OPTION_STOCK -- PRODUCT_OPTION조인
+		                     , OPTION_NAME
+		                     , OPTION_PRICE
+		                     , OPTION_STOCK
 		                  FROM PRODUCT
 		                  JOIN PRODUCT_CATEGORY2 USING(CATE2_NO)
 		                  JOIN PRODUCT_OPTION USING(PRODUCT_NO)
