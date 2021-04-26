@@ -1,4 +1,4 @@
-package com.kh.homeVisit.controller;
+package com.kh.qna.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,20 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.homeVisit.model.service.HomeVisitService;
-import com.kh.homeVisit.model.vo.HomeVisit;
+import com.kh.qna.model.service.QnaService;
+import com.kh.qna.model.vo.Qna;
 
 /**
- * Servlet implementation class AdminHomeVisitSevlet
+ * Servlet implementation class AdminQnaListServlet
  */
-@WebServlet("/adminList.home")
-public class AdminHomeVisitSevlet extends HttpServlet {
+@WebServlet("/adminList.qna")
+public class AdminQnaListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminHomeVisitSevlet() {
+    public AdminQnaListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,10 +32,10 @@ public class AdminHomeVisitSevlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<HomeVisit> list = new HomeVisitService().adminHomeVisitList();
+		ArrayList<Qna> list = new QnaService().adminQnaList();
 		
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/homeVisit/adminHomeVisit.jsp").forward(request, response);
+		request.getRequestDispatcher("views/qna/adminQna.jsp").forward(request, response);
 
 	
 	}

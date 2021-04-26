@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.notice.model.vo.Notice"%>
+<%
+	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,7 +51,7 @@
     } 
 
     /* 타이틀 */
-    h2 {
+    h3 {
         margin-bottom: 20px;
         font-weight:bold;
     }
@@ -59,7 +62,11 @@
         display: flex;
         /*position: absolute;*/
     }
-
+    .btn-success {
+    	background-color:rgb(3, 79, 6); 
+    	border-color:rgb(3, 79, 6);
+        width:100px; 
+    }
     .btn-warning {
         background-color:rgb(241, 196, 15); 
     	border-color:rgb(241, 196, 15);
@@ -67,21 +74,30 @@
         width:100px; 
         margin-right: 10px;
     }
-
     .btn-secondary {
         background-color:rgb(158, 158, 158); 
         border-color:rgb(158, 158, 158);
         width:100px; 
     }
 
+    /* input 스타일 */
+    input {height:40px;}
+    
+    .terms input {vertical-align: -13px;}
 
+	/* input 네온스타일 */
+    textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+        border-color: rgb(3, 79, 6); 
+        box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
+        outline: 0 none;
+    }
 
-    table {
+    /* */
+    #content_2 table {
         width: 100%;
         text-align: center;
         margin: 20px 0 20px 0;
     }
-
 
 
 </style>
@@ -102,16 +118,16 @@
             <!-- 우측 본문 -->
             <div id="content_2">
 
-                <h2>공지사항</h2>
+                <h3>공지사항</h2>
 
                 <div class="content_bar">
                     <br>
-                    <button type="button" class="btn btn-warning">글 작성</button>
-                    <button type="button" class="btn btn-warning">글 수정</button>
-                    <button type="button" class="btn btn-secondary">글 삭제</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#insertNotice">글 작성</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailNotice">글 수정</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteNotice">글 삭제</button>
                 </div>
 
-                <table class="table table-hover">
+                <table class="listArea table-bordered table-hover">
                     <colgroup>
                         <col width="50px;"/>
                         <col width="75px;"/>
@@ -131,32 +147,183 @@
 	                    </tr>
 					</thead>
 					<tbody>
-	                    <tr>
-	                        <td><input type="checkbox" /></td>
-	                        <td>1</td>
-	                        <td>Y</td>
-	                        <td>제목입니다</td>
-	                        <td>2021-04-22</td>
-	                        <td>1</td>
-	                    </tr>
+						<!-- 조회된 결과가 없을 경우 -->
+	                	<% if(adminList.isEmpty()) { %>
+	                		<tr>
+	                			<td colspan="13">조회된 리스트가 없습니다.</td>
+	                		</tr>
+	                	<% }else { %>
+						<!-- 조회된 결과가 있을 경우 -->
+	                		<% for(Notice n : adminList) { %>
+		                    <tr>
+		                        <td><input type="checkbox" /></td>
+		                        <td><%= n.getNoticeNo() %></td>
+		                        <td><%= n.getStatus() %></td>
+		                        <td><%= n.getNoticeTitle() %></td>
+		                        <td><%= n.getCreateDate() %></td>
+		                        <td><%= n.getCount() %></td>
+		                    </tr>
+			                <% } %>
+	                    <% } %>		                    
  					</tbody>
                 </table>
-        
-                <div align="center" class="pageinArea">
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〈</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-warning" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">1</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">2</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">3</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">4</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">5</p></button>
-                    <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〉</p></button>
+            </div>
+            
+			<script>
+	    	$(function(){
+				$(".listArea>tbody>tr").click(function(){
+					// 쿼리스트링 이용해서 요청할 url 작성
+					location.href = '<%=contextPath%>/adminDetail.no?nno=' + $(this).children().eq(1).text();
+										
+					<%--
+					$('#detailNotice').modal("show");
+					--%>
+					<%--
+					--%>
+					
+				})
+	    	})
+	    	</script>
+            
+
+            
+<!-- ------------------------------------------------------------------------------------------------------------------- -->            
+            
+            <!-- 공지사항 작성 모달 -->
+            <!-- The Modal -->
+            <div class="modal" id="insertNotice">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+	                        <h3 class="modal-title">공지사항 작성</h3>
+	                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                
+                       
+						<form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.no" method="post">
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+								<table class="table table-borderless">
+								    <tr>
+								        <td><input type="text" name="title" class="form-control" placeholder="제목을 입력해주세요." required></td>
+								    </tr>
+								    <tr>
+								        <td><textarea name="content" class="form-control" rows="10" style="resize:none;" placeholder="내용을 입력해주세요." required></textarea></td>
+								    </tr>
+								</table>
+
+                            </div>
+                                
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                    <button type="submit" class="btn btn-warning">작성</button>    
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                            </div>
+						</form>
+                    </div>
                 </div>
-    
+            </div>
+            
+            <!-- 
+            <div>
+	            <form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.no" method="post">
+	
+	                <table class="table table-borderless">
+	                    <tr>
+	                        <td><input type="text" name="title" class="form-control" placeholder="제목을 입력해주세요." required></td>
+	                    </tr>
+	                    <tr>
+	                        <td><textarea name="content" class="form-control" rows="10" style="resize:none;" placeholder="내용을 입력해주세요." required></textarea></td>
+	                    </tr>
+	                </table>
+	
+	                <button type="submit" class="btn btn-warning">작성</button>    
+	                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+	
+	            </form>
+            </div>
+             -->
+            
+<!-- ------------------------------------------------------------------------------------------------------------------- -->   
+	
+			<!-- 공지사항 상세 모달 -->
+            <!-- The Modal -->
+            <div class="modal" id="detailNotice">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+	                        <h3 class="modal-title">공지사항 상세보기</h3>
+	                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                
+                       
+						<form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.no" method="post">
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+								<table class="table table-borderless">
+								    <tr>
+								        <td><textarea name="title" class="form-control" style="resize:none;" required></textarea></td>
+								    </tr>
+								    <tr>
+								        <td><textarea name="content" class="form-control" rows="10" style="resize:none;" required></textarea></td>
+								    </tr>
+								</table>
+
+                            </div>
+                                
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                    <button type="submit" class="btn btn-warning">수정</button>    
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">삭제</button>
+                            </div>
+						</form>
+                    </div>
+                </div>
             </div>
 
-        </div>
+	
+	
+<!-- ------------------------------------------------------------------------------------------------------------------- -->   
 
-    </div>
+			<!-- 공지사항 삭제 모달 -->
+            <div class="modal" id="deleteNotice">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h3 class="modal-title">공지사항 삭제</h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                        	해당 공지사항을 정말 삭제하시겠습니까?
+                        </div>
+                        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">확인</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                        </div>                    
+                    </div>
+                </div>
+            </div>         
+
+
+
+
+        </div><!--컨텐츠-->
+    </div><!--본문-->
+
+
+
 
 </body>
 </html>

@@ -10,14 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.common.model.vo.PageInfo;
-import com.kh.coupon.model.service.CouponService;
 import com.kh.knowHow.model.service.KnowHowService;
 import com.kh.knowHow.model.vo.KnowHow;
 
 /**
  * Servlet implementation class AdminKnowHowListServlet
  */
-@WebServlet("/list.kh")
+@WebServlet("/adminlist.kh")
 public class AdminKnowHowListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,7 +42,7 @@ public class AdminKnowHowListServlet extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new CouponService().selectListCount();
+		listCount = new KnowHowService().selectListCount();
 		//System.out.println(listCount);
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
@@ -63,7 +62,7 @@ public class AdminKnowHowListServlet extends HttpServlet {
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/coupon/adminCoupon.jsp").forward(request, response);
+		request.getRequestDispatcher("views/knowHow/adminKnowHow.jsp").forward(request, response);
 		
 		
 	}

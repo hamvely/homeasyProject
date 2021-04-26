@@ -90,6 +90,13 @@
             color:white;
             text-align:center;
         }
+        
+        #enrollForm input, #enrollForm textarea{width:342px;}
+        
+        #enrollForm input{height:40px;}
+        #enrollForm textarea{height:181px;}
+        
+        #titleImg{background-color:rgb(224,224, 224);}
 </style> 
 </head>
 <body>
@@ -97,78 +104,79 @@
         <div class="content1">
             <h1>집들이 글쓰기</h1>
 
-                <div class="file">
-                    <!--<br><br><br><br><br>
-                        <div class="photoFile">
-                            <img class="file1" src="">
-                        </div>
-                    <p class="f1">사진올리기</p> -->
-                       <img id="titleImg" width="477" height="285">
+            <form action="<%=contextPath %>/insert.ho" id="enrollForm" method="post" enctype="multipart/form-data">
+                	<input type="hidden" name="userNo" value="<%=loginUser.getUserNo()%>">
+                <table align="center">   
+                	<tr>
+ 				 		<th>사진올리기</th>
+ 				 		<td colspan="3" align="center">
+ 				 			<img id="titleImg" width="477" height="285">
+ 				 		</td>
+ 				 	</tr>  
+ 				 	<tr>
+ 				 		<th>제목</th>
+ 				 		<td colspan="3"><input type="text" name="title" required></td>
+ 				 	</tr>
+ 				 	<tr>
+ 				 		<th>내용</th>
+ 				 		<td colspan="3">
+ 				 			<textarea rows="5" name="content" style="resize:none" required></textarea>
+ 				 		</td>
+ 				 	</tr>
+                </table>
+                
+                <div id="fileArea">
+                	<input type="file" name="file1" id="file1" onchange="loadImg(this, 1);" required>
                 </div>
                 
-            
-            
-            <div id="fileArea">
-            <input type="file" name="file2" id="file2" onchange="loadImg(this, 1);" required>
-			</div>
-			
-			<script>
-				
-				$(function(){
-					
-					$("#fileArea").hide();
-					
-					$("#titleImg").click(function(){
-						$("#file2").click();
-					});
-					
-				})
-				
-				
-				function loadImg(inputFile, num){
-					
-					//console.log(inputFile.files);
-					
-					if(inputFile.files.length == 1) { //선택된 파일 있을경우
-						
-						// 파일 읽어들일 FileReader
-						var reader = new FileReader();
-						
-						// 선택된 파일 읽어들이기 / 읽어들이는 순간 해당 그 파일만의 고유한 url
-						reader.readAsDataURL(inputFile.files[0]);
-						
-						// 파일 읽어들이기 완료된 순간 실행할 함수 정의
-						reader.onload = function(e){
-							//각 영역에 맞춰서 이미지 미리보기
-							switch(num){
-								case 1: $("#titlImg").attr("src", e.target.result); break;
-							}
-						}
-					} else{ //선택된 파일이 사라졌을 경우
-						
-						switch(num){
-						case 1: $("#titleImg").attr("src", null); break;
-						}
-						
-					}
-					
-				}
-			</script>
+                
+                <script>
+                
+                	$(function(){
+                		
+                		$("#fileArea").hide();
+                		
+               			$("#titleImg").click(function(){
+               				$("#file1").click();
+               			});
+               			
+                	})
+                
+                	function loadImg(inputFile, num){
 
-            <form action="<%=contextPath %>/insert.ho" id="enrollForm" method="post" enctype="multipart/form-data">
-            	<input type="hidden" name="userNo" value="<%=loginUser.getUserNo()%>">
-	            <div class="content2">
-	                <input class="title" type="text" name="name" placeholder="제목">
-	                <br><br>
-	
-	                <input class="postwrite" type="text" name="postwrite" placeholder="내용을 입력해주세요" >
-	                <br><br>
-					<div align="right">
-	                <button type="submit" class="btn btn-warning">올리기</button>
-	                </div>
-	            </div>
-           	</form>
-           	
+                		if(inputFile.files.length == 1){
+                			
+                			var reader = new FileReader();
+                			
+                			reader.readAsDataURL(inputFile.files[0]);
+                			
+                			reader.onload = function(e){
+                				
+                				switch(num){
+                					case 1: $("#titleImg").attr("src", e.target.result); break;
+                				}
+                			}
+                			
+                		}else{
+                			
+                			switch(num){
+        					case 1: $("#titleImg").attr("src", null); break;
+                			}
+                		}
+                		
+                		
+                	}
+                </script>
+                
+           
+                
+                <br>
+                <div align="center">
+                	<button type="submit">올리기</button>
+                </div>
+                
+            </form>
+                
            	
         </div>
     </div>

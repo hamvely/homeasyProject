@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 상품관리 리스트카운트 조회 -->
+	<entry key="selectListCount">
+		SELECT COUNT (*) LISTCOUNT
+          FROM PRODUCT
+	</entry>
+	
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM
+		             , P.*
+		          FROM (
+		                SELECT
+		                       PRODUCT_NO
+		                     , CATE1_NAME
+		                     , CATE2_NAME
+		                     , PRODUCT_NAME
+		                     , PRODUCT_BRAND
+		                     , PRODUCT_PRICE
+		                     , PRODUCT_DATE
+		                     , PRODUCT_STATUS
+		                  FROM PRODUCT
+		                  JOIN PRODUCT_CATEGORY2 USING(CATE2_NO)
+		                  JOIN PRODUCT_CATEGORY1 USING(CATE1_NO)
+		                 ORDER
+		                    BY PRODUCT_DATE DESC
+		               ) P
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 재고관리 리스트카운트 조회 -->
+	<entry key="selectStockListCount">
+		SELECT COUNT (*) LISTCOUNT
+		  FROM PRODUCT
+		  JOIN PRODUCT_OPTION USING(PRODUCT_NO)
+	</entry>
+	
+	<entry key="selectStockList">
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM
+		             , P.*
+		          FROM (
+		                SELECT
+		                       PRODUCT_NO
+		                     , CATE2_NAME -- CATE2조인
+		                     , PRODUCT_BRAND
+		                     , PRODUCT_NAME
+		                     , PRODUCT_PRICE
+		                     , OPTION_NAME -- PRODUCT_OPTION조인
+		                     , OPTION_PRICE -- PRODUCT_OPTION조인
+		                     , OPTION_STOCK -- PRODUCT_OPTION조인
+		                  FROM PRODUCT
+		                  JOIN PRODUCT_CATEGORY2 USING(CATE2_NO)
+		                  JOIN PRODUCT_OPTION USING(PRODUCT_NO)
+		                 ORDER
+		                    BY PRODUCT_DATE DESC
+		               ) P
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+
+
+</properties>

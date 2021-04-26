@@ -198,7 +198,7 @@
                 <div align="center" class="pagingArea">
 
 					<% if(currentPage != 1) { %>
-                    	<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= currentPage-1 %>';">이전</button>
+                    	<button onclick="location.href='<%= contextPath %>/adminlist.me?currentPage=<%= currentPage-1 %>';">이전</button>
 					<% } %>
 					
 					<% for(int p=startPage; p<=endPage; p++) { %>
@@ -206,13 +206,13 @@
 						<% if(currentPage == p) { %>
                     		<button disabled><%= p %></button>
                     	<% }else { %>
-                    		<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= p %>';"><%= p %></button>
+                    		<button onclick="location.href='<%= contextPath %>/adminlist.me?currentPage=<%= p %>';"><%= p %></button>
                     	<% } %>
                     
                     <% } %>
                     
                     <% if(currentPage != maxPage) { %>
-                    	<button onclick="location.href='<%= contextPath %>/list.me?currentPage=<%= currentPage+1 %>';">다음</button>
+                    	<button onclick="location.href='<%= contextPath %>/adminlist.me?currentPage=<%= currentPage+1 %>';">다음</button>
 					<% } %>
                 </div>
 

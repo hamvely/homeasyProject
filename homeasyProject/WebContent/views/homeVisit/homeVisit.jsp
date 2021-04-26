@@ -14,14 +14,15 @@ String contextPath = request.getContextPath();
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-        .content{
+		.outer{
+			border:1px solid gray;
             width:1100px;
             height:1150px;
             margin:auto;
             padding-top:20px;
         }
         
-        .button{
+       .button{
             width:100px;
             height:35px;
             border:1px;
@@ -29,7 +30,7 @@ String contextPath = request.getContextPath();
             border-radius:5px;
             margin-right:-10px;
         }
-
+        
         .button1{
             width:100px;
             height:35px;border:1px;
@@ -41,260 +42,214 @@ String contextPath = request.getContextPath();
             margin-right:10px;
         }
         
-        .a1{
+         .a1{
             text-decoration:none;
             color:white;
             text-align:center;
         }
-
-
+        
         li{
             list-style-type:none;
             text-align:center;
             padding:8px;
             font-size:14px;
         }
-        .user{
-            padding-top:10px;
-        }
-
-        .user1{
-            width:38px;
-            height:32px;
-            float:left;
-            margin-top:12px;
+        
+        .thumbnail{
+       		border:1px solid gray; 
+        	width:220px;
+        	display:inline-block;
         }
         
-        .postfile{
-            width:220px;
-            height:220px;
-            margin-top:-20px;
-        }
-
-        .heart, .chat{
-            width:38px;
-            height:38px;
-        }
-
-        .heart{text-decoration:none;}
-
-        .chat{margin-left:140px;}
-
-        a{text-decoration:none;}
-
-        .content1{
-            width:230px;
-            float:left;
-            margin-right:60px;
-        }
-
-        .content2{
-            width:230px;
-            float:left;
-        }
-
-        table{
-            width:220px;
-            border-collapse:collapse;
-            border:none;
-        }
+        img:hover{cursor:pointer;}
         
+
 </style> 
 </head>
 <body>
+	<div class="outer">
+	   <div class="button">
+	      <a href="" class="a1">
+	          <div class="question">
+	             <li>정렬</li>
+	          </div>
+	      </a>
+	   </div>
+	        
+	  <% if(loginUser != null){ %>
+	   <div class="button1">
+		 <a href="<%=contextPath %>/write.ho" class="a1">
+		    <div class="question">
+		       <li>글쓰기</li>
+		    </div>
+ 	     </a>
+ 	   </div>
+	  <% } %><br><br>
+   	
+   		<div class="listArea">
+   			<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		<div class="thumbnail" >
+	   			<div class="user" style="float:left;">
+		        	<img src="프로필유저이미지" width="48" height="49">
+		        </div>
+		        <h2 style="padding-top:">user01</h2>
+	            <br><br>
+	            
+		   		<div class="thumbnail" style="margin-top:-60px;">
+		   			<img src="해당게시글메인이미지경로" width="220" height="220">
+		   		</div><br>
+	   			
+	   			<img class="heart" src="" width="48" height="49">
+	   			<img class="chat" src="" width="48" height="49">
+	   			
+	   			<P>
+	   			 내용입니다
+	   			</P>
+	   			
+	   			<p>user01 댓글입니다</p>
+	   		</div>
+	   		
+		</div>
 		
-    <div class="content">
-        <div class="button">
-            <a href="" class="a1">
-                <div class="question">
-                   <li>정렬</li>
-                </div>
-            </a>
-        </div>
-        
-      <% if(loginUser != null){ %>
-        <div class="button1">
-	         <a href="<%=contextPath %>/write.ho" class="a1">
-	                <div class="question">
-	                   <li>글쓰기</li>
-	                </div>
-	         </a>
-        </div>
-       <% } %>
-       
-        <br>
-        
-        <%for(HomeVisit h:list) {%>
-        <div class="content1">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2><%=h.getNickName() %></h2>
-                </div>
-            </div>
-            
-			<a href="">
-            <img class="postfile" src="<%= h.getUserFileRename()%>">
-            </a>
-            
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            
-            <a href="">
-            <img class="chat" src="">
-            </a>
-            
-			<a href="">
-            <p><%=h.getPostContent() %></p>
-            </a>
-        
-        
-            <table border="1" align="left">
-                <tr>
-                    <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-                <tr>
-                    <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-                <tr>
-                   <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-            </table>
-        </div>
-        
-        <div class="content1">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2><%=h.getNickName() %></h2>
-                </div>
-            </div>
-            
-			<a href="">
-            <img class="postfile" src="<%= h.getUserFileRename()%>">
-            </a>
-            
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            
-            <a href="">
-            <img class="chat" src="">
-            </a>
-            
-			<a href="">
-            <p><%=h.getPostContent() %></p>
-            </a>
-        
-        
-            <table border="1" align="left">
-                <tr>
-                    <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-                <tr>
-                    <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-                <tr>
-                   <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-            </table>
-        </div>
-        
-        <div class="content1">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2><%=h.getNickName() %></h2>
-                </div>
-            </div>
-            
-			<a href="">
-            <img class="postfile" src="<%= h.getUserFileRename()%>">
-            </a>
-            
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            
-            <a href="">
-            <img class="chat" src="">
-            </a>
-            
-			<a href="">
-            <p><%=h.getPostContent() %></p>
-            </a>
-        
-        
-            <table border="1" align="left">
-                <tr>
-                    <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-                <tr>
-                    <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-                <tr>
-                   <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-            </table>
-        </div>
-        
-        <div class="content2">
-            <div class="user">
-                <img class="user1" src="">
-                <div class="id">
-                    <h2><%=h.getNickName() %></h2>
-                </div>
-            </div>
-            
-			<a href="">
-            <img class="postfile" src="<%= h.getUserFileRename()%>">
-            </a>
-            
-            <br>
-            <a href="">
-            <img class="heart" src="">
-            </a>
-            
-            <a href="">
-            <img class="chat" src="">
-            </a>
-            
-			<a href="">
-            <p><%=h.getPostContent() %></p>
-            </a>
-        
-        
-            <table border="1" align="left">
-                <tr>
-                    <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-                <tr>
-                    <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-                <tr>
-                   <td><%=h.getNickName() %></td>
-                    <td><%=h.getPcomContent() %></td>
-                </tr>
-            </table>
-        </div>
-       <% } %>
-       
-        
-    </div>
+	</div>
 </body>
 </html>

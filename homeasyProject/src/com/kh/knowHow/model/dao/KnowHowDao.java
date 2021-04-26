@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.common.model.vo.PageInfo;
-import com.kh.coupon.model.vo.Coupon;
 import com.kh.knowHow.model.vo.KnowHow;
 
 public class KnowHowDao {
@@ -145,7 +144,7 @@ public class KnowHowDao {
 			while(rset.next()) {
 				list.add(new KnowHow(rset.getInt("postNo"),
 								     rset.getString("postTitle"),
-								     rset.getDate("postCreateDate"),
+								     rset.getDate("postUpdateDate"),
 								     rset.getInt("postCount"),
 								     rset.getString("postStatus")));
 			}

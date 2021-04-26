@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-	String contextPath = request.getContextPath();
+   String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
@@ -59,27 +59,27 @@
 <body>
 
 
-	<div id="navigator">
-		<ul id="navi">
+   <div id="navigator">
+      <ul id="navi">
            <li><a href="">회원관리</a>
                <ul>
-                   <li><a href="<%= contextPath %>/list.me?currentPage=1">회원조회/수정/삭제</a></li>
-                   <li><a href="<%= contextPath %>/list.co?currentPage=1">쿠폰 관리</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.me?currentPage=1">회원조회/수정/삭제</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.co?currentPage=1">쿠폰 관리</a></li>
                </ul>
            </li>
 
            <li><a href="">상품관리</a>
                <ul>
-                   <li><a href="">상품조회/수정/삭제</a></li>
-                   <li><a href="">재고관리</a></li>
-                   <li><a href="<%= contextPath %>/list.re?currentPage=1">리뷰관리</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.pd?currentPage=1">상품조회/수정/삭제</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.st?currentPage=1">재고관리</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.re?currentPage=1">리뷰관리</a></li>
                </ul>
            </li>
 
            <li><a href="">커뮤니티 관리</a>
                <ul>
-                   <li><a href="">집들이 관리</a></li>
-                   <li><a href="<%= contextPath %>/list.kh?currentPage=1">노하우 관리</a></li>
+               <li><a href="<%= contextPath %>/adminList.ho?currentPage=1">집들이 관리</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.kh?currentPage=1">노하우 관리</a></li>
                    <li><a href="">질문과답변 관리</a></li>
                </ul>
            </li>
@@ -97,4 +97,3 @@
 
 </body>
 </html>
-

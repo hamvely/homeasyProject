@@ -33,8 +33,8 @@ public class HomeVisitServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		ArrayList<HomeVisit> list = new HomeVisitService().selectHomeVisit();
-		
 		request.setAttribute("list", list);
+		
 		request.getRequestDispatcher("views/homeVisit/homeVisit.jsp").forward(request, response);
 	
 	}
