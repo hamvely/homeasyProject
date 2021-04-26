@@ -13,7 +13,6 @@ import java.util.Properties;
 
 import com.kh.common.model.vo.PageInfo;
 import com.kh.homeVisit.model.vo.HomeVisit;
-import com.kh.homeVisit.model.vo.Post;
 import com.kh.qna.model.vo.Attachment;
 
 
@@ -99,7 +98,7 @@ public class HomeVisitDao {
 	}
 	
 
-	public int insertHvWrite(Connection conn, Post p) {
+	public int insertHvWrite(Connection conn, HomeVisit h) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -107,8 +106,10 @@ public class HomeVisitDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, p.getPostTitle());
-			pstmt.setString(2, p.getPostContent());
+			pstmt.setString(1, h.getPostNo());
+			pstmt.setString(2, h.getUserNo());
+			pstmt.setString(3, h.getPostTitle());
+			pstmt.setString(4, h.getPostContent());
 			
 			result = pstmt.executeUpdate();
 			

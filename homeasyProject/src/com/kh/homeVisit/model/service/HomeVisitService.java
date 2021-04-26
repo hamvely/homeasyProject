@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import com.kh.common.model.vo.PageInfo;
 import com.kh.homeVisit.model.dao.HomeVisitDao;
 import com.kh.homeVisit.model.vo.HomeVisit;
-import com.kh.homeVisit.model.vo.Post;
 import com.kh.qna.model.dao.QnaDao;
 import com.kh.qna.model.vo.Attachment;
 import com.kh.qna.model.vo.Qna;
@@ -38,11 +37,11 @@ public class HomeVisitService {
 	}
 
 
-	public int insertHomeVisitWrite(Post p, ArrayList<Attachment> list) {
+	public int insertHomeVisitWrite(HomeVisit h, ArrayList<Attachment> list) {
 
 		Connection conn = getConnection();
 			
-			int result1 = new HomeVisitDao().insertHvWrite(conn, p);
+			int result1 = new HomeVisitDao().insertHvWrite(conn, h);
 			int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, list);
 			
 			if(result1> 0 && result2>0) {

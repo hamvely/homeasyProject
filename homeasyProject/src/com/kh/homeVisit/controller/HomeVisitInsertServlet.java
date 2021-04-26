@@ -14,7 +14,6 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import com.kh.common.MyFileRenamePolicy;
 import com.kh.homeVisit.model.service.HomeVisitService;
 import com.kh.homeVisit.model.vo.HomeVisit;
-import com.kh.homeVisit.model.vo.Post;
 import com.kh.qna.model.vo.Attachment;
 import com.oreilly.servlet.MultipartRequest;
 
@@ -49,10 +48,10 @@ public class HomeVisitInsertServlet extends HttpServlet {
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 		
-			Post p = new Post();
-			p.setUserNo(multiRequest.getParameter("userNo"));
-			p.setPostTitle(multiRequest.getParameter("postTitle"));
-			p.setPostContent(multiRequest.getParameter("postContent"));
+			HomeVisit h = new HomeVisit();
+			h.setUserNo(multiRequest.getParameter("userNo"));
+			h.setPostTitle(multiRequest.getParameter("postTitle"));
+			h.setPostContent(multiRequest.getParameter("postContent"));
 			
 			ArrayList<Attachment> list = new ArrayList<>();
 			
@@ -77,7 +76,7 @@ public class HomeVisitInsertServlet extends HttpServlet {
 				}
 			}
 			
-			int result = new HomeVisitService().insertHomeVisitWrite(p, list);
+			int result = new HomeVisitService().insertHomeVisitWrite(h, list);
 			
 			if(result > 0) {
 				

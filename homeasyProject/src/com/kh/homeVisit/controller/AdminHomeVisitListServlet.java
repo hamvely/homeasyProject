@@ -43,6 +43,7 @@ public class AdminHomeVisitListServlet extends HttpServlet {
 		int endPage;
 		
 		listCount = new HomeVisitService().selectListCount();
+		System.out.println(listCount);
 		currentPage=Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
 		boardLimit = 10;
