@@ -99,6 +99,7 @@
         margin: 20px 0 20px 0;
     }
 
+	tr{height:45px;}
 
 </style>
 </head>
@@ -129,16 +130,14 @@
 
                 <table class="listArea table-bordered table-hover">
                     <colgroup>
-                        <col width="50px;"/>
-                        <col width="75px;"/>
-                        <col width="75px;"/>
-                        <col width="500px;"/>
-                        <col width="150px;"/>
-                        <col width="100px;"/>
+                        <col width="10%;"/>
+                        <col width="10%;"/>
+                        <col width="55%;"/>
+                        <col width="15%;"/>
+                        <col width="10%;"/>
                     </colgroup>
 					<thead>
 	                    <tr class="table-active">
-	                        <th><input type="checkbox"/></th>
 	                        <th>No.</th>
 	                        <th>노출</th>
 	                        <th>제목</th>
@@ -156,7 +155,6 @@
 						<!-- 조회된 결과가 있을 경우 -->
 	                		<% for(Notice n : adminList) { %>
 		                    <tr>
-		                        <td><input type="checkbox" /></td>
 		                        <td><%= n.getNoticeNo() %></td>
 		                        <td><%= n.getStatus() %></td>
 		                        <td><%= n.getNoticeTitle() %></td>
@@ -173,7 +171,7 @@
 	    	$(function(){
 				$(".listArea>tbody>tr").click(function(){
 					// 쿼리스트링 이용해서 요청할 url 작성
-					location.href = '<%=contextPath%>/adminDetail.no?nno=' + $(this).children().eq(1).text();
+					location.href = '<%=contextPath%>/adminDetail.no?nno=' + $(this).children().eq(0).text();
 										
 					<%--
 					$('#detailNotice').modal("show");
