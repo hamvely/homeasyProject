@@ -18,6 +18,10 @@ public class Product {
 	private String cate1Name;		// 1차 카테고리명
 	private String cate2Name;		// 2차 카테고리명
 	
+	private String optionName;		// 옵션명
+	private int optionPrice;		// 옵션가격
+	private int optionStock;		// 옵션재고
+	
 	public Product() {}
 
 	public Product(int productNo, int cate2No, String productName, String productBrand, int productPrice,
@@ -57,7 +61,20 @@ public class Product {
 		this.productPrice = productPrice;
 		this.productDate = productDate;
 		this.productStatus = productStatus;
-
+	}	
+	
+	// 관리자 재고관리 리스트 조회
+	public Product(int productNo, String cate2Name, String productBrand, String productName, int productPrice,
+			String optionName, int optionPrice, int optionStock) {
+		super();
+		this.productNo = productNo;
+		this.cate2Name = cate2Name;
+		this.productBrand = productBrand;
+		this.productName = productName;
+		this.productPrice = productPrice;
+		this.optionName = optionName;
+		this.optionPrice = optionPrice;
+		this.optionStock = optionStock;
 	}
 
 	public String getTitleImg() {
@@ -148,6 +165,32 @@ public class Product {
 
 	public void setCate2Name(String cate2Name) {
 		this.cate2Name = cate2Name;
+	}
+	
+	
+
+	public String getOptionName() {
+		return optionName;
+	}
+
+	public void setOptionName(String optionName) {
+		this.optionName = optionName;
+	}
+
+	public int getOptionPrice() {
+		return optionPrice;
+	}
+
+	public void setOptionPrice(int optionPrice) {
+		this.optionPrice = optionPrice;
+	}
+
+	public int getOptionStock() {
+		return optionStock;
+	}
+
+	public void setOptionStock(int optionStock) {
+		this.optionStock = optionStock;
 	}
 
 	@Override

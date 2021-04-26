@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.common.model.vo.PageInfo;
-import com.kh.product.model.service.ProductService;
+import com.kh.product.model.service.StockService;
 import com.kh.product.model.vo.Product;
 
 /**
- * Servlet implementation class AdminProductListServlet
+ * Servlet implementation class AdminStockListServlet
  */
-@WebServlet("/adminlist.pd")
-public class AdminProductListServlet extends HttpServlet {
+@WebServlet("/adminlist.st")
+public class AdminStockListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminProductListServlet() {
+    public AdminStockListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,7 +42,7 @@ public class AdminProductListServlet extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new ProductService().selectListCount();
+		listCount = new StockService().selectStockListCount();
 		//System.out.println(listCount);
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
@@ -57,8 +57,8 @@ public class AdminProductListServlet extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		//System.out.println(pi);
 		
-		ArrayList<Product> list = new ProductService().selectList(pi);
-		/*		
+		ArrayList<Product> list = new StockService().selectStockList(pi);
+		/*
 		for(Product p : list) {
 			System.out.println(p);
 		}
@@ -67,8 +67,7 @@ public class AdminProductListServlet extends HttpServlet {
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/product/adminProduct.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("views/product/adminStock.jsp").forward(request, response);	
 		
 	}
 

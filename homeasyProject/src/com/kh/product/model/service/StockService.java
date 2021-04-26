@@ -1,22 +1,22 @@
 package com.kh.product.model.service;
 
-import static com.kh.common.JDBCTemplate.close;
-import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.common.model.vo.PageInfo;
 import com.kh.product.model.dao.ProductDao;
+import com.kh.product.model.dao.StockDao;
 import com.kh.product.model.vo.Product;
 
-public class ProductService {
+public class StockService {
 	
-	public int selectListCount() {
+	public int selectStockListCount() {
 		
 		Connection conn = getConnection();
 		
-		int listCount = new ProductDao().selectListCount(conn);
+		int listCount = new StockDao().selectStockListCount(conn);
 		
 		close(conn);
 		
@@ -24,11 +24,11 @@ public class ProductService {
 		
 	}
 	
-	public ArrayList<Product> selectList(PageInfo pi) {
+	public ArrayList<Product> selectStockList(PageInfo pi) {
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Product> list = new ProductDao().selectList(conn, pi);
+		ArrayList<Product> list = new StockDao().selectStockList(conn, pi);
 		
 		close(conn);
 		
