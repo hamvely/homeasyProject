@@ -100,7 +100,7 @@
         margin: 20px 0 20px 0;
     }
 
-    tr{height:45px;}
+    tr{height:46px;}
     th{text-align: center;}
     td{padding-left:15px;}
     p{padding-top:15px; height:500px;}
