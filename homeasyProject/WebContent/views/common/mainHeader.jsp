@@ -203,7 +203,7 @@
                 <a href="<%=contextPath%>/list.qna">질문과답변</a>
               </div>
               <div id="menu1" class="container tab-pane fade"><br>
-                <a href="<%= contextPath %>/list.st">가구</a>
+                <a href="<%= contextPath %>/funiList.st">가구</a>
                 <a href="#">패브릭</a>
                 <a href="#">홈데코/조명</a>
                 <a href="#">수납/정리</a>

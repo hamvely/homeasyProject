@@ -17,14 +17,14 @@ import com.kh.store.model.service.StoreService;
 /**
  * Servlet implementation class StoreListServlet
  */
-@WebServlet("/list.st")
-public class StoreListServlet extends HttpServlet {
+@WebServlet("/funiList.st")
+public class StoreFurnitureListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreListServlet() {
+    public StoreFurnitureListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

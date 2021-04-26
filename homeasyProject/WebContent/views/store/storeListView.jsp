@@ -41,10 +41,7 @@
 	<%@ include file="../common/mainHeader.jsp" %>
     <div class="outer">
         <br>
-        <!--관리자만 상품 등록 가능 구현해야함-->
-        <div align="right" style="width:1200px;">
-            <button>상품등록</button>
-            <br><br>
+        
         </div>
             <div class="listArea" align="center">
 			
