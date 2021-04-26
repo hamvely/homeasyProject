@@ -50,6 +50,48 @@ public class NoticeService {
 		
 		return result;
 	
+	}
+	
+	/* 조회수 증가 */
+	public int increaseCount(int noticeNo) {
+		
+		Connection conn = getConnection();
+		int result = new NoticeDao().increaseCount(conn, noticeNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/* 공지사항 상세(관리자) */
+	public Notice selectNotice(int noticeNo) {
+		Connection conn = getConnection();
+		Notice n = new NoticeDao().selectNotice(conn, noticeNo);
+		
+		close(conn);
+		return n;
+	}
+
+	public int deleteNotice(int noticeNo) {
+
+		Connection conn = getConnection();
+		int result = new NoticeDao().deleteNotice(conn, noticeNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+		
+	
 	}	
 		
 		

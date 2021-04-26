@@ -92,32 +92,13 @@
         outline: 0 none;
     }
 
-    /* 모달 가운데정렬 */
-    /*
-    .modal {
-        text-align: center;
-    }
-    @media screen and (min-width: 768px) { 
-            .modal:before {
-                    display: inline-block;
-                    vertical-align: middle;
-                    content: " ";
-                    height: 100%;
-            }
-    }
-    .modal-dialog {
-            display: inline-block;
-            text-align: left;
-            vertical-align: middle;
-    }
-    */
-
     /* */
     #content_2 table {
         width: 100%;
         text-align: center;
         margin: 20px 0 20px 0;
     }
+
 
 </style>
 </head>
@@ -142,11 +123,11 @@
                 <div class="content_bar">
                     <br>
                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#insertNotice">글 작성</button>
-                    <button type="button" class="btn btn-warning">글 수정</button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailNotice">글 수정</button>
                     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteNotice">글 삭제</button>
                 </div>
 
-                <table class="table table-hover">
+                <table class="listArea table-bordered table-hover">
                     <colgroup>
                         <col width="50px;"/>
                         <col width="75px;"/>
@@ -186,8 +167,25 @@
 	                    <% } %>		                    
  					</tbody>
                 </table>
-   
             </div>
+            
+			<script>
+	    	$(function(){
+				$(".listArea>tbody>tr").click(function(){
+					// 쿼리스트링 이용해서 요청할 url 작성
+					location.href = '<%=contextPath%>/adminDetail.no?nno=' + $(this).children().eq(1).text();
+										
+					<%--
+					$('#detailNotice').modal("show");
+					--%>
+					<%--
+					--%>
+					
+				})
+	    	})
+	    	</script>
+            
+
             
 <!-- ------------------------------------------------------------------------------------------------------------------- -->            
             
@@ -228,9 +226,71 @@
                     </div>
                 </div>
             </div>
-
+            
+            <!-- 
+            <div>
+	            <form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.no" method="post">
+	
+	                <table class="table table-borderless">
+	                    <tr>
+	                        <td><input type="text" name="title" class="form-control" placeholder="제목을 입력해주세요." required></td>
+	                    </tr>
+	                    <tr>
+	                        <td><textarea name="content" class="form-control" rows="10" style="resize:none;" placeholder="내용을 입력해주세요." required></textarea></td>
+	                    </tr>
+	                </table>
+	
+	                <button type="submit" class="btn btn-warning">작성</button>    
+	                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+	
+	            </form>
+            </div>
+             -->
+            
 <!-- ------------------------------------------------------------------------------------------------------------------- -->   
 	
+			<!-- 공지사항 상세 모달 -->
+            <!-- The Modal -->
+            <div class="modal" id="detailNotice">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+	                        <h3 class="modal-title">공지사항 상세보기</h3>
+	                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                
+                       
+						<form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.no" method="post">
+                            <!-- Modal body -->
+                            <div class="modal-body">
+
+								<table class="table table-borderless">
+								    <tr>
+								        <td><textarea name="title" class="form-control" style="resize:none;" required></textarea></td>
+								    </tr>
+								    <tr>
+								        <td><textarea name="content" class="form-control" rows="10" style="resize:none;" required></textarea></td>
+								    </tr>
+								</table>
+
+                            </div>
+                                
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                    <button type="submit" class="btn btn-warning">수정</button>    
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">삭제</button>
+                            </div>
+						</form>
+                    </div>
+                </div>
+            </div>
+
+	
+	
+<!-- ------------------------------------------------------------------------------------------------------------------- -->   
+
 			<!-- 공지사항 삭제 모달 -->
             <div class="modal" id="deleteNotice">
                 <div class="modal-dialog">

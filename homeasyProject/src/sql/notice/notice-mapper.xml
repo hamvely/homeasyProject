@@ -43,8 +43,35 @@
           )
 	</entry>
 	
+	<!-- 조회수 증가  -->
+	<entry key="increaseCount">
+		UPDATE
+		       NOTICE
+		   SET NO_COUNT = NO_COUNT + 1
+		 WHERE NO_NO = ?
+		   AND NO_STATUS = 'Y'
+	</entry>
+	
+	<!-- 공지사항 상세(관리자) -->
+	<entry key="selectNoticeDetail">
+		SELECT 
+		       NO_NO
+		     , NO_TITLE
+		     , NO_CONTENT
+		     , NO_CREATE_DATE
+		     , NO_STATUS
+		  FROM NOTICE N
+		 WHERE NO_NO = ?
+		  
+	</entry>
 	
 	
+	<entry key="deleteNotice">
+		UPDATE
+		       NOTICE
+		   SET NO_STATUS = 'N'
+		 WHERE NO_NO = ?
+	</entry>
 	
 	
 	
