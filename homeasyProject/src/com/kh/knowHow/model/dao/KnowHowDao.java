@@ -43,13 +43,16 @@ public class KnowHowDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				
-				list.add(new KnowHow(rset.getString("post_title"),
-									 rset.getString("post_content"),
-									 rset.getString("post_file_rename")));
-				
-			}
-			
+						
+						KnowHow k = new KnowHow();
+						k.setPostNo(rset.getInt("post_no"));
+						k.setPostTitle(rset.getString("post_title"));
+						k.setPostContent(rset.getString("post_content"));
+						k.setPostFileRename(rset.getString("post_file_rename"));
+						
+						list.add(k);
+					}
+					
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -59,10 +62,9 @@ public class KnowHowDao {
 		}
 		
 		return list;
-		
 	}
-	
-	
+		
+		
 	public KnowHow selectKnowHow(Connection conn) {
 		
 		KnowHow k = null;

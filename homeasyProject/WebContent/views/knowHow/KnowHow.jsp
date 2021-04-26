@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.knowHow.model.vo.KnowHow"%>
+<%
+String contextPath = request.getContextPath();
+%>
     
-<% String contextPath = request.getContextPath(); %>  
-
 <%
 	ArrayList<KnowHow> list = (ArrayList<KnowHow>)request.getAttribute("list");
 %> 
@@ -74,14 +75,15 @@
             float:left;
         }
         
-        .content1{
-        	margin-top:-10px;
-        }
+        
+        h3, p, img{cursor:pointer;}
+        
 
 </style>
 </head>
 <body>
     <div class="content">
+        
         <div class="button">
             <a href="" class="a1">
                 <div class="question">
@@ -90,37 +92,34 @@
             </a>
         </div>
         
-	   <% for(KnowHow k:list) { %>
-	   <br><br><br>
-        <div class="content1">
+      <div class="listArea">
         
-        <input type="hidden" value="<%=k.getPostTitle() %>">
-        
-             <a href="" class="content1_2">
-                 <h3><%=k.getPostTitle()%></h3>
-             </a>
-             
-             <div class="content1_1">
-                 <a href="" class="content1_2">
-                    <p><%=k.getPostContent() %></p>
-                 </a>
-             </div>
-             
-              <a href="">
-                  <img src="<%=k.getPostFileRename() %>" class="imgfile">
-              </a>
-              <br><br>
-              <hr>
-        </div>
-		<% } %>
+		   
+			  <% for(KnowHow k : list) {%>
+			   <br><br><br>
+		        <div class="thumbnail">
+		        	<input type="hidden" value="<%=k.getPostNo()%>">
+		        
+		                 <p><%=k.getPostTitle()%><br>
+		                 <%=k.getPostContent() %></p>
+		                 
+		           		 <img src="<%=contextPath %>/<%=k.getPostFileRename() %>" class="imgfile">
 		
+		              <br><br>
+		              <hr>
+		   
+		        </div>
+		      <% } %>
+		</div>
+	
 		<script>
 			$(function(){
-				$(".content1").click(function(){
+				$(".thumbnail").click(function(){
 					location.href='<%=contextPath%>/post.how?kno=' + $(this).children().eq(0).val();
 				})
 			})
 		</script>
+		
 	</div>
 </body>
 </html>

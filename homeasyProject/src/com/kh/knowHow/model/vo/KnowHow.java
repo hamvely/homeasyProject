@@ -31,8 +31,9 @@ public class KnowHow {
 
 
 	//노하우메인
-	public KnowHow(String postTitle, String postContent, String postFileRename) {
+	public KnowHow(int postNo, String postTitle, String postContent, String postFileRename) {
 		super();
+		this.postNo = postNo;
 		this.postTitle = postTitle;
 		this.postContent = postContent;
 		this.postFileRename = postFileRename;
