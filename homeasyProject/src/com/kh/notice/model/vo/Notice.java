@@ -41,6 +41,22 @@ public class Notice {
 	}
 	
 	/* 공지사항 작성(관리자) */
+	public Notice(int noticeNo, String noticeTitle, String noticeContent) {
+		super();
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+		this.noticeContent = noticeContent;
+	}
+	
+	/* 공지사항 상세(관리자) */
+	public Notice(int noticeNo, String noticeTitle, String noticeContent, Date createDate, String status) {
+		super();
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+		this.noticeContent = noticeContent;
+		this.createDate = createDate;
+		this.status = status;
+	}
 
 	public int getNoticeNo() {
 		return noticeNo;
