@@ -14,6 +14,7 @@ public class Product {
 	private String productStatus;	// 상품 등록 상태 (Y:등록 / N:미등록)
 	
 	private String titleImg;		// 해당 게시글의 대표이미지경로
+	private int optionPrice;		// 상품의 옵션 가격
 	
 	public Product() {}
 
@@ -39,6 +40,14 @@ public class Product {
 		this.productPrice = productPrice;
 		this.productDetail = productDetail;
 		this.productDate = productDate;
+	}
+	
+	public int getOptionPrice() {
+		return optionPrice;
+	}
+
+	public void setOptionPrice(int optionPrice) {
+		this.optionPrice = optionPrice;
 	}
 
 	public String getTitleImg() {

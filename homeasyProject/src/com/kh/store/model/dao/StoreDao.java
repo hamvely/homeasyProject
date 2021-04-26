@@ -1,6 +1,6 @@
 package com.kh.store.model.dao;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.kh.common.JDBCTemplate.close;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.product.model.vo.Product;
+import com.kh.product.model.vo.ProductCate1;
+import com.kh.product.model.vo.ProductCate2;
 import com.kh.product.model.vo.ProductFile;
 import com.kh.product.model.vo.ProductOption;
 
@@ -168,6 +170,104 @@ public class StoreDao {
 		}
 		
 		return optionList;
+	}
+	
+	public ArrayList<ProductCate1> selectProductCate1List(Connection conn){
+		// select문 => ResultSet객체 (여러행)
+		ArrayList<ProductCate1> cate1List = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductCate1List");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				ProductCate1 c1 = new ProductCate1();
+				c1.setCate1No(rset.getInt("cate1_no"));
+				c1.setCate1Name(rset.getString("cate1_name"));
+				
+				cate1List.add(c1);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return cate1List;
+		
+	}
+	
+	public ArrayList<ProductCate2> selectProductCate2List(Connection conn){
+		// select문 => ResultSet객체 (여러행)
+		ArrayList<ProductCate2> cate2List = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectProductCate2List");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				ProductCate2 c2 = new ProductCate2();
+				c2.setCate2No(rset.getInt("cate2_no"));
+				c2.setCate1No(rset.getInt("cate1_no"));
+				c2.setCate2Name(rset.getString("cate2_name"));
+				
+				cate2List.add(c2);
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return cate2List;
+		
+	}
+	
+	public Product totalPrice(Connection conn, int selectOptionNo) {
+		// select문 => ResultSet객체 (한행)
+		Product tp = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("totalPrice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, selectOptionNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				Product p = new Product();
+				p.setProductPrice(rset.getInt("product_price"));
+				p.setOptionPrice(rset.getInt("option_price"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return tp;
+		
 	}
 	
 }

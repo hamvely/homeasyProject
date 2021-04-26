@@ -40,7 +40,7 @@
         display: flex;
         justify-content: space-between;
         width: 1100px;
-        height: 300px;
+        height: 380px;
         margin: auto;
     }
 
@@ -96,9 +96,11 @@
                             </option>
                         <% } %>
                     <% } %>
-                    </select>
+                    </select> <br><br>
+                                     수량 : <input type="number" id="amount">  
                     </form>
-                    <p>총가격 : 원래가격 + 옵션가격</p>
+                    <br>
+                    <p>총가격 : (원래가격 + 옵션가격)*수량</p>
                     <button>장바구니 담기</button>
                     <button>결제하기</button> 
                     <hr><hr>
@@ -112,10 +114,11 @@
 
         </div>
 
+		<script>
+			
+		</script>
+		
     </div>
-
-
-
         
 </body>
 </html>

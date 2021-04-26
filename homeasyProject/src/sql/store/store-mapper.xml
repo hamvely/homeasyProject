@@ -48,4 +48,27 @@
 		 WHERE PRODUCT_NO = ?
 	</entry>
 
+	<entry key="selectProductCate1List">
+		SELECT
+		       CATE1_NO
+		     , CATE1_NAME
+		  FROM PRODUCT_CATE1
+	</entry>
+	
+	<entry key="selectProductCate2List">
+		SELECT
+		       CATE2_NO
+		     , CATE1_NO
+		     , CATE2_NAME
+		  FROM PRODUCT_CATE2
+		 WHERE PRODUCT_CATE1 = ?
+	</entry>
+	
+	<entry key="totalPrice">
+		SELECT
+		     , PRODUCT_PRICE
+		     , OPTION_PRICE
+		  FROM PRODUCT_OPTION PO, PRODUCT P
+		 WHERE PO.PRODUCT_NO = P.PRODUCT_NO AND PO.OPTION_NO=?
+	</entry>
 </properties>
