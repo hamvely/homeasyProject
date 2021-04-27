@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+ <entry key="OrderList">
+	SELECT 
+		   ORDER_NO
+		 , PRODUCT_NAME
+	 FROM ORDER_FORM, PRODUCT
+	 WHERE ROWNUM BETWEEN 1 AND 3
+	 
+ </entry>
+ 
+ <entry key="selectDetail">
+		SELECT
+		     O.NAME 
+		    ,O.ADDRESS 
+		    ,O.PHONE 
+		    ,O.ORDER_MEMO 
+		    ,B.BUY_DATE 
+		    ,B.BUY_METHOD 
+		    ,P.PRODUCT_NO
+		FROM ORDER_FORM O
+		JOIN ORDER_LIST L ON (O.ORDER_NO = L.ORDER_NO)
+		JOIN BUY B ON (O.ORDER_NO = B.ORDER_NO)
+		JOIN PRODUCT_OPTION P ON (L.PRODUCT_AMOUNT = P.PRODUCT_NO)
+ 
+ 
+ </entry>
+ 
+ <entry key="리뷰에  "></entry>
+ 
+ <entry key="리뷰작성">
+ 
+ </entry>
+
+</properties>

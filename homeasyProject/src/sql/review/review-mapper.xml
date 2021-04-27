@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<entry key="reviewList">
+
+    SELECT 
+         PRODUCT_NAME
+       , PRODUCT_BRAND
+       , PRODUCT_PRICE
+    FROM PRODUCT
+
+
+
+</entry>
+
+<entry key="insertReview">
+	INSERT
+	    INTO REVIEW
+	    (
+	     RE_NO
+	   , PRODUCT_NO
+	   , USER_NO
+	   , RE_CONTENT
+	   , RE_MARK
+	   )
+	VALUES
+	    (
+	     SEQ_RENO.NEXTVAL
+	    , ?
+	    , ?
+	    , ?
+	    , ?
+	    )
+		 
+	</entry>
+
+</properties>
