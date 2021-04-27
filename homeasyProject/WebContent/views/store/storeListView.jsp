@@ -45,10 +45,9 @@
         <br>
         <h1><%= cateList.get(0).getCate1Name() %></h1>
         <select id="cate2">
-        	<option selected>2차 카테고리 선택</option>
-        		<% for(int i=0; i<cateList.size(); i++) {%>
-	                 <option value="<%= cateList.get(i).getCate2No() %>">
-                     <%= cateList.get(i).getCate2Name() %>
+        		<% for(ProductCate pc : cateList) {%>
+	                 <option value="<%= pc.getCate2No() %>">
+                     <%= pc.getCate2Name() %>
                      </option>
                   <% } %>
         </select>
@@ -59,6 +58,7 @@
             <div class="thumbnail" align="center">
             	<input type="hidden" value="<%=p.getProductNo()%>">
 				<input type="hidden" value="<%=p.getProductDate()%>">
+				<input type="hidden" value="<%=p.getCate2No()%>">
             	
                 <img src="<%= contextPath %>/<%= p.getTitleImg() %>" width="300" height="300">
                 <p align="left">
@@ -74,7 +74,7 @@
         <script>
         	$(function(){
         		$("#cate2").click(function(){
-        			location.href = '<%=contextPath%>/furnitureList.st?cate2No=' + $(this).children().eq(1).val();
+        			location.href = '<%=contextPath%>/furnitureList.st?cate2No=' + $(this).children().eq(0).val();
         		})
         	})
         </script>

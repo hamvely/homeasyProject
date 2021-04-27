@@ -32,7 +32,7 @@ public class StoreDao {
 		
 	}
 	
-	public ArrayList<Product> selectFurnitureList(Connection conn) {
+	public ArrayList<Product> selectFurnitureList(Connection conn, int cate2No) {
 		// select문 => ResultSet객체 (여러행)
 		ArrayList<Product> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -44,11 +44,13 @@ public class StoreDao {
 			pstmt = conn.prepareStatement(sql);
 			
 			rset = pstmt.executeQuery();
+			pstmt.setInt(1, cate2No);
 			
 			while(rset.next()) {
 				
 				Product p = new Product();
 				p.setProductNo(rset.getInt("product_no"));
+				p.setCate2No(rset.getInt("cate2_no"));
 				p.setProductBrand(rset.getString("product_brand"));
 				p.setProductName(rset.getString("product_name"));
 				p.setProductPrice(rset.getInt("product_price"));

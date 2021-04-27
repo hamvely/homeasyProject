@@ -14,10 +14,10 @@ import com.kh.store.model.dao.StoreDao;
 
 public class StoreService {
 	
-	public ArrayList<Product> selectFurnitureList() {
+	public ArrayList<Product> selectFurnitureList(int cate2No) {
 		
 		Connection conn = getConnection();
-		ArrayList<Product> list = new StoreDao().selectFurnitureList(conn);
+		ArrayList<Product> list = new StoreDao().selectFurnitureList(conn, cate2No);
 		
 		close(conn);
 		 

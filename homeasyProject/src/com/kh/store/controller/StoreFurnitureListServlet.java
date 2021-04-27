@@ -33,9 +33,9 @@ public class StoreFurnitureListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		
-		
-		ArrayList<Product> list = new StoreService().selectFurnitureList();
+		int cate2No = Integer.parseInt(request.getParameter("cate2No"));
+		//System.out.println(cate2No);
+		ArrayList<Product> list = new StoreService().selectFurnitureList(cate2No);
 		ArrayList<ProductCate> cateList = new StoreService().furnitureCate();
 		
 		request.setAttribute("list", list);

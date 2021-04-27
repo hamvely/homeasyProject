@@ -5,6 +5,7 @@
 	<entry key="selectFurnitureList">
 		 SELECT 
 		 		  PRODUCT.PRODUCT_NO
+		 		, PRODUCT.CATE2_NO  
                 , PRODUCT_BRAND  
                 , PRODUCT_NAME
                 , PRODUCT_PRICE
@@ -14,6 +15,7 @@
             WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
               AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
               AND CATE1_NO = 1
+              AND CATE2_NO = ?
               AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
          ORDER BY PRODUCT.PRODUCT_NO ASC
 	</entry>
