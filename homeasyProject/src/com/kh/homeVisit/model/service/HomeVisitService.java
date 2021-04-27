@@ -22,7 +22,6 @@ public class HomeVisitService {
 		
 	}
 	
-	
 
 	public ArrayList<Attachment> selectAttachmentList(int postNo){
 		Connection conn = getConnection();
