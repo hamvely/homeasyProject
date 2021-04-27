@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.product.model.vo.Product;
-import com.kh.product.model.vo.ProductCate1;
-import com.kh.product.model.vo.ProductCate2;
 import com.kh.store.model.service.StoreService;
 
 /**
