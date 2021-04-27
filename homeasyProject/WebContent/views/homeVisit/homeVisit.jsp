@@ -117,7 +117,7 @@ String contextPath = request.getContextPath();
 		<script>
 			$(function(){
 				$(".thumbnail").click(function(){
-					location.href='<%=contextPath%>/detail.ho?hno=' + $(this).children().eq(0).val();
+					location.href='<%=contextPath%>/detail.ho?pno=' + $(this).children().eq(0).val();
 				})
 			})
 		</script>

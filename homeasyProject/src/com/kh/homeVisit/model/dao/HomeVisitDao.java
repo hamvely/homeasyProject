@@ -31,10 +31,10 @@ public class HomeVisitDao {
 			e.printStackTrace();
 		}
 	}
-
-	public HomeVisit selectHomeVisit(Connection conn){
+	
+	public ArrayList<HomeVisit> selectHomeVisit(Connection conn) {
 		
-		HomeVisit h = null;
+		ArrayList<HomeVisit> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
@@ -42,17 +42,17 @@ public class HomeVisitDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, postNo);
 			rset = pstmt.executeQuery();
 			
-			if(rset.next()) {
-				h = new HomeVisit(rset.getInt("post_no"),
-									   rset.getString("user_file_rename"),
-						               rset.getString("nickname"),
-						               rset.getString("post_file_rename"),
-						               rset.getString("post_content"),
-						               rset.getString("pcom_content"));
+			while(rset.next()) {
 				
+				list.add(new HomeVisit(rset.getInt("p.post_no"),
+									   rset.getString("user_file_rename"),
+									   rset.getString("nickname"),
+									   rset.getString("post_file_rename"),
+									   rset.getString("post_content"),
+									   rset.getString("PCOM_CONTENT")));
+						
 			}
 			
 		} catch (SQLException e) {
@@ -62,8 +62,10 @@ public class HomeVisitDao {
 			close(pstmt);
 		}
 		
-		return h;
+		return list;
 	}
+
+	
 
 
 	public ArrayList<HomeVisit> adminHomeVisitList(Connection conn){
@@ -262,5 +264,10 @@ public class HomeVisitDao {
 		
 		return at;
 	}
+
+
+
+
+	
 	
 }

@@ -32,7 +32,7 @@ public class HomeVisitPostServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	System.out.println();
 		int postNo = Integer.parseInt(request.getParameter("pno"));
 		
 		int result = new HomeVisitService().increaseCount(postNo);

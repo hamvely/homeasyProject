@@ -20,9 +20,10 @@ public class HomeVisit {
 	
 	public HomeVisit() {}
 
-	public HomeVisit(String userFileRename, String nickName, String postFileRename, String postContent,
+	public HomeVisit(int postNo, String userFileRename, String nickName, String postFileRename, String postContent,
 			String pcomContent) {
 		super();
+		this.postNo = postNo;
 		this.userFileRename = userFileRename;
 		this.nickName = nickName;
 		this.postFileRename = postFileRename;
