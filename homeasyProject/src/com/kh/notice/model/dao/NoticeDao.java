@@ -237,59 +237,9 @@ private Properties prop = new Properties();
 	}
 
 	/* 공지사항 게시글 갯수 */
-	public int selectListCount(Connection conn) {
-
-		// select문 => ResultSet객체 (총게시글갯수 == 정수)
-		int listCount = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectListCount");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				listCount = rset.getInt("LISTCOUNT");
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return listCount;
-
-	}
 
 	/* 공지사항 페이징 */
-	public ArrayList<Notice> selectList(Connection conn, PageInfo pi) {
-
-		// select문 => ResultSet객체 (여러행)
-		ArrayList<Notice> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectList");
-
-			try {
-				pstmt = conn.prepareStatement(sql);
-				
-				pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1);
-				pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
-				
-				rset = pstmt.executeQuery();
-				
-			} catch (SQLException e) {
-			} finally {
-				close(rset);
-				close(pstmt);
-			}
-			return list;
-	}
+	
 				
 				
 	/* 작성자 : 장아영 */

@@ -12,7 +12,7 @@
 </head>
 <body>
    
-   <%@ include file="views/common/mainPage.jsp" %>
+   <%@ include file="views/common/mainHeader.jsp" %>
       
 </body>
 </html>

@@ -20,7 +20,6 @@ public class NoticeService {
 		close(conn);
 		
 		return list;
-		
 	}	
 	
 	/* 공지사항 리스트조회(관리자)*/
@@ -32,10 +31,9 @@ public class NoticeService {
 		close(conn);
 		
 		return adminList;
-		
 	}
 
-	/* 공지사항 작성(관리자) */
+	/* 공지사항 작성 */
 	public int insertNotice(Notice n) {
 
 		Connection conn = getConnection();	
@@ -50,10 +48,9 @@ public class NoticeService {
 		close(conn);
 		
 		return result;
-	
 	}
 	
-	/* 조회수 증가 */
+	/* 공지사항 조회수  */
 	public int increaseCount(int noticeNo) {
 		
 		Connection conn = getConnection();
@@ -110,7 +107,7 @@ public class NoticeService {
 		return result;
 	}
 
-	/* 페이징 처리 */
+	/* 공지사항 게시글 갯수 */
 	public int selectListCount() {
 		Connection conn = getConnection();
 		int listCount = new NoticeDao().selectListCount(conn);
@@ -120,19 +117,13 @@ public class NoticeService {
 		return listCount;
 	}
 
-	public ArrayList<Notice> selectList(PageInfo pi) {
-		Connection conn = getConnection();
-		ArrayList<Notice> list = new NoticeDao().selectList(conn, pi);
-		close(conn);
-		return list;
-	
-	}
+	/* 공지사항 페이징  */
+
 
 	
 	
 	
-	
-	
+	/* 작성자 : 장아영 */
 	/*관리자 메인화면 박스 공지사항 리스트*/
 	public ArrayList<Notice> selectNoticeListAdminMain(){
 		Connection conn = getConnection();
