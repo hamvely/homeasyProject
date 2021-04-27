@@ -32,9 +32,9 @@ public class HomeVisitDao {
 		}
 	}
 
-	public ArrayList<HomeVisit> selectHomeVisit(Connection conn){
+	public HomeVisit selectHomeVisit(Connection conn){
 		
-		ArrayList<HomeVisit> list = new ArrayList<>();
+		HomeVisit h = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
@@ -42,15 +42,16 @@ public class HomeVisitDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				
-				list.add(new HomeVisit(rset.getString("user_file_rename"),
+			if(rset.next()) {
+				h = new HomeVisit(rset.getInt("post_no"),
+									   rset.getString("user_file_rename"),
 						               rset.getString("nickname"),
 						               rset.getString("post_file_rename"),
 						               rset.getString("post_content"),
-						               rset.getString("pcom_content")));
+						               rset.getString("pcom_content"));
 				
 			}
 			
@@ -61,7 +62,7 @@ public class HomeVisitDao {
 			close(pstmt);
 		}
 		
-		return list;
+		return h;
 	}
 
 
@@ -208,6 +209,58 @@ public class HomeVisitDao {
 		
 		return list;
 		
+	}
+	
+	public int increaseCount(Connection conn, int boardNo) {
+		// update문 => 처리된 행수
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("increaseCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public Attachment selectAttachmentList(Connection conn, int postNo){
+		Attachment at = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAttachment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				at = new Attachment();
+				at.setFileNo(rset.getInt("file_no"));
+				at.setOriginName(rset.getString("origin_name"));
+				at.setChangeName(rset.getString("change_name"));
+				at.setFilePath(rset.getString("file_path"));
+		
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return at;
 	}
 	
 }

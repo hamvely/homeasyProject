@@ -126,7 +126,7 @@
                 </table>
                 
                 <div id="fileArea">
-                	<input type="file" name="file1" id="file1" onchange="loadImg(this, 1);" required>
+                	<input type="file" name="file" id="file1" onchange="loadImg(this, 1);" required>
                 </div>
                 
                 

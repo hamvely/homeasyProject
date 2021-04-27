@@ -12,6 +12,7 @@ String contextPath = request.getContextPath();
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
 		.outer{
@@ -108,7 +109,7 @@ String contextPath = request.getContextPath();
 		   			<%=h.getPostContent() %>
 		   			</P>
 		   			
-		   			<p><%=h.getUserNo() %> <%=h.getPcomContent() %></p>
+		   			<p><%=h.getNickName() %> <%=h.getPcomContent() %></p>
 		   		</div>
 		   	<% } %>	
 		</div>

@@ -11,6 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
         .content{
@@ -115,6 +116,14 @@
                 <hr>
         </div>
 		<% } %>
+		
+		<script>
+			$(function(){
+				$(".content1").click(function(){
+					location.href='<%=contextPath%>/post.qna?qno=' + $(this).children().eq(0).val();
+				})
+			})
+		</script>
      </div>
 </body>
 </html>

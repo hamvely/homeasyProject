@@ -9,7 +9,7 @@ public class HomeVisit {
 	private String postFileRename;
 	private String postContent;
 	private String pcomContent;
-	private String postNo;
+	private int postNo;
 	private String rowNum;
 	private String email;
 	private String postTitle;
@@ -30,7 +30,7 @@ public class HomeVisit {
 		this.pcomContent = pcomContent;
 	}
 
-	public HomeVisit(String postContent, String postNo, String postTitle, Date postCreateDate, String userNo,
+	public HomeVisit(String postContent, int postNo, String postTitle, Date postCreateDate, String userNo,
 			String postCateName) {
 		super();
 		this.postContent = postContent;
@@ -53,7 +53,7 @@ public class HomeVisit {
 	
 
 	
-	public HomeVisit(String postContent, String postNo, String postTitle, String userNo) {
+	public HomeVisit(String postContent, int postNo, String postTitle, String userNo) {
 		super();
 		this.postContent = postContent;
 		this.postNo = postNo;
@@ -85,11 +85,11 @@ public class HomeVisit {
 		this.userNo = userNo;
 	}
 
-	public String getPostNo() {
+	public int getPostNo() {
 		return postNo;
 	}
 
-	public void setPostNo(String postNo) {
+	public void setPostNo(int postNo) {
 		this.postNo = postNo;
 	}
 

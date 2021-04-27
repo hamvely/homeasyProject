@@ -62,7 +62,7 @@ public class HomeVisitInsertServlet extends HttpServlet {
 					
 					Attachment at = new Attachment();
 					at.setOriginName(multiRequest.getOriginalFileName(key));
-					at.setFileSystemName(multiRequest.getFilesystemName(key));
+					at.setChangeName(multiRequest.getFilesystemName(key));
 					at.setFilePath("/resources/post_upfiles/");
 					
 					if(i==1) {

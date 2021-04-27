@@ -2,15 +2,17 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
+	 <!-- 집들이 리스트 조회 -->
 	<entry key="selectHomeVisit">
 		  SELECT
-                 USER_FILE_RENAME
+                 P.POST_NO
+               , USER_FILE_RENAME
 		       , NICKNAME
 		       , POST_FILE_RENAME
 		       , POST_CONTENT
 		       , PCOM_CONTENT
 		  FROM MEMBER M
-          JOIN POST ON (M.USER_NO = POST.USER_NO)
+          LEFT JOIN POST ON (M.USER_NO = POST.USER_NO)
 		  JOIN POST_FILE ON ( M.USER_NO = POST_FILE.POST_NO)
 		  JOIN POST_COMMENT ON ( M.USER_NO = POST_COMMENT.USER_NO)
 		 WHERE M.USER_STATUS = 'Y'
@@ -19,6 +21,14 @@
             BY POST_CREATE_DATE DESC
 	</entry>
 	
+	<!-- 집들에 게시글 조회수 -->
+	<entry key="increaseCount"> 
+		    UPDATE
+                  POST
+              SET POST_COUNT = COUNT+1
+            WHERE POST_NO = ?
+             AND STATUS= 'Y'
+	</entry>
 	
 	<entry	key="selectReplyList">
 		SELECT
@@ -70,7 +80,8 @@
 		   AND POST_STATUS = 'Y'
 	</entry>
 
-	<entry key="selectList"> <!-- 집들이관리 조회 -->
+ 	<!-- 집들이관리 조회 -->
+	<entry key="selectList">
 		SELECT *
 		  FROM (
 		        SELECT

@@ -18,10 +18,18 @@ public class HomeVisitService {
 	public ArrayList<HomeVisit> selectHomeVisit(){
 		Connection conn = getConnection();
 	
-		ArrayList<HomeVisit> list = new HomeVisitDao().selectHomeVisit(conn);
+		HomeVisit list = new HomeVisitDao().selectHomeVisit(conn, postNo);
 		
 		close(conn);
 		
+		return h;
+	}
+	
+
+	public ArrayList<Attachment> selectAttachmentList(int postNo){
+		Connection conn = getConnection();
+		ArrayList<Attachment> list = new HomeVisitDao().selectAttachmentList(conn, postNo);
+		close(conn);
 		return list;
 	}
 
@@ -70,5 +78,21 @@ public class HomeVisitService {
 		ArrayList<HomeVisit> list = new HomeVisitDao().selectList(conn, pi);
 		close(conn);
 		return list;
+	}
+
+
+	public int increaseCount(int postNo) {
+		Connection conn = getConnection();
+		int result = new HomeVisitDao().increaseCount(conn, postNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
 	}
 }

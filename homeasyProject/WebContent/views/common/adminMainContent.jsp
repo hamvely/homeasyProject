@@ -3,10 +3,12 @@
 <%
 	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
 %>
+<% String contextPath = request.getContextPath(); %>  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
         .admin_main{
@@ -197,6 +199,15 @@
                 </table>
             </div>
         </div>
+        
+        <script>
+			$(function(){
+				$(".table1").click(function(){
+					location.href = '<%=contextPath%>/adminDetail.no?nno=' + $(this).children().eq(0).text();
+				})
+			})
+		</script>
+           
     </div>
     
 </body>
