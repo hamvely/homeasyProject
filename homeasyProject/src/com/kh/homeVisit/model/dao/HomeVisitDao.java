@@ -48,7 +48,7 @@ public class HomeVisitDao {
 				list.add(new HomeVisit(rset.getInt("P.POST_NO"),
 									   rset.getString("P.POST_CONTENT"),
 									   rset.getString("M.NICKNAME"),
-									   rset.getString("M.USER_FILE_RENAMEe"),
+									   rset.getString("M.USER_FILE_RENAME"),
 									   rset.getString("PF.POST_FILE_RENAME"),
 									   rset.getString("PC.PCOM_CONTENT")));
 						
@@ -108,7 +108,7 @@ public class HomeVisitDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, h.getPostNo());
+			pstmt.setInt(1, h.getPostNo());
 			pstmt.setString(2, h.getUserNo());
 			pstmt.setString(3, h.getPostTitle());
 			pstmt.setString(4, h.getPostContent());

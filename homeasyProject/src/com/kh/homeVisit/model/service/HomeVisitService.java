@@ -5,8 +5,10 @@ import static com.kh.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.homeVisit.model.dao.HomeVisitDao;
 import com.kh.homeVisit.model.vo.HomeVisit;
+import com.kh.qna.model.vo.Attachment;
 
 
 
@@ -21,6 +23,7 @@ public class HomeVisitService {
 		return list;
 		
 	}
+	
 	
 
 	public ArrayList<Attachment> selectAttachmentList(int postNo){

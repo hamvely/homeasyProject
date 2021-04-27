@@ -64,26 +64,27 @@
 </style> 
 </head>
 <body>
+
 	<%@ include file="../common/mainHeader.jsp" %>
 	
 	<div class="outer">
-	   <div class="button">
-	      <a href="" class="a1">
-	          <div class="question">
-	             <li>정렬</li>
-	          </div>
-	      </a>
-	   </div>
+		   <div class="button">
+		      <a href="" class="a1">
+		          <div class="question">
+		             <li>정렬</li>
+		          </div>
+		      </a>
+		   </div>
 	        
-	  <% if(loginUser != null){ %>
-	   <div class="button1">
-		 <a href="<%=contextPath %>/write.ho" class="a1">
-		    <div class="question">
-		       <li>글쓰기</li>
-		    </div>
- 	     </a>
- 	   </div>
-	  <% } %><br><br>
+		  <% if(loginUser != null){ %>
+		   <div class="button1">
+			 <a href="<%=contextPath %>/write.ho" class="a1">
+			    <div class="question">
+			       <li>글쓰기</li>
+			    </div>
+	 	     </a>
+	 	   </div>
+		  <% } %><br><br>
    	
    		<div class="listArea">
 	   		<% for(HomeVisit h : list){ %>
