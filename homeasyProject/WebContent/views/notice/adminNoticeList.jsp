@@ -2,7 +2,6 @@
     pageEncoding="UTF-8" %>
 <%@ page import="java.util.ArrayList, com.kh.notice.model.vo.Notice, com.kh.common.model.vo.PageInfo" %>   
 <%
-	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
 %>
 <!DOCTYPE html>
@@ -165,27 +164,7 @@
 	                    <% } %>		                    
  					</tbody>
                 </table>
-                
-                <%-- 
-                <div align="center" class="pagingArea">
-                    <button>이전</button>
-
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-
-                    <button>다음</button>
-                </div>
-                --%>
-                
-                
+                               
             </div>
             
 			<script>

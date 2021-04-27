@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.kh.common.model.vo.PageInfo;
 import com.kh.notice.model.vo.Notice;
 
 import static com.kh.common.JDBCTemplate.*;
@@ -237,6 +236,34 @@ private Properties prop = new Properties();
 	}
 
 	/* 공지사항 게시글 갯수 */
+	public int selectListCount(Connection conn) {
+
+		// select문 => ResultSet객체 (총게시글갯수 == 정수)
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("LISTCOUNT");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+
+	}
 
 	/* 공지사항 페이징 */
 	
