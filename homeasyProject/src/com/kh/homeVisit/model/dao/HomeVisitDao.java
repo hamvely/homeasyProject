@@ -17,55 +17,6 @@ import com.kh.qna.model.vo.Attachment;
 
 
 public class HomeVisitDao {
-<<<<<<< HEAD
-	
-	private Properties prop = new Properties();
-	
-	public HomeVisitDao() {
-		
-		String fileName = HomeVisitDao.class.getResource("/sql/homeVisit/homeVisit-mapper.xml").getPath();
-	
-		try {
-			prop.loadFromXML(new FileInputStream(fileName));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public ArrayList<HomeVisit> selectHomeVisit(Connection conn) {
-		
-		ArrayList<HomeVisit> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectHomeVisit");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				
-				list.add(new HomeVisit(rset.getInt("P.POST_NO"),
-									   rset.getString("P.POST_CONTENT"),
-									   rset.getString("M.NICKNAME"),
-									   rset.getString("M.USER_FILE_RENAME"),
-									   rset.getString("PF.POST_FILE_RENAME"),
-									   rset.getString("PC.PCOM_CONTENT")));
-						
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-	}
-=======
-   
    private Properties prop = new Properties();
    
    public HomeVisitDao() {
@@ -111,8 +62,6 @@ public class HomeVisitDao {
       
       return list;
    }
->>>>>>> ac80bc78063ed29ee2324556ec4ea60a12218ee9
-
    
 
 
