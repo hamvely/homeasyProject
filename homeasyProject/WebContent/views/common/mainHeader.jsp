@@ -203,13 +203,13 @@
                 <a href="<%=contextPath%>/list.qna">질문과답변</a>
               </div>
               <div id="menu1" class="container tab-pane fade"><br>
-                <a href="<%= contextPath %>/funiList.st">가구</a>
-                <a href="#">패브릭</a>
-                <a href="#">홈데코/조명</a>
-                <a href="#">수납/정리</a>
-                <a href="#">생활</a>
-                <a href="#">주방</a>
-                <a href="#">반려동물</a>
+                <a href="<%= contextPath %>/funitureList.st">가구</a>
+                <a href="<%= contextPath %>/fabricList.st">패브릭</a>
+                <a href="<%= contextPath %>/decoList.st">홈데코/조명</a>
+                <a href="<%= contextPath %>/storageList.st">수납/정리</a>
+                <a href="<%= contextPath %>/suppliesList.st">생활</a>
+                <a href="<%= contextPath %>/kitchenList.st">주방</a>
+                <a href="<%= contextPath %>/petList.st">반려동물</a>
               </div>
               <div id="menu2" class="container tab-pane fade"><br>
                 <a href="<%= contextPath %>/list.no">공지사항</a>

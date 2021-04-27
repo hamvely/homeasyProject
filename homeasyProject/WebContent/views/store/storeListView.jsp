@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.Product"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
 <%
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	ArrayList<ProductCate> cateList = (ArrayList<ProductCate>)request.getAttribute("cateList");
 %>
 <!DOCTYPE html>
 <html>
@@ -14,6 +15,7 @@
 
 <style>
     .outer{
+     	display:"flex";
         width:1200px;
         margin:auto;
         margin-top:10px;
@@ -41,7 +43,15 @@
 	<%@ include file="../common/mainHeader.jsp" %>
     <div class="outer">
         <br>
-        
+        <h1><%= cateList.get(0).getCate1Name() %></h1>
+        <select id="cate2">
+        	<option selected>2차 카테고리 선택</option>
+        		<% for(int i=0; i<cateList.size(); i++) {%>
+	                 <option value="<%= cateList.get(i).getCate2No() %>">
+                     <%= cateList.get(i).getCate2Name() %>
+                     </option>
+                  <% } %>
+        </select>
         </div>
             <div class="listArea" align="center">
 			
@@ -61,7 +71,13 @@
             <% } %>
             
         </div>
-        
+        <script>
+        	$(function(){
+        		$("#cate2").click(function(){
+        			location.href = '<%=contextPath%>/furnitureList.st?cate2No=' + $(this).children().eq(1).val();
+        		})
+        	})
+        </script>
         <script>
         	$(function(){
         		$(".thumbnail").click(function(){

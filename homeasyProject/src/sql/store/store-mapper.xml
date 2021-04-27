@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-	<entry key="selectList">
+	<entry key="selectFurnitureList">
 		 SELECT 
 		 		  PRODUCT.PRODUCT_NO
                 , PRODUCT_BRAND  
@@ -14,6 +14,102 @@
             WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
               AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
               AND CATE1_NO = 1
+              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
+         ORDER BY PRODUCT.PRODUCT_NO ASC
+	</entry>
+	
+	<entry key="selectFabricList">
+		 SELECT 
+		 		  PRODUCT.PRODUCT_NO
+                , PRODUCT_BRAND  
+                , PRODUCT_NAME
+                , PRODUCT_PRICE
+                , PRODUCT_DATE
+                , PRODUCT_FILE_RENAME
+             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
+            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
+              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
+              AND CATE1_NO = 2
+              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
+         ORDER BY PRODUCT.PRODUCT_NO ASC
+	</entry>
+	
+	<entry key="selectDecoList">
+		 SELECT 
+		 		  PRODUCT.PRODUCT_NO
+                , PRODUCT_BRAND  
+                , PRODUCT_NAME
+                , PRODUCT_PRICE
+                , PRODUCT_DATE
+                , PRODUCT_FILE_RENAME
+             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
+            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
+              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
+              AND CATE1_NO = 3
+              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
+         ORDER BY PRODUCT.PRODUCT_NO ASC
+	</entry>
+	
+	<entry key="selectStorageList">
+		 SELECT 
+		 		  PRODUCT.PRODUCT_NO
+                , PRODUCT_BRAND  
+                , PRODUCT_NAME
+                , PRODUCT_PRICE
+                , PRODUCT_DATE
+                , PRODUCT_FILE_RENAME
+             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
+            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
+              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
+              AND CATE1_NO = 4
+              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
+         ORDER BY PRODUCT.PRODUCT_NO ASC
+	</entry>
+	
+	<entry key="selectSuppliesList">
+		 SELECT 
+		 		  PRODUCT.PRODUCT_NO
+                , PRODUCT_BRAND  
+                , PRODUCT_NAME
+                , PRODUCT_PRICE
+                , PRODUCT_DATE
+                , PRODUCT_FILE_RENAME
+             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
+            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
+              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
+              AND CATE1_NO = 5
+              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
+         ORDER BY PRODUCT.PRODUCT_NO ASC
+	</entry>
+	
+	<entry key="selectKitchenList">
+		 SELECT 
+		 		  PRODUCT.PRODUCT_NO
+                , PRODUCT_BRAND  
+                , PRODUCT_NAME
+                , PRODUCT_PRICE
+                , PRODUCT_DATE
+                , PRODUCT_FILE_RENAME
+             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
+            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
+              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
+              AND CATE1_NO = 6
+              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
+         ORDER BY PRODUCT.PRODUCT_NO ASC
+	</entry>
+	
+	<entry key="selectPetList">
+		 SELECT 
+		 		  PRODUCT.PRODUCT_NO
+                , PRODUCT_BRAND  
+                , PRODUCT_NAME
+                , PRODUCT_PRICE
+                , PRODUCT_DATE
+                , PRODUCT_FILE_RENAME
+             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
+            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
+              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
+              AND CATE1_NO = 7
               AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
          ORDER BY PRODUCT.PRODUCT_NO ASC
 	</entry>
@@ -50,27 +146,15 @@
 		 WHERE PRODUCT_NO = ?
 	</entry>
 
-	<entry key="selectProductCate1List">
+	<entry key="furnitureCate">
 		SELECT
-		       CATE1_NO
+		       PRODUCT_CATEGORY1.CATE1_NO
+		     , CATE2_NO
 		     , CATE1_NAME
-		  FROM PRODUCT_CATE1
-	</entry>
-	
-	<entry key="selectProductCate2List">
-		SELECT
-		       CATE2_NO
-		     , CATE1_NO
 		     , CATE2_NAME
-		  FROM PRODUCT_CATE2
-		 WHERE PRODUCT_CATE1 = ?
+		  FROM PRODUCT_CATEGORY1, PRODUCT_CATEGORY2
+		 WHERE PRODUCT_CATEGORY1.CATE1_NO = PRODUCT_CATEGORY2.CATE1_NO
+		   AND PRODUCT_CATEGORY1.CATE1_NO = 1
 	</entry>
 	
-	<entry key="totalPrice">
-		SELECT
-		     , PRODUCT_PRICE
-		     , OPTION_PRICE
-		  FROM PRODUCT_OPTION PO, PRODUCT P
-		 WHERE PO.PRODUCT_NO = P.PRODUCT_NO AND PO.OPTION_NO=?
-	</entry>
 </properties>

@@ -80,7 +80,7 @@
                     <p><%= p.getProductPrice() %></p>
                     
                       <form>
-                      <select>
+                      <select name="selectOption">
                       <option selected>옵션을 선택하세요</option>
                     <% for(int i=0; i<optionList.size(); i++) {%>
                        
@@ -100,7 +100,7 @@
                                      수량 : <input type="number" id="amount">  
                     </form>
                     <br>
-                    <p>총가격 : (원래가격 + 옵션가격)*수량</p>
+                    <p>총가격 : <%= p.getProductPrice() %></p>
                     <button>장바구니 담기</button>
                     <button>결제하기</button> 
                     <hr><hr>
@@ -115,7 +115,11 @@
         </div>
 
 		<script>
-			
+			$('#selectOption').focusout(function() {
+
+		    
+
+		})
 		</script>
 		
     </div>
