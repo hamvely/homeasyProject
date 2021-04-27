@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.notice.model.service.NoticeService;
 import com.kh.notice.model.vo.Notice;
+import com.kh.common.model.vo.PageInfo;
 
 /**
  * Servlet implementation class AdminNoticeListServlet
@@ -32,7 +33,40 @@ public class AdminNoticeListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		ArrayList<Notice> adminList = new NoticeService().selectNoticeListAdmin();
+		int listCount;
+		int currentPage;
+		int pageLimit;
+		int boardLimit;
+		
+		int maxPage;
+		int startPage;
+		int endPage;
+		
+		listCount = new NoticeService().selectListCount();
+		//System.out.println(listCount);
+		
+		currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		pageLimit = 10;
+		boardLimit = 10;
+		maxPage = (int)Math.ceil((double)listCount / boardLimit);
+		startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
+		endPage = startPage + pageLimit - 1;
+		if(endPage > maxPage){
+			endPage = maxPage;
+		}
+		
+		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+		//System.out.println(pi);
+		
+		ArrayList<Notice> adminList = new NoticeService().selectList(pi);
+		
+		/*
+		for(Notice n : adminList) {
+			System.out.println(n);
+		}
+		*/
+		
+		request.setAttribute("pi", pi);
 		request.setAttribute("adminList", adminList);
 		
 		request.getRequestDispatcher("views/notice/adminNoticeList.jsp").forward(request, response);

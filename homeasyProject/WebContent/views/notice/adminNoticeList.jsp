@@ -2,8 +2,15 @@
     pageEncoding="UTF-8" %>
 <%@ page import="java.util.ArrayList, com.kh.notice.model.vo.Notice, com.kh.common.model.vo.PageInfo" %>   
 <%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
-%>
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,9 +59,7 @@
     } 
 
     /* 타이틀 */
-    h3 {
-        font-weight:bold;
-    }
+    h3 {font-weight:bold;}
 
     /* 버튼스타일 */    
     .content_bar {
@@ -92,13 +97,12 @@
         outline: 0 none;
     }
 
-    /* */
+    /* 테이블 스타일 */
     #content_2 table {
         width: 100%;
         text-align: center;
         margin: 20px 0 20px 0;
     }
-
 	tr{height:45px;}
 
 </style>
@@ -164,6 +168,29 @@
 	                    <% } %>		                    
  					</tbody>
                 </table>
+                
+                <br><br>
+                
+				<div align="center" class="pagingArea">
+
+					<% if(currentPage != 1) { %>
+                    	<button onclick="location.href='<%= contextPath %>/adminList.no?currentPage=<%= currentPage-1 %>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+					
+						<% if(currentPage == p) { %>
+                    		<button disabled><%= p %></button>
+                    	<% }else { %>
+                    		<button onclick="location.href='<%= contextPath %>/adminList.no?currentPage=<%= p %>';"><%= p %></button>
+                    	<% } %>
+                    
+                    <% } %>
+                    
+                    <% if(currentPage != maxPage) { %>
+                    	<button onclick="location.href='<%= contextPath %>/adminList.no?currentPage=<%= currentPage+1 %>';">다음</button>
+					<% } %>
+                </div>           
                                
             </div>
             
