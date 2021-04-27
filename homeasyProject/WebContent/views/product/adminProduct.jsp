@@ -131,7 +131,9 @@
                 <!-- 버튼 -->
                 <div class="content_bar">
                     <button class="content_btn">검색</button>
-                    <button class="content_btn">상품추가</button>
+                    <button class="content_btn">
+                    	<a href="<%= contextPath %>/adminEnroll.pd">상품추가</a>
+                    </button>
                     <button class="content_btn">상품수정</button>
                     <button class="content_btn" data-toggle="modal" data-target="#deleteProduct">상품삭제</button>
                 </div>
