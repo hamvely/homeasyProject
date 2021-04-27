@@ -29,6 +29,7 @@ private Properties prop = new Properties();
 		}
 	}
 
+	/* 공지사항 리스트조회(사용자)*/
 	public ArrayList<Notice> selectNoticeList(Connection conn) {
 		
 		// select문 => ResultSet객체 (여러행)
@@ -93,7 +94,7 @@ private Properties prop = new Properties();
 	
 	}
 
-	/* 공지사항 작성(관리자) */
+	/* 공지사항 작성 */
 	public int insertNotice(Connection conn, Notice n) {
 
 		//System.out.println(n);
@@ -120,7 +121,7 @@ private Properties prop = new Properties();
 		return result;
 	}
 	
-	/* 조회수 증가 */
+	/* 공지사항 조회수  */
 	public int increaseCount(Connection conn, int noticeNo) {
 		
 		// update문 => 처리된 행수
@@ -145,6 +146,7 @@ private Properties prop = new Properties();
 
 	}
 
+	/* 공지사항 상세(관리자) */
 	public Notice selectNotice(Connection conn, int noticeNo) {
 		
 		//System.out.println(noticeNo);
@@ -179,6 +181,7 @@ private Properties prop = new Properties();
 			return n;
 		}
 
+	/* 공지사항 삭제 */
 	public int deleteNotice(Connection conn, int noticeNo) {
 		
 		System.out.println(noticeNo);
@@ -204,6 +207,7 @@ private Properties prop = new Properties();
 		return result;
 	}
 
+	/* 공지사항 수정 */
 	public int updateNotice(Connection conn, Notice n) {
 		
 		//System.out.println(n);			
@@ -232,6 +236,7 @@ private Properties prop = new Properties();
 		return result;
 	}
 
+	/* 공지사항 게시글 갯수 */
 	public int selectListCount(Connection conn) {
 
 		// select문 => ResultSet객체 (총게시글갯수 == 정수)
@@ -261,6 +266,7 @@ private Properties prop = new Properties();
 
 	}
 
+	/* 공지사항 페이징 */
 	public ArrayList<Notice> selectList(Connection conn, PageInfo pi) {
 
 		// select문 => ResultSet객체 (여러행)
@@ -286,7 +292,8 @@ private Properties prop = new Properties();
 	}
 				
 				
-	/*관리자 메인화면 박스 공지사항 리스트*/
+	/* 작성자 : 장아영 */
+	/* 관리자 메인화면 박스 공지사항 리스트 */
 	public ArrayList<Notice> selectNoticeListAdminMain(Connection conn) {
 
 		ArrayList<Notice> adminList = new ArrayList<>();
