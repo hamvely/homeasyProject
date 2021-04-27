@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.notice.model.vo.Notice"%>
+    pageEncoding="UTF-8" %>
+<%@ page import="java.util.ArrayList, com.kh.notice.model.vo.Notice, com.kh.common.model.vo.PageInfo" %>   
 <%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
 %>
 <!DOCTYPE html>
@@ -52,14 +54,13 @@
 
     /* 타이틀 */
     h3 {
-        margin-bottom: 20px;
         font-weight:bold;
     }
 
     /* 버튼스타일 */    
     .content_bar {
         box-sizing: border-box;
-        display: flex;
+        /*display: flex;*/
         /*position: absolute;*/
     }
     .btn-success {
@@ -72,19 +73,19 @@
     	border-color:rgb(241, 196, 15);
         color: white;
         width:100px; 
-        margin-right: 10px;
     }
     .btn-secondary {
         background-color:rgb(158, 158, 158); 
         border-color:rgb(158, 158, 158);
         width:100px; 
     }
+    
+    a, button{margin-left:10px;}
+    
 
     /* input 스타일 */
     input {height:40px;}
     
-    .terms input {vertical-align: -13px;}
-
 	/* input 네온스타일 */
     textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
         border-color: rgb(3, 79, 6); 
@@ -119,13 +120,12 @@
             <!-- 우측 본문 -->
             <div id="content_2">
 
-                <h3>공지사항</h2>
 
                 <div class="content_bar">
-                    <br>
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#insertNotice">글 작성</button>
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#detailNotice">글 수정</button>
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#deleteNotice">글 삭제</button>
+	                <h3>공지사항</h3>
+						<div align="right">
+	                    	<a class="btn btn-warning" data-toggle="modal" data-target="#insertNotice">글 작성</a>
+	                    </div>
                 </div>
 
                 <table class="listArea table-bordered table-hover">
@@ -165,6 +165,26 @@
 	                    <% } %>		                    
  					</tbody>
                 </table>
+                
+                <div align="center" class="pagingArea">
+                    <button>이전</button>
+
+                    <button>x</button>
+                    <button>x</button>
+                    <button>x</button>
+                    <button>x</button>
+                    <button>x</button>
+                    <button>x</button>
+                    <button>x</button>
+                    <button>x</button>
+                    <button>x</button>
+                    <button>x</button>
+
+                    <button>다음</button>
+                </div>
+                
+                
+                
             </div>
             
 			<script>
@@ -178,7 +198,6 @@
 					--%>
 					<%--
 					--%>
-					
 				})
 	    	})
 	    	</script>
@@ -284,37 +303,6 @@
                     </div>
                 </div>
             </div>
-
-	
-	
-<!-- ------------------------------------------------------------------------------------------------------------------- -->   
-
-			<!-- 공지사항 삭제 모달 -->
-            <div class="modal" id="deleteNotice">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h3 class="modal-title">공지사항 삭제</h3>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                        	해당 공지사항을 정말 삭제하시겠습니까?
-                        </div>
-                        
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">확인</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-                        </div>                    
-                    </div>
-                </div>
-            </div>         
-
-
 
 
         </div><!--컨텐츠-->

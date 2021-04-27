@@ -5,7 +5,7 @@ public class PageInfo {
 	private int listCount;		// 현재 멤버 총 갯수
 	private int currentPage;	// 현재 페이지 (요청한 페이지)
 	private int pageLimit;		// 한페이지 하단에 보여질 페이징바 최대갯수(10개단위)
-	private int boardLimit;	// 한페이지내 보여질 멤버리스트 최대갯수(10개단위)
+	private int boardLimit;		// 한페이지내 보여질 멤버리스트 최대갯수(10개단위)
 	
 	private int maxPage;		// 전체페이지들 중에서의 가장 마지막페이지 (listCount, boardLimit를 가지고 구할것)
 	private int startPage;		// 현재페이지 하단에 보여질 페이징바의 시작수 (currentPage, pageLimit를 가지고 구할것)

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.notice.model.vo.Notice;
 
 import static com.kh.common.JDBCTemplate.*;
@@ -31,32 +32,32 @@ private Properties prop = new Properties();
 	public ArrayList<Notice> selectNoticeList(Connection conn) {
 		
 		// select문 => ResultSet객체 (여러행)
-				ArrayList<Notice> list = new ArrayList<>();
-				PreparedStatement pstmt = null;
-				ResultSet rset = null;
+		ArrayList<Notice> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNoticeList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql); // 애초에 완성된 sql문
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
 				
-				String sql = prop.getProperty("selectNoticeList");
-				
-				try {
-					pstmt = conn.prepareStatement(sql); // 애초에 완성된 sql문
-					rset = pstmt.executeQuery();
-					
-					while(rset.next()) {
-						
-						list.add(new Notice(rset.getString("NO_TITLE"),
-											rset.getDate("NO_CREATE_DATE")));
-					}
-					
-				} catch (SQLException e) {
-					e.printStackTrace();
-				} finally {
-					close(rset);
-					close(pstmt);
-				}
-				
-				return list;
-				
+				list.add(new Notice(rset.getString("NO_TITLE"),
+									rset.getDate("NO_CREATE_DATE")));
 			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+		
+	}
 
 	/* 공지사항 리스트조회(관리자)*/
 	public ArrayList<Notice> selectNoticeListAdmin(Connection conn) {
@@ -202,6 +203,106 @@ private Properties prop = new Properties();
 		}
 		
 		return result;
+	}
+
+	public int updateNotice(Connection conn, Notice n) {
+		
+		//System.out.println(n);			
+		
+		// update문 => 처리된 행수
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("updateNotice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql); // 미완성된sql
+			pstmt.setString(1, n.getNoticeTitle());
+			pstmt.setDate(2, n.getCreateDate());
+			pstmt.setString(3, n.getNoticeContent());
+			//pstmt.setString(4, n.getStatus());
+			pstmt.setInt(4, n.getNoticeNo());
+			
+			result = pstmt.executeUpdate();			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int selectListCount(Connection conn) {
+
+		// select문 => ResultSet객체 (총게시글갯수 == 정수)
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectListCount");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("LISTCOUNT");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+
+	}
+
+	public ArrayList<Notice> selectList(Connection conn, PageInfo pi) {
+
+		// select문 => ResultSet객체 (여러행)
+		ArrayList<Notice> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			/*
+			 * ex) boardLimit : 10 라는 가정하에 
+			 * currentPage = 1	=> startRow : 1		endRow : 10
+			 * currentPage = 2	=> startRow : 11	endRow : 20
+			 * currentPage = 3	=> startRow : 21	endRow : 30
+			 * 
+			 * startRow = (currentPage - 1) * boardLimit + 1
+			 * endRow = currentPage * boardLimit
+			 */
+			pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getPageLimit() + 1);
+			pstmt.setInt(2, pi.getCurrentPage() * pi.getPageLimit());
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Notice(rset.getInt("board_no"),
+								   rset.getString("category_name"),
+								   rset.getString("board_title"),
+								   rset.getString("user_id"),
+								   rset.getInt("count"),
+								   rset.getDate("create_date")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 	}
 				
 }

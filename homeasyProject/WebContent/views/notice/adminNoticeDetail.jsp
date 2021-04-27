@@ -51,15 +51,13 @@
     } 
 
     /* 타이틀 */
-    h3 {
-        margin-bottom: 20px;
-        font-weight:bold;
-    }
+    h3 {font-weight:bold;}
 
     /* 버튼스타일 */    
     .content_bar {
+    	margin-bottom: 20px;
         box-sizing: border-box;
-        display: flex;
+        /*display: flex;*/
         /*position: absolute;*/
     }
     .btn-success {
@@ -72,28 +70,20 @@
     	border-color:rgb(241, 196, 15);
         color: white;
         width:100px; 
-        margin-right: 10px;
     }
     .btn-secondary {
         background-color:rgb(158, 158, 158); 
         border-color:rgb(158, 158, 158);
         width:100px; 
     }
-    
-    a{margin-right: 10px;}
+
+    a, button{margin-left:10px;}
 
     /* input 스타일 */
-    input {height:40px;}
+    input {height:40px; border:none; outline: none;}
+    textarea {width:800px; height:511px; border:none; outline: none; padding-top:15px;}
+	#title {width:700px}
     
-    .terms input {vertical-align: -13px;}
-
-	/* input 네온스타일 */
-    textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
-        border-color: rgb(3, 79, 6); 
-        box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
-        outline: 0 none;
-    }
-
     /* 테이블 스타일 */
     #content_2 table {
         width: 100%;
@@ -121,12 +111,14 @@
             <!-- 우측 본문 -->
             <div id="content_2">
 
-                <h3>공지사항 상세보기</h2>
 
                 <div class="content_bar">
-                    <br>
-                    <button type="submit" class="btn btn-warning">수정하기</button>
-                    <a href="<%= contextPath %>/adminDelete.no?nno=<%= n.getNoticeNo() %>" class="btn btn-secondary">삭제하기</a>
+	                <h3>공지사항 상세보기</h3>
+                	<div align="right">
+						<a href="<%= contextPath %>/adminUpdateForm.no?nno=<%= n.getNoticeNo() %>" class="btn btn-warning">수정하기</a>
+	                	<a href="<%= contextPath %>/adminDelete.no?nno=<%= n.getNoticeNo() %>" class="btn btn-secondary">삭제하기</a>
+	                	<a href="<%= contextPath %>/adminList.no" class="btn btn-secondary">뒤로가기</a>
+	                </div>
                 </div>
 
                 <table id="detailArea" class="table-bordered">
@@ -138,17 +130,15 @@
                     </colgroup>
                     <tr>
                         <th class="table-active">제목</th>
-                        <td colspan="3"><%= n.getNoticeTitle() %></td>
+						<td colspan="3"><input readonly value="<%=n.getNoticeTitle()%>"></td>
                     </tr>
                     <tr>
                         <th class="table-active">작성일</th>
-                        <td><%= n.getCreateDate() %></td>
-                        <th class="table-active">노출상태</th>
-                        <td><%= n.getStatus() %></td>
+						<td><input readonly value="<%= n.getCreateDate() %>"></td>
                     </tr>
                     <tr>
                         <th class="table-active">내용</th>
-                        <td colspan="3"><p><%= n.getNoticeContent() %></p></td>
+                        <td colspan="3"><textarea readonly style="resize:none;"><%= n.getNoticeContent() %></textarea></td>
                     </tr>
                 </table>
             </div>

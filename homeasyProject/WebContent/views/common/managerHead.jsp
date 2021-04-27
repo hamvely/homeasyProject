@@ -1,5 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
+
+<% 
+	String contextPath = request.getContextPath(); 
+%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,14 +40,25 @@
     </style>
 </head>
 <body>
+	<!-- 작성자 : 김혜미 -->
+	<script>
+		var msg = "<%= session.getAttribute("alertMsgAdmin") %>";
+		
+		if(msg != "null"){
+			alert(msg);
+			<% session.removeAttribute("alertMsgAdmin"); %>
+		}
+	</script>
+
+
     <div class="wrap">
         <div id="header">
             <div id="header_1">
-                <a href=""><img src="logo4.png" art= "집이지 관리자 로고" width="70%" height="90%"></a> 
+                <a href=""><img src="logo4.png" art= "ì§ì´ì§ ê´ë¦¬ì ë¡ê³ " width="70%" height="90%"></a> 
             </div>
             <div id="header_2">
-                <a href=""><img src="user (3).png" art= "로그아웃" height="30px" ></a> 
-                <a href=""><img src="home (1).png" art= "관리자 메인" height="30px" ></a> 
+                <a href=""><img src="user (3).png" art= "ë¡ê·¸ìì" height="30px" ></a> 
+                <a href=""><img src="home (1).png" art= "ê´ë¦¬ì ë©ì¸" height="30px" ></a> 
             </div>
             
         </div>
