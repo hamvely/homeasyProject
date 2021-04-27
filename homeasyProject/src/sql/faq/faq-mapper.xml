@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<entry key="selectListAll">
+		SELECT 
+			   FAQ_NO
+			 , FAQ_CATE
+			 , FAQ_TITLE
+		  FROM
+		   	   FAQ
+	</entry>
+	
+	<entry key="selectListPay">
+		SELECT 
+			   FAQ_NO
+			 , FAQ_CATE
+			 , FAQ_TITLE
+		  FROM
+		   	   FAQ
+		 WHERE
+		 	   FAQ_CATE = '주문/결제'
+	</entry>
+	
+	<entry key="selectListDel">
+		SELECT 
+			   FAQ_NO
+			 , FAQ_CATE
+			 , FAQ_TITLE
+		  FROM
+		   	   FAQ
+		 WHERE
+		 	   FAQ_CATE = '배송'
+	</entry>
+	
+	<entry key="selectListCancel">
+		SELECT 
+			   FAQ_NO
+			 , FAQ_CATE
+			 , FAQ_TITLE
+		  FROM
+		   	   FAQ
+		 WHERE
+		 	   FAQ_CATE = '취소/환불'
+	</entry>
+	
+	<entry key="selectListChange">
+		SELECT 
+			   FAQ_NO
+			 , FAQ_CATE
+			 , FAQ_TITLE
+		  FROM
+		   	   FAQ
+		 WHERE
+		 	   FAQ_CATE = '반품/교환'
+	</entry>
+	
+	<entry key="selectListEtc">
+		SELECT 
+			   FAQ_NO
+			 , FAQ_CATE
+			 , FAQ_TITLE
+		  FROM
+		   	   FAQ
+		 WHERE
+		 	   FAQ_CATE = '기타/서비스'
+	</entry>
+	
+	<entry key="selectFaq">
+		SELECT
+		       FAQ_NO
+		     , FAQ_CATE
+		     , FAQ_TITLE
+		     , FAQ_ANSWER
+		  FROM FAQ
+		 WHERE FAQ_NO = ?
+	</entry>
+		
+</properties>

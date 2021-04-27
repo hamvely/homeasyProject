@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 작성자 : 임지우 -->
+	<entry key="selectListCount">
+		SELECT COUNT(*) LISTCOUNT
+		  FROM COUPON
+	</entry>
+	
+	
+	<!-- 작성자 : 임지우 -->
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		              , C.*
+		          FROM (
+		                SELECT
+		                        CP_NO
+		                      , CP_NAME
+		                      , CP_PRICE
+		                      , CP_CONDITION
+		                      , CP_LIMIT
+		                      , CP_MEMO
+		                   FROM COUPON
+		                  ORDER
+		                     BY CP_LIMIT
+		               ) C
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	
+</properties>

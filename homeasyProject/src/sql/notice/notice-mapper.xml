@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 작성자 : 김혜미 -->
+	<!-- 공지사항 리스트조회(사용자) -->
+	<entry key="selectNoticeList">
+		SELECT NO_TITLE
+		     , NO_CREATE_DATE
+		  FROM NOTICE N
+		 WHERE NO_STATUS = 'Y'
+		 ORDER 
+		    BY NO_CREATE_DATE DESC
+	</entry>
+	
+	<!-- 공지사항 리스트조회(관리자) -->
+	<entry key="selectNoticeListAdmin">
+		SELECT NO_NO
+             , NO_TITLE
+             , NO_CREATE_DATE
+             , NO_COUNT
+             , NO_STATUS
+          FROM NOTICE N
+	     ORDER 
+		    BY NO_CREATE_DATE DESC
+	</entry>
+	
+	<!-- 공지사항 작성 -->
+	<entry key="insertNotice">
+		INSERT 
+		  INTO NOTICE
+		  (
+		    NO_NO
+		  , NO_TITLE
+          , NO_CONTENT
+		  )
+		  VALUES
+		  (
+		    SEQ_NNO.NEXTVAL
+		  , ?
+		  , ?
+          )
+	</entry>
+	
+	<!-- 공지사항 조회수 -->
+	<entry key="increaseCount">
+		UPDATE
+		       NOTICE
+		   SET NO_COUNT = NO_COUNT + 1
+		 WHERE NO_NO = ?
+	</entry>
+	
+	<!-- 공지사항 상세(관리자) -->
+	<entry key="selectNoticeDetail">
+		SELECT 
+		       NO_NO
+		     , NO_TITLE
+		     , NO_CONTENT
+		     , NO_CREATE_DATE
+		     , NO_STATUS
+		  FROM NOTICE N
+		 WHERE NO_NO = ?
+	</entry>
+	
+	<!-- 공지사항 삭제 -->
+	<entry key="deleteNotice">
+		UPDATE
+		       NOTICE
+		   SET NO_STATUS = 'N'
+		 WHERE NO_NO = ?
+	</entry>
+	
+	<!-- 공지사항 수정 -->
+	<entry key="updateNotice">
+	UPDATE
+	       NOTICE
+	   SET NO_TITLE = ?
+	   	 , NO_CREATE_DATE = ?
+	     , NO_CONTENT = ?
+	 WHERE NO_NO = ?
+	</entry>
+	
+	<!-- 공지사항 게시글 갯수  --> 
+	<entry key="selectListCount">
+	SELECT COUNT(*) LISTCOUNT
+  	  FROM NOTICE
+	</entry>
+
+	<!-- 공지사항 페이징 -->
+	<entry key="selectList">
+	SELECT *
+ 	  FROM (
+	        SELECT
+	               ROWNUM RNUM
+	             , A.*
+	          FROM (
+	                SELECT
+	                       NO_NO
+	                     , NO_TITLE
+	                     , NO_CREATE_DATE
+	                     , NO_COUNT
+	                     , NO_STATUS
+	                  FROM NOTICE N
+	                 ORDER
+	                    BY NO_CREATE_DATE DESC
+	               ) A
+	        )
+	  WHERE RNUM BETWEEN ? AND ?
+	</entry>
+
+
+	<!-- 작성자 : 장아영 -->
+	<!-- 관리자 메인 박스 공지사항 리스트-->
+	<entry key="selectNoticeListAdminMain">
+		SELECT 
+			   NO_NO
+             , NO_TITLE
+             , NO_CREATE_DATE
+          FROM NOTICE N
+	     ORDER 
+		    BY NO_CREATE_DATE DESC
+	</entry>
+		
+	
+	
+	
+	
+</properties>
+
+
+

@@ -2,6 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
+
 <entry key="reviewList">
 
     SELECT 
@@ -32,7 +33,35 @@
 	    , ?
 	    , ?
 	    )
-		 
+</entry>
+	<!-- 작성자 : 임지우 -->
+	<entry key="selectListCount">
+		SELECT COUNT (*) LISTCOUNT
+  		  FROM REVIEW
+	</entry>
+	
+	<!-- 작성자 : 임지우 -->
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		        SELECT ROWNUM RNUM
+		             , R.*
+		          FROM (
+		                SELECT
+		                       RE_NO
+		                     , PRODUCT_NAME
+		                     , EMAIL
+		                     , RE_CONTENT
+		                     , RE_MARK
+		                  FROM REVIEW
+		                  JOIN PRODUCT USING(PRODUCT_NO)
+		                  JOIN MEMBER USING(USER_NO)
+		                 ORDER
+		                    BY RE_NO DESC
+		                ) R
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+
 	</entry>
 
 </properties>

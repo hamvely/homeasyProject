@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key="selectQnaList">
+	SELECT 
+	      POST_TITLE
+	    , POST_CONTENT
+	    , USER_FILE_RENAME
+	    , NICKNAME
+	    , POST_FILE_RENAME
+	  FROM POST P
+	  JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
+	  JOIN POST_FILE F ON (P.POST_NO = F.POST_NO)
+	  WHERE POST_STATUS = 'Y'
+	    AND POST_CONTENT LIKE '질문%'
+	</entry>
+	
+	<entry key="insertQnWrite">
+		INSERT
+		    INTO POST
+		    (
+		      POST_NO
+		    , POST_CATE_NAME
+		    , POST_TITLE
+		    , POST_CONTENT
+		    , USER_NO
+		    , POST_CREATE_DATE
+		    )
+		 VALUES
+		    (
+		     SEQ_PONO.NEXTVAL
+		    ,?
+		    ,?
+		    ,?
+		    ,?
+		    ,?
+		    )
+	</entry>
+
+	<entry key="insertAttachmentList">
+		INSERT
+		    INTO POST_FILE
+		    (
+		      POST_FILE_NO
+		    , POST_NO
+		    ,POST_FILE_RENAME
+		    )
+		VALUES
+		    (
+		      SEQ_POFNO.NEXTVAL
+		    , SEQ_PONO.CURRVAL
+		    , ?
+		    )
+	</entry>
+
+	<entry key="selectAdminQnaListCount"> <!-- 집들이관리자 리스트카운트 -->
+		SELECT COUNT(*) LISTCOUNT
+		  FROM POST
+		 WHERE POST_CATE_NAME = '질문과답변'
+		   AND POST_STATUS = 'Y'
+	</entry>
+
+	<entry key="selectAdminList"> <!-- 질답관리자 게시판 조회 -->
+		SELECT *
+		  FROM (
+		        SELECT
+		                ROWNUM NO
+		         , A.* 
+		       FROM(
+		      SELECT  
+		      		  POST_NO
+		            , EMAIL
+		            , POST_TITLE
+		            , POST_CREATE_DATE
+		            , POST_COUNT
+		        FROM POST P
+		        JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
+		        WHERE POST_STATUS = 'Y'
+		          AND POST_CATE_NAME LIKE '질문과답변'
+		        ORDER
+		           BY POST_CREATE_DATE DESC
+		          ) A
+		    )
+		WHERE NO BETWEEN ? AND ?
+	</entry>
+
+
+</properties>

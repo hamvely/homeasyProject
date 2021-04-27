@@ -5,16 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-    table, th,td{border: 1px solid lightgray;}
 
-    img{width: 200px;}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th,td{border: 1px solid lightgray;}
 
-
-    
   
-</style>
-
+        
+      
+    </style>
 </head>
 <body>
 
@@ -33,7 +36,7 @@
         <tr style="height: 40px; ">
             <td></td>
             <th colspan="5">
-              <img src="../resources/img/icon/user.png" style="width:15px;">  알렉스
+              <img src="resources/img/icon/user.png" style="width:15px;">  알렉스
             </th>
             
         </tr>
@@ -41,7 +44,7 @@
         <tr style="height: 40px; text-align: right;">
             <td></td>
             <td colspan="4">
-                <a href="">완료</a>
+                완료 
             </td>
             <td></td>
         </tr>
@@ -50,78 +53,82 @@
         <tr>
             <td></td>
             <th>
-                <img src="../resources/img/sample/sample1.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample2.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample 3.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample4.jpg">
+                <img src="">
             </th>
             <td></td>
             
         </tr>
         <tr>
-            <td></td>
+            <th></th>
             <th>
-                <img src="../resources/img/sample/sample1.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample2.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample 3.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample4.jpg">
-            </th>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <th>
-                <img src="../resources/img/sample/sample1.jpg">
-            </th>
-            <th>
-                <img src="../resources/img/sample/sample2.jpg">
-            </th>
-            <th>
-                <img src="../resources/img/sample/sample 3.jpg">
-            </th>
-            <th>
-                <img src="../resources/img/sample/sample4.jpg">
+                <img src="">
             </th>
             <td></td>
         </tr>
         <tr>
+            <th></th>
+            <th>
+                <img src="">
+            </th>
+            <th>
+                <img src="">
+            </th>
+            <th>
+                <img src="">
+            </th>
+            <th>
+                <img src="">
+            </th>
             <td></td>
+        </tr>
+        <tr>
+            <th></th>
             <th>
-                <img src="../resources/img/sample/sample1.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample2.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample 3.jpg">
+                <img src="">
             </th>
             <th>
-                <img src="../resources/img/sample/sample4.jpg">
+                <img src="">
             </th>
             <td></td>
         </tr>
 
         <tr>
-            <td  colspan="6"></td>
-   
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
 
     </div>
 
     </table>
     
-
 </body>
+
 </html>
