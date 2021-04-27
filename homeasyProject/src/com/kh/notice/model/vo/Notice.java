@@ -57,6 +57,14 @@ public class Notice {
 		this.createDate = createDate;
 		this.status = status;
 	}
+	
+	/* 관리자 메인 박스 공지사항 리스트 */
+	public Notice(int noticeNo, String noticeTitle, Date createDate) {
+		super();
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+		this.createDate = createDate;
+	}
 
 	public int getNoticeNo() {
 		return noticeNo;

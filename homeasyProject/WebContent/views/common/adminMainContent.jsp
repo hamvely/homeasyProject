@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.notice.model.vo.Notice"%>
+<%
+	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,27 +114,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                      <% for(Notice n : adminList){ %>
                         <tr>
-                            <td>4</td>
-                            <td>홈페이지 개편 안내</td>
-                            <td>2021.02.01</td>
+                            <td><%= n.getNoticeNo() %></td>
+                            <td><%= n.getNoticeTitle() %></td>
+                            <td><%= n.getCreateDate() %></td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>회원등급별 쿠폰안내</td>
-                            <td>2021.02.01</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>개인정보처리방침 변경 안내</td>
-                            <td>2021.01.23</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>VIP 등급 정책 변경사항 사전안내</td>
-                            <td>2021.01.01</td>
-                        </tr>
+                      <% } %>
                     </tbody>
+                    
                 </table>
             </div>
         </div>

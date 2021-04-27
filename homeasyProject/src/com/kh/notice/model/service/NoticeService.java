@@ -93,7 +93,17 @@ public class NoticeService {
 		
 	
 	}	
+	
+	/*관리자 메인화면 박스 공지사항 리스트*/
+	public ArrayList<Notice> selectNoticeListAdminMain(){
+		Connection conn = getConnection();
 		
+		ArrayList<Notice> adminList = new NoticeDao().selectNoticeListAdmin(conn);
+		
+		close(conn);
+		
+		return adminList;
+	}
 		
 	
 

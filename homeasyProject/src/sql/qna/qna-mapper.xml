@@ -54,17 +54,35 @@
 		    )
 	</entry>
 
-	<entry key="adminQnaList">
-		SELECT
-		      POST_NO
-		    , EMAIL
-		    , POST_TITLE
-		    , POST_CREATE_DATE
-		    , POST_COUNT
-		FROM POST P
-		JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
-		WHERE POST_STATUS = 'Y'
-		  AND POST_TITLE LIKE '질문%'
+	<entry key="selectAdminQnaListCount"> <!-- 집들이관리자 리스트카운트 -->
+		SELECT COUNT(*) LISTCOUNT
+		  FROM POST
+		 WHERE POST_CATE_NAME = '질문과답변'
+		   AND POST_STATUS = 'Y'
+	</entry>
+
+	<entry key="selectAdminList"> <!-- 질답관리자 게시판 조회 -->
+		SELECT *
+		  FROM (
+		        SELECT
+		                ROWNUM NO
+		         , A.* 
+		       FROM(
+		      SELECT  
+		      		  POST_NO
+		            , EMAIL
+		            , POST_TITLE
+		            , POST_CREATE_DATE
+		            , POST_COUNT
+		        FROM POST P
+		        JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
+		        WHERE POST_STATUS = 'Y'
+		          AND POST_CATE_NAME LIKE '질문과답변'
+		        ORDER
+		           BY POST_CREATE_DATE DESC
+		          ) A
+		    )
+		WHERE NO BETWEEN ? AND ?
 	</entry>
 
 

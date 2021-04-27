@@ -203,5 +203,37 @@ private Properties prop = new Properties();
 		
 		return result;
 	}
+	
+	/*관리자 메인화면 박스 공지사항 리스트*/
+	public ArrayList<Notice> selectNoticeListAdminMain(Connection conn) {
+
+		ArrayList<Notice> adminList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNoticeListAdminMain");
+		
+		try {
+			pstmt = conn.prepareStatement(sql); 
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				adminList.add(new Notice(rset.getInt("NO_NO"),
+										 rset.getString("NO_TITLE"),
+										 rset.getDate("NO_CREATE_DATE")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return adminList;
+	
+	
+	}
 				
 }

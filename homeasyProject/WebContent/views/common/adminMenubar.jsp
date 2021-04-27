@@ -78,9 +78,9 @@
 
            <li><a href="">커뮤니티 관리</a>
                <ul>
-               <li><a href="<%= contextPath %>/adminList.ho?currentPage=1">집들이 관리</a></li>
+               	   <li><a href="<%= contextPath %>/adminList.ho?currentPage=1">집들이 관리</a></li>
                    <li><a href="<%= contextPath %>/adminlist.kh?currentPage=1">노하우 관리</a></li>
-                   <li><a href="">질문과답변 관리</a></li>
+                   <li><a href="<%= contextPath %>/adminList.qna?currentPage=1">질문과답변 관리</a></li>
                </ul>
            </li>
 

@@ -77,7 +77,7 @@
 		                ROWNUM NO
 		         , A.* 
 		       FROM(
-		           SELECT  
+		      SELECT  
 		              EMAIL
 		            , POST_TITLE
 		            , POST_CREATE_DATE

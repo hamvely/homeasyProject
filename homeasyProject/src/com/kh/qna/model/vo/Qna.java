@@ -12,7 +12,7 @@ public class Qna {
 	private String userNo;
 	private String postCateName;
 	private Date postCreateDate;
-	private String postNo;
+	private int postNo;
 	private String email;
 	private int postCount;
 	
@@ -48,22 +48,22 @@ public class Qna {
 		this.postCateName = postCateName;
 		this.postCreateDate = postCreateDate;
 	}
-
-	public Qna(String postTitle, Date postCreateDate, String postNo, String email, int postCount) {
+	
+	public Qna(int postNo,  String email, String postTitle, Date postCreateDate, int postCount) {
 		super();
-		this.postTitle = postTitle;
-		this.postCreateDate = postCreateDate;
 		this.postNo = postNo;
 		this.email = email;
+		this.postTitle = postTitle;
+		this.postCreateDate = postCreateDate;
 		this.postCount = postCount;
 	}
 
 
-	public String getPostNo() {
+	public int getPostNo() {
 		return postNo;
 	}
 
-	public void setPostNo(String postNo) {
+	public void setPostNo(int postNo) {
 		this.postNo = postNo;
 	}
 
