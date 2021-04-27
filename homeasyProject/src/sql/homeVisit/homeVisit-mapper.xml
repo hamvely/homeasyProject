@@ -4,21 +4,20 @@
 
 	 <!-- 집들이 리스트 조회 -->
 	<entry key="selectHomeVisit">
-		  SELECT
-                 P.POST_NO
-               , USER_FILE_RENAME
-		       , NICKNAME
-		       , POST_FILE_RENAME
-		       , POST_CONTENT
-		       , PCOM_CONTENT
-		  FROM MEMBER M
-          LEFT JOIN POST ON (M.USER_NO = POST.USER_NO)
-		  JOIN POST_FILE ON ( M.USER_NO = POST_FILE.POST_NO)
-		  JOIN POST_COMMENT ON ( M.USER_NO = POST_COMMENT.USER_NO)
-		 WHERE M.USER_STATUS = 'Y'
-		   AND POST_CONTENT LIKE '집들이%'
-         ORDER
-            BY POST_CREATE_DATE DESC
+		 SELECT
+                  P.POST_NO
+                , P.POST_CONTENT
+                , M.NICKNAME
+                , M.USER_FILE_RENAME
+                , PF.POST_FILE_RENAME
+                , PC.PCOM_CONTENT
+           FROM POST P, MEMBER M, POST_FILE PF, POST_COMMENT PC
+           WHERE M.USER_NO = P.USER_NO
+             AND P.POST_NO = PF.POST_NO  
+             AND P.USER_NO = PC.USER_NO
+             AND POST_CONTENT LIKE '집들이%'
+           ORDER
+		      BY POST_CREATE_DATE DESC 
 	</entry>
 	
 	<!-- 집들에 게시글 조회수 -->

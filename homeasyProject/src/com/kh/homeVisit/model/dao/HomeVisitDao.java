@@ -27,7 +27,6 @@ public class HomeVisitDao {
 		try {
 			prop.loadFromXML(new FileInputStream(fileName));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -46,12 +45,12 @@ public class HomeVisitDao {
 			
 			while(rset.next()) {
 				
-				list.add(new HomeVisit(rset.getInt("p.post_no"),
-									   rset.getString("user_file_rename"),
-									   rset.getString("nickname"),
-									   rset.getString("post_file_rename"),
-									   rset.getString("post_content"),
-									   rset.getString("PCOM_CONTENT")));
+				list.add(new HomeVisit(rset.getInt("P.POST_NO"),
+									   rset.getString("P.POST_CONTENT"),
+									   rset.getString("M.NICKNAME"),
+									   rset.getString("M.USER_FILE_RENAMEe"),
+									   rset.getString("PF.POST_FILE_RENAME"),
+									   rset.getString("PC.PCOM_CONTENT")));
 						
 			}
 			

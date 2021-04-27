@@ -2,7 +2,6 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.homeVisit.model.vo.HomeVisit" %>
 <%
     ArrayList<HomeVisit> list = (ArrayList<HomeVisit>)request.getAttribute("list");
-	HomeVisit h = new HomeVisit();
 %>
 <!DOCTYPE html>
 <html>

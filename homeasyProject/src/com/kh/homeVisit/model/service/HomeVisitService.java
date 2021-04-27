@@ -18,8 +18,8 @@ public class HomeVisitService {
 		ArrayList<HomeVisit> list = new HomeVisitDao().selectHomeVisit(conn);
 		
 		close(conn);
-		
 		return list;
+		
 	}
 	
 	
@@ -43,12 +43,12 @@ public class HomeVisitService {
 	}
 
 
-	public int insertHomeVisitWrite(HomeVisit h, ArrayList<Attachment> list) {
+	public int insertHomeVisitWrite(HomeVisit list, ArrayList<Attachment> at) {
 
 		Connection conn = getConnection();
 			
-			int result1 = new HomeVisitDao().insertHvWrite(conn, h);
-			int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, list);
+			int result1 = new HomeVisitDao().insertHvWrite(conn, list);
+			int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, at);
 			
 			if(result1> 0 && result2>0) {
 				commit(conn);
@@ -97,5 +97,5 @@ public class HomeVisitService {
 
 	
 	
-	}
+	
 }
