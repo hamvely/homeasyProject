@@ -37,7 +37,7 @@
 		 JOIN POST_COMMENT ON (M.USER_NO = POST_COMMENT.USER_NO)
 	</entry>
 	
-		<entry key="insertHvWrite">
+	<entry key="insertHvWrite">
 		INSERT
 		    INTO POST
 		    (
