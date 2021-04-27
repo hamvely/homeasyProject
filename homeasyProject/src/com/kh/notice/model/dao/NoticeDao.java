@@ -149,7 +149,6 @@ private Properties prop = new Properties();
 		
 		//System.out.println(noticeNo);
 		
-		// select문 => ResultSet객체 (한행)
 		Notice n = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -269,30 +268,42 @@ private Properties prop = new Properties();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String sql = prop.getProperty("selectList");
+
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1);
+				pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
+				
+				rset = pstmt.executeQuery();
+				
+			} catch (SQLException e) {
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			return list;
+	}
+				
+				
+	/*관리자 메인화면 박스 공지사항 리스트*/
+	public ArrayList<Notice> selectNoticeListAdminMain(Connection conn) {
+
+		ArrayList<Notice> adminList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectNoticeListAdminMain");
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
-			/*
-			 * ex) boardLimit : 10 라는 가정하에 
-			 * currentPage = 1	=> startRow : 1		endRow : 10
-			 * currentPage = 2	=> startRow : 11	endRow : 20
-			 * currentPage = 3	=> startRow : 21	endRow : 30
-			 * 
-			 * startRow = (currentPage - 1) * boardLimit + 1
-			 * endRow = currentPage * boardLimit
-			 */
-			pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getPageLimit() + 1);
-			pstmt.setInt(2, pi.getCurrentPage() * pi.getPageLimit());
-			
+			pstmt = conn.prepareStatement(sql); 
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Notice(rset.getInt("board_no"),
-								   rset.getString("category_name"),
-								   rset.getString("board_title"),
-								   rset.getString("user_id"),
-								   rset.getInt("count"),
-								   rset.getDate("create_date")));
+				
+				adminList.add(new Notice(rset.getInt("NO_NO"),
+										 rset.getString("NO_TITLE"),
+										 rset.getDate("NO_CREATE_DATE")));
 			}
 			
 		} catch (SQLException e) {
@@ -301,8 +312,7 @@ private Properties prop = new Properties();
 			close(rset);
 			close(pstmt);
 		}
-		
-		return list;
-	}
+		return adminList;
+		}
 				
 }

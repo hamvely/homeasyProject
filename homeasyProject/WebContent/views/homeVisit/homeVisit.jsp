@@ -59,6 +59,7 @@ String contextPath = request.getContextPath();
        		border:1px solid gray; 
         	width:220px;
         	display:inline-block;
+        	float:left;
         }
         
         img:hover{cursor:pointer;}
@@ -87,168 +88,38 @@ String contextPath = request.getContextPath();
 	  <% } %><br><br>
    	
    		<div class="listArea">
-   			<div class="thumbnail" >
-	   			<div class="user" style="float:left;">
-		        	<img src="프로필유저이미지" width="48" height="49">
-		        </div>
-		        <h2 style="padding-top:">user01</h2>
-	            <br><br>
-	            
-		   		<div class="thumbnail" style="margin-top:-60px;">
-		   			<img src="해당게시글메인이미지경로" width="220" height="220">
-		   		</div><br>
-	   			
-	   			<img class="heart" src="" width="48" height="49">
-	   			<img class="chat" src="" width="48" height="49">
-	   			
-	   			<P>
-	   			 내용입니다
-	   			</P>
-	   			
-	   			<p>user01 댓글입니다</p>
-	   		</div>
-	   		<div class="thumbnail" >
-	   			<div class="user" style="float:left;">
-		        	<img src="프로필유저이미지" width="48" height="49">
-		        </div>
-		        <h2 style="padding-top:">user01</h2>
-	            <br><br>
-	            
-		   		<div class="thumbnail" style="margin-top:-60px;">
-		   			<img src="해당게시글메인이미지경로" width="220" height="220">
-		   		</div><br>
-	   			
-	   			<img class="heart" src="" width="48" height="49">
-	   			<img class="chat" src="" width="48" height="49">
-	   			
-	   			<P>
-	   			 내용입니다
-	   			</P>
-	   			
-	   			<p>user01 댓글입니다</p>
-	   		</div>
-	   		<div class="thumbnail" >
-	   			<div class="user" style="float:left;">
-		        	<img src="프로필유저이미지" width="48" height="49">
-		        </div>
-		        <h2 style="padding-top:">user01</h2>
-	            <br><br>
-	            
-		   		<div class="thumbnail" style="margin-top:-60px;">
-		   			<img src="해당게시글메인이미지경로" width="220" height="220">
-		   		</div><br>
-	   			
-	   			<img class="heart" src="" width="48" height="49">
-	   			<img class="chat" src="" width="48" height="49">
-	   			
-	   			<P>
-	   			 내용입니다
-	   			</P>
-	   			
-	   			<p>user01 댓글입니다</p>
-	   		</div>
-	   		<div class="thumbnail" >
-	   			<div class="user" style="float:left;">
-		        	<img src="프로필유저이미지" width="48" height="49">
-		        </div>
-		        <h2 style="padding-top:">user01</h2>
-	            <br><br>
-	            
-		   		<div class="thumbnail" style="margin-top:-60px;">
-		   			<img src="해당게시글메인이미지경로" width="220" height="220">
-		   		</div><br>
-	   			
-	   			<img class="heart" src="" width="48" height="49">
-	   			<img class="chat" src="" width="48" height="49">
-	   			
-	   			<P>
-	   			 내용입니다
-	   			</P>
-	   			
-	   			<p>user01 댓글입니다</p>
-	   		</div>
-	   		<div class="thumbnail" >
-	   			<div class="user" style="float:left;">
-		        	<img src="프로필유저이미지" width="48" height="49">
-		        </div>
-		        <h2 style="padding-top:">user01</h2>
-	            <br><br>
-	            
-		   		<div class="thumbnail" style="margin-top:-60px;">
-		   			<img src="해당게시글메인이미지경로" width="220" height="220">
-		   		</div><br>
-	   			
-	   			<img class="heart" src="" width="48" height="49">
-	   			<img class="chat" src="" width="48" height="49">
-	   			
-	   			<P>
-	   			 내용입니다
-	   			</P>
-	   			
-	   			<p>user01 댓글입니다</p>
-	   		</div>
-	   		<div class="thumbnail" >
-	   			<div class="user" style="float:left;">
-		        	<img src="프로필유저이미지" width="48" height="49">
-		        </div>
-		        <h2 style="padding-top:">user01</h2>
-	            <br><br>
-	            
-		   		<div class="thumbnail" style="margin-top:-60px;">
-		   			<img src="해당게시글메인이미지경로" width="220" height="220">
-		   		</div><br>
-	   			
-	   			<img class="heart" src="" width="48" height="49">
-	   			<img class="chat" src="" width="48" height="49">
-	   			
-	   			<P>
-	   			 내용입니다
-	   			</P>
-	   			
-	   			<p>user01 댓글입니다</p>
-	   		</div>
-	   		<div class="thumbnail" >
-	   			<div class="user" style="float:left;">
-		        	<img src="프로필유저이미지" width="48" height="49">
-		        </div>
-		        <h2 style="padding-top:">user01</h2>
-	            <br><br>
-	            
-		   		<div class="thumbnail" style="margin-top:-60px;">
-		   			<img src="해당게시글메인이미지경로" width="220" height="220">
-		   		</div><br>
-	   			
-	   			<img class="heart" src="" width="48" height="49">
-	   			<img class="chat" src="" width="48" height="49">
-	   			
-	   			<P>
-	   			 내용입니다
-	   			</P>
-	   			
-	   			<p>user01 댓글입니다</p>
-	   		</div>
-	   		<div class="thumbnail" >
-	   			<div class="user" style="float:left;">
-		        	<img src="프로필유저이미지" width="48" height="49">
-		        </div>
-		        <h2 style="padding-top:">user01</h2>
-	            <br><br>
-	            
-		   		<div class="thumbnail" style="margin-top:-60px;">
-		   			<img src="해당게시글메인이미지경로" width="220" height="220">
-		   		</div><br>
-	   			
-	   			<img class="heart" src="" width="48" height="49">
-	   			<img class="chat" src="" width="48" height="49">
-	   			
-	   			<P>
-	   			 내용입니다
-	   			</P>
-	   			
-	   			<p>user01 댓글입니다</p>
-	   		</div>
-	   		
+	   		<% for(HomeVisit h : list){ %>
+	   			<div class="thumbnail" >
+	   			<input type="hidden" value="<%=h.getPostNo()%>">
+		   			<div class="user" style="float:left;">
+			        	<img src="<%=h.getUserFileRename() %>" width="48" height="49">
+			        </div>
+			        <h2 style="padding-top:"><%=h.getNickName() %></h2>
+		            <br><br>
+		            
+			   		<div class="thumbnail" style="margin-top:-60px;">
+			   			<img src="<%=h.getPostFileRename() %>" width="220" height="220">
+			   		</div><br>
+		   			
+		   			<img class="heart" src="" width="48" height="49">
+		   			<img class="chat" src="" width="48" height="49">
+		   			
+		   			<P>
+		   			<%=h.getPostContent() %>
+		   			</P>
+		   			
+		   			<p><%=h.getUserNo() %> <%=h.getPcomContent() %></p>
+		   		</div>
+		   	<% } %>	
 		</div>
+		
+		<script>
+			$(function(){
+				$(".thumbnail").click(function(){
+					location.href='<%=contextPath%>/detail.ho?hno=' + $(this).children().eq(0).val();
+				})
+			})
+		</script>
 		
 	</div>
 </body>

@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import static com.kh.common.JDBCTemplate.*;
 
+import com.kh.common.model.vo.PageInfo;
 import com.kh.qna.model.vo.Attachment;
 import com.kh.qna.model.vo.Qna;
 
@@ -112,27 +113,53 @@ public class QnaDao {
 		return result;
 	}
 	
-
-	public ArrayList<Qna> adminQnaList(Connection conn){
+	public int selectAdminQnaListCount(Connection conn) {
 		
-		ArrayList<Qna> list = new ArrayList<>();
+		int listCount = 0;
+		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("adminQnaList");
+		String sql = prop.getProperty("selectAdminQnaListCount");
 		
 		try {
-			pstmt=conn.prepareStatement(sql);
-			rset=pstmt.executeQuery();
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("LISTCOUNT");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
+		
+	}
+	
+	public ArrayList<Qna> selectAdminList(Connection conn, PageInfo pi){
+		ArrayList<Qna> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAdminList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, (pi.getCurrentPage() -1 ) * pi.getBoardLimit() + 1);
+			pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
+			
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				
-			list.add(new Qna (rset.getString("post_no"),
-							  rset.getString("email"),
-			                  rset.getString("post_title"),
-			                  rset.getString("post_create_date"),
-			                  rset.getString("post_count")));
-			
+				list.add(new Qna(rset.getInt("post_no"),
+						         rset.getString("eamil"),
+						         rset.getString("post_title"),
+						         rset.getDate("post_create_date"),
+						         rset.getInt("post_count")));
 			}
 			
 		} catch (SQLException e) {
@@ -143,6 +170,7 @@ public class QnaDao {
 		}
 		
 		return list;
+		
 	}
 	
 }
