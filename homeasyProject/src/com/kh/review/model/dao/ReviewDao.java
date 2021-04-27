@@ -1,20 +1,19 @@
 package com.kh.review.model.dao;
 
 import static com.kh.common.JDBCTemplate.*;
-<<<<<<< HEAD
-=======
 
->>>>>>> 841d0b2115b41e1169430f61f714138bd51327e9
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-<<<<<<< HEAD
+import java.util.ArrayList;
 import java.util.Properties;
-import com.kh.order.model.vo.Order;
+
 import com.kh.review.model.vo.Review;
+import com.kh.common.model.vo.PageInfo;
+
 
 public class ReviewDao {
 
@@ -55,33 +54,6 @@ public class ReviewDao {
 				close(pstmt);
 			}
 			return r;
-	}
-	
-
-	
-}
-=======
-import java.util.ArrayList;
-import java.util.Properties;
-
-import com.kh.common.model.vo.PageInfo;
-import com.kh.review.model.vo.Review;
-
-public class ReviewDao {
-	
-	private Properties prop = new Properties();
-	
-	public ReviewDao() {
-		
-		String fileName = ReviewDao.class.getResource("/sql/review/review-mapper.xml").getPath();
-		
-		try {
-			prop.loadFromXML(new FileInputStream(fileName));
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
 	}
 	
 	public int selectListCount(Connection conn) {
@@ -149,10 +121,8 @@ public class ReviewDao {
 		
 	}
 	
-	
-	
 
+	
 }
 
 
->>>>>>> 841d0b2115b41e1169430f61f714138bd51327e9

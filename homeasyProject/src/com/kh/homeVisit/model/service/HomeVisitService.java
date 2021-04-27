@@ -5,24 +5,21 @@ import static com.kh.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import com.kh.common.model.vo.PageInfo;
 import com.kh.homeVisit.model.dao.HomeVisitDao;
 import com.kh.homeVisit.model.vo.HomeVisit;
-import com.kh.qna.model.dao.QnaDao;
-import com.kh.qna.model.vo.Attachment;
-import com.kh.qna.model.vo.Qna;
+
 
 
 public class HomeVisitService {
 
-	public ArrayList<HomeVisit> selectHomeVisit(){
+	public ArrayList<HomeVisit> selectHomeVisit() {
 		Connection conn = getConnection();
-	
-		HomeVisit list = new HomeVisitDao().selectHomeVisit(conn, postNo);
+		
+		ArrayList<HomeVisit> list = new HomeVisitDao().selectHomeVisit(conn);
 		
 		close(conn);
+		return list;
 		
-		return h;
 	}
 	
 
@@ -45,12 +42,12 @@ public class HomeVisitService {
 	}
 
 
-	public int insertHomeVisitWrite(HomeVisit h, ArrayList<Attachment> list) {
+	public int insertHomeVisitWrite(HomeVisit list, ArrayList<Attachment> at) {
 
 		Connection conn = getConnection();
 			
-			int result1 = new HomeVisitDao().insertHvWrite(conn, h);
-			int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, list);
+			int result1 = new HomeVisitDao().insertHvWrite(conn, list);
+			int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, at);
 			
 			if(result1> 0 && result2>0) {
 				commit(conn);
@@ -95,4 +92,9 @@ public class HomeVisitService {
 		
 		return result;
 	}
+
+
+	
+	
+	
 }

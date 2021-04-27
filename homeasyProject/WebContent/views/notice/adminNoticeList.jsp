@@ -2,7 +2,6 @@
     pageEncoding="UTF-8" %>
 <%@ page import="java.util.ArrayList, com.kh.notice.model.vo.Notice, com.kh.common.model.vo.PageInfo" %>   
 <%
-	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
 %>
 <!DOCTYPE html>
@@ -165,26 +164,7 @@
 	                    <% } %>		                    
  					</tbody>
                 </table>
-                
-                <div align="center" class="pagingArea">
-                    <button>이전</button>
-
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-
-                    <button>다음</button>
-                </div>
-                
-                
-                
+                               
             </div>
             
 			<script>
@@ -202,8 +182,27 @@
 	    	})
 	    	</script>
             
-
-            
+			<%--  
+             <div align="center" class="pagingArea">
+                   <% if(currentPage != 1) { %>
+	            	<button onclick="location.href='<%=contextPath%>/adminList.no?currentPage=<%=currentPage-1%>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+						
+						<% if(currentPage == p){ %>
+		            		<button disabled><%= p %></button>
+		            	<% }else{ %>
+		            		<button onclick="location.href='<%=contextPath%>/adminList.no?currentPage=<%= p %>';"><%= p %></button>
+		            	<% } %>
+		            	
+					<% } %>
+					
+					<% if(currentPage != maxPage){ %>
+		            	<button onclick="location.href='<%=contextPath%>/adminList.no?currentPage=<%=currentPage+1%>';">다음</button>
+					<% } %>
+                </div>
+                --%>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->            
             
             <!-- 공지사항 작성 모달 -->

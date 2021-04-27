@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.homeVisit.model.vo.HomeVisit" import="com.kh.member.model.vo.Member"%>
 <%
-String contextPath = request.getContextPath();
-%>
-
-<%
-	Member loginUser = (Member)session.getAttribute("loginUser");
 	ArrayList<HomeVisit> list = (ArrayList<HomeVisit>)request.getAttribute("list");
 %> 
 <!DOCTYPE html>
@@ -69,6 +64,8 @@ String contextPath = request.getContextPath();
 </style> 
 </head>
 <body>
+	<%@ include file="../common/mainHeader.jsp" %>
+	
 	<div class="outer">
 	   <div class="button">
 	      <a href="" class="a1">
@@ -117,7 +114,7 @@ String contextPath = request.getContextPath();
 		<script>
 			$(function(){
 				$(".thumbnail").click(function(){
-					location.href='<%=contextPath%>/detail.ho?hno=' + $(this).children().eq(0).val();
+					location.href='<%=contextPath%>/detail.ho?pno=' + $(this).children().eq(0).val();
 				})
 			})
 		</script>

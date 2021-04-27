@@ -80,8 +80,8 @@
     a, button{margin-left:10px;}
 
     /* input 스타일 */
-    input {height:40px; border:none; outline: none;}
-    textarea {width:800px; height:511px; border:none; outline: none; padding-top:15px;}
+    input {width:700px; height:40px; border:none; outline: none;}
+    textarea {width:800px; height:511px; border:none; outline: none; padding-top:15px;}    
 	#title {width:700px}
     
     /* 테이블 스타일 */

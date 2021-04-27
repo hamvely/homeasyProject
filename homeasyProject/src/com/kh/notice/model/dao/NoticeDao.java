@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.kh.common.model.vo.PageInfo;
 import com.kh.notice.model.vo.Notice;
 
 import static com.kh.common.JDBCTemplate.*;
@@ -267,29 +266,7 @@ private Properties prop = new Properties();
 	}
 
 	/* 공지사항 페이징 */
-	public ArrayList<Notice> selectList(Connection conn, PageInfo pi) {
-
-		// select문 => ResultSet객체 (여러행)
-		ArrayList<Notice> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectList");
-
-			try {
-				pstmt = conn.prepareStatement(sql);
-				
-				pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1);
-				pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
-				
-				rset = pstmt.executeQuery();
-				
-			} catch (SQLException e) {
-			} finally {
-				close(rset);
-				close(pstmt);
-			}
-			return list;
-	}
+	
 				
 				
 	/* 작성자 : 장아영 */
