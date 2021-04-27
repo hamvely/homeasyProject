@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	
 	<!--작성자 : 김혜미-->
 	<%@ include file="mainHeader.jsp" %>
