@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import com.kh.common.model.vo.PageInfo;
-import com.kh.product.model.dao.ProductDao;
 import com.kh.product.model.dao.StockDao;
 import com.kh.product.model.vo.Product;
 
