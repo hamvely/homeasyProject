@@ -104,7 +104,8 @@
         margin: 20px 0 20px 0;
     }
 	tr{height:45px;}
-
+	
+	.pagination a {color:black;}
 </style>
 </head>
 <body>
@@ -171,26 +172,27 @@
                 
                 <br><br>
                 
-				<div align="center" class="pagingArea">
+				<ul class="pagination justify-content-center ">
+                	<% if(currentPage != 1) { %>
+	                        <li class="page-item"><a class="page-link" href="<%= contextPath %>/adminList.no?currentPage=<%= currentPage-1 %>">이전</a></li>
+	                <% } %>
+	                
+	                <% for(int p=startPage; p<=endPage; p++) { %>
+	                
+	                    <% if(currentPage == p) { %>
+	                            <li class="page-item active"><a style="background-color:rgb(241, 196, 15); border-color:rgb(241, 196, 15);" class="page-link" href="#"><%= p %></a></li>
+	
+	                        <% }else { %>
+	                            <li class="page-item"><a class="page-link" href="<%= contextPath %>/adminList.no?currentPage=<%= p %>"><%= p %></a></li>
+	                        <% } %>
+	                    
+	                    <% } %>
+	                    
+	                    <% if(currentPage != maxPage) { %>
+	                        <li class="page-item"><a class="page-link" href="<%= contextPath %>/adminList.no?currentPage=<%= currentPage+1 %>">다음</a></li>
+	                <% } %>
+	            </ul>
 
-					<% if(currentPage != 1) { %>
-                    	<button onclick="location.href='<%= contextPath %>/adminList.no?currentPage=<%= currentPage-1 %>';">이전</button>
-					<% } %>
-					
-					<% for(int p=startPage; p<=endPage; p++) { %>
-					
-						<% if(currentPage == p) { %>
-                    		<button disabled><%= p %></button>
-                    	<% }else { %>
-                    		<button onclick="location.href='<%= contextPath %>/adminList.no?currentPage=<%= p %>';"><%= p %></button>
-                    	<% } %>
-                    
-                    <% } %>
-                    
-                    <% if(currentPage != maxPage) { %>
-                    	<button onclick="location.href='<%= contextPath %>/adminList.no?currentPage=<%= currentPage+1 %>';">다음</button>
-					<% } %>
-                </div>           
                                
             </div>
             

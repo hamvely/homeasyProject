@@ -33,6 +33,9 @@
     table hr {width: 840px;}
 
     h1{font-weight:bolder;}
+    
+    .pagination a {color:black;}
+    
 </style>
 <body>
 
@@ -64,29 +67,27 @@
 		
 		<br><br>
 		
-		<div align="center" class="pagingArea">
+        <ul class="pagination justify-content-center">
+            <% if(currentPage != 1) { %>
+                    <li class="page-item"><a class="page-link" href="<%= contextPath %>/list.no?currentPage=<%= currentPage-1 %>">이전</a></li>
+            <% } %>
+            
+            <% for(int p=startPage; p<=endPage; p++) { %>
+            
+                <% if(currentPage == p) { %>
+                        <li class="page-item active"><a style="background-color:rgb(3, 79, 6); border-color:rgb(3, 79, 6);" class="page-link" href="#"><%= p %></a></li>
 
-            <ul class="pagination">
-                <% if(currentPage != 1) { %>
-                        <li class="page-item"><a class="page-link" href="<%= contextPath %>/list.no?currentPage=<%= currentPage-1 %>">이전</a></li>
-                <% } %>
-                
-                <% for(int p=startPage; p<=endPage; p++) { %>
-                
-                    <% if(currentPage == p) { %>
-                            <li class="page-item"><a class="page-link" href="#"><%= p %></a></li>
-
-                        <% }else { %>
-                            <li class="page-item"><a class="page-link" href="<%= contextPath %>/list.no?currentPage=<%= p %>"><%= p %></a></li>
-                        <% } %>
-                    
+                    <% }else { %>
+                        <li class="page-item"><a class="page-link" href="<%= contextPath %>/list.no?currentPage=<%= p %>"><%= p %></a></li>
                     <% } %>
-                    
-                    <% if(currentPage != maxPage) { %>
-                        <li class="page-item"><a class="page-link" href="<%= contextPath %>/list.no?currentPage=<%= currentPage+1 %>">다음</a></li>
+                
                 <% } %>
-            </ul>
-		</div>      
+                
+                <% if(currentPage != maxPage) { %>
+                    <li class="page-item"><a class="page-link" href="<%= contextPath %>/list.no?currentPage=<%= currentPage+1 %>">다음</a></li>
+            <% } %>
+        </ul>
+  
 		
 		
     </div>
