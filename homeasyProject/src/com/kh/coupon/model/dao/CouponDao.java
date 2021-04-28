@@ -93,5 +93,38 @@ public class CouponDao {
 		return list;
 		
 	}
+	
+	public int insertCoupon(Connection conn, Coupon c) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertCoupon");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, c.getCp_name());
+			pstmt.setInt(2, c.getCp_price());
+			pstmt.setInt(3, c.getCp_condition());
+			pstmt.setInt(4, c.getCp_limit());
+			pstmt.setString(5, c.getCp_memo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
 
 }
+
+
+

@@ -123,7 +123,9 @@
 
                 <!-- 버튼 -->
                 <div class="content_bar">
-                    <button class="content_btn">추가</button>
+                    <button class="content_btn">
+                    	<a href="<%= contextPath %>/adminEnroll.cp">추가</a>
+                    </button>
                     <button class="content_btn" data-toggle="modal" data-target="#deleteCoupon">삭제</button>
                 </div>
             
