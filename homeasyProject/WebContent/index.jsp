@@ -8,19 +8,17 @@
 <title>Insert title here</title>
 <style>
 
-    div{outline: 1px solid violet; box-sizing: border-box;}
+    div{box-sizing: border-box;}
 
     /* 윤곽 크기 */
     .wrap{width:1200px; height:1650px; margin:auto;}
     .wrap>div{width:100%;}
 
     /* 상단바 크기 */
-    #header{height:250px;}
+    #mainHeader{height:300px;}
     
-    #ff{height:100px;}
-
     /* 컨텐츠 크기 */
-    #content{height:1200px;}
+    #content{height:1150px;}
     #content div{float:left;}
 
     /* 본문 크기 */
@@ -41,10 +39,7 @@
     <div class="wrap">
 
         <!-- 상단바 -->
-        <div id="header"><%@ include file="views/common/mainHeader.jsp" %></div>
-
-		<div id="ff"></div>
-
+        <div id="mainHeader"><%@ include file="views/common/mainHeader.jsp" %></div>
 
         <!-- 컨텐츠 -->
         <div id="content">
