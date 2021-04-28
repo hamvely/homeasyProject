@@ -1,24 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
+    pageEncoding="UTF-8" %>
     
-<% 
-	Member loginUser = (Member)session.getAttribute("loginUser"); 
-	String contextPath = request.getContextPath(); 
-	
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <style>
     div {box-sizing: border-box;}
@@ -132,55 +119,6 @@
 
     <div>
 		
-      <!-- 헤더 -->
-      <div id="header">
-      
-          <!-- 로고 -->        
-          <div id="header_column">
-              <a href="<%= request.getContextPath() %>"><img src="resources/img/logo/logo (1).png" class="header_column_logo" width="200px;"></a>
-          </div>
-
-          <!-- 검색 -->   
-          <div id="header_column">
-              <form class="search_form" action="">
-                  <div class="search_form_text">
-                      <input type="search">
-                  </div>
-                  <div class="search_form_btn">
-                      <a href="<%= contextPath %>/index.admin"><i class="fas fa-search"></i></a>
-                  </div>
-              </form>
-          </div>
-
-          <!-- 로그인 -->   
-          <div id="header_column">
-          
-              <% if(loginUser == null) { %>
-
-                  <div class="beforeLogin">
-                      <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                      <a href="<%= request.getContextPath() %>/loginForm.me">로그인</a>
-                      <a href="<%= request.getContextPath() %>/enrollForm.me">회원가입</a>
-                  </div>
-                  
-              <% }else { %>
-                  <div class="afterLogin">
-                      <div class="">
-                          <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                          <a href="#"><i class="far fa-heart fa-lg"></i></a>
-                          <a href="#"><i class="far fa-user-circle fa-lg"></i></a>
-                          <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
-                      </div>
-
-                      <div class="mypage">
-                          <a href="<%= contextPath %>/modification.me">마이페이지</a>
-                          <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
-                      </div>
-                  </div>
-                <% } %>
-          </div>
-      </div>
-    	
 		<!-- 네비게이션 -->   
 		<div class="container mt-3">
           <!-- Nav tabs -->

@@ -43,7 +43,7 @@ public class AdminNoticeListServlet extends HttpServlet {
 		int endPage;
 		
 		listCount = new NoticeService().selectListCountAdmin();
-		System.out.println(listCount);
+		//System.out.println(listCount);
 		
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
