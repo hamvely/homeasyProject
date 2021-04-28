@@ -233,7 +233,7 @@ public class HomeVisitDao {
    }
    
    //상세보기 첨부파일 조회
-   public Attachment selectAttachment(Connection conn, int postNo) {
+   public ArrayList<Attachment> selectAttachment(Connection conn, int postNo) {
 	   ArrayList<Attachment> list= new ArrayList<>();
 	   PreparedStatement pstmt = null;
 	   ResultSet rset = null;
