@@ -4,27 +4,77 @@
 
 	<!-- 작성자 : 김혜미 -->
 	<!-- 공지사항 리스트조회(사용자) -->
-	<entry key="selectNoticeList">
-		SELECT NO_TITLE
+	<entry key="selectList">
+		SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		             , N.*
+		          FROM (
+                        SELECT NO_TITLE
+                                     , NO_CREATE_DATE
+                                  FROM NOTICE N
+                                 WHERE NO_STATUS = 'Y'
+                                 ORDER 
+                                    BY NO_CREATE_DATE DESC
+		               ) N
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+
+	<!--  공지사항 리스트조회(관리자) -->
+	<entry key="selectListAdmin">
+		SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		             , N.*
+		          FROM (
+		                SELECT 
+		                       NO_NO
+		                     , NO_TITLE
+		                     , NO_COUNT
+		                     , NO_CREATE_DATE
+		                     , NO_STATUS
+		                  FROM NOTICE
+		                 ORDER
+		                    BY NO_CREATE_DATE DESC		                
+		               ) N
+		       )
+		 WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	
+	<!-- 공지사항 게시글 갯수(사용자)  --> 
+	<entry key="selectListCount">
+		SELECT COUNT(*) LISTCOUNT
+	  	  FROM NOTICE
+	 	 WHERE NO_STATUS = 'Y'
+	</entry>
+	
+	<!-- 공지사항 게시글 갯수(관리자)  --> 
+	<entry key="selectListCountAdmin">
+		SELECT COUNT(*) LISTCOUNTADMIN
+	  	  FROM NOTICE
+	</entry>
+ 
+	<!-- 공지사항 상세(관리자) -->
+	<entry key="selectDetailAdmin">
+		SELECT 
+		       NO_NO
+		     , NO_TITLE
+		     , NO_CONTENT
 		     , NO_CREATE_DATE
+		     , NO_STATUS
 		  FROM NOTICE N
-		 WHERE NO_STATUS = 'Y'
-		 ORDER 
-		    BY NO_CREATE_DATE DESC
+		 WHERE NO_NO = ?
 	</entry>
-	
-	<!-- 공지사항 리스트조회(관리자) -->
-	<entry key="selectNoticeListAdmin">
-		SELECT NO_NO
-             , NO_TITLE
-             , NO_CREATE_DATE
-             , NO_COUNT
-             , NO_STATUS
-          FROM NOTICE N
-	     ORDER 
-		    BY NO_CREATE_DATE DESC
-	</entry>
-	
+
+
+
+
+
+
 	<!-- 공지사항 작성 -->
 	<entry key="insertNotice">
 		INSERT 
@@ -40,26 +90,6 @@
 		  , ?
 		  , ?
           )
-	</entry>
-	
-	<!-- 공지사항 조회수 -->
-	<entry key="increaseCount">
-		UPDATE
-		       NOTICE
-		   SET NO_COUNT = NO_COUNT + 1
-		 WHERE NO_NO = ?
-	</entry>
-	
-	<!-- 공지사항 상세(관리자) -->
-	<entry key="selectNoticeDetail">
-		SELECT 
-		       NO_NO
-		     , NO_TITLE
-		     , NO_CONTENT
-		     , NO_CREATE_DATE
-		     , NO_STATUS
-		  FROM NOTICE N
-		 WHERE NO_NO = ?
 	</entry>
 	
 	<!-- 공지사항 삭제 -->
@@ -80,12 +110,16 @@
 	 WHERE NO_NO = ?
 	</entry>
 	
-	<!-- 공지사항 게시글 갯수  --> 
-	<entry key="selectListCount">
-	SELECT COUNT(*) LISTCOUNT
-  	  FROM NOTICE
+	<!-- 공지사항 조회수 -->
+	<entry key="increaseCount">
+		UPDATE
+		       NOTICE
+		   SET NO_COUNT = NO_COUNT + 1
+		 WHERE NO_NO = ?
 	</entry>
- 
+	
+	
+	
  
 
 	<!-- 작성자 : 장아영 -->

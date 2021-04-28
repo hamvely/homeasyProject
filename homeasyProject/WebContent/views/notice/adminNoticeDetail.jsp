@@ -117,7 +117,7 @@
                 	<div align="right">
 						<a href="<%= contextPath %>/adminUpdateForm.no?nno=<%= n.getNoticeNo() %>" class="btn btn-warning">수정하기</a>
 	                	<a href="<%= contextPath %>/adminDelete.no?nno=<%= n.getNoticeNo() %>" class="btn btn-secondary">삭제하기</a>
-	                	<a href="<%= contextPath %>/adminList.no" class="btn btn-secondary">뒤로가기</a>
+	                	<a href="<%= contextPath %>/adminList.no?currentPage=1" class="btn btn-secondary">뒤로가기</a>
 	                </div>
                 </div>
 
