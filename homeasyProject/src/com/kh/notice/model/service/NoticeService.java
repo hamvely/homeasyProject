@@ -16,17 +16,6 @@ public class NoticeService {
 
 	/* 작성자 : 김혜미 */
 	/* 공지사항 리스트조회(사용자)*/
-	public ArrayList<Notice> selectNoticeList(){
-		Connection conn = getConnection();
-		
-		ArrayList<Notice> list = new NoticeDao().selectNoticeList(conn);
-		
-		close(conn);
-		
-		return list;
-	}	
-	
-	/* 공지사항 리스트조회(관리자)*/
 	public ArrayList<Notice> selectList(PageInfo pi) {
 		
 		Connection conn = getConnection();
@@ -36,11 +25,32 @@ public class NoticeService {
 		
 		return list;
 	}
+	
+	/* 공지사항 리스트조회(관리자)*/
+	public ArrayList<Notice> selectListAdmin(PageInfo pi) {
 
-	/* 공지사항 게시글 갯수(관리자) */
+		Connection conn = getConnection();
+		ArrayList<Notice> list = new NoticeDao().selectListAdmin(conn, pi);
+		
+		close(conn);
+		
+		return list;
+	}
+	
+	/* 공지사항 게시글 갯수(사용자) */
 	public int selectListCount() {
 		Connection conn = getConnection();
 		int listCount = new NoticeDao().selectListCount(conn);
+		
+		close(conn);
+		
+		return listCount;
+	}
+	
+	/* 공지사항 게시글 갯수(관리자) */
+	public int selectListCountAdmin() {
+		Connection conn = getConnection();
+		int listCount = new NoticeDao().selectListCountAdmin(conn);
 		
 		close(conn);
 		
@@ -55,6 +65,9 @@ public class NoticeService {
 		close(conn);
 		return n;
 	}
+	
+	
+	
 	
 	
 	
@@ -141,6 +154,8 @@ public class NoticeService {
 		
 		return adminList;
 	}
+
+	
 
 	
 	

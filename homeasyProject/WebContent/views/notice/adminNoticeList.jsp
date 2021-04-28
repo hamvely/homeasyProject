@@ -200,11 +200,6 @@
 					// 쿼리스트링 이용해서 요청할 url 작성
 					location.href = '<%=contextPath%>/adminDetail.no?nno=' + $(this).children().eq(0).text();
 										
-					<%--
-					$('#detailNotice').modal("show");
-					--%>
-					<%--
-					--%>
 				})
 	    	})
 	    	</script>

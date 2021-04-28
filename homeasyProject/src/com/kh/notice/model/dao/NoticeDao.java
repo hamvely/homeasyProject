@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.kh.common.model.vo.PageInfo;
-import com.kh.member.model.vo.Member;
 import com.kh.notice.model.vo.Notice;
 
 import static com.kh.common.JDBCTemplate.*;
@@ -31,43 +30,46 @@ private Properties prop = new Properties();
 	}
 
 	/* 공지사항 리스트조회(사용자)*/
-	public ArrayList<Notice> selectNoticeList(Connection conn) {
-		
-		// select문 => ResultSet객체 (여러행)
-		ArrayList<Notice> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectNoticeList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql); // 애초에 완성된 sql문
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				
-				list.add(new Notice(rset.getString("NO_TITLE"),
-									rset.getDate("NO_CREATE_DATE")));
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
-
-	/* 공지사항 리스트조회(관리자)*/
 	public ArrayList<Notice> selectList(Connection conn, PageInfo pi) {
+
 		ArrayList<Notice> list = new ArrayList<> ();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("selectList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1);
+			pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {list.add(new Notice(rset.getString("NO_TITLE"),
+													rset.getDate("NO_CREATE_DATE")));
+				
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;
+	
+			}
+
+	
+
+	/* 공지사항 리스트조회(관리자)*/
+	public ArrayList<Notice> selectListAdmin(Connection conn, PageInfo pi) {
+		ArrayList<Notice> list = new ArrayList<> ();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectListAdmin");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -83,21 +85,21 @@ private Properties prop = new Properties();
 								    rset.getInt("NO_COUNT"),
 							 	    rset.getDate("NO_CREATE_DATE"),
 								    rset.getString("NO_STATUS")));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(rset);
+				close(pstmt);
 			}
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close(rset);
-			close(pstmt);
+			return list;
 		}
-		
-		return list;
-	}
 	
-	/* 공지사항 게시글 갯수(관리자) */
+	/* 공지사항 게시글 갯수(사용자) */
 	public int selectListCount(Connection conn) {
-
+		
 		// select문 => ResultSet객체 (총게시글갯수 == 정수)
 		int listCount = 0;
 		
@@ -122,6 +124,35 @@ private Properties prop = new Properties();
 		}
 		
 		return listCount;
+	}
+	
+	/* 공지사항 게시글 갯수(관리자) */
+	public int selectListCountAdmin(Connection conn) {
+
+		// select문 => ResultSet객체 (총게시글갯수 == 정수)
+		int listCount = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectListCountAdmin");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				listCount = rset.getInt("LISTCOUNTADMIN");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return listCount;
 
 	}
 	
@@ -134,7 +165,7 @@ private Properties prop = new Properties();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectNoticeDetail");
+		String sql = prop.getProperty("selectDetailAdmin");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -306,6 +337,8 @@ private Properties prop = new Properties();
 		}
 		return adminList;
 		}
+
+	
 
 	
 				

@@ -42,8 +42,8 @@ public class AdminNoticeListServlet extends HttpServlet {
 		int startPage;
 		int endPage;
 		
-		listCount = new NoticeService().selectListCount();
-		//System.out.println(listCount);
+		listCount = new NoticeService().selectListCountAdmin();
+		System.out.println(listCount);
 		
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
@@ -58,7 +58,7 @@ public class AdminNoticeListServlet extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		//System.out.println(pi);
 		
-		ArrayList<Notice> adminList = new NoticeService().selectList(pi);
+		ArrayList<Notice> adminList = new NoticeService().selectListAdmin(pi);
 		
 		/*
 		for(Notice n : adminList) {
