@@ -35,6 +35,13 @@
     h1{font-weight:bolder;}
     
     .pagination a {color:black;}
+
+	.pagination a:hover, 
+	.pagination a:focus {
+	  background: lightgrey;
+	  border-color: lightgrey;
+	  color:black;
+	}
     
 </style>
 <body>

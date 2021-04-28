@@ -21,9 +21,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <style>
-    div {
-        box-sizing: border-box;
-    }
+    div {box-sizing: border-box;}
     .wrap {
         width: 1200px;
         height: 250px;
@@ -224,11 +222,8 @@
               $(this).tab('show');
             });
           });
-          </script>
-
-
-        
-</div>
+          </script>      
+  </div>
 
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"
