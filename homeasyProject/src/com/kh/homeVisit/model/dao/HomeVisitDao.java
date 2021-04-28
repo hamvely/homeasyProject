@@ -45,10 +45,10 @@ public class HomeVisitDao {
          while(rset.next()) {
             
             list.add(new HomeVisit(rset.getInt("POST_NO"),
-                              rset.getString("POST_CONTENT"),
-                              rset.getString("NICKNAME"),
-                              rset.getString("USER_FILE_RENAME"),
-                              rset.getString("POST_FILE_RENAME"),
+            					   rset.getString("POST_CONTENT"),
+            					   rset.getString("NICKNAME"),
+            					   rset.getString("USER_FILE_RENAME"),
+            					   rset.getString("POST_FILE_RENAME"),
                               rset.getString("PCOM_CONTENT")));
                   
          }
@@ -103,7 +103,7 @@ public class HomeVisitDao {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, at.getPostFileNo());
             pstmt.setInt(2, at.getPostNo());
-            pstmt.setString(3, at.getPostFileRename());
+            pstmt.setString(3, at.getPostFileReName());
             
             result = pstmt.executeUpdate();
             
@@ -160,10 +160,10 @@ public class HomeVisitDao {
          rset = pstmt.executeQuery();
          
          while(rset.next()) {
-            list.add(new HomeVisit(rset.getString("email"),
-                              rset.getString("post_title"),
-                              rset.getDate("post_create_date"),
-                              rset.getInt("post_count")));
+            list.add(new HomeVisit(rset.getString("EMAIL"),
+            					   rset.getString("POST_TITLE"),
+            					   rset.getDate("POST_CREATE_DATE"),
+            					   rset.getInt("POST_COUNT")));
          }
          
       } catch (SQLException e) {
@@ -248,7 +248,7 @@ public class HomeVisitDao {
 			at = new Attachment();
 			at.setPostFileNo(rset.getInt("post_file_no"));
 		    at.setPostNo(rset.getInt("post_no"));
-		    at.setPostFileRename(rset.getString("post_file_rename"));
+		    at.setPostFileReName(rset.getString("post_file_rename"));
 		}
 		
 	} catch (SQLException e) {

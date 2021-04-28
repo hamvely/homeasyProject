@@ -55,9 +55,8 @@ public class HomeVisit {
    }
    
    
-   public HomeVisit(String rowNum, String email, String postTitle, Date postCreateDate, int postCount) {
+   public HomeVisit(String email, String postTitle, Date postCreateDate, int postCount) {
       super();
-      this.rowNum = rowNum;
       this.email = email;
       this.postTitle = postTitle;
       this.postCreateDate = postCreateDate;
