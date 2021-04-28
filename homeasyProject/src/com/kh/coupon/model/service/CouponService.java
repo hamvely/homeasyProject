@@ -32,5 +32,30 @@ public class CouponService {
 		
 		return list;
 	}
+	
+	public int insertCoupon(Coupon c) {
+		
+		Connection conn = getConnection();
+		
+		int result = new CouponDao().insertCoupon(conn, c);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+	}
+	
+	
+	
+	
 
 }
+
+
+

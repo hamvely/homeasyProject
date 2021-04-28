@@ -86,10 +86,11 @@ public class AdminProductInsertServlet extends HttpServlet {
 			int result = new ProductService().insertProduct(p, list);
 			
 			if(result > 0) { // 성공 => adminlist.pd url재요청 => 상품리스트페이지
-				request.getSession().setAttribute("alertMsg", "상품등록 성공");
+				request.getSession().setAttribute("alertMsg", "상품등록에 성공하였습니다.");
 				response.sendRedirect(request.getContextPath() + "/adminlist.pd");
 			}else { // 실패 => 에러문구담아서 에러페이지로 포워딩
-				
+				request.setAttribute("errorMsg", "상품등록에 실패하였습니다.");
+				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			}
 			
 		}
