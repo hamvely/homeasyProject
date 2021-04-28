@@ -146,7 +146,34 @@ public class StoreDao {
 		
 	}
 	
-	
+	public Product totalPrice(Connection conn, int optionNo) {
+		// select문 => ResultSet객체 (한행)
+		Product tp = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("totalPrice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, optionNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				tp = new Product(rset.getInt("product_price"),
+							     rset.getInt("option_price"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return tp;
+		
+	}
 	
 	
 	

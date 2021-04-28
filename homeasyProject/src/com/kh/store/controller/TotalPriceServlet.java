@@ -1,23 +1,28 @@
 package com.kh.store.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ds
- */
-@WebServlet("/ds")
-public class ds extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import com.kh.product.model.vo.Product;
+import com.kh.store.model.service.StoreService;
 
+/**
+ * Servlet implementation class TotalPriceServlet
+ */
+@WebServlet("/totalPrice.st")
+public class TotalPriceServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public ds() {
+    public TotalPriceServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -25,8 +30,14 @@ public class ds extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		int optionNo = Integer.parseInt(request.getParameter("optionNo"));
+		System.out.println(optionNo);
+		
+		Product tp = new StoreService().totalPrice(optionNo);
+		request.setAttribute("p", tp);
+		
+		System.out.println(tp.getOptionPrice() + tp.getProductPrice());
 	}
 
 	/**

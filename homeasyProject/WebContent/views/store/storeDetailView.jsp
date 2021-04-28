@@ -75,7 +75,7 @@
                     <img src="">
                 </div>   
                 <div class="content">
-                    <form action="<%= contextPath %>/totalPrice.st" method="post" id="totalPrice">
+                    <form>
                     <p><%= p.getProductBrand() %></p>
                     <p><%= p.getProductName() %></p>
                     <p><%= p.getProductPrice() %></p>
@@ -89,7 +89,7 @@
                                <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
                             </option>
                         <% } else { %>
-                            <option value="<%= optionList.get(i).getOptionNo() %>">
+                            <option id="selectOption" value="<%= optionList.get(i).getOptionNo() %>">
                                <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
                             </option>
                         <% } %>
@@ -98,11 +98,7 @@
                                      수량 : <input type="number" id="amount">  
                     </form>
                     <br>
-                    <% if(optionList.get(0).getOptionName() == null){ %>
-                    	<p>총가격 : <%= p.getProductPrice() %>원</p>
-                    <% } else { %>
-                    	<p>총가격 : <%= 3*6 %>원</p>
-                    <% } %>
+                    <p>총가격 : <%= p.getProductPrice() %>원</p>
                     <button>장바구니 담기</button>
                     <button>결제하기</button> 
                     <hr><hr>
@@ -118,10 +114,10 @@
 
 		<script>
 			$(function(){
-    			$(".thumbnail").click(function(){
-    				location.href = '<%=contextPath%>/detail.st?pno=' + $(this).children().eq(0).val();
-    			})
-    		})
+	    		$("#selectOption").click(function(){
+	    			location.href = '<%=contextPath%>/totalPrice.st?optionNo=' + val();
+	    		})
+	    	})
 		</script>
 		
     </div>
