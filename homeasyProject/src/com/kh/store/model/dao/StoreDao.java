@@ -32,19 +32,19 @@ public class StoreDao {
 		
 	}
 	
-	public ArrayList<Product> selectFurnitureList(Connection conn, int cate2No) {
+	public ArrayList<Product> selectList(Connection conn, int cate1No) {
 		// select문 => ResultSet객체 (여러행)
 		ArrayList<Product> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectFurnitureList");
+		String sql = prop.getProperty("selectList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
+
+			pstmt.setInt(1, cate1No);
 			rset = pstmt.executeQuery();
-			pstmt.setInt(1, cate2No);
 			
 			while(rset.next()) {
 				
@@ -71,30 +71,28 @@ public class StoreDao {
 		
 	}
 	
-	public ArrayList<Product> selectFabricList(Connection conn) {
+	public ArrayList<ProductCate> selectCate2List(Connection conn, int cate1No) {
 		// select문 => ResultSet객체 (여러행)
-		ArrayList<Product> list = new ArrayList<>();
+		ArrayList<ProductCate> cate2List = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectFabricList");
+		String sql = prop.getProperty("selectcate2List");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
+
+			pstmt.setInt(1, cate1No);
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
 				
-				Product p = new Product();
-				p.setProductNo(rset.getInt("product_no"));
-				p.setProductBrand(rset.getString("product_brand"));
-				p.setProductName(rset.getString("product_name"));
-				p.setProductPrice(rset.getInt("product_price"));
-				p.setProductDate(rset.getDate("product_date"));
-				p.setTitleImg(rset.getString("product_file_rename"));
+				ProductCate pc = new ProductCate();
+				pc.setCate1No(rset.getInt("cate1_no"));
+				pc.setCate2No(rset.getInt("cate2_no"));
+				pc.setCate2Name(rset.getString("cate2_name"));
 				
-				list.add(p);
+				cate2List.add(pc);
 			}
 			
 		} catch (SQLException e) {
@@ -104,194 +102,64 @@ public class StoreDao {
 			close(pstmt);
 		}
 		
-		return list;
+		return cate2List;
 		
 	}
+	/*
+	public ArrayList<Product> selectcList(Connection conn, int cate1No, int cate2No) {
+		// select문 => ResultSet객체 (여러행)
+		ArrayList<Product> cList = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectcList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, cate1No);
+			pstmt.setInt(2, cate2No);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				Product p = new Product();
+				p.setProductNo(rset.getInt("product_no"));
+				p.setCate2No(rset.getInt("cate2_no"));
+				p.setProductBrand(rset.getString("product_brand"));
+				p.setProductName(rset.getString("product_name"));
+				p.setProductPrice(rset.getInt("product_price"));
+				p.setProductDate(rset.getDate("product_date"));
+				p.setTitleImg(rset.getString("product_file_rename"));
+				
+				cList.add(p);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return cList;
+		
+	}
+	*/
 	
-	public ArrayList<Product> selectDecoList(Connection conn) {
-		// select문 => ResultSet객체 (여러행)
-		ArrayList<Product> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectDecoList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				
-				Product p = new Product();
-				p.setProductNo(rset.getInt("product_no"));
-				p.setProductBrand(rset.getString("product_brand"));
-				p.setProductName(rset.getString("product_name"));
-				p.setProductPrice(rset.getInt("product_price"));
-				p.setProductDate(rset.getDate("product_date"));
-				p.setTitleImg(rset.getString("product_file_rename"));
-				
-				list.add(p);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
 	
-	public ArrayList<Product> selectStorageList(Connection conn) {
-		// select문 => ResultSet객체 (여러행)
-		ArrayList<Product> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectStorageList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				
-				Product p = new Product();
-				p.setProductNo(rset.getInt("product_no"));
-				p.setProductBrand(rset.getString("product_brand"));
-				p.setProductName(rset.getString("product_name"));
-				p.setProductPrice(rset.getInt("product_price"));
-				p.setProductDate(rset.getDate("product_date"));
-				p.setTitleImg(rset.getString("product_file_rename"));
-				
-				list.add(p);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
 	
-	public ArrayList<Product> selectSuppliesList(Connection conn) {
-		// select문 => ResultSet객체 (여러행)
-		ArrayList<Product> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectSuppliesList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				
-				Product p = new Product();
-				p.setProductNo(rset.getInt("product_no"));
-				p.setProductBrand(rset.getString("product_brand"));
-				p.setProductName(rset.getString("product_name"));
-				p.setProductPrice(rset.getInt("product_price"));
-				p.setProductDate(rset.getDate("product_date"));
-				p.setTitleImg(rset.getString("product_file_rename"));
-				
-				list.add(p);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
 	
-	public ArrayList<Product> selectKitchenList(Connection conn) {
-		// select문 => ResultSet객체 (여러행)
-		ArrayList<Product> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectKitchenList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				
-				Product p = new Product();
-				p.setProductNo(rset.getInt("product_no"));
-				p.setProductBrand(rset.getString("product_brand"));
-				p.setProductName(rset.getString("product_name"));
-				p.setProductPrice(rset.getInt("product_price"));
-				p.setProductDate(rset.getDate("product_date"));
-				p.setTitleImg(rset.getString("product_file_rename"));
-				
-				list.add(p);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
 	
-	public ArrayList<Product> selectPetList(Connection conn) {
-		// select문 => ResultSet객체 (여러행)
-		ArrayList<Product> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectPetList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				
-				Product p = new Product();
-				p.setProductNo(rset.getInt("product_no"));
-				p.setProductBrand(rset.getString("product_brand"));
-				p.setProductName(rset.getString("product_name"));
-				p.setProductPrice(rset.getInt("product_price"));
-				p.setProductDate(rset.getDate("product_date"));
-				p.setTitleImg(rset.getString("product_file_rename"));
-				
-				list.add(p);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public Product selectStore(Connection conn, int productNo) {
 		// select문 => ResultSet객체 (한행)

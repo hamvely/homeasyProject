@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
 <%
 	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
-	ArrayList<ProductCate> cateList = (ArrayList<ProductCate>)request.getAttribute("cateList");
+	ArrayList<ProductCate> cate2List = (ArrayList<ProductCate>)request.getAttribute("cate2List");
 %>
 <!DOCTYPE html>
 <html>
@@ -42,42 +42,33 @@
 
 	<%@ include file="../common/mainHeader.jsp" %>
     <div class="outer">
-        <br>
-        <h1><%= cateList.get(0).getCate1Name() %></h1>
-        <select id="cate2">
-        		<% for(ProductCate pc : cateList) {%>
-	                 <option value="<%= pc.getCate2No() %>">
-                     <%= pc.getCate2Name() %>
-                     </option>
-                  <% } %>
-        </select>
+        <br><!-- <h1>1차 카테고리 이름 가져오기</h1> -->
         </div>
             <div class="listArea" align="center">
-			
-			<% for(Product p : list){ %>
-            <div class="thumbnail" align="center">
-            	<input type="hidden" value="<%=p.getProductNo()%>">
-				<input type="hidden" value="<%=p.getProductDate()%>">
-				<input type="hidden" value="<%=p.getCate2No()%>">
-            	
-                <img src="<%= contextPath %>/<%= p.getTitleImg() %>" width="300" height="300">
-                <p align="left">
-                    <%= p.getProductBrand() %> <br>
-                    <%= p.getProductName() %><br>
-                   	<%= p.getProductPrice() %>
-                </p>
-                
-            </div>
-            <% } %>
-            
-        </div>
-        <script>
-        	$(function(){
-        		$("#cate2").click(function(){
-        			location.href = '<%=contextPath%>/furnitureList.st?cate2No=' + $(this).children().eq(0).val();
-        		})
-        	})
-        </script>
+				<div class="cate2nav">
+					<% for(ProductCate pc : cate2List){ %>
+						<a href="<%= contextPath %>/list.st?cate1No=<%= pc.getCate1No() %>&cate2No=<%= pc.getCate2No() %>">
+							<%= pc.getCate2Name() %>
+						</a>
+					<% } %>
+				</div>
+				<% for(Product p : list){ %>
+	            <div class="thumbnail" align="center">
+	            	<input type="hidden" value="<%=p.getProductNo()%>">
+					<input type="hidden" value="<%=p.getProductDate()%>">
+					<input type="hidden" value="<%=p.getCate2No()%>">
+	            	
+	                <img src="<%= contextPath %>/<%= p.getTitleImg() %>" width="300" height="300">
+	                <p align="left">
+	                    <%= p.getProductBrand() %> <br>
+	                    <%= p.getProductName() %><br>
+	                   	<%= p.getProductPrice() %>
+	                </p>
+	            </div>
+	            <% } %>
+	            
+	        </div>
+        
         <script>
         	$(function(){
         		$(".thumbnail").click(function(){
