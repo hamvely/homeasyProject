@@ -43,7 +43,7 @@ public class AdminHomeVisitListServlet extends HttpServlet {
 		int endPage;
 		
 		listCount = new HomeVisitService().selectListCount();
-		System.out.println(listCount);
+		//System.out.println(listCount);
 		currentPage=Integer.parseInt(request.getParameter("currentPage"));
 		pageLimit = 10;
 		boardLimit = 10;
@@ -58,15 +58,21 @@ public class AdminHomeVisitListServlet extends HttpServlet {
 		}
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
-		System.out.println(pi);
+		//System.out.println(pi);
 		
 		ArrayList<HomeVisit> list = new HomeVisitService().selectList(pi);
 		
-		for(HomeVisit h : list) {
-			System.out.println(h);
-		}
+		//for(HomeVisit h : list) {
+			//System.out.println(h);
+		//}
 
-		System.out.println("=========================");
+		
+		//System.out.println("=========================");
+		
+		request.setAttribute("pi", pi);
+		request.setAttribute("list", list);
+		
+		request.getRequestDispatcher("views/homeVisit/adminHomeVisit.jsp").forward(request, response);
 	}
 
 	/**

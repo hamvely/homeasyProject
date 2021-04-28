@@ -1,6 +1,6 @@
 package com.kh.homeVisit.model.dao;
 
-import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -30,13 +30,13 @@ public class HomeVisitDao {
       }
    }
    
-   public ArrayList<HomeVisit> selectHomeVisit(Connection conn) {
+   public ArrayList<HomeVisit> selectHomeVisitList(Connection conn) {
       
       ArrayList<HomeVisit> list = new ArrayList<>();
       PreparedStatement pstmt = null;
       ResultSet rset = null;
       
-      String sql = prop.getProperty("selectHomeVisit");
+      String sql = prop.getProperty("selectHomeVisitList");
       
       try {
          pstmt = conn.prepareStatement(sql);
@@ -44,12 +44,12 @@ public class HomeVisitDao {
          
          while(rset.next()) {
             
-            list.add(new HomeVisit(rset.getInt("P.POST_NO"),
-                              rset.getString("P.POST_CONTENT"),
-                              rset.getString("M.NICKNAME"),
-                              rset.getString("M.USER_FILE_RENAME"),
-                              rset.getString("PF.POST_FILE_RENAME"),
-                              rset.getString("PC.PCOM_CONTENT")));
+            list.add(new HomeVisit(rset.getInt("POST_NO"),
+                              rset.getString("POST_CONTENT"),
+                              rset.getString("NICKNAME"),
+                              rset.getString("USER_FILE_RENAME"),
+                              rset.getString("POST_FILE_RENAME"),
+                              rset.getString("PCOM_CONTENT")));
                   
          }
          
@@ -65,204 +65,7 @@ public class HomeVisitDao {
    
 
 
-   public ArrayList<HomeVisit> adminHomeVisitList(Connection conn){
-      
-      ArrayList<HomeVisit> list = new ArrayList<>();
-      PreparedStatement pstmt = null;
-      ResultSet rset = null;
-      
-      String sql = prop.getProperty("adminHomeVisitList");
-      
-      try {
-         pstmt=conn.prepareStatement(sql);
-         rset=pstmt.executeQuery();
-         
-         while(rset.next()) {
-            
-         list.add(new HomeVisit (rset.getString("post_no"),
-                             rset.getString("email"),
-                                 rset.getString("post_title"),
-                                 rset.getString("post_create_date"),
-                                 rset.getString("post_count")));
-         
-         }
-         
-      } catch (SQLException e) {
-         e.printStackTrace();
-      } finally {
-         close(rset);
-         close(pstmt);
-      }
-      
-      return list;
-   }
-   
 
-<<<<<<< HEAD
-	public int insertHvWrite(Connection conn, HomeVisit h) {
-		
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertHvWrite");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, h.getPostNo());
-			pstmt.setString(2, h.getUserNo());
-			pstmt.setString(3, h.getPostTitle());
-			pstmt.setString(4, h.getPostContent());
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
-	
-	public int insertHomeVisitAttachmentList(Connection conn, ArrayList<Attachment> list) {
-		
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("insertHomeVisitAttachmentList");
-		
-		try {
-			
-			for(Attachment at : list){
-				
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, at.getPostFileNo());
-				pstmt.setInt(2, at.getPostNo());
-				pstmt.setString(3, at.getPostFileReName());
-				
-				result = pstmt.executeUpdate();
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
-	
-	public int selectListCount(Connection conn) {
-		
-		int listCount = 0;
-		
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectListCount");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				listCount = rset.getInt("LISTCOUNT");
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return listCount;
-		
-	}
-	
-	public ArrayList<HomeVisit> selectList(Connection conn, PageInfo pi){
-		ArrayList<HomeVisit> list = new ArrayList<>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectList");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1);
-			pstmt.setInt(2, pi.getCurrentPage() * pi.getBoardLimit());
-			
-			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				list.add(new HomeVisit(rset.getString("rownum"),
-										rset.getString("email"),
-										rset.getString("post_title"),
-										rset.getDate("post_create_date"),
-										rset.getInt("post_count")));
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return list;
-		
-	}
-	
-	public int increaseCount(Connection conn, int boardNo) {
-		// update문 => 처리된 행수
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("increaseCount");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, postNo);
-			
-			result = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
-	
-	public Attachment selectAttachmentList(Connection conn, int postNo){
-		Attachment at = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectAttachment");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, postNo);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				at = new Attachment();
-				at.setFileNo(rset.getInt("file_no"));
-				at.setOriginName(rset.getString("origin_name"));
-				at.setChangeName(rset.getString("change_name"));
-				at.setFilePath(rset.getString("file_path"));
-		
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return at;
-	}
-=======
    public int insertHvWrite(Connection conn, HomeVisit h) {
       
       int result = 0;
@@ -300,7 +103,7 @@ public class HomeVisitDao {
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, at.getPostFileNo());
             pstmt.setInt(2, at.getPostNo());
-            pstmt.setString(3, at.getPostFileReName());
+            pstmt.setString(3, at.getPostFileRename());
             
             result = pstmt.executeUpdate();
             
@@ -357,8 +160,7 @@ public class HomeVisitDao {
          rset = pstmt.executeQuery();
          
          while(rset.next()) {
-            list.add(new HomeVisit(rset.getString("rownum"),
-                              rset.getString("email"),
+            list.add(new HomeVisit(rset.getString("email"),
                               rset.getString("post_title"),
                               rset.getDate("post_create_date"),
                               rset.getInt("post_count")));
@@ -375,7 +177,7 @@ public class HomeVisitDao {
       
    }
    
-   public int increaseCount(Connection conn, int boardNo) {
+   public int increaseCount(Connection conn, int postNo) {
       // update문 => 처리된 행수
       int result = 0;
       PreparedStatement pstmt = null;
@@ -383,7 +185,7 @@ public class HomeVisitDao {
       
       try {
          pstmt = conn.prepareStatement(sql);
-         pstmt.setInt(1, postNo);
+		 pstmt.setInt(1, postNo);
          
          result = pstmt.executeUpdate();
          
@@ -396,41 +198,69 @@ public class HomeVisitDao {
       return result;
    }
    
-   public Attachment selectAttachmentList(Connection conn, int postNo){
-      Attachment at = null;
-      PreparedStatement pstmt = null;
-      ResultSet rset = null;
-      String sql = prop.getProperty("selectAttachment");
-      
-      try {
-         pstmt = conn.prepareStatement(sql);
-         pstmt.setInt(1, postNo);
-         
-         rset = pstmt.executeQuery();
-         
-         if(rset.next()) {
-            at = new Attachment();
-            at.setFileNo(rset.getInt("file_no"));
-            at.setOriginName(rset.getString("origin_name"));
-            at.setChangeName(rset.getString("change_name"));
-            at.setFilePath(rset.getString("file_path"));
-      
-         }
-         
-      } catch (SQLException e) {
-         e.printStackTrace();
-      } finally {
-         close(rset);
-         close(pstmt);
-      }
-      
-      return at;
+   //상세보기
+   public HomeVisit selectHomeVisit(Connection conn, int postNo) {
+	   
+	   HomeVisit h = null;
+	   PreparedStatement pstmt = null;
+	   ResultSet rset = null;
+	   String sql = prop.getProperty("selectHomeVisit");
+	   
+	   try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, postNo);
+		
+		rset = pstmt.executeQuery();
+		
+		if(rset.next()) {
+			h = new HomeVisit(rset.getInt("post_no"),
+					          rset.getString("post_content"),
+					          rset.getString("nickname"),
+					          rset.getString("user_file_rename"),
+					          rset.getString("post_file_rename"),
+					          rset.getString("pcom_content"));
+		}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		close(rset);
+		close(pstmt);
+	}
+	   
+	   return h;
    }
->>>>>>> ac80bc78063ed29ee2324556ec4ea60a12218ee9
-
-
-
-
+   
+   //상세보기 첨부파일 조회
+   public Attachment selectAttachment(Connection conn, int postNo) {
+	   Attachment at = null;
+	   PreparedStatement pstmt = null;
+	   ResultSet rset = null;
+	   String sql = prop.getProperty("selectAttachment");
+	   
+	   try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, postNo);
+		
+		rset = pstmt.executeQuery();
+		
+		if(rset.next()) {
+			at = new Attachment();
+			at.setPostFileNo(rset.getInt("post_file_no"));
+		    at.setPostNo(rset.getInt("post_no"));
+		    at.setPostFileRename(rset.getString("post_file_rename"));
+		}
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		close(rset);
+		close(pstmt);
+	}
+	   
+	   return at;
+	   
+   }
    
    
 }

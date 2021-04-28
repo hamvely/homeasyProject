@@ -14,10 +14,10 @@ import com.kh.qna.model.vo.Attachment;
 
 public class HomeVisitService {
 
-   public ArrayList<HomeVisit> selectHomeVisit() {
+   public ArrayList<HomeVisit> selectHomeVisitList() {
       Connection conn = getConnection();
       
-      ArrayList<HomeVisit> list = new HomeVisitDao().selectHomeVisit(conn);
+      ArrayList<HomeVisit> list = new HomeVisitDao().selectHomeVisitList(conn);
       
       close(conn);
       return list;
@@ -25,25 +25,6 @@ public class HomeVisitService {
    }
    
    
-
-   public ArrayList<Attachment> selectAttachmentList(int postNo){
-      Connection conn = getConnection();
-      ArrayList<Attachment> list = new HomeVisitDao().selectAttachmentList(conn, postNo);
-      close(conn);
-      return list;
-   }
-
-
-   public ArrayList<HomeVisit> adminHomeVisitList(){
-      Connection conn = getConnection();
-      
-      ArrayList<HomeVisit> list = new HomeVisitDao().adminHomeVisitList(conn);
-      
-      close(conn);
-      
-      return list;
-   }
-
 
    public int insertHomeVisitWrite(HomeVisit list, ArrayList<Attachment> at) {
 
@@ -63,39 +44,53 @@ public class HomeVisitService {
          
       }
 
+
    public int selectListCount() {
-      Connection conn = getConnection();
-      int listCount = new HomeVisitDao().selectListCount(conn);
-      
-      close(conn);
-      
-      return listCount;
-      
+	   Connection conn = getConnection();
+	   int listCount = new HomeVisitDao().selectListCount(conn);
+	   
+	   close(conn);
+	   
+	   return listCount;
+	   
    }
    
    public ArrayList<HomeVisit> selectList(PageInfo pi){
-      Connection conn = getConnection();
-      ArrayList<HomeVisit> list = new HomeVisitDao().selectList(conn, pi);
-      close(conn);
-      return list;
+	   Connection conn = getConnection();
+	   ArrayList<HomeVisit> list = new HomeVisitDao().selectList(conn, pi);
+	   close(conn);
+	   return list;
    }
-
 
    public int increaseCount(int postNo) {
-      Connection conn = getConnection();
-      int result = new HomeVisitDao().increaseCount(conn, postNo);
-      
-      if(result > 0) {
-         commit(conn);
-      }else {
-         rollback(conn);
-      }
-      
-      close(conn);
-      
-      return result;
+	   Connection conn = getConnection();
+	   int result = new HomeVisitDao().increaseCount(conn, postNo);
+			  
+       if(result > 0) {
+    	   commit(conn);
+       }else {
+    	   rollback(conn);
+       }
+	   
+	   close(conn);
+	   
+	   return result;
    }
-
-
+   
+   //조회된 HomeVisit객체를 반환하는(상세보기)
+   public HomeVisit selectHomeVisit(int postNo) {
+	   Connection conn = getConnection();
+	   HomeVisit h = new HomeVisitDao().selectHomeVisit(conn, postNo);
+	   close(conn);
+	   return h;
+   }
+   
+   // 상세보기 파일 조회
+   public Attachment selectAttachment(int postNo) {
+	   Connection conn = getConnection();
+	   Attachment at = new HomeVisitDao().selectAttachment(conn, postNo);
+	   close(conn);
+	   return at;
+   }
    
 }
