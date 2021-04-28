@@ -86,7 +86,7 @@ public class HomeVisitService {
    }
    
    // 상세보기 파일 조회
-   public Attachment selectAttachment(int postNo) {
+   public ArrayList<Attachment> selectAttachment(int postNo) {
 	   Connection conn = getConnection();
 	   ArrayList<Attachment> list = new HomeVisitDao().selectAttachment(conn, postNo);
 	   close(conn);

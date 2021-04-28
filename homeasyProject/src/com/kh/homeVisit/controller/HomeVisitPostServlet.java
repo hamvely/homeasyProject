@@ -42,6 +42,8 @@ public class HomeVisitPostServlet extends HttpServlet {
 			HomeVisit h = new HomeVisitService().selectHomeVisit(postNo);
 			ArrayList<Attachment> list = new HomeVisitService().selectAttachment(postNo);
 		
+			request.setAttribute("h", h);
+			request.setAttribute("list", list);
 			//System.out.println(h);
 			//System.out.println(at);
 		
