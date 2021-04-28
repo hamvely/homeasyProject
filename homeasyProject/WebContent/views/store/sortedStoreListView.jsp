@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
 <%
-	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+	ArrayList<Product> cList = (ArrayList<Product>)request.getAttribute("cList");
 	ArrayList<ProductCate> cate2List = (ArrayList<ProductCate>)request.getAttribute("cate2List");
 %>
 <!DOCTYPE html>
@@ -52,7 +52,7 @@
 						</a>
 					<% } %>
 				</div>
-				<% for(Product p : list){ %>
+				<% for(Product p : cList){ %>
 	            <div class="thumbnail" align="center">
 	            	<input type="hidden" value="<%=p.getProductNo()%>">
 					<input type="hidden" value="<%=p.getProductDate()%>">

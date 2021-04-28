@@ -75,19 +75,17 @@
                     <img src="">
                 </div>   
                 <div class="content">
+                    <form action="<%= contextPath %>/totalPrice.st" method="post" id="totalPrice">
                     <p><%= p.getProductBrand() %></p>
                     <p><%= p.getProductName() %></p>
                     <p><%= p.getProductPrice() %></p>
-                    
-                      <form>
-                      <select name="selectOption">
-                      <option selected>옵션을 선택하세요</option>
-                    <% for(int i=0; i<optionList.size(); i++) {%>
+                    <select name="selectOption">
+                    	<option selected>옵션을 선택하세요</option>
+                    	<% for(int i=0; i<optionList.size(); i++) {%>
                        
                         <% if(optionList.get(i).getOptionStock() == 0) { %>
                            
                             <option value="<%= optionList.get(i).getOptionNo() %>" disabled>
-                               
                                <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
                             </option>
                         <% } else { %>
@@ -100,7 +98,11 @@
                                      수량 : <input type="number" id="amount">  
                     </form>
                     <br>
-                    <p>총가격 : <%= p.getProductPrice() %></p>
+                    <% if(optionList.get(0).getOptionName() == null){ %>
+                    	<p>총가격 : <%= p.getProductPrice() %>원</p>
+                    <% } else { %>
+                    	<p>총가격 : <%= 3*6 %>원</p>
+                    <% } %>
                     <button>장바구니 담기</button>
                     <button>결제하기</button> 
                     <hr><hr>
@@ -115,11 +117,11 @@
         </div>
 
 		<script>
-			$('#selectOption').focusout(function() {
-
-		    
-
-		})
+			$(function(){
+    			$(".thumbnail").click(function(){
+    				location.href = '<%=contextPath%>/detail.st?pno=' + $(this).children().eq(0).val();
+    			})
+    		})
 		</script>
 		
     </div>

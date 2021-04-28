@@ -105,7 +105,7 @@ public class StoreDao {
 		return cate2List;
 		
 	}
-	/*
+	
 	public ArrayList<Product> selectcList(Connection conn, int cate1No, int cate2No) {
 		// select문 => ResultSet객체 (여러행)
 		ArrayList<Product> cList = new ArrayList<>();
@@ -145,7 +145,7 @@ public class StoreDao {
 		return cList;
 		
 	}
-	*/
+	
 	
 	
 	

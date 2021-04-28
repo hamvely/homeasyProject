@@ -34,7 +34,7 @@ public class StoreService {
 		 
 		return cate2List;
 	}
-	/*
+	
 	public ArrayList<Product> selectcList(int cate1No, int cate2No) {
 		
 		Connection conn = getConnection();
@@ -45,7 +45,7 @@ public class StoreService {
 		 
 		return cList;
 	}
-	*/
+	
 	
 	
 	

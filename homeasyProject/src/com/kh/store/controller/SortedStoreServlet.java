@@ -14,16 +14,16 @@ import com.kh.product.model.vo.ProductCate;
 import com.kh.store.model.service.StoreService;
 
 /**
- * Servlet implementation class StoreListServlet
+ * Servlet implementation class SortedStoreServlet
  */
-@WebServlet("/list.st")
-public class StoreListServlet extends HttpServlet {
+@WebServlet("/sortedList.st")
+public class SortedStoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreListServlet() {
+    public SortedStoreServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,14 +34,15 @@ public class StoreListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int cate1No = Integer.parseInt(request.getParameter("cate1No"));
-		
-		ArrayList<Product> list = new StoreService().selectList(cate1No);
-		request.setAttribute("list", list);
+		int cate2No = Integer.parseInt(request.getParameter("cate2No"));
+
+		ArrayList<Product> cList = new StoreService().selectcList(cate1No, cate2No);
+		request.setAttribute("cList", cList);
 		
 		ArrayList<ProductCate> cate2List = new StoreService().selectCate2List(cate1No);
 		request.setAttribute("cate2List", cate2List);
 		
-		request.getRequestDispatcher("views/store/storeListView.jsp").forward(request, response);
+		request.getRequestDispatcher("views/store/sortedStoreListView.jsp").forward(request, response);
 	}
 
 	/**
