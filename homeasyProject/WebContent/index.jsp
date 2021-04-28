@@ -38,7 +38,7 @@
     <div class="wrap">
 
         <!-- 상단바 -->
-        <div id="header"></div>
+        <div id="header"><%@ include file="views/common/mainHeader.jsp" %></div>
         
         <!-- 네비게이션바 -->
         <div id="navigator"></div>

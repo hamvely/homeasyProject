@@ -11,8 +11,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -32,7 +30,6 @@
     #header {height: 150px;}
 
     #header>div {float: left; height: 100%;}
-    #content>div {float: left; height: 100%;}
     #header_column {
         display: flex;
         align-items: center;
@@ -61,7 +58,6 @@
         color: rgb(3, 79, 6);
         font-size: 20px;
     }
-
 
 
     /* 로그인 */
@@ -104,57 +100,55 @@
 
 
   <div class="wrap">
-
-    <div>
-		
-      <!-- 헤더 -->
-      <div id="header">
       
-          <!-- 로고 -->        
-          <div id="header_column">
-              <a href="<%= request.getContextPath() %>"><img src="resources/img/logo/logo (1).png" class="header_column_logo" width="200px;"></a>
-          </div>
+    <!-- 헤더 -->
+    <div id="header">
+      
+        <!-- 로고 -->        
+        <div id="header_column">
+          <a href="<%= request.getContextPath() %>"><img src="resources/img/logo/logo (1).png" class="header_column_logo" width="200px;"></a>
+        </div>
 
-          <!-- 검색 -->   
-          <div id="header_column">
-              <form class="search_form" action="">
-                  <div class="search_form_text">
-                      <input type="search">
-                  </div>
-                  <div class="search_form_btn">
-                      <a href="<%= contextPath %>/index.admin"><i class="fas fa-search"></i></a>
-                  </div>
-              </form>
-          </div>
+        <!-- 검색 -->   
+        <div id="header_column">
+          <form class="search_form" action="">
+            <div class="search_form_text">
+                <input type="search">
+            </div>
+            <div class="search_form_btn">
+                <a href="<%= contextPath %>/index.admin"><i class="fas fa-search"></i></a>
+            </div>
+          </form>
+        </div>
 
           <!-- 로그인 -->   
           <div id="header_column">
           
               <% if(loginUser == null) { %>
 
-                  <div class="beforeLogin">
-                      <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                      <a href="<%= request.getContextPath() %>/loginForm.me">로그인</a>
-                      <a href="<%= request.getContextPath() %>/enrollForm.me">회원가입</a>
-                  </div>
+                <div class="beforeLogin">
+                    <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                    <a href="<%= request.getContextPath() %>/loginForm.me">로그인</a>
+                    <a href="<%= request.getContextPath() %>/enrollForm.me">회원가입</a>
+                </div>
                   
               <% }else { %>
                   <div class="afterLogin">
-                      <div class="">
-                          <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                          <a href="#"><i class="far fa-heart fa-lg"></i></a>
-                          <a href="#"><i class="far fa-user-circle fa-lg"></i></a>
-                          <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
-                      </div>
+                    <div class="">
+                        <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                        <a href="#"><i class="far fa-heart fa-lg"></i></a>
+                        <a href="#"><i class="far fa-user-circle fa-lg"></i></a>
+                        <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
+                    </div>
 
-                      <div class="mypage">
-                          <a href="<%= contextPath %>/modification.me">마이페이지</a>
-                          <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
-                      </div>
+                    <div class="mypage">
+                        <a href="<%= contextPath %>/modification.me">마이페이지</a>
+                        <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
+                    </div>
                   </div>
-                <% } %>
+              <% } %>
           </div>
-      </div>
+    </div>
         
       <script>
       $(document).ready(function(){
@@ -163,15 +157,11 @@
         });
       });
       </script> 
-    </div>
-
   </div>
 
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"
       crossorigin="anonymous"
     ></script>
-
-
 </body>
 </html>
