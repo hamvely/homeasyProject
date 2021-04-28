@@ -49,11 +49,11 @@
             <div id="content_1">dididi</div>
 
             <!-- 리모콘바 -->
-            <div id="content_2">didididi</div>
+            <div id="content_2"><%@ include file="views/common/mainRight.jsp" %></div>
         </div>
 
         <!-- 하단바 -->
-        <div id="footer"></div>
+        <div id="footer"><%@ include file="views/common/footer.jsp" %></div>
 
     </div>
 	
