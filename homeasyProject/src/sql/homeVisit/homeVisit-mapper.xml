@@ -73,7 +73,8 @@
 		         , A.* 
 		       FROM(
 		      SELECT  
-		              EMAIL
+		      		  POST_NO
+		            , EMAIL
 		            , POST_TITLE
 		            , POST_CREATE_DATE
 		            , POST_COUNT

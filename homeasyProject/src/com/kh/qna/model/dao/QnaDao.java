@@ -98,7 +98,7 @@ public class QnaDao {
 			for(Attachment at : list){
 				
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, at.getPostFileReName());
+				pstmt.setString(1, at.getPostFileRename());
 				
 				result = pstmt.executeUpdate();
 				
@@ -113,14 +113,14 @@ public class QnaDao {
 		return result;
 	}
 	
-	public int selectAdminQnaListCount(Connection conn) {
+	public int selectListCount(Connection conn) { // 관리자 qna 리스트 카운트
 		
 		int listCount = 0;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectAdminQnaListCount");
+		String sql = prop.getProperty("selectListCount");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -141,11 +141,11 @@ public class QnaDao {
 		
 	}
 	
-	public ArrayList<Qna> selectAdminList(Connection conn, PageInfo pi){
+	public ArrayList<Qna> selectList(Connection conn, PageInfo pi){
 		ArrayList<Qna> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectAdminList");
+		String sql = prop.getProperty("selectList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

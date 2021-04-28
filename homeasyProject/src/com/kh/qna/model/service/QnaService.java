@@ -39,18 +39,18 @@ public class QnaService {
 		
 	}
 	
-	public int selectAdminQnaListCount() {
+	public int selectListCount() { // 관리자 qna리스트 카운트
 		Connection conn = getConnection();
-		int listCount = new QnaDao().selectAdminQnaListCount(conn);
+		int listCount = new QnaDao().selectListCount(conn);
 		
 		close(conn);
 		
 		return listCount;
 	}
 	
-	public ArrayList<Qna> selectAdminList(PageInfo pi){
+	public ArrayList<Qna> selectList(PageInfo pi){ // 관리자 qna 페이지 
 		Connection conn = getConnection();
-		ArrayList<Qna> list = new QnaDao().selectAdminList(conn, pi);
+		ArrayList<Qna> list = new QnaDao().selectList(conn, pi);
 		close(conn);
 		return list;
 	}

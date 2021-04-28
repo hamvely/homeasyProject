@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.qna.model.vo.Qna" import="com.kh.member.model.vo.Member"%>
+    pageEncoding="UTF-8" %>
+<%@ page import="java.util.ArrayList, com.kh.qna.model.vo.Qna, com.kh.member.model.vo.Member, com.kh.common.model.vo.PageInfo"%>
 
 <%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Qna> list = (ArrayList<Qna>)request.getAttribute("list");
 	Member loginUser = (Member)session.getAttribute("loginUser");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
 %>
 
 <!DOCTYPE html>
@@ -55,21 +62,13 @@
     </style>
 </head>
 <body>
-
-	<table>
-	  <tr>
-            <td colspan="2">
-                <%@ include file="../common/adminHeader.jsp" %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <%@ include file="../common/adminMenubar.jsp" %>
-            </td>
-            <td>
-	            
-	    <div class="wrap">
+<div class="wrap">
+	
+	        <%@ include file="../common/adminHeader.jsp" %>
+	
+	        <%@ include file="../common/adminMenubar.jsp"%>
 	    
+	   <table class="table1" class="listArea" border="0">
 	    <%if(loginUser != null){ %>
 	        <br>
 	      <div class="content">
@@ -77,12 +76,11 @@
 	        <br>
 	        <button type="button" class="btn btn-warning" style="color:white; width:100px; height:35px;">삭제</button>
 	        <br><br>
+	      </div>
 	     <% } %>
-	        <table class="table1" border="0">
 	            <thead>
 	                <tr>
-	                    <td width="50" height="40"><input type="checkbox"></td>
-	                    <td>No.</td>
+	                    <td width="50" height="40">No.</td>
 	                    <td>회원 이메일</td>
 	                    <td>제목</td>
 	                    <td>작성일</td>
@@ -92,7 +90,6 @@
 	            <tbody>
 	            	<%for(Qna q : list){ %>
 	                <tr>
-	                    <td><input type="checkbox"></td>
 	                    <td><%=q.getPostNo() %></td>
 	                    <td><%=q.getEmail() %></td>
 	                    <td><%=q.getPostTitle() %></td>
@@ -104,16 +101,39 @@
 	       </table>
 	        <br>
 	
-	        <div align="center" class="pageinArea">
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〈</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-warning" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">1</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">2</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">3</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">4</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〉</p></button>
-	        </div>
+	        <div align="center" class="pagingArea">
 
-	  	</div>
+					<% if(currentPage != 1) { %>
+                    	<button onclick="location.href='<%= contextPath %>/adminList.qna?currentPage=<%= currentPage-1 %>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+					
+						<% if(currentPage == p) { %>
+                    		<button disabled><%= p %></button>
+                    	<% }else { %>
+                    		<button onclick="location.href='<%= contextPath %>/adminList.qna?currentPage=<%= p %>';"><%= p %></button>
+                    	<% } %>
+                    
+                    <% } %>
+                    
+                    <% if(currentPage != maxPage) { %>
+                    	<button onclick="location.href='<%= contextPath %>/adminList.qna?currentPage=<%= currentPage+1 %>';">다음</button>
+					<% } %>
+                </div>
+
+		<script>
+        	$(function(){
+        		$(".listArea>tbody>tr").click(function(){
+        			        					
+        			location.href = '<%=contextPath%>/post.qna?qno=' + $(this).children().eq(0).text();
+        			
+        		})
+        	})
+        
+        </script>
+
+
 	</div>
 </table>
 </body>

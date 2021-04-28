@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.homeVisit.model.service.HomeVisitService;
+import com.kh.homeVisit.model.vo.HomeVisit;
+import com.kh.qna.model.vo.Attachment;
+
 /**
  * Servlet implementation class QnaPostServlet
  */
@@ -27,8 +31,20 @@ public class QnaPostServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("views/qna/qnaPost.jsp").forward(request, response);
-
+		int postNo = Integer.parseInt(request.getParameter("pno"));
+		
+		int result = new QnaService().increaseCount(postNo);
+		
+		if(result>0) {
+			
+			Qna q = new QnaService().selectQna(postNo);
+			Attachment at = new QnaService().selectAttachment(postNo);
+		
+			request.getRequestDispatcher("views/qna/qnaPost.jsp").forward(request, response);
+			
+		}else {
+			
+		}
 	}
 
 	/**
