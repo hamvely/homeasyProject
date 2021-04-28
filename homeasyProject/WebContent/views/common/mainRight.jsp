@@ -18,6 +18,7 @@
     }
 
     #right>div{
+    	width:60px;
         background-color:rgb(237,237,237); 
         text-align: center;
         font-size:11px;
