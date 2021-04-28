@@ -144,23 +144,23 @@
                     <form class="product_search">
                         <input type="search" class="search_text" placeholder="검색할 상품명을 입력하세요.">
                     </form>
-                    <select name="category" class="product_category">
-                        <option value="">가구</option>
-                        <option value="">패브릭</option>
-                        <option value="">홈데코/조명</option>
-                        <option value="">수납/정리</option>
-                        <option value="">생활</option>
-                        <option value="">주방</option>
-                        <option value="">반려동물</option>
+                    <select name="category1" class="product_category">
+                        <option value="1">가구</option>
+                        <option value="2">패브릭</option>
+                        <option value="3">홈데코/조명</option>
+                        <option value="4">수납/정리</option>
+                        <option value="5">생활</option>
+                        <option value="6">주방</option>
+                        <option value="7">반려동물</option>
                     </select>
-                    <select name="category" class="product_category">
-                        <option value="">전체</option>
-                        <option value="">품절</option>
-                        <option value="">부족</option>
+                    <select name="stock" class="product_category">
+                        <option value="#">전체</option>
+                        <option value="#">품절</option>
+                        <option value="#">부족</option>
                     </select>
-                    <select name="category" class="product_category">
-                        <option value="">진열함(Y)</option>
-                        <option value="">진열대기(N)</option>
+                    <select name="status" class="product_category">
+                        <option value="Y">진열함(Y)</option>
+                        <option value="N">진열대기(N)</option>
                     </select>
                 </div>
             

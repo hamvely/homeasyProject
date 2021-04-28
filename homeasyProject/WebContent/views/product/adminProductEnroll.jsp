@@ -111,31 +111,28 @@
                     <table>
                         <tr>
                             <th>진열여부</th>
-                            <td><input type="radio" name="product_status" required>진열함(Y)</td>
-                            <td><input type="radio" name="product_status" required>진열대기(N)</td>
+                            <td><input type="radio" name="product_status" value="Y" required>진열함(Y)</td>
+                            <td><input type="radio" name="product_status" value="Y" required>진열대기(N)</td>
                         </tr>
                         <tr>
                             <th>카테고리</th>
                             <td>
                                 <select name="category1" class="cate1_no" required>
-                                    <option value="">가구</option>
-                                    <option value="">패브릭</option>
-                                    <option value="">홈데코/조명</option>
-                                    <option value="">수납/정리</option>
-                                    <option value="">생활</option>
-                                    <option value="">주방</option>
-                                    <option value="">반려동물</option>
+                                    <option value="1">가구</option>
+                                    <option value="2">패브릭</option>
+                                    <option value="3">홈데코/조명</option>
+                                    <option value="4">수납/정리</option>
+                                    <option value="5">생활</option>
+                                    <option value="6">주방</option>
+                                    <option value="7">반려동물</option>
                                 </select>
                             </td>
                             <td>
                                 <select name="category2" class="cate2_no" required>
-                                    <option value="">2차 분류</option>
-                                    <option value="">종류1</option>
-                                    <option value="">종류2</option>
-                                    <option value="">종류3</option>
-                                    <option value="">종류4</option>
-                                    <option value="">종류5</option>
-                                    <option value="">종류6</option>
+                                    <option value="#">2차분류1</option>
+                                    <option value="#">2차분류2</option>
+                                    <option value="#">2차분류3</option>
+                                    <option value="#">2차분류4</option>
                                 </select>
                             </td>
                         </tr>
