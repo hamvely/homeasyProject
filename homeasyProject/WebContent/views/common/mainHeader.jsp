@@ -2,9 +2,9 @@
     pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
     
 <% 
-	Member loginUser = (Member)session.getAttribute("loginUser"); 
-	String contextPath = request.getContextPath(); 
-	
+   Member loginUser = (Member)session.getAttribute("loginUser"); 
+   String contextPath = request.getContextPath(); 
+   
 %>
 
 <!DOCTYPE html>
@@ -103,13 +103,13 @@
     
     /* 버튼스타일 */
     .btn-success {
-    	background-color:rgb(3, 79, 6); 
-    	border-color:rgb(3, 79, 6);
+       background-color:rgb(3, 79, 6); 
+       border-color:rgb(3, 79, 6);
     }
 
     .btn-secondary {
-    	background-color:rgb(158, 158, 158); 
-    	border-color:rgb(158, 158, 158);
+       background-color:rgb(158, 158, 158); 
+       border-color:rgb(158, 158, 158);
     }
     
 
@@ -117,15 +117,15 @@
 </style>
 </head>
 <body>
-	<!-- 작성자 : 김혜미 -->
-	<script>
-		var msg = "<%= session.getAttribute("alertMsg") %>";
-		
-		if(msg != "null"){
-			alert(msg);
-			<% session.removeAttribute("alertMsg"); %>
-		}
-	</script>
+   <!-- 작성자 : 김혜미 -->
+   <script>
+      var msg = "<%= session.getAttribute("alertMsg") %>";
+      
+      if(msg != "null"){
+         alert(msg);
+         <% session.removeAttribute("alertMsg"); %>
+      }
+   </script>
 
 
 
@@ -202,16 +202,16 @@
                 <a href="<%=contextPath%>/list.qna">질문과답변</a>
               </div>
               <div id="menu1" class="container tab-pane fade"><br>
-                <a href="<%= contextPath %>/funitureList.st">가구</a>
-                <a href="<%= contextPath %>/fabricList.st">패브릭</a>
-                <a href="<%= contextPath %>/decoList.st">홈데코/조명</a>
-                <a href="<%= contextPath %>/storageList.st">수납/정리</a>
-                <a href="<%= contextPath %>/suppliesList.st">생활</a>
-                <a href="<%= contextPath %>/kitchenList.st">주방</a>
-                <a href="<%= contextPath %>/petList.st">반려동물</a>
+                <a href="<%= contextPath %>/list.st?cate1No=1">가구</a>
+                <a href="<%= contextPath %>/list.st?cate1No=2">패브릭</a>
+                <a href="<%= contextPath %>/list.st?cate1No=3">홈데코/조명</a>
+                <a href="<%= contextPath %>/list.st?cate1No=4">수납/정리</a>
+                <a href="<%= contextPath %>/list.st?cate1No=5">생활</a>
+                <a href="<%= contextPath %>/list.st?cate1No=6">주방</a>
+                <a href="<%= contextPath %>/list.st?cate1No=7">반려동물</a>
               </div>
               <div id="menu2" class="container tab-pane fade"><br>
-                <a href="<%= contextPath %>/list.no">공지사항</a>
+                <a href="<%= contextPath %>/list.no?currentPage=1">공지사항</a>
                 <a href="<%= contextPath %>/listAll.faq">FAQ</a>
                 <a href="<%= contextPath %>">1:1문의</a>
               </div>
