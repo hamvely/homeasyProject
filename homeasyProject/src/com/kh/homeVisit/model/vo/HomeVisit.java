@@ -21,14 +21,14 @@ public class HomeVisit {
    
    public HomeVisit() {}
 
-   public HomeVisit(int postNo, String userFileRename, String nickName, String postFileRename, String postContent,
-         String pcomContent) {
+   public HomeVisit(int postNo, String postContent, String nickName, String userFileRename, 
+		   String postFileRename, String pcomContent) { 
       super();
       this.postNo = postNo;
-      this.userFileRename = userFileRename;
-      this.nickName = nickName;
-      this.postFileRename = postFileRename;
       this.postContent = postContent;
+      this.nickName = nickName;
+      this.userFileRename = userFileRename;
+      this.postFileRename = postFileRename;
       this.pcomContent = pcomContent;
    }
 
@@ -55,9 +55,8 @@ public class HomeVisit {
    }
    
    
-   public HomeVisit(String rowNum, String email, String postTitle, Date postCreateDate, int postCount) {
+   public HomeVisit(String email, String postTitle, Date postCreateDate, int postCount) {
       super();
-      this.rowNum = rowNum;
       this.email = email;
       this.postTitle = postTitle;
       this.postCreateDate = postCreateDate;
@@ -75,7 +74,7 @@ public class HomeVisit {
    }
 
    
-   
+
    public String getPostStatus() {
       return postStatus;
    }

@@ -33,7 +33,24 @@ public class HomeVisitPostServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+		int postNo = Integer.parseInt(request.getParameter("pno"));
+		
+		int result = new HomeVisitService().increaseCount(postNo);
+		
+		if(result>0) {
+			
+			HomeVisit h = new HomeVisitService().selectHomeVisit(postNo);
+			Attachment at = new HomeVisitService().selectAttachment(postNo);
+		
+			//System.out.println(h);
+			//System.out.println(at);
+		
+			request.getRequestDispatcher("views/homeVisit/homeVisitPost.jsp").forward(request, response);
+			
+		}else {
+			
+		}
+		
 	}
 
 	/**

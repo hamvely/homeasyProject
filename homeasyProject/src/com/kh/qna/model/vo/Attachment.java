@@ -6,7 +6,7 @@ public class Attachment {
 
 	private int postFileNo;
 	private int postNo;
-	private String postFileReName;
+	private String postFileRename;
 	private String originName;
 	private String fileSystemName;
 	private String filePath;
@@ -14,11 +14,11 @@ public class Attachment {
 	
 	public Attachment() {}
 
-	public Attachment(int postFileNo, int postNo, String postFileReName) {
+	public Attachment(int postFileNo, int postNo, String postFileRename) {
 		super();
 		this.postFileNo = postFileNo;
 		this.postNo = postNo;
-		this.postFileReName = postFileReName;
+		this.postFileRename = postFileRename;
 	}
 	
 	
@@ -47,12 +47,12 @@ public class Attachment {
 		this.postNo = postNo;
 	}
 
-	public String getPostFileReName() {
-		return postFileReName;
+	public String getPostFileRename() {
+		return postFileRename;
 	}
 
-	public void setPostFileReName(String postFileReName) {
-		this.postFileReName = postFileReName;
+	public void setPostFileRename(String postFileRename) {
+		this.postFileRename = postFileRename;
 	}
 
 	public String getOriginName() {
@@ -94,10 +94,11 @@ public class Attachment {
 
 	@Override
 	public String toString() {
-		return "Attachment [postFileNo=" + postFileNo + ", postNo=" + postNo + ", postFileReName=" + postFileReName
+		return "Attachment [postFileNo=" + postFileNo + ", postNo=" + postNo + ", postFileReName=" + postFileRename
 				+ ", originName=" + originName + ", fileSystemName=" + fileSystemName + ", filePath=" + filePath
 				+ ", fileLevel=" + fileLevel + "]";
 	}
+
 
 	
 

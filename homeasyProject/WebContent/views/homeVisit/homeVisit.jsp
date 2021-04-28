@@ -94,18 +94,16 @@
                     <img src="<%=h.getUserFileRename() %>" width="48" height="49">
                  </div>
                  <h2 style="padding-top:"><%=h.getNickName() %></h2>
-                  <br><br>
+                  <br><br><br>
                   
                   <div class="thumbnail" style="margin-top:-60px;">
-                     <img src="<%=h.getPostFileRename() %>" width="220" height="220">
+                     <img src="<%=contextPath %>/<%=h.getPostFileRename() %>" width="220" height="220">
                   </div><br>
                   
                   <img class="heart" src="" width="48" height="49">
                   <img class="chat" src="" width="48" height="49">
                   
-                  <P>
-                  <%=h.getPostContent() %>
-                  </P>
+                  <P><%=h.getPostContent() %></P>
                   
                   <p><%=h.getNickName() %> <%=h.getPcomContent() %></p>
                </div>
