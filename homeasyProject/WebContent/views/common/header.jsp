@@ -24,14 +24,12 @@
     div {box-sizing: border-box;}
     .wrap {
         width: 1200px;
-        height: 250px;
         margin: auto;
         color: #2e363e;
     }
 
     #wrap>div {width: 100%;}
     #header {height: 150px;}
-    #navigator {height: 100px;}
 
     #header>div {float: left; height: 100%;}
     #content>div {float: left; height: 100%;}
@@ -64,30 +62,7 @@
         font-size: 20px;
     }
 
-    /* 네비게이션 */
-    .container, .mt-3{
-        margin: 0;
-        padding: 0;
-    }
-    .mt-3, .my-3 {
-        margin-top: 0!important;
-    }
-    .nav-tabs{
-        height: 50px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .container {
-        height: 50px;
-        font-size: 15px;
-        font-weight: bold;
-    }
-    .nav-tabs .nav-link{border: none;}
-    .container a{
-        margin-left: 15px;
-        text-decoration: none;
-    }
-    .container a:hover {color: rgb(3, 79, 6);}
+
 
     /* 로그인 */
     .beforeLogin a {color:black; text-decoration:none; font-weight: bold; padding: 0px 5px 0px 5px;}
@@ -180,46 +155,6 @@
                 <% } %>
           </div>
       </div>
-    	
-		<!-- 네비게이션 -->   
-		<div class="container mt-3">
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link" href="#home">커뮤니티</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#menu1">스토어</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#menu2">고객센터</a>
-            </li>
-          </ul>
-        
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div id="home" class="container tab-pane active"><br>
-              <a href="<%=contextPath%>/list.ho">집들이</a>
-              <a href="<%=contextPath%>/list.how">노하우</a>
-              <a href="<%=contextPath%>/list.qna">질문과답변</a>
-            </div>
-            <div id="menu1" class="container tab-pane fade"><br>
-              <a href="<%= contextPath %>/funitureList.st">가구</a>
-              <a href="<%= contextPath %>/fabricList.st">패브릭</a>
-              <a href="<%= contextPath %>/decoList.st">홈데코/조명</a>
-              <a href="<%= contextPath %>/storageList.st">수납/정리</a>
-              <a href="<%= contextPath %>/suppliesList.st">생활</a>
-              <a href="<%= contextPath %>/kitchenList.st">주방</a>
-              <a href="<%= contextPath %>/petList.st">반려동물</a>
-            </div>
-            <div id="menu2" class="container tab-pane fade"><br>
-              <a href="<%= contextPath %>/list.no?currentPage=1">공지사항</a>
-              <a href="<%= contextPath %>/listAll.faq">FAQ</a>
-              <a href="<%= contextPath %>">1:1문의</a>
-            </div>
-          </div>
-      </div>
-      
         
       <script>
       $(document).ready(function(){
