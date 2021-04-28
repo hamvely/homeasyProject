@@ -91,7 +91,7 @@
                <div class="thumbnail" >
                <input type="hidden" value="<%=h.getPostNo()%>">
                   <div class="user" style="float:left;">
-                    <img src="<%=h.getUserFileRename() %>" width="48" height="49">
+                    <img src="<%=h.getUserFileRename()%>" width="48" height="49">
                  </div>
                  <h2 style="padding-top:"><%=h.getNickName() %></h2>
                   <br><br><br>

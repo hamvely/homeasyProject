@@ -77,6 +77,11 @@ public class Product {
       this.optionStock = optionStock;
    }
 
+   public Product(int productPrice, int optionPrice) {
+	   super();
+	   this.productPrice = productPrice;
+	   this.optionPrice = optionPrice;
+   }
    public String getTitleImg() {
       return titleImg;
    }

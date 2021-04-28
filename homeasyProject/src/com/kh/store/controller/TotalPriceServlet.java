@@ -1,7 +1,6 @@
 package com.kh.store.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,20 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.product.model.vo.Product;
-import com.kh.product.model.vo.ProductCate;
 import com.kh.store.model.service.StoreService;
 
 /**
- * Servlet implementation class StoreListServlet
+ * Servlet implementation class TotalPriceServlet
  */
-@WebServlet("/list.st")
-public class StoreListServlet extends HttpServlet {
+@WebServlet("/totalPrice.st")
+public class TotalPriceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreListServlet() {
+    public TotalPriceServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,15 +31,13 @@ public class StoreListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int cate1No = Integer.parseInt(request.getParameter("cate1No"));
+		int optionNo = Integer.parseInt(request.getParameter("optionNo"));
+		System.out.println(optionNo);
 		
-		ArrayList<Product> list = new StoreService().selectList(cate1No);
-		request.setAttribute("list", list);
+		Product tp = new StoreService().totalPrice(optionNo);
+		request.setAttribute("p", tp);
 		
-		ArrayList<ProductCate> cate2List = new StoreService().selectCate2List(cate1No);
-		request.setAttribute("cate2List", cate2List);
-		
-		request.getRequestDispatcher("views/store/storeListView.jsp").forward(request, response);
+		System.out.println(tp.getOptionPrice() + tp.getProductPrice());
 	}
 
 	/**

@@ -105,7 +105,7 @@ public class StoreDao {
 		return cate2List;
 		
 	}
-	/*
+	
 	public ArrayList<Product> selectcList(Connection conn, int cate1No, int cate2No) {
 		// select문 => ResultSet객체 (여러행)
 		ArrayList<Product> cList = new ArrayList<>();
@@ -145,8 +145,35 @@ public class StoreDao {
 		return cList;
 		
 	}
-	*/
 	
+	public Product totalPrice(Connection conn, int optionNo) {
+		// select문 => ResultSet객체 (한행)
+		Product tp = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("totalPrice");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, optionNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				tp = new Product(rset.getInt("product_price"),
+							     rset.getInt("option_price"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return tp;
+		
+	}
 	
 	
 	

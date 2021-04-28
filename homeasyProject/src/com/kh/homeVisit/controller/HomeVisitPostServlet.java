@@ -40,8 +40,10 @@ public class HomeVisitPostServlet extends HttpServlet {
 		if(result>0) {
 			
 			HomeVisit h = new HomeVisitService().selectHomeVisit(postNo);
-			Attachment at = new HomeVisitService().selectAttachment(postNo);
+			ArrayList<Attachment> list = new HomeVisitService().selectAttachment(postNo);
 		
+			request.setAttribute("h", h);
+			request.setAttribute("list", list);
 			//System.out.println(h);
 			//System.out.println(at);
 		

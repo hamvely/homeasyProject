@@ -54,14 +54,14 @@
 		    )
 	</entry>
 
-	<entry key="selectAdminQnaListCount"> <!-- 집들이관리자 리스트카운트 -->
+	<entry key="selectListCount"> <!-- 집들이관리자 리스트카운트 -->
 		SELECT COUNT(*) LISTCOUNT
 		  FROM POST
 		 WHERE POST_CATE_NAME = '질문과답변'
 		   AND POST_STATUS = 'Y'
 	</entry>
 
-	<entry key="selectAdminList"> <!-- 질답관리자 게시판 조회 -->
+	<entry key="selectList"> <!-- 질답관리자 게시판 조회 -->
 		SELECT *
 		  FROM (
 		        SELECT

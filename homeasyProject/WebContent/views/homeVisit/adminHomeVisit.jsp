@@ -30,11 +30,11 @@
 
     <style>
         .wrap{
-            width:1000px;
-            height:800px;
+            width:1200px;
+            height:900px;
             margin:auto;
         }
-
+        
         .content{
             margin-left:20px;
             margin-top:-5px;
@@ -47,7 +47,6 @@
             border:solid #ccc;
             border-left:none;
             border-right:none;
-
         }
 
         thead{
@@ -65,24 +64,17 @@
         }
     </style>
 </head>
-<body>
+<body>	
 <table>
-	 <tr>
-	     <td colspan="2">
-	        <%@ include file="../common/adminHeader.jsp" %>
-	     </td> 
-    </tr>
-	 <tr>     
-	 	<td>
-	        <%@ include file="../common/adminMenubar.jsp" %>
-	   </td>
-	</tr>
-	            
-	            
-    <div class="wrap">
+<div class="wrap">
     
-	    <%if(loginUser != null){ %>
-	        <br>
+  
+	        <%@ include file="../common/adminHeader.jsp" %>
+	
+	        <%@ include file="../common/adminMenubar.jsp"%>
+	        
+        <table class="table1" class="listArea" border="0">	
+        <%if(loginUser != null){ %>
 	        <div class="content">
 		        <h3 style="font-weight:600;">집들이 관리</h3>
 		        <br>
@@ -90,13 +82,9 @@
 		        <br><br>
 	        </div>
 	  	<% } %>
-    
-        <table class="table1" class="listArea" border="0">	
-        
             <thead>
                 <tr>
-                    <td width="50" height="40"><input type="checkbox"></td>
-                    <td>No.</td>
+                    <td width="50" height="40">No.</td>
                     <td>회원 이메일</td>
                     <td>제목</td>
                     <td>작성일</td>
@@ -106,8 +94,7 @@
             <tbody>
       		<%for(HomeVisit h : list){ %>
               <tr>
-                    <td><input type="checkbox"></td>
-                    <td><%=h.getRowNum()%></td>
+                    <td><%=h.getPostNo()%></td>
                     <td><%=h.getEmail()%></td>
                     <td><%=h.getPostTitle()%></td>
                     <td><%=h.getPostCreateDate()%></td>
@@ -160,7 +147,7 @@
 	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〉</p></button>
 	        </div>
 			-->
-   </div>	
-</table>
+   </div>
+</table>	
 </body>
 </html>
