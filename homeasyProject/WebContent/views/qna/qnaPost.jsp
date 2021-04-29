@@ -84,7 +84,6 @@
         padding-top:5px;
     }
     
-   
 </style>
 </head>
 <body>
@@ -97,7 +96,7 @@
             <div class="user">
 	                    <i class="far fa-user-circle fa-2x"" ></i>
                 <div class="id">
-                    <h3><%=q.getNickName() %></h3>
+                    <h3 style="margin-bottom:40px"><%=q.getNickName() %></h3>
                 </div>
             </div>
         </div>

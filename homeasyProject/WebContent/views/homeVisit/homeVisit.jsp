@@ -84,7 +84,7 @@
 	                  <br><br>
 	                  
 	                  <div class="thumbnail" style="margin-top:-60px; margin-left:-1px;">
-	                     <img src="/resources/img/sample/artRoom1_main.jpg" width="220" height="220">
+	                     <img src="" width="220" height="220">
 	                  </div>
 	                  
 	                  <P><br><br><%=h.getPostContent() %></P>

@@ -97,11 +97,12 @@
             
                 <div class="content1_1">
                     <p><%=q.getPostContent() %></p>
-                	<img src="<%=q.getUserFileRename() %>" class="user">
                 </div>
                 
                 <div class="id1">
-                    <h3><%=q.getNickName() %></h3>
+                     <i class="far fa-user-circle fa-2x" style="float:left;"></i>
+                    <h3 style="float:left;"><%=q.getNickName() %></h3>
+                    <br><br>
                 </div>
                 
                     <img src="<%=contextPath %>/<%=q.getPostFileRename() %>" class="imgfile">

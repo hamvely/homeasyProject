@@ -31,7 +31,7 @@
    			<tr>
    				<td colspan="3">
    					<div>
-   						<img src="<%=h.getPostFileRename() %>" width="500" height="500">
+   						<img src="" width="500" height="500">
    					</div>
    				</td>
    			</tr>
