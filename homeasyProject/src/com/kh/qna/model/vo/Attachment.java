@@ -13,6 +13,7 @@ public class Attachment {
 	private int fileLevel;
 	private String changeName;
 	
+	
 	public Attachment() {}
 
 	public Attachment(int postFileNo, int postNo, String postFileRename) {

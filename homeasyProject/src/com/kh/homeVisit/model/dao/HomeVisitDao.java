@@ -74,10 +74,9 @@ public class HomeVisitDao {
       
       try {
          pstmt = conn.prepareStatement(sql);
-         pstmt.setInt(1, h.getPostNo());
-         pstmt.setString(2, h.getUserNo());
-         pstmt.setString(3, h.getPostTitle());
-         pstmt.setString(4, h.getPostContent());
+         pstmt.setString(1, h.getUserNo());
+         pstmt.setString(2, h.getPostTitle());
+         pstmt.setString(3, h.getPostContent());
          
          result = pstmt.executeUpdate();
          

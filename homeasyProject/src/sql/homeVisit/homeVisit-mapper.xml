@@ -28,15 +28,16 @@
 		    INTO POST
 		    (
 		      POST_NO
+		    , POST_CATE_NAME
 		    , USER_NO
 		    , POST_TITLE
 		    , POST_CONTENT
-		    
 		    )
 		 VALUES
 		    (
 		     SEQ_PONO.NEXTVAL
-		    ,SEQ_UNO.NEXTVAL
+		    , '집들이'
+		    ,?
 		    ,?
 		    ,?
 		    )

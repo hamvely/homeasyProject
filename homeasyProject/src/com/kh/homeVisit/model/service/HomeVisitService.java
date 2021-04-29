@@ -26,11 +26,11 @@ public class HomeVisitService {
    
    
    // 집들이 사진 올리기  (이거에요 혜미님!)
-   public int insertHomeVisitWrite(HomeVisit list, ArrayList<Attachment> at) {
+   public int insertHomeVisitWrite(HomeVisit h, ArrayList<Attachment> at) {
 
-      Connection conn = getConnection();
+		Connection conn = getConnection();
          
-         int result1 = new HomeVisitDao().insertHvWrite(conn, list);
+         int result1 = new HomeVisitDao().insertHvWrite(conn, h);
          int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, at);
          
          if(result1> 0 && result2>0) {
