@@ -35,6 +35,9 @@ public class adminReviewDetailServlet extends HttpServlet {
 		
 		Review r = new ReviewService().selectReview(reNo); // (x해당공지조회후x) 뷰페이지 보여지게
 		
+		request.setAttribute("r", r);
+		request.getRequestDispatcher("views/review/adminReviewDetailView.jsp").forward(request, response);
+		
 	}
 
 	/**

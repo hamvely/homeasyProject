@@ -65,8 +65,8 @@
 	<entry key="selectReview">
 		SELECT
 			   RE_NO
-			 , PRODUCT_NO
-			 , USER_NO
+			 , PRODUCT_NAME
+			 , EMAIL
 			 , RE_CONTENT
 			 , RE_MARK
 		  FROM REVIEW

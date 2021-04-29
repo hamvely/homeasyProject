@@ -1,14 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList, com.kh.review.model.vo.Review, com.kh.common.model.vo.PageInfo" %>
+    pageEncoding="UTF-8" import="com.kh.review.model.vo.Review"%>
 <%
-	PageInfo pi = (PageInfo)request.getAttribute("pi");
-	ArrayList<Review> list = (ArrayList<Review>)request.getAttribute("list");
-	
-	int currentPage = pi.getCurrentPage();
-	int startPage = pi.getStartPage();
-	int endPage = pi.getEndPage();
-	int maxPage = pi.getMaxPage();
+	Review r = (Review)request.getAttribute("r");
+	// 회원이메일, 상품명, 리뷰평점, 리뷰내용
 %> 
 <!DOCTYPE html>
 <html>
@@ -78,8 +72,6 @@
     /* 등록 폼 스타일 */
     .review_list {
         width: 800px;
-    }
-    .knowhow_enroll table {
         margin-left: 30px;
     }
     th {
@@ -126,19 +118,19 @@
                     <table class="review_list">
                         <tr>
                             <th>회원이메일</th>
-                            <td colspan="3"><%= k.getPostTitle() %></td>
+                            <td colspan="3"><%= r.getEmail() %></td>
                         </tr>
                         <tr>
                             <th>상품명</th>
-                            <td colspan="3"><%= k.getPostUpdateDate() %></td>
+                            <td colspan="3"><%= r.getProductName() %></td>
                         </tr>
                         <tr>
                             <th>리뷰평점</th>
-                            <td colspan="3"><%= k.getPostCount() %></td>
+                            <td colspan="3"><%= r.getReMark() %></td>
                         </tr>
                         <tr>
                             <th>리뷰내용</th>
-                            <td colspan="3"><%= k.getPostStatus() %></td>
+                            <td colspan="3"><%= r.getReContent() %></td>
                         </tr>
                     </table>
                 </form>

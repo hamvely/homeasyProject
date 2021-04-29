@@ -137,15 +137,20 @@ public class ReviewDao {
 			
 			if(rset.next()) {
 				r = new Review(rset.getInt("re_no"),
-							   rset.getInt("product_no"),
-							   rset.getInt("user_no"),
+							   rset.getString("product_name"),
+							   rset.getString("email"),
 							   rset.getString("re_content"),
 							   rset.getInt("re_mark"));
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
 		}
+		
+		return r;
 		
 	}
 	

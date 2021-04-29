@@ -54,6 +54,9 @@ public class ReviewService {
 		Connection conn = getConnection();
 		Review r = new ReviewDao().selectReview(conn, reNo);
 		
+		close(conn);
+		return r;
+		
 		
 	}
 
