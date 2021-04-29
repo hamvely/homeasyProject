@@ -85,7 +85,7 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 
                 <form action="<%= request.getContextPath() %>/insert.me" method="post" id="enrollForm">
                     <div class="form-group">
-                        <button type="button" onclick="emailCheck();" style="float: right;" class="btn btn-secondary btn-sm">중복확인</button>
+                        <button type="button" onclick="idCheck();" style="float: right;" class="btn btn-secondary btn-sm">중복확인</button>
                         <label for="userEmail">이메일</label>
                         <input type="email" class="form-control" name="email" id="email" maxlength="20" placeholder="이메일" required>
                     </div>
@@ -165,6 +165,43 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
             </div>
         </div>   
     </div>
+    
+    <script>
+		function idCheck(){
+			
+			// 아이디 입력하는 input요소객체
+			var $email = $("#enrollForm input[name=email]");
+			
+			$.ajax({
+				url:"idCheck.me",
+				type:"get",
+				data:{checkId:$email.val()},
+				success:function(result){
+					
+					//console.log(result);
+					if(result == 'NNNNN'){ // 사용불가능
+						alert("이미 존재하거나 탈퇴한 회원의 아이디입니다.");
+						$userId.focus();					
+					}else{ // 사용가능
+						
+						if(confirm("사용가능한 아이디입니다. 정말로 사용하시겠습니까?")){
+							// 사용하겠다 => 더이상 변경불가, 회원가입버튼 활성화
+							$userId.attr("readonly", true);
+							$("#enrollForm :submit").removeAttr("disabled");							
+						}else{
+							// 다시입력하겠다
+							$userId.focus();
+						}
+					}	
+				},error:function(){
+					console.log("아이디 중복체크용 ajax 통신 실패");
+				}
+			});
+			
+		}
+	</script>
+    
+    
 </body>
 </html>
 
