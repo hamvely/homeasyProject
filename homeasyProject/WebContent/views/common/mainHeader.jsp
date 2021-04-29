@@ -162,9 +162,20 @@
                        <a href="<%= request.getContextPath() %>/enrollForm.me">회원가입</a>
                    </div>
                    
-                <% }else { %>
+                <% }else if(loginUser != null && loginUser.getEmail().equals("admin@gmail.com")) { %>
+				        <div class="afterLogin">
+	                        <div style="text-align: center;">
+	                            <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
+	                        </div>
+	
+	                        <div class="mypage">
+	                            <a href="<%= contextPath %>/index.admin">관리자페이지</a>
+	                            <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
+	                        </div>
+	                    </div>
+		        <% }else { %>
                     <div class="afterLogin">
-                        <div class="">
+                        <div style="text-align: center;">
                             <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
                             <a href="#"><i class="far fa-heart fa-lg"></i></a>
                             <a href="#"><i class="far fa-user-circle fa-lg"></i></a>
@@ -176,7 +187,7 @@
                             <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
                         </div>
                     </div>
-                 <% } %>
+                <% } %>
             </div>
         </div>
       
