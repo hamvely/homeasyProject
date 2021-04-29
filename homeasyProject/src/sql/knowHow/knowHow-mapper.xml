@@ -59,6 +59,80 @@
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<!-- 노하우테이블 insert -->
+	<entry key="insertKnowHow">
+		INSERT
+		  INTO POST
+		  (
+		    POST_NO
+		  , USER_NO
+		  , POST_CATE_NAME
+		  , POST_TITLE
+		  , POST_CONTENT
+		  , POST_CREATE_DATE
+		  , POST_UPDATE_DATE
+		  , POST_STATUS
+		  )
+		  VALUES
+		  (
+		    SEQ_PONO.NEXTVAL <!-- post no -->
+		  , 1 <!--  user no -->
+		  , '노하우' <!-- cate name -->
+		  , ? <!--1 title -->
+		  , ? <!--2  content -->
+		  , SYSDATE <!-- create -->
+		  , ? <!--3 update -->
+		  , 'Y' <!-- status -->
+		  )
+	</entry>
+	
+	<entry key="insertKnowHowFile">
+		INSERT
+		  INTO POST_FILE
+		  (
+		    POST_FILE_NO
+		  , POST_NO
+		  , POST_FILE_RENAME
+		  )
+		  VALUES
+		  (
+		    SEQ_POFNO.NEXTVAL
+		  , SEQ_PONO.CURRVAL
+		  , ?
+		  )
+	</entry>
+	
+	<!-- 노하우 상세조회 조회수증가 -->
+	<entry key="increaseCount">
+		UPDATE
+		       POST
+		   SET POST_COUNT = POST_COUNT+1
+		 WHERE POST_NO = ?
+	</entry>
+	
+	<entry key="selectKnowHow">
+		SELECT
+		       POST_NO
+		     , POST_TITLE
+		     , POST_CREATE_DATE
+		     , POST_COUNT
+		     , POST_STATUS
+		     , POST_FILE_RENAME
+		     , POST_CONTENT
+		  FROM POST
+		  JOIN POST_FILE USING (POST_NO)
+		 WHERE POST_CATE_NAME = '노하우'
+		   AND POST_NO = ?
+	</entry>
+	
+	<entry key="selectKnowHowFile">
+		SELECT
+		       POST_FILE_NO
+		     , POST_FILE_RENAME
+		  FROM POST_FILE
+		 WHERE POST_NO = ?
+	</entry>
+	
 	
 	
 	

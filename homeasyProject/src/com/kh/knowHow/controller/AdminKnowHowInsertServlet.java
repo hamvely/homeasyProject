@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.kh.common.MyFileRenamePolicy;
+import com.kh.knowHow.model.service.KnowHowService;
 import com.kh.knowHow.model.vo.KnowHow;
 import com.kh.knowHow.model.vo.KnowHowFile;
 import com.oreilly.servlet.MultipartRequest;
@@ -59,13 +60,24 @@ public class AdminKnowHowInsertServlet extends HttpServlet {
 			if(multiRequest.getOriginalFileName("upfile") != null) {
 				
 				kf = new KnowHowFile(); // KnowHowFile테이블에 insert할 데이터 담기
-				kf.setPostFileNo(multiRequest.get);
-				kf.setRefPostNo(multiRequest.getRefPostNo);
-				kf.setPostFileRename(multiRequest.getFilesystemName("upfile"));
-				
+				kf.setPostFileRename(multiRequest.getFilesystemName("upfile"));		
 				
 			}
-		
+			
+			// 게시판 작성용 서비스 요청 및 결과받기
+			int result = new KnowHowService().insertKnowHow(k, kf);
+			// case1 : 첨부파일o -> insertKnowHow(생성된 k객체, 생성된 kf객체)
+			// case2 : 첨부파일x -> insertKnowHow(생성된 k객체, null)
+			
+			if(result > 0) {
+				
+				request.getSession().setAttribute("alertMsg", "노하우 등록 성공");
+				response.sendRedirect(request.getContextPath() + "/adminlist.kh?currentPage=1");
+			}else {
+				request.setAttribute("errorMsg", "노하우 등록 실패");
+				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+			}
+				
 		}
 		
 		
