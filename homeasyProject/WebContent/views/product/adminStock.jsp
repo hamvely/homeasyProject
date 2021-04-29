@@ -139,13 +139,13 @@
                         <option value="">여유</option>
                     </select>
                     <select name="category" class="product_category">
-                        <option value="">가구</option>
-                        <option value="">패브릭</option>
-                        <option value="">홈데코/조명</option>
-                        <option value="">수납/정리</option>
-                        <option value="">생활</option>
-                        <option value="">주방</option>
-                        <option value="">반려동물</option>
+                        <option value="1">가구</option>
+                        <option value="2">패브릭</option>
+                        <option value="3">홈데코/조명</option>
+                        <option value="4">수납/정리</option>
+                        <option value="5">생활</option>
+                        <option value="6">주방</option>
+                        <option value="7">반려동물</option>
                     </select>
 
                     <select name="category" class="product_category">
