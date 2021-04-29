@@ -167,12 +167,13 @@ public class KnowHowDao {
 			
 			rset = pstmt.executeQuery();
 			
-			if(rset.next()) {k = new KnowHow(rset.getInt("post_no"),
-								rset.getString("user_file_rename"),
+			if(rset.next()) {
+				k = new KnowHow(rset.getInt("POST_NO"),
+								rset.getString("USER_FILE_RENAME"),
 								rset.getString("NICKNAME"),
-								rset.getString("post_file_rename"),
-						        rset.getString("post_content"),
-						        rset.getString("pcom_content"));
+								rset.getString("POST_FILE_RENAME"),
+						        rset.getString("POST_CONTENT"),
+						        rset.getString("PCOM_CONTENT"));
 			}
 			
 		} catch (SQLException e) {
