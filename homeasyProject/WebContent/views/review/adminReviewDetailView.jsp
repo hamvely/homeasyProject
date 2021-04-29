@@ -81,6 +81,12 @@
         height: 60px;
         width: 150px;
     }
+    .content_bar a {
+    	width: 100px;
+    	font-weight: bold;
+    	color: white;
+    	margin-right: 10px;
+    }
 </style>
 </head>
 <body>
@@ -106,12 +112,11 @@
                 <h3>리뷰관리</h3>
 
                 <!-- 리뷰 상세 폼 -->
-                <form action="<%= contextPath %>/adminDetail.re" class="review_detail" method="post">
+                <form action="<%= contextPath %>/adminDetail.re?" class="review_detail" method="post">
                 	<!-- 버튼 -->
 	                <div class="content_bar">
-	                	<a href="">목록가기</a>
-	                    <a href="">수정</a>
-	                    <a href="">삭제</a>
+	                	<a href="<%= contextPath %>/adminlist.re?currentPage=1" class="btn btn-warning">목록가기</a>
+	                    <a href="<%= contextPath %>/adminDelete.re?rno=<%= r.getReNo() %>" class="btn btn-warning">삭제</a>
 	                </div>
 	                <br><br>
 	                
@@ -144,33 +149,6 @@
 
 	
 
-    <!-- 리뷰 삭제 모달 -->
-    <div class="modal" id="deleteReview">
-        <div class="modal-dialog">
-            <div class="modal-content">
-        
-                <!-- Modal Header -->
-	            <div class="modal-header">
-	                <h4 class="modal-title">리뷰삭제</h4>
-	                <button type="button" class="close" data-dismiss="modal">&times;</button>
-	            </div>
-	            
-	            <!-- Modal body -->
-	            <div class="modal-body">
-	               	리뷰를 정말 삭제하시겠습니까?
-	            </div>
-	            
-	            <!-- Modal footer -->
-	            <div class="modal-footer">
-	                <button type="submit" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">확인</button>
-                	<button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;">취소</button>
-	            </div>
-        
-            </div>
-        </div>
-    </div>
-
-	
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"
       crossorigin="anonymous"

@@ -61,6 +61,7 @@
     .content_bar {
         box-sizing: border-box;
         display: flex;
+        height: 40px;
     }
     .content_btn {
         background-color: rgb(241, 196, 15);
@@ -131,7 +132,7 @@
 
                 <!-- 버튼 -->
                 <div class="content_bar">
-                    <button class="content_btn" data-toggle="modal" data-target="#deleteReview">삭제</button>
+                	
                 </div>
                 <br><br>
 

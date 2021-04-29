@@ -55,8 +55,24 @@ public class ReviewService {
 		Review r = new ReviewDao().selectReview(conn, reNo);
 		
 		close(conn);
-		return r;
+		return r;		
 		
+	}
+	
+	// 작성자:임지우 - 리뷰삭제
+	public int deleteNotice(int reNo) {
+		
+		Connection conn = getConnection();
+		int result = new ReviewDao().deleteNotice(conn, reNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		return result;
 		
 	}
 

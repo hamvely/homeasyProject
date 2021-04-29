@@ -74,6 +74,13 @@
 		  JOIN MEMBER USING(USER_NO)
 		 WHERE RE_NO = ?
 	</entry>
+	
+	<!-- 작성자:임지우 - 리뷰관리 삭제 -->
+	<entry key="deleteNotice">
+		DELETE
+			   REVIEW
+		 WHERE RE_NO = ?
+	</entry>
 
 
 
