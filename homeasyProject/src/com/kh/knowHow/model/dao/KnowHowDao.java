@@ -1,6 +1,6 @@
 package com.kh.knowHow.model.dao;
 
-import static com.kh.common.JDBCTemplate.close;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,6 +14,8 @@ import java.util.Properties;
 import com.kh.common.model.vo.PageInfo;
 import com.kh.knowHow.model.vo.KnowHow;
 import com.kh.knowHow.model.vo.KnowHowFile;
+import com.kh.qna.model.vo.Attachment;
+
 
 public class KnowHowDao {
 
@@ -45,14 +47,12 @@ public class KnowHowDao {
 			
 			while(rset.next()) {
 						
-						KnowHow k = new KnowHow();
-						k.setPostNo(rset.getInt("post_no"));
-						k.setPostTitle(rset.getString("post_title"));
-						k.setPostContent(rset.getString("post_content"));
-						k.setPostFileRename(rset.getString("post_file_rename"));
+			list.add(new KnowHow(rset.getInt("post_no"),
+					             rset.getString("post_title"),
+					             rset.getString("post_content"),
+					             rset.getString("post_file_rename")));
 						
-						list.add(k);
-					}
+			}
 					
 			
 		} catch (SQLException e) {
@@ -65,37 +65,6 @@ public class KnowHowDao {
 		return list;
 	}
 		
-		
-	public KnowHow selectKnowHow(Connection conn) {
-		
-		KnowHow k = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		String sql = prop.getProperty("selectKnowHow");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				
-			   k = new KnowHow(rset.getString("post_title"),
-								rset.getString("name"),
-								rset.getString("post_file_renmae"),
-								rset.getString("post_content"),
-								rset.getString("pcom_content"));
-				
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-		
-		return k;
-	}
 	
 	// 작성자:임지우 - 노하우관리 리스트카운트 조회
 	public int selectListCount(Connection conn) {
@@ -163,6 +132,7 @@ public class KnowHowDao {
 		
 	}
 	
+
 	public int insertKnowHow(Connection conn, KnowHow k) {
 		
 		int result = 0;
@@ -207,28 +177,7 @@ public class KnowHowDao {
 		return result;		
 		
 	}
-	
-	public int increaseCount(Connection conn, int postNo) {
-		
-		int result = 0;
-		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("increaseCount");
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, postNo);
-			
-			result = pstmt.executeUpdate();			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(pstmt);
-		}
-		
-		return result;
-		
-	}
+
 	
 	public KnowHow selectKnowHow(Connection conn, int postNo) {
 		
@@ -295,9 +244,96 @@ public class KnowHowDao {
 	}
 	
 	
+
+	// 노하우 상세 게시글 카운트
+	 public int increaseCount(Connection conn, int postNo) {
+
+		 int result = 0;
+	      PreparedStatement pstmt = null;
+	      String sql = prop.getProperty("increaseCount");
+	      
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+			 pstmt.setInt(1, postNo);
+	         
+	         result = pstmt.executeUpdate();
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	   }
+
 	
-	
-	
+	 
+	 //상세보기
+	 public KnowHow selectKnowHowPost(Connection conn, int postNo) {
+		   
+		   KnowHow k = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rset = null;
+		   String sql = prop.getProperty("selectKnowHowPost");
+		   
+		   try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				k = new KnowHow(rset.getInt("POST_NO"),
+								rset.getString("USER_FILE_RENAME"),
+								rset.getString("NICKNAME"),
+								rset.getString("POST_FILE_RENAME"),
+						        rset.getString("POST_CONTENT"),
+						        rset.getString("PCOM_CONTENT"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		   
+		   return k;
+	   }
+	 
+	//상세보기 첨부파일 조회
+	 public ArrayList<Attachment> selectAttachment(Connection conn, int postNo) {
+		   ArrayList<Attachment> list= new ArrayList<>();
+		   PreparedStatement pstmt = null;
+		   ResultSet rset = null;
+		   String sql = prop.getProperty("selectAttachment");
+		   
+		   try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Attachment at = new Attachment();
+				at.setPostFileNo(rset.getInt("post_file_no"));
+			    at.setPostNo(rset.getInt("post_no"));
+			    at.setPostFileRename(rset.getString("post_file_rename"));
+			    
+			    list.add(at);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		   
+		   return list;
+		   
+	   }
 }
 
 

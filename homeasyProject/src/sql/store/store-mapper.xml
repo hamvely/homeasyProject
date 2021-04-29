@@ -47,14 +47,7 @@
          ORDER BY PRODUCT.PRODUCT_NO ASC
 	</entry>
 	
-	<entry key="totalPrice">
-		SELECT
-		       P.PRODUCT_PRICE
-		     , PO.OPTION_PRICE
-		  FROM PRODUCT P, PRODUCT_OPTION PO
-		 WHERE P.PRODUCT_NO = PO.PRODUCT_NO 
-		   AND OPTION_NO = ?
-	</entry>
+	
 	
 	
 	

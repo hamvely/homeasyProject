@@ -46,12 +46,7 @@ public class StoreService {
 		return cList;
 	}
 	
-	public Product totalPrice(int optionNo) {
-		Connection conn = getConnection();
-		Product tp = new StoreDao().totalPrice(conn, optionNo);
-		close(conn);
-		return tp;
-	}
+	
 	
 	
 	

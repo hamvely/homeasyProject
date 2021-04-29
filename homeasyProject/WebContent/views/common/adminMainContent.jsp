@@ -1,14 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.notice.model.vo.Notice"%>
-<%
-	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
-%>
-<% String contextPath = request.getContextPath(); %>  
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
         .admin_main{
@@ -116,13 +111,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                      <% for(Notice n : adminList){ %>
                         <tr>
-                            <td><%= n.getNoticeNo() %></td>
-                            <td><%= n.getNoticeTitle() %></td>
-                            <td><%= n.getCreateDate() %></td>
+                            <td>1</td>
+                            <td>공지사항1</td>
+                            <td>2018-08-01</td>
                         </tr>
-                      <% } %>
+                        <tr>
+                            <td>2</td>
+                            <td>공지사항2</td>
+                            <td>2018-08-2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>공지사항3</td>
+                            <td>2018-08-3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>공지사항4</td>
+                            <td>2018-08-04</td>
+                        </tr>
                     </tbody>
                     
                 </table>
@@ -131,13 +139,42 @@
 
         <div class="content2">
             <div class="title">
-                <h3>매출통계</h3>
+                <h3>리뷰관리</h3>
             </div>
-
-            <div class="plus">
-                <a href=""><img src=""></a>
+				<div class="notice">
+                <table class="table1" border="1" >
+                    <thead>
+                        <tr>
+                            <td width="50" height="40">No.</td>
+                            <td>상품명</td>
+                            <td>리뷰내용</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>뉴 탐 저상형침대</td>
+                            <td>집이지 최고에요 1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>높이조절 슬림 패밀리침대</td>
+                            <td>집이지 최고에요 2</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>높이조절 슬림 패밀리침대</td>
+                            <td>집이지 최고에요 3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>높이조절 슬림 패밀리침대</td>
+                            <td>집이지 최고에요 4</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
             </div>
-            <img class="salesimg" src="">
         </div>
 
         <div class="content3">
@@ -164,23 +201,23 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>4</td>
+                            <td>1</td>
                             <td>상품</td>
                             <td>user04@naver.com</td>
                             <td>언제 입고되나요?</td>
                             <td>2021.02.24</td>
-                            <td>1</td>
+                            <td>4</td>
                         </tr>
                         <tr>
-                            <td>3</td>
+                            <td>2</td>
                             <td>배송</td>
                             <td>user03@naver.com</td>
                             <td>배송 문의합니다.</td>
                             <td>2021.10.14</td>
-                            <td>2</td>
+                            <td>3</td>
                         </tr>
                         <tr>
-                            <td>2</td>
+                            <td>3</td>
                             <td>교환/반품</td>
                             <td>user02@naver.com</td>
                             <td>반품 신청합니다.</td>
@@ -188,7 +225,7 @@
                             <td>6</td>
                         </tr>
                         <tr>
-                            <td>1</td>
+                            <td>4</td>
                             <td>배송</td>
                             <td>user01@naver.com</td>
                             <td>배송 문의합니다.</td>
@@ -200,13 +237,6 @@
             </div>
         </div>
         
-        <script>
-			$(function(){
-				$(".table1").click(function(){
-					location.href = '<%=contextPath%>/adminDetail.no?nno=' + $(this).children().eq(0).text();
-				})
-			})
-		</script>
            
     </div>
     
