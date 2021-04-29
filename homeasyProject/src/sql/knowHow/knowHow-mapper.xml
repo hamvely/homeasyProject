@@ -46,7 +46,7 @@
 	</entry>
 	
 
-	<!-- 노하우테이블 insert -->
+	<!-- 작성자:임지우 - 노하우테이블 insert -->
 	<entry key="insertKnowHow">
 		INSERT
 		  INTO POST
@@ -73,6 +73,7 @@
 		  )
 	</entry>
 	
+	<!-- 작성자:임지우 - 노하우첨부 포스트파일 테이블 insert -->
 	<entry key="insertKnowHowFile">
 		INSERT
 		  INTO POST_FILE
@@ -97,6 +98,7 @@
 		 WHERE POST_NO = ?
 	</entry>
 	
+	<!-- 작성자:임지우 - 노하우 상세보기 노하우테이블 조회 -->
 	<entry key="selectKnowHow">
 		SELECT
 		       POST_NO
@@ -112,6 +114,7 @@
 		   AND POST_NO = ?
 	</entry>
 	
+	<!-- 작성자:임지우 - 노하우 상세보기 노하우첨부 포스트파일 테이블 조회 -->
 	<entry key="selectKnowHowFile">
 		SELECT
 		       POST_FILE_NO

@@ -132,7 +132,7 @@ public class KnowHowDao {
 		
 	}
 	
-
+	// 작성자:임지우 - 노하우 테이블 insert
 	public int insertKnowHow(Connection conn, KnowHow k) {
 		
 		int result = 0;
@@ -158,6 +158,7 @@ public class KnowHowDao {
 		
 	}
 	
+	// 작성자:임지우 - 노하우첨부 포스트파일 테이블 insert
 	public int insertKnowHowFile(Connection conn, KnowHowFile kf) {
 		
 		int result = 0;
@@ -178,7 +179,7 @@ public class KnowHowDao {
 		
 	}
 
-	
+	// 작성자:임지우 - 노하우 상세보기 노하우테이블 조회
 	public KnowHow selectKnowHow(Connection conn, int postNo) {
 		
 		KnowHow k = null;
@@ -213,6 +214,7 @@ public class KnowHowDao {
 		
 	}
 	
+	// 작성자:임지우 - 노하우 상세보기 노하우첨부 포스트파일 테이블 조회
 	public KnowHowFile selectKnowHowFile(Connection conn, int postNo) {
 		
 		KnowHowFile kf = null;
