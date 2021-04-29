@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.qna.model.vo.Qna" import="com.kh.member.model.vo.Member"%>
-    
-<% String contextPath = request.getContextPath(); %>  
 
 <%
-	Member loginUser = (Member)session.getAttribute("loginUser");
 	ArrayList<Qna> list = (ArrayList<Qna>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
@@ -58,7 +55,7 @@
             width:150px; 
             height:150px; 
             float:right;
-            margin:-150px 80px;
+            margin:-138px 80px;
         }
 
         
@@ -79,10 +76,15 @@
         
         .content1{padding-top:30px;}
         
+        h3, p, img{cursor:pointer;}
+        
        
 </style>
 </head>
 <body>
+
+   <%@ include file="../common/mainHeader.jsp" %>
+
     <div class="content">
     
     	<% if(loginUser != null){ %>
@@ -97,30 +99,30 @@
         <br>
 	
 		<% for(Qna q : list){ %>
-        <div class="content1">
-                <a href="" class="title">
+        <div class="thumbnail">
+        	<input type="hidden" value="<%=q.getPostNo() %>">
+        			<br>
                     <h3><%=q.getPostTitle()%></h3>
-                </a>
+            
                 <div class="content1_1">
-                <a href="" class="content1_2">
                     <p><%=q.getPostContent() %></p>
-                </a>
-                <img src="" class="user">
+                	<img src="<%=q.getUserFileRename() %>" class="user">
+                </div>
+                
                 <div class="id1">
                     <h3><%=q.getNickName() %></h3>
                 </div>
-                </div>
-                <a href="">
-                    <img src="" class="imgfile">
-                </a><br>
+                
+                    <img src="<%=contextPath %>/<%=q.getPostFileRename() %>" class="imgfile">
+                <br>
                 <hr>
         </div>
 		<% } %>
 		
 		<script>
 			$(function(){
-				$(".content1").click(function(){
-					location.href='<%=contextPath%>/post.qna?qno=' + $(this).children().eq(0).val();
+				$(".thumbnail").click(function(){
+					location.href='<%=contextPath%>/detail.qna?qno=' + $(this).children().eq(0).val();
 				})
 			})
 		</script>

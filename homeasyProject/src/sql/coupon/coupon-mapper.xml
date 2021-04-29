@@ -32,5 +32,27 @@
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<!-- 쿠폰등록시 요청할 insert문 -->
+	<entry key="insertCoupon">
+		INSERT
+		  INTO COUPON
+		  (
+		    CP_NO
+		  , CP_NAME
+		  , CP_PRICE
+		  , CP_CONDITION
+		  , CP_LIMIT
+		  , CP_MEMO
+		  )
+		  VALUES
+		  (
+		    SEQ_CUNO.NEXTVAL
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  )
+	</entry>
 	
 </properties>

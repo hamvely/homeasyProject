@@ -65,14 +65,15 @@
 
     /* 등록 폼 스타일 */
     .product_enroll table {
-        margin: auto;
+        /*margin: auto;*/
+        margin-left: 30px;
     }
     th {
         color: #2e363e;
         font-size: 17px;
         font-weight: bold;
         height: 50px;
-        width: 100px;
+        width: 150px;
     }
 </style>
 </head>
@@ -80,12 +81,16 @@
     <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
-        <div id="header"></div>
+        <div id="header">
+        	<%@ include file="../common/adminHeader.jsp" %>
+        </div>
 
         <!-- 본문 전체 -->
         <div id="content">
             <!-- 좌측 메뉴바 -->
-            <div id="content_1"></div>
+            <div id="content_1">
+            	<%@ include file="../common/adminMenubar.jsp" %>
+            </div>
 
             <!-- 우측 본문 -->
             <div id="content_2">
@@ -95,85 +100,157 @@
 
                 <!-- 버튼 -->
                 <div class="content_bar">
-                    <button class="content_btn">상품등록</button>
-                    <button class="content_btn">등록취소</button>
+                    <button type="submit" class="content_btn">상품등록</button>
+                    <button type="reset" class="content_btn">등록취소</button>
                 </div>
                 <br><br>
 
                 <!-- 상품 등록 폼 -->
-                <form class="product_enroll">
+                <form action="<%= contextPath %>/adminInsert.pd" class="product_enroll" method="post" enctype="multipart/form-data">
+                    <!-- 수업에서는 여기에 로그인유저 관련 input 태그있음 -->
                     <table>
                         <tr>
                             <th>진열여부</th>
-                            <td><input type="radio" name="product_status" required>진열함(Y)</td>
-                            <td><input type="radio" name="product_status" required>진열대기(N)</td>
+                            <td><input type="radio" name="product_status" value="Y" required>진열함(Y)</td>
+                            <td><input type="radio" name="product_status" value="Y" required>진열대기(N)</td>
                         </tr>
                         <tr>
                             <th>카테고리</th>
                             <td>
                                 <select name="category1" class="cate1_no" required>
-                                    <option value="">가구</option>
-                                    <option value="">패브릭</option>
-                                    <option value="">홈데코/조명</option>
-                                    <option value="">수납/정리</option>
-                                    <option value="">생활</option>
-                                    <option value="">주방</option>
-                                    <option value="">반려동물</option>
+                                    <option value="1">가구</option>
+                                    <option value="2">패브릭</option>
+                                    <option value="3">홈데코/조명</option>
+                                    <option value="4">수납/정리</option>
+                                    <option value="5">생활</option>
+                                    <option value="6">주방</option>
+                                    <option value="7">반려동물</option>
                                 </select>
+                                <!-- 
+                                <select name="category1" class="cate1_no" required>
+                                    <option value="1">가구</option>
+                                    <option value="2">패브릭</option>
+                                    <option value="3">홈데코/조명</option>
+                                    <option value="4">수납/정리</option>
+                                    <option value="5">생활</option>
+                                    <option value="6">주방</option>
+                                    <option value="7">반려동물</option>
+                                </select>
+                                -->
                             </td>
                             <td>
                                 <select name="category2" class="cate2_no" required>
-                                    <option value="">2차 분류</option>
-                                    <option value="">종류1</option>
-                                    <option value="">종류2</option>
-                                    <option value="">종류3</option>
-                                    <option value="">종류4</option>
-                                    <option value="">종류5</option>
-                                    <option value="">종류6</option>
+                                    <option value="#">2차분류1</option>
+                                    <option value="#">2차분류2</option>
+                                    <option value="#">2차분류3</option>
+                                    <option value="#">2차분류4</option>
                                 </select>
+                                <!-- 
+                                <select name="category2" class="cate2_no" required>
+                                    <option value="#">2차분류1</option>
+                                    <option value="#">2차분류2</option>
+                                    <option value="#">2차분류3</option>
+                                    <option value="#">2차분류4</option>
+                                </select>
+                                -->
                             </td>
                         </tr>
                         <tr>
                             <th>상품명</th>
-                            <td><input type="text" name="product_name" maxlength="50" required></td>
-                            <td></td>
+                            <td colspan="3"><input type="text" name="product_name" maxlength="50" required></td>
                         </tr>
                         <tr>
                             <th>상품가격</th>
-                            <td><input type="number" name="product_price" required>원</td>
-                            <td></td>
+                            <td colspan="3"><input type="number" name="product_price" required>원</td>
                         </tr>
                         <tr>
                             <th>옵션명</th>
-                            <td><input type="text" name="option_name" maxlength="50" required></td>
-                            <td></td>
+                            <td colspan="3"><input type="text" name="option_name" maxlength="50" required></td>
                         </tr>
                         <tr>
                             <th>옵션가격</th>
-                            <td><input type="number" name="option_price" required>원</td>
-                            <td></td>
+                            <td colspan="3"><input type="number" name="option_price" required>원</td>
                         </tr>
                         <tr>
                             <th>수량</th>
-                            <td><input type="number" name="option_stock" required>개</td>
-                            <td></td>
+                            <td colspan="3"><input type="number" name="option_stock" required>개</td>
                         </tr>
                         <tr>
                             <th>업체명</th>
-                            <td><input type="email" name="product_brand" required></td>
-                            <td></td>
+                            <td colspan="3"><input type="email" name="product_brand" required></td>
                         </tr>
                         <tr>
                             <th>상품이미지</th>
-                            <td><input type="file" name="product_file_no" required></td>
-                            <td></td>
+                            <td colspan="3">
+                            	<!-- 대표이미지 미리보기 할 img -->
+                            	<img id="titleImg" width="250" height="150">
+                            </td>
                         </tr>
                         <tr>
-                            <th>상세정보</th>
-                            <td><input type="file" name="product_file_no" required></td>
-                            <td></td>
+                            <th>상세이미지</th>
+                            <td colspan="3">
+                            	<!-- 상세이미지 미리보기할 img -->
+                            	<img id="detailImg" width="250" height="200">
+                            </td>
                         </tr>
                     </table>
+
+                    <div id="fileArea">
+                        <input type="file" name="file1" id="file1" onchange="loadImg(this, 1);" required>
+                        <input type="file" name="file2" id="file2" onchange="loadImg(this, 2);">
+                    </div>
+
+                    <script>
+
+                        $(function() {
+                        	
+                        	$("#fileArea").hide(); // 하단 파일선택버튼 안보이게
+                        	
+                            $("#titleImg").click(function() {
+                                $("#file1").click();
+                            });
+
+                            $("#detailImg").click(function() {
+                                $("#file2").click();
+                            });
+                        })
+
+                        function loadImg(inputFile, num) {
+                            // inputFile : 현재 변화가 생간 input type="file" 요소객체
+                            // num : 몇번재째 input 요소인지 확인후 해당 영역에 미리보기하기 위해
+
+                            // 파일 선택하는 순간 inputFile.files라는 속성배열에 0인덱스에 파일 담김
+                            if(inputFile.files.legth == 1) { // 선택된 파일 있을 경우
+
+                                // 파일읽어들일 FileReader 객체 생성
+                                var reader = new FileReader();
+
+                                // 선택된 파일을 읽어들이기
+                                // => 읽어들이는 순간 해당 파일의 고유url 부여됨
+                                reader.readAsDataURL(inputFil.files[0]);
+
+                                // 파일 읽어들이기가 다 완료된 순간 실행할 함수 정의
+                                reader.onload = function(e) {
+                                    // 각 영역에 맞춰서 이미지 미리보기
+                                    switch(num) {
+                                        case 1: $("#titleImg").attr("src", e.target.result); break; 
+                                        case 2: $("#detailImg").attr("src", e.target.result); break;
+                                    }
+                                }
+
+                            } else { // 선택된 파일이 사라졌을 경우
+
+                                switch(num) {
+                                    case 1: $("#titleImg").attr("src", null); break; 
+                                    case 2: $("#detailImg").attr("src", null); break;
+                                }
+
+                            }
+
+                        }
+                    </script>
+                    
+
                 </form>
 
 

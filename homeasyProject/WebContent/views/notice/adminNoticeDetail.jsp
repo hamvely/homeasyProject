@@ -80,8 +80,8 @@
     a, button{margin-left:10px;}
 
     /* input 스타일 */
-    input {height:40px; border:none; outline: none;}
-    textarea {width:800px; height:511px; border:none; outline: none; padding-top:15px;}
+    input {width:700px; height:40px; border:none; outline: none;}
+    textarea {width:800px; height:511px; border:none; outline: none; padding-top:15px;}    
 	#title {width:700px}
     
     /* 테이블 스타일 */
@@ -117,7 +117,7 @@
                 	<div align="right">
 						<a href="<%= contextPath %>/adminUpdateForm.no?nno=<%= n.getNoticeNo() %>" class="btn btn-warning">수정하기</a>
 	                	<a href="<%= contextPath %>/adminDelete.no?nno=<%= n.getNoticeNo() %>" class="btn btn-secondary">삭제하기</a>
-	                	<a href="<%= contextPath %>/adminList.no" class="btn btn-secondary">뒤로가기</a>
+	                	<a href="<%= contextPath %>/adminList.no?currentPage=1" class="btn btn-secondary">뒤로가기</a>
 	                </div>
                 </div>
 

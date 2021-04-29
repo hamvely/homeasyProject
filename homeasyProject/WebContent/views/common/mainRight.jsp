@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <style>
-	/*리모컨*/
+   /*리모컨*/
     .main_right{
         width:60px; 
         height:270px; 
@@ -18,6 +18,7 @@
     }
 
     #right>div{
+    	width:60px;
         background-color:rgb(237,237,237); 
         text-align: center;
         font-size:11px;
@@ -45,15 +46,15 @@
     }
 </style>
 <body>
-		<div class="main_right">
-			<div id="right">
-				<div class="right_1" onclick="location.href='';">커뮤니티</div>   	
-				<div class="right_2" onclick="location.href='';">장바구니</div>
-				<div class="right_3" onclick="location.href='';">스크랩북</div>	
-				<div class="right_4" onclick="location.href='';">고객센터</div>
-				<div class="right_5" onclick="location.href='';">1:1문의</div>	
-				<div class="right_6" onclick="location.href='';">TOP</div>
-			</div>
-		</div>
+      <div class="main_right">
+         <div id="right">
+            <div class="right_1" onclick="location.href='';">커뮤니티</div>      
+            <div class="right_2" onclick="location.href='';">장바구니</div>
+            <div class="right_3" onclick="location.href='';">스크랩북</div>   
+            <div class="right_4" onclick="location.href='';">고객센터</div>
+            <div class="right_5" onclick="location.href='';">1:1문의</div>   
+            <div class="right_6" onclick="location.href='';">TOP</div>
+         </div>
+      </div>
 </body>
 </html>

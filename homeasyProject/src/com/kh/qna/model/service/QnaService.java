@@ -39,19 +39,52 @@ public class QnaService {
 		
 	}
 	
-	public int selectAdminQnaListCount() {
+	public int selectListCount() { // 관리자 qna리스트 카운트
 		Connection conn = getConnection();
-		int listCount = new QnaDao().selectAdminQnaListCount(conn);
+		int listCount = new QnaDao().selectListCount(conn);
 		
 		close(conn);
 		
 		return listCount;
 	}
 	
-	public ArrayList<Qna> selectAdminList(PageInfo pi){
+	public ArrayList<Qna> selectList(PageInfo pi){ // 관리자 qna 페이지 
 		Connection conn = getConnection();
-		ArrayList<Qna> list = new QnaDao().selectAdminList(conn, pi);
+		ArrayList<Qna> list = new QnaDao().selectList(conn, pi);
 		close(conn);
 		return list;
+		
 	}
+	
+	// 질답 상세 게시글 카운트
+	   public int increaseCount(int postNo) {
+		   Connection conn = getConnection();
+		   int result = new QnaDao().increaseCount(conn, postNo);
+				  
+	       if(result > 0) {
+	    	   commit(conn);
+	       }else {
+	    	   rollback(conn);
+	       }
+		   
+		   close(conn);
+		   
+		   return result;
+	   }
+	   
+	   //조회된 Qna 객체를 반환하는(상세보기)
+	   public Qna selectQna(int postNo) {
+		   Connection conn = getConnection();
+		   Qna q = new QnaDao().selectQna(conn, postNo);
+		   close(conn);
+		   return q;
+	   }
+	   
+	   // 상세보기 파일 조회
+	   public ArrayList<Attachment> selectAttachment(int postNo) {
+		   Connection conn = getConnection();
+		   ArrayList<Attachment> list = new QnaDao().selectAttachment(conn, postNo);
+		   close(conn);
+		   return list;
+	   }
 }

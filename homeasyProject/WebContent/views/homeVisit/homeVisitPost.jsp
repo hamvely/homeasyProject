@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.homeVisit.model.vo.HomeVisit" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.homeVisit.model.vo.HomeVisit, com.kh.qna.model.vo.Attachment"  %>
 <%
-    ArrayList<HomeVisit> list = (ArrayList<HomeVisit>)request.getAttribute("list");
-	HomeVisit h = new HomeVisit();
+	HomeVisit h = (HomeVisit)request.getAttribute("h");
+    ArrayList<Attachment> list = (ArrayList<Attachment>)request.getAttribute("list");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>Insert title here</title>
 </head>
 <style>
-    
-    
+
 </style>
 <body>
     <div class="outer">

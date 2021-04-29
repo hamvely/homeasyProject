@@ -3,42 +3,26 @@
 <properties>
 
 	 <!-- 집들이 리스트 조회 -->
-	<entry key="selectHomeVisit">
+	<entry key="selectHomeVisitList">
 		  SELECT
-                 P.POST_NO
-               , USER_FILE_RENAME
-		       , NICKNAME
-		       , POST_FILE_RENAME
+		         P.POST_NO
 		       , POST_CONTENT
+		       , NICKNAME
+		       , USER_FILE_RENAME
+		       , POST_FILE_RENAME
 		       , PCOM_CONTENT
-		  FROM MEMBER M
-          LEFT JOIN POST ON (M.USER_NO = POST.USER_NO)
-		  JOIN POST_FILE ON ( M.USER_NO = POST_FILE.POST_NO)
-		  JOIN POST_COMMENT ON ( M.USER_NO = POST_COMMENT.USER_NO)
-		 WHERE M.USER_STATUS = 'Y'
-		   AND POST_CONTENT LIKE '집들이%'
-         ORDER
-            BY POST_CREATE_DATE DESC
+		    FROM POST P
+		    JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
+		    JOIN POST_FILE ON (P.POST_NO = POST_FILE.POST_NO)
+		    JOIN POST_COMMENT ON (P.POST_NO = POST_COMMENT.POST_NO)
+		   WHERE POST_CATE_NAME = '집들이'
+		     AND POST_STATUS = 'Y'
+		   ORDER
+		      BY POST_CREATE_DATE DESC
 	</entry>
+
 	
-	<!-- 집들에 게시글 조회수 -->
-	<entry key="increaseCount"> 
-		    UPDATE
-                  POST
-              SET POST_COUNT = COUNT+1
-            WHERE POST_NO = ?
-             AND STATUS= 'Y'
-	</entry>
-	
-	<entry	key="selectReplyList">
-		SELECT
-			  NICKNAME
-			, PCOM_CONTENT
-		 FROM MEMBER M
-		 JOIN POST_COMMENT ON (M.USER_NO = POST_COMMENT.USER_NO)
-	</entry>
-	
-		<entry key="insertHvWrite">
+	<entry key="insertHvWrite">
 		INSERT
 		    INTO POST
 		    (
@@ -80,7 +64,7 @@
 		   AND POST_STATUS = 'Y'
 	</entry>
 
- 	<!-- 집들이관리 조회 -->
+ 	<!-- 집들이관리 페이징-->
 	<entry key="selectList">
 		SELECT *
 		  FROM (
@@ -89,7 +73,8 @@
 		         , A.* 
 		       FROM(
 		      SELECT  
-		              EMAIL
+		      		  POST_NO
+		            , EMAIL
 		            , POST_TITLE
 		            , POST_CREATE_DATE
 		            , POST_COUNT
@@ -103,6 +88,46 @@
 		    )
 		WHERE NO BETWEEN ? AND ?
 	</entry>
+	
+	
+	<!-- 집들이 게시글 조회수 -->
+	<entry key="increaseCount">
+		UPDATE
+		       POST
+		   SET POST_COUNT = POST_COUNT+1
+		 WHERE POST_NO = ?
+		   AND POST_STATUS = 'Y'
+	</entry>
 
+	<!-- 집들이 게시글 상세  -->
+	<entry key="selectHomeVisit">
+		 SELECT   
+                 P.POST_NO
+		       , POST_CONTENT
+		       , NICKNAME
+		       , USER_FILE_RENAME
+		       , POST_FILE_RENAME
+		       , PCOM_CONTENT
+		    FROM POST P
+		    JOIN MEMBER ON (P.USER_NO = MEMBER.USER_NO)
+		    JOIN POST_FILE ON (P.POST_NO = POST_FILE.POST_NO)
+		    JOIN POST_COMMENT ON (P.POST_NO = POST_COMMENT.POST_NO)
+		   WHERE POST_CATE_NAME = '집들이'
+             AND P.POST_NO = ?
+             AND POST_STATUS = 'Y'
+		   ORDER
+		      BY POST_CREATE_DATE DESC
+	</entry>
 
+	<!-- 게시글 상세보기 첨부파일 -->
+	<entry key="selectAttachment">
+		SELECT
+		      POST_FILE_NO
+		    , POST_NO
+		    , POST_FILE_RENAME
+		FROM POST_FILE
+	   WHERE POST_NO = ?
+	</entry>
+	
+	
 </properties>

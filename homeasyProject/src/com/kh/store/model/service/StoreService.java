@@ -1,7 +1,6 @@
 package com.kh.store.model.service;
 
-import static com.kh.common.JDBCTemplate.close;
-import static com.kh.common.JDBCTemplate.getConnection;
+import static com.kh.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -14,82 +13,48 @@ import com.kh.store.model.dao.StoreDao;
 
 public class StoreService {
 	
-	public ArrayList<Product> selectFurnitureList() {
+	public ArrayList<Product> selectList(int cate1No) {
 		
 		Connection conn = getConnection();
-		ArrayList<Product> list = new StoreDao().selectFurnitureList(conn);
-		
-		close(conn);
-		 
-		return list;
-		
-	}
 
-	public ArrayList<Product> selectFabricList() {
-		
-		Connection conn = getConnection();
-		ArrayList<Product> list = new StoreDao().selectFabricList(conn);
+		ArrayList<Product> list = new StoreDao().selectList(conn, cate1No);
 		
 		close(conn);
 		 
 		return list;
-		
 	}
 	
-	public ArrayList<Product> selectDecoList() {
+	public ArrayList<ProductCate> selectCate2List(int cate1No) {
 		
 		Connection conn = getConnection();
-		ArrayList<Product> list = new StoreDao().selectDecoList(conn);
-		
-		close(conn);
-		 
-		return list;
-		
-	}
 
-	public ArrayList<Product> selectStorageList() {
-		
-		Connection conn = getConnection();
-		ArrayList<Product> list = new StoreDao().selectStorageList(conn);
+		ArrayList<ProductCate> cate2List = new StoreDao().selectCate2List(conn, cate1No);
 		
 		close(conn);
 		 
-		return list;
-		
+		return cate2List;
 	}
 	
-	public ArrayList<Product> selectSuppliesList() {
+	public ArrayList<Product> selectcList(int cate1No, int cate2No) {
 		
 		Connection conn = getConnection();
-		ArrayList<Product> list = new StoreDao().selectSuppliesList(conn);
+
+		ArrayList<Product> cList = new StoreDao().selectcList(conn, cate1No, cate2No);
 		
 		close(conn);
 		 
-		return list;
-		
+		return cList;
 	}
 	
-	public ArrayList<Product> selectKitchenList() {
-		
+	public Product totalPrice(int optionNo) {
 		Connection conn = getConnection();
-		ArrayList<Product> list = new StoreDao().selectKitchenList(conn);
-		
+		Product tp = new StoreDao().totalPrice(conn, optionNo);
 		close(conn);
-		 
-		return list;
-		
+		return tp;
 	}
 	
-	public ArrayList<Product> selectPetList() {
-		
-		Connection conn = getConnection();
-		ArrayList<Product> list = new StoreDao().selectPetList(conn);
-		
-		close(conn);
-		 
-		return list;
-		
-	}
+	
+	
 	
 	public Product selectStore(int productNo) {
 		Connection conn = getConnection();

@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.product.model.vo.Product;
-import com.kh.product.model.vo.ProductCate1;
-import com.kh.product.model.vo.ProductCate2;
+import com.kh.product.model.vo.ProductCate;
 import com.kh.store.model.service.StoreService;
 
 /**
- * Servlet implementation class StoreListServlet
+ * Servlet implementation class SortedStoreServlet
  */
-@WebServlet("/suppliesList.st")
-public class StoreSuppliesListServlet extends HttpServlet {
+@WebServlet("/sortedList.st")
+public class SortedStoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreSuppliesListServlet() {
+    public SortedStoreServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,13 +32,17 @@ public class StoreSuppliesListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		ArrayList<Product> list = new StoreService().selectSuppliesList();
 		
-		request.setAttribute("list", list);
+		int cate1No = Integer.parseInt(request.getParameter("cate1No"));
+		int cate2No = Integer.parseInt(request.getParameter("cate2No"));
+
+		ArrayList<Product> cList = new StoreService().selectcList(cate1No, cate2No);
+		request.setAttribute("cList", cList);
 		
-		request.getRequestDispatcher("views/store/storeListView.jsp").forward(request, response);
+		ArrayList<ProductCate> cate2List = new StoreService().selectCate2List(cate1No);
+		request.setAttribute("cate2List", cate2List);
 		
+		request.getRequestDispatcher("views/store/sortedStoreListView.jsp").forward(request, response);
 	}
 
 	/**

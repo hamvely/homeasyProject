@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.knowHow.model.vo.KnowHow"%>
-<%
-String contextPath = request.getContextPath();
-%>
+
     
 <%
 	ArrayList<KnowHow> list = (ArrayList<KnowHow>)request.getAttribute("list");
@@ -83,6 +81,10 @@ String contextPath = request.getContextPath();
 </style>
 </head>
 <body>
+
+   <%@ include file="../common/mainHeader.jsp" %>
+
+
     <div class="content">
         
         <div class="button">
@@ -116,7 +118,7 @@ String contextPath = request.getContextPath();
 		<script>
 			$(function(){
 				$(".thumbnail").click(function(){
-					location.href='<%=contextPath%>/post.how?kno=' + $(this).children().eq(0).val();
+					location.href='<%=contextPath%>/detail.kn?kno=' + $(this).children().eq(0).val();
 				})
 			})
 		</script>

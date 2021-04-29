@@ -64,6 +64,61 @@
 		       )
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+	<entry key="insertPd">
+		INSERT
+		  INTO PRODUCT
+		  (
+		    PRODUCT_NO
+		  , CATE2_NO
+		  , PRODUCT_NAME
+		  , BOARD_BRAND
+		  , BOARD_PRICE
+		  , PRODUCT_DETAIL
+		  , PRODUCT_DATE
+		  , PRODUCT_STATUS
+		  )
+		  VALUES
+		  (
+		    SEQ_PRNO.NEXTVAL
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , ?
+		  , SYSDATE
+		  , ?
+		  )
+	</entry>
+	
+	<entry key="insertPdFileList">
+		INSERT
+		  INTO PRODUCT_FILE
+		  (
+		    PRODUCT_FILE_NO
+		  , PRODUCT_NO <!-- 참조하는 상품넘버 (게시글넘버) -->
+		  , PRODUCT_FILE_ORIGIN_NAME
+		  , PRODUCT_FILE_RENAME
+		  )
+		  VALUES
+		  (
+		    SEQ_PRFNO.NEXTVAL
+		  , SEQ_PRNO.CURRVAL
+		  , ?
+		  , ?
+		  )
+	</entry>
+	
+ 
+	<entry key="selectcate2List">
+		SELECT 
+			   C1.CATE1_NO
+			 , C2.CATE2_NO
+		     , C2.CATE2_NAME
+		  FROM PRODUCT_CATEGORY1 C1, PRODUCT_CATEGORY2 C2
+		 WHERE C1.CATE1_NO = C2.CATE1_NO
+		   AND C2.CATE1_NO = ?
+	</entry>
 
 
 </properties>

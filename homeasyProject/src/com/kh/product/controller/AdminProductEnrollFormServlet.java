@@ -1,28 +1,23 @@
-package com.kh.store.controller;
+package com.kh.product.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.product.model.vo.Product;
-import com.kh.store.model.service.StoreService;
-
 /**
- * Servlet implementation class StoreListServlet
+ * Servlet implementation class AdminProductEnrollFormServlet
  */
-@WebServlet("/fabricList.st")
-public class StoreFabricListServlet extends HttpServlet {
+@WebServlet("/adminEnroll.pd")
+public class AdminProductEnrollFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreFabricListServlet() {
+    public AdminProductEnrollFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,12 +26,9 @@ public class StoreFabricListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		ArrayList<Product> list = new StoreService().selectFabricList();
 		
-		request.setAttribute("list", list);
+		request.getRequestDispatcher("views/product/adminProductEnroll.jsp").forward(request, response);
 		
-		request.getRequestDispatcher("views/store/storeListView.jsp").forward(request, response);
 		
 	}
 

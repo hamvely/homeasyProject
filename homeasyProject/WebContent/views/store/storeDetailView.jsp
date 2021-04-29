@@ -75,23 +75,21 @@
                     <img src="">
                 </div>   
                 <div class="content">
+                    <form>
                     <p><%= p.getProductBrand() %></p>
                     <p><%= p.getProductName() %></p>
                     <p><%= p.getProductPrice() %></p>
-                    
-                      <form>
-                      <select name="selectOption">
-                      <option selected>옵션을 선택하세요</option>
-                    <% for(int i=0; i<optionList.size(); i++) {%>
+                    <select name="selectOption">
+                    	<option selected>옵션을 선택하세요</option>
+                    	<% for(int i=0; i<optionList.size(); i++) {%>
                        
                         <% if(optionList.get(i).getOptionStock() == 0) { %>
                            
                             <option value="<%= optionList.get(i).getOptionNo() %>" disabled>
-                               
                                <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
                             </option>
                         <% } else { %>
-                            <option value="<%= optionList.get(i).getOptionNo() %>">
+                            <option id="selectOption" value="<%= optionList.get(i).getOptionNo() %>">
                                <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
                             </option>
                         <% } %>
@@ -100,7 +98,7 @@
                                      수량 : <input type="number" id="amount">  
                     </form>
                     <br>
-                    <p>총가격 : <%= p.getProductPrice() %></p>
+                    <p>총가격 : <%= p.getProductPrice() %>원</p>
                     <button>장바구니 담기</button>
                     <button>결제하기</button> 
                     <hr><hr>
@@ -115,11 +113,11 @@
         </div>
 
 		<script>
-			$('#selectOption').focusout(function() {
-
-		    
-
-		})
+			$(function(){
+	    		$("#selectOption").click(function(){
+	    			location.href = '<%=contextPath%>/totalPrice.st?optionNo=' + val();
+	    		})
+	    	})
 		</script>
 		
     </div>

@@ -4,7 +4,13 @@
 <%
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Notice> adminList = (ArrayList<Notice>)request.getAttribute("adminList");
-%>
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,9 +59,7 @@
     } 
 
     /* 타이틀 */
-    h3 {
-        font-weight:bold;
-    }
+    h3 {font-weight:bold;}
 
     /* 버튼스타일 */    
     .content_bar {
@@ -93,15 +97,24 @@
         outline: 0 none;
     }
 
-    /* */
+    /* 테이블 스타일 */
     #content_2 table {
         width: 100%;
         text-align: center;
         margin: 20px 0 20px 0;
     }
-
 	tr{height:45px;}
+	
+	.pagination a {color:black;}
 
+	.pagination a:hover, 
+	.pagination a:focus {
+	  background: lightgrey;
+	  border-color: lightgrey;
+	  color:black;
+	}
+	
+	
 </style>
 </head>
 <body>
@@ -166,25 +179,30 @@
  					</tbody>
                 </table>
                 
-                <div align="center" class="pagingArea">
-                    <button>이전</button>
+                <br><br>
+                
+				<ul class="pagination justify-content-center ">
+                	<% if(currentPage != 1) { %>
+	                        <li class="page-item"><a class="page-link" href="<%= contextPath %>/adminList.no?currentPage=<%= currentPage-1 %>">이전</a></li>
+	                <% } %>
+	                
+	                <% for(int p=startPage; p<=endPage; p++) { %>
+	                
+	                    <% if(currentPage == p) { %>
+	                            <li class="page-item active"><a style="background-color:rgb(241, 196, 15); border-color:rgb(241, 196, 15);" class="page-link" href="#"><%= p %></a></li>
+	
+	                        <% }else { %>
+	                            <li class="page-item"><a class="page-link" href="<%= contextPath %>/adminList.no?currentPage=<%= p %>"><%= p %></a></li>
+	                        <% } %>
+	                    
+	                    <% } %>
+	                    
+	                    <% if(currentPage != maxPage) { %>
+	                        <li class="page-item"><a class="page-link" href="<%= contextPath %>/adminList.no?currentPage=<%= currentPage+1 %>">다음</a></li>
+	                <% } %>
+	            </ul>
 
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-                    <button>x</button>
-
-                    <button>다음</button>
-                </div>
-                
-                
-                
+                               
             </div>
             
 			<script>
@@ -193,17 +211,31 @@
 					// 쿼리스트링 이용해서 요청할 url 작성
 					location.href = '<%=contextPath%>/adminDetail.no?nno=' + $(this).children().eq(0).text();
 										
-					<%--
-					$('#detailNotice').modal("show");
-					--%>
-					<%--
-					--%>
 				})
 	    	})
 	    	</script>
             
-
-            
+			<%--  
+             <div align="center" class="pagingArea">
+                   <% if(currentPage != 1) { %>
+	            	<button onclick="location.href='<%=contextPath%>/adminList.no?currentPage=<%=currentPage-1%>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+						
+						<% if(currentPage == p){ %>
+		            		<button disabled><%= p %></button>
+		            	<% }else{ %>
+		            		<button onclick="location.href='<%=contextPath%>/adminList.no?currentPage=<%= p %>';"><%= p %></button>
+		            	<% } %>
+		            	
+					<% } %>
+					
+					<% if(currentPage != maxPage){ %>
+		            	<button onclick="location.href='<%=contextPath%>/adminList.no?currentPage=<%=currentPage+1%>';">다음</button>
+					<% } %>
+                </div>
+                --%>
 <!-- ------------------------------------------------------------------------------------------------------------------- -->            
             
             <!-- 공지사항 작성 모달 -->

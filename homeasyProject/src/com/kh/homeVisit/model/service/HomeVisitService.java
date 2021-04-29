@@ -8,91 +8,90 @@ import java.util.ArrayList;
 import com.kh.common.model.vo.PageInfo;
 import com.kh.homeVisit.model.dao.HomeVisitDao;
 import com.kh.homeVisit.model.vo.HomeVisit;
-import com.kh.qna.model.dao.QnaDao;
 import com.kh.qna.model.vo.Attachment;
-import com.kh.qna.model.vo.Qna;
+
 
 
 public class HomeVisitService {
 
-	public ArrayList<HomeVisit> selectHomeVisit(){
-		Connection conn = getConnection();
-	
-		HomeVisit list = new HomeVisitDao().selectHomeVisit(conn, postNo);
-		
-		close(conn);
-		
-		return h;
-	}
-	
+   public ArrayList<HomeVisit> selectHomeVisitList() {
+      Connection conn = getConnection();
+      
+      ArrayList<HomeVisit> list = new HomeVisitDao().selectHomeVisitList(conn);
+      
+      close(conn);
+      return list;
+      
+   }
+   
+   
 
-	public ArrayList<Attachment> selectAttachmentList(int postNo){
-		Connection conn = getConnection();
-		ArrayList<Attachment> list = new HomeVisitDao().selectAttachmentList(conn, postNo);
-		close(conn);
-		return list;
-	}
+   public int insertHomeVisitWrite(HomeVisit list, ArrayList<Attachment> at) {
 
-
-	public ArrayList<HomeVisit> adminHomeVisitList(){
-		Connection conn = getConnection();
-		
-		ArrayList<HomeVisit> list = new HomeVisitDao().adminHomeVisitList(conn);
-		
-		close(conn);
-		
-		return list;
-	}
-
-
-	public int insertHomeVisitWrite(HomeVisit h, ArrayList<Attachment> list) {
-
-		Connection conn = getConnection();
-			
-			int result1 = new HomeVisitDao().insertHvWrite(conn, h);
-			int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, list);
-			
-			if(result1> 0 && result2>0) {
-				commit(conn);
-			}else {
-				rollback(conn);
-			}
-			close(conn);
-			
-			return result1 * result2;
-			
-		}
-
-	public int selectListCount() {
-		Connection conn = getConnection();
-		int listCount = new HomeVisitDao().selectListCount(conn);
-		
-		close(conn);
-		
-		return listCount;
-		
-	}
-	
-	public ArrayList<HomeVisit> selectList(PageInfo pi){
-		Connection conn = getConnection();
-		ArrayList<HomeVisit> list = new HomeVisitDao().selectList(conn, pi);
-		close(conn);
-		return list;
-	}
+      Connection conn = getConnection();
+         
+         int result1 = new HomeVisitDao().insertHvWrite(conn, list);
+         int result2 = new HomeVisitDao().insertHomeVisitAttachmentList(conn, at);
+         
+         if(result1> 0 && result2>0) {
+            commit(conn);
+         }else {
+            rollback(conn);
+         }
+         close(conn);
+         
+         return result1 * result2;
+         
+      }
 
 
-	public int increaseCount(int postNo) {
-		Connection conn = getConnection();
-		int result = new HomeVisitDao().increaseCount(conn, postNo);
-		
-		if(result > 0) {
-			commit(conn);
-		}else {
-			rollback(conn);
-		}
-		
-		close(conn);
-		
-		return result;
-	}
+   public int selectListCount() {
+	   Connection conn = getConnection();
+	   int listCount = new HomeVisitDao().selectListCount(conn);
+	   
+	   close(conn);
+	   
+	   return listCount;
+	   
+   }
+   
+   public ArrayList<HomeVisit> selectList(PageInfo pi){
+	   Connection conn = getConnection();
+	   ArrayList<HomeVisit> list = new HomeVisitDao().selectList(conn, pi);
+	   close(conn);
+	   return list;
+   }
+
+   // 집들이 상세 게시글 카운트
+   public int increaseCount(int postNo) {
+	   Connection conn = getConnection();
+	   int result = new HomeVisitDao().increaseCount(conn, postNo);
+			  
+       if(result > 0) {
+    	   commit(conn);
+       }else {
+    	   rollback(conn);
+       }
+	   
+	   close(conn);
+	   
+	   return result;
+   }
+   
+   //조회된 HomeVisit객체를 반환하는(상세보기)
+   public HomeVisit selectHomeVisit(int postNo) {
+	   Connection conn = getConnection();
+	   HomeVisit h = new HomeVisitDao().selectHomeVisit(conn, postNo);
+	   close(conn);
+	   return h;
+   }
+   
+   // 상세보기 파일 조회
+   public ArrayList<Attachment> selectAttachment(int postNo) {
+	   Connection conn = getConnection();
+	   ArrayList<Attachment> list = new HomeVisitDao().selectAttachment(conn, postNo);
+	   close(conn);
+	   return list;
+   }
+   
 }

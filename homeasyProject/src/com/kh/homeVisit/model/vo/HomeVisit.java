@@ -4,178 +4,200 @@ import java.sql.Date;
 
 public class HomeVisit {
 
-	private String userFileRename;
-	private String nickName;
-	private String postFileRename;
-	private String postContent;
-	private String pcomContent;
-	private int postNo;
-	private String rowNum;
-	private String email;
-	private String postTitle;
-	private Date postCreateDate;
-	private int postCount;
-	private String userNo;
-	private String postCateName;
-	
-	public HomeVisit() {}
+   private String userFileRename;
+   private String nickName;
+   private String postFileRename;
+   private String postContent;
+   private String pcomContent;
+   private int postNo;
+   private String rowNum;
+   private String email;
+   private String postTitle;
+   private Date postCreateDate;
+   private int postCount;
+   private String userNo;
+   private String postCateName;
+   private String postStatus;
+   
+   public HomeVisit() {}
 
-	public HomeVisit(String userFileRename, String nickName, String postFileRename, String postContent,
-			String pcomContent) {
-		super();
-		this.userFileRename = userFileRename;
-		this.nickName = nickName;
-		this.postFileRename = postFileRename;
-		this.postContent = postContent;
-		this.pcomContent = pcomContent;
-	}
+   public HomeVisit(int postNo, String postContent, String nickName, String userFileRename, 
+		   String postFileRename, String pcomContent) { 
+      super();
+      this.postNo = postNo;
+      this.postContent = postContent;
+      this.nickName = nickName;
+      this.userFileRename = userFileRename;
+      this.postFileRename = postFileRename;
+      this.pcomContent = pcomContent;
+   }
 
-	public HomeVisit(String postContent, int postNo, String postTitle, Date postCreateDate, String userNo,
-			String postCateName) {
-		super();
-		this.postContent = postContent;
-		this.postNo = postNo;
-		this.postTitle = postTitle;
-		this.postCreateDate = postCreateDate;
-		this.userNo = userNo;
-		this.postCateName = postCateName;
-	}
-	
-	
-	public HomeVisit(String rowNum, String email, String postTitle, Date postCreateDate, int postCount) {
-		super();
-		this.rowNum = rowNum;
-		this.email = email;
-		this.postTitle = postTitle;
-		this.postCreateDate = postCreateDate;
-		this.postCount = postCount;
-	}
-	
+   public HomeVisit(String userFileRename, String nickName, String postFileRename, String postContent,
+         String pcomContent, int postNo) {
+      super();
+      this.userFileRename = userFileRename;
+      this.nickName = nickName;
+      this.postFileRename = postFileRename;
+      this.postContent = postContent;
+      this.pcomContent = pcomContent;
+      this.postNo = postNo;
+   }
 
-	
-	public HomeVisit(String postContent, int postNo, String postTitle, String userNo) {
-		super();
-		this.postContent = postContent;
-		this.postNo = postNo;
-		this.postTitle = postTitle;
-		this.userNo = userNo;
-	}
+   public HomeVisit(String postContent, int postNo, String postTitle, Date postCreateDate, String userNo,
+         String postCateName) {
+      super();
+      this.postContent = postContent;
+      this.postNo = postNo;
+      this.postTitle = postTitle;
+      this.postCreateDate = postCreateDate;
+      this.userNo = userNo;
+      this.postCateName = postCateName;
+   }
+   
+   
+   public HomeVisit(int postNo, String email, String postTitle, Date postCreateDate, int postCount) {
+      super();
+      this.postNo = postNo;
+      this.email = email;
+      this.postTitle = postTitle;
+      this.postCreateDate = postCreateDate;
+      this.postCount = postCount;
+   }
+   
 
-	public String getRowNum() {
-		return rowNum;
-	}
+   
+   public HomeVisit(String postContent, int postNo, String postTitle, String userNo) {
+      super();
+      this.postContent = postContent;
+      this.postNo = postNo;
+      this.postTitle = postTitle;
+      this.userNo = userNo;
+   }
 
-	public void setRowNum(String rowNum) {
-		this.rowNum = rowNum;
-	}
+   
 
-	public String getPostCateName() {
-		return postCateName;
-	}
+   public String getPostStatus() {
+      return postStatus;
+   }
 
-	public void setPostCateName(String postCateName) {
-		this.postCateName = postCateName;
-	}
+   public void setPostStatus(String postStatus) {
+      this.postStatus = postStatus;
+   }
 
-	public String getUserNo() {
-		return userNo;
-	}
+   public String getRowNum() {
+      return rowNum;
+   }
 
-	public void setUserNo(String userNo) {
-		this.userNo = userNo;
-	}
+   public void setRowNum(String rowNum) {
+      this.rowNum = rowNum;
+   }
 
-	public int getPostNo() {
-		return postNo;
-	}
+   public String getPostCateName() {
+      return postCateName;
+   }
 
-	public void setPostNo(int postNo) {
-		this.postNo = postNo;
-	}
+   public void setPostCateName(String postCateName) {
+      this.postCateName = postCateName;
+   }
 
-	public String getEmail() {
-		return email;
-	}
+   public String getUserNo() {
+      return userNo;
+   }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+   public void setUserNo(String userNo) {
+      this.userNo = userNo;
+   }
 
-	public String getPostTitle() {
-		return postTitle;
-	}
+   public int getPostNo() {
+      return postNo;
+   }
 
-	public void setPostTitle(String postTitle) {
-		this.postTitle = postTitle;
-	}
+   public void setPostNo(int postNo) {
+      this.postNo = postNo;
+   }
 
-	public Date getPostCreateDate() {
-		return postCreateDate;
-	}
+   public String getEmail() {
+      return email;
+   }
 
-	public void setPostCreateDate(Date postCreateDate) {
-		this.postCreateDate = postCreateDate;
-	}
+   public void setEmail(String email) {
+      this.email = email;
+   }
 
-	public int getPostCount() {
-		return postCount;
-	}
+   public String getPostTitle() {
+      return postTitle;
+   }
 
-	public void setPostCount(int postCount) {
-		this.postCount = postCount;
-	}
+   public void setPostTitle(String postTitle) {
+      this.postTitle = postTitle;
+   }
 
-	public String getUserFileRename() {
-		return userFileRename;
-	}
+   public Date getPostCreateDate() {
+      return postCreateDate;
+   }
 
-	public void setUserFileRename(String userFileRename) {
-		this.userFileRename = userFileRename;
-	}
+   public void setPostCreateDate(Date postCreateDate) {
+      this.postCreateDate = postCreateDate;
+   }
 
-	public String getNickName() {
-		return nickName;
-	}
+   public int getPostCount() {
+      return postCount;
+   }
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
-	}
+   public void setPostCount(int postCount) {
+      this.postCount = postCount;
+   }
 
-	public String getPostFileRename() {
-		return postFileRename;
-	}
+   public String getUserFileRename() {
+      return userFileRename;
+   }
 
-	public void setPostFileRename(String postFileRename) {
-		this.postFileRename = postFileRename;
-	}
+   public void setUserFileRename(String userFileRename) {
+      this.userFileRename = userFileRename;
+   }
 
-	public String getPostContent() {
-		return postContent;
-	}
+   public String getNickName() {
+      return nickName;
+   }
 
-	public void setPostContent(String postContent) {
-		this.postContent = postContent;
-	}
+   public void setNickName(String nickName) {
+      this.nickName = nickName;
+   }
 
-	public String getPcomContent() {
-		return pcomContent;
-	}
+   public String getPostFileRename() {
+      return postFileRename;
+   }
 
-	public void setPcomContent(String pcomContent) {
-		this.pcomContent = pcomContent;
-	}
+   public void setPostFileRename(String postFileRename) {
+      this.postFileRename = postFileRename;
+   }
 
-	@Override
-	public String toString() {
-		return "HomeVisit [userFileRename=" + userFileRename + ", nickName=" + nickName + ", postFileRename="
-				+ postFileRename + ", postContent=" + postContent + ", pcomContent=" + pcomContent + ", postNo="
-				+ postNo + ", rowNum=" + rowNum + ", email=" + email + ", postTitle=" + postTitle + ", postCreateDate="
-				+ postCreateDate + ", postCount=" + postCount + ", userNo=" + userNo + ", postCateName=" + postCateName
-				+ "]";
-	}
+   public String getPostContent() {
+      return postContent;
+   }
 
-	
-	
-	
+   public void setPostContent(String postContent) {
+      this.postContent = postContent;
+   }
 
+   public String getPcomContent() {
+      return pcomContent;
+   }
+
+   public void setPcomContent(String pcomContent) {
+      this.pcomContent = pcomContent;
+   }
+
+   @Override
+   public String toString() {
+      return "HomeVisit [userFileRename=" + userFileRename + ", nickName=" + nickName + ", postFileRename="
+            + postFileRename + ", postContent=" + postContent + ", pcomContent=" + pcomContent + ", postNo="
+            + postNo + ", rowNum=" + rowNum + ", email=" + email + ", postTitle=" + postTitle + ", postCreateDate="
+            + postCreateDate + ", postCount=" + postCount + ", userNo=" + userNo + ", postCateName=" + postCateName
+            + "]";
+   }
+
+   
+   
+   
 }

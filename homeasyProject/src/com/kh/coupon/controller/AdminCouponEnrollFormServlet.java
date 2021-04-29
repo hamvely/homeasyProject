@@ -1,30 +1,23 @@
-package com.kh.store.controller;
+package com.kh.coupon.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.product.model.vo.Product;
-import com.kh.product.model.vo.ProductCate1;
-import com.kh.product.model.vo.ProductCate2;
-import com.kh.store.model.service.StoreService;
-
 /**
- * Servlet implementation class StoreListServlet
+ * Servlet implementation class AdminCouponEnrollFormServlet
  */
-@WebServlet("/decoList.st")
-public class StoreDecoListServlet extends HttpServlet {
+@WebServlet("/adminEnroll.cp")
+public class AdminCouponEnrollFormServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StoreDecoListServlet() {
+    public AdminCouponEnrollFormServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,12 +26,9 @@ public class StoreDecoListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		ArrayList<Product> list = new StoreService().selectDecoList();
 		
-		request.setAttribute("list", list);
+		request.getRequestDispatcher("views/coupon/adminCouponEnroll.jsp").forward(request, response);
 		
-		request.getRequestDispatcher("views/store/storeListView.jsp").forward(request, response);
 		
 	}
 

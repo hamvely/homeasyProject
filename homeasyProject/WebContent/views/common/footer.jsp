@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-    div{box-sizing: border-box; }
+    div{box-sizing: border-box;}
     
-    .wrap {width: 1200px; }
+    .wrap {width: 1200px;}
  
-    #footer {height: 200px; }
+    #footer {height: 200px;}
     
     #footer>div {height: 100%; float: left;}
     #footer_1 {width: 250px;}
@@ -26,8 +26,8 @@
     
     /* 주소, 이용약관 ...등등 */
     #footer_2> p{width: 100%; margin: 3px; }
-     #p_1{height:20%; padding: 2px; font-size: 10px;}
-     #p_1 > a{
+    #p_1{height:20%; padding: 2px; font-size: 10px;}
+    #p_1 > a{
         text-decoration: none;
         color: black;
         font-size: 10px;
@@ -35,7 +35,7 @@
      }
 
     /* 고객센터 */
-   #footer_3> p {width: 100%;  margin: 0;}
+    #footer_3> p {width: 100%;  margin: 0;}
       #p_2 {font-weight: bold; font-size: 30px; text-align: center; }
       #p_3 {font-weight: bold; font-size: 30px; text-align: center; }
       #p_4 {font-size: 10px; text-align: center; }

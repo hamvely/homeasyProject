@@ -2,9 +2,10 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-	<entry key="selectFurnitureList">
+	<entry key="selectList">
 		 SELECT 
 		 		  PRODUCT.PRODUCT_NO
+		 		, PRODUCT.CATE2_NO  
                 , PRODUCT_BRAND  
                 , PRODUCT_NAME
                 , PRODUCT_PRICE
@@ -13,14 +14,25 @@
              FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
             WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
               AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
-              AND CATE1_NO = 1
+              AND CATE1_NO = ?
               AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
          ORDER BY PRODUCT.PRODUCT_NO ASC
 	</entry>
 	
-	<entry key="selectFabricList">
+	<entry key="selectcate2List">
+		SELECT 
+			   C1.CATE1_NO
+			 , C2.CATE2_NO
+		     , C2.CATE2_NAME
+		  FROM PRODUCT_CATEGORY1 C1, PRODUCT_CATEGORY2 C2
+		 WHERE C1.CATE1_NO = C2.CATE1_NO
+		   AND C2.CATE1_NO = ?
+	</entry>
+	
+	<entry key="selectcList">
 		 SELECT 
 		 		  PRODUCT.PRODUCT_NO
+		 		, PRODUCT.CATE2_NO  
                 , PRODUCT_BRAND  
                 , PRODUCT_NAME
                 , PRODUCT_PRICE
@@ -29,90 +41,34 @@
              FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
             WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
               AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
-              AND CATE1_NO = 2
+              AND PRODUCT_CATEGORY2.CATE1_NO = ?
+              AND PRODUCT_CATEGORY2.CATE2_NO = ?
               AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
          ORDER BY PRODUCT.PRODUCT_NO ASC
 	</entry>
 	
-	<entry key="selectDecoList">
-		 SELECT 
-		 		  PRODUCT.PRODUCT_NO
-                , PRODUCT_BRAND  
-                , PRODUCT_NAME
-                , PRODUCT_PRICE
-                , PRODUCT_DATE
-                , PRODUCT_FILE_RENAME
-             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
-            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
-              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
-              AND CATE1_NO = 3
-              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
-         ORDER BY PRODUCT.PRODUCT_NO ASC
+	<entry key="totalPrice">
+		SELECT
+		       P.PRODUCT_PRICE
+		     , PO.OPTION_PRICE
+		  FROM PRODUCT P, PRODUCT_OPTION PO
+		 WHERE P.PRODUCT_NO = PO.PRODUCT_NO 
+		   AND OPTION_NO = ?
 	</entry>
 	
-	<entry key="selectStorageList">
-		 SELECT 
-		 		  PRODUCT.PRODUCT_NO
-                , PRODUCT_BRAND  
-                , PRODUCT_NAME
-                , PRODUCT_PRICE
-                , PRODUCT_DATE
-                , PRODUCT_FILE_RENAME
-             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
-            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
-              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
-              AND CATE1_NO = 4
-              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
-         ORDER BY PRODUCT.PRODUCT_NO ASC
-	</entry>
 	
-	<entry key="selectSuppliesList">
-		 SELECT 
-		 		  PRODUCT.PRODUCT_NO
-                , PRODUCT_BRAND  
-                , PRODUCT_NAME
-                , PRODUCT_PRICE
-                , PRODUCT_DATE
-                , PRODUCT_FILE_RENAME
-             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
-            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
-              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
-              AND CATE1_NO = 5
-              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
-         ORDER BY PRODUCT.PRODUCT_NO ASC
-	</entry>
 	
-	<entry key="selectKitchenList">
-		 SELECT 
-		 		  PRODUCT.PRODUCT_NO
-                , PRODUCT_BRAND  
-                , PRODUCT_NAME
-                , PRODUCT_PRICE
-                , PRODUCT_DATE
-                , PRODUCT_FILE_RENAME
-             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
-            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
-              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
-              AND CATE1_NO = 6
-              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
-         ORDER BY PRODUCT.PRODUCT_NO ASC
-	</entry>
 	
-	<entry key="selectPetList">
-		 SELECT 
-		 		  PRODUCT.PRODUCT_NO
-                , PRODUCT_BRAND  
-                , PRODUCT_NAME
-                , PRODUCT_PRICE
-                , PRODUCT_DATE
-                , PRODUCT_FILE_RENAME
-             FROM PRODUCT, PRODUCT_CATEGORY2, PRODUCT_FILE
-            WHERE PRODUCT.CATE2_NO = PRODUCT_CATEGORY2.CATE2_NO
-              AND PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
-              AND CATE1_NO = 7
-              AND PRODUCT_FILE_ORIGIN_NAME LIKE '%main%'
-         ORDER BY PRODUCT.PRODUCT_NO ASC
-	</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<entry key="selectProduct">
 		SELECT

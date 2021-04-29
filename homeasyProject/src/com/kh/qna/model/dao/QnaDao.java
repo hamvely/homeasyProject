@@ -12,6 +12,7 @@ import java.util.Properties;
 import static com.kh.common.JDBCTemplate.*;
 
 import com.kh.common.model.vo.PageInfo;
+import com.kh.homeVisit.model.vo.HomeVisit;
 import com.kh.qna.model.vo.Attachment;
 import com.kh.qna.model.vo.Qna;
 
@@ -44,11 +45,12 @@ public class QnaDao {
 			
 			while(rset.next()) {
 				
-			list.add(new Qna (rset.getString("post_title"),
+			list.add(new Qna (rset.getInt("post_no"),
+							  rset.getString("post_title"),
 							  rset.getString("post_content"),
-			                  rset.getString("post_file_rename"),
-			                  rset.getString("user_file_rename"),
-			                  rset.getString("nickname")));
+							  rset.getString("user_file_rename"),
+							  rset.getString("nickname"),
+			                  rset.getString("post_file_rename")));
 			
 			}
 			
@@ -98,7 +100,7 @@ public class QnaDao {
 			for(Attachment at : list){
 				
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, at.getPostFileReName());
+				pstmt.setString(1, at.getPostFileRename());
 				
 				result = pstmt.executeUpdate();
 				
@@ -113,14 +115,14 @@ public class QnaDao {
 		return result;
 	}
 	
-	public int selectAdminQnaListCount(Connection conn) {
+	public int selectListCount(Connection conn) { // 관리자 qna 리스트 카운트
 		
 		int listCount = 0;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectAdminQnaListCount");
+		String sql = prop.getProperty("selectListCount");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -141,11 +143,11 @@ public class QnaDao {
 		
 	}
 	
-	public ArrayList<Qna> selectAdminList(Connection conn, PageInfo pi){
+	public ArrayList<Qna> selectList(Connection conn, PageInfo pi){
 		ArrayList<Qna> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectAdminList");
+		String sql = prop.getProperty("selectList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -173,4 +175,92 @@ public class QnaDao {
 		
 	}
 	
-}
+	// qna 조회수
+	public int increaseCount(Connection conn, int postNo) {
+
+		  int result = 0;
+	      PreparedStatement pstmt = null;
+	      String sql = prop.getProperty("increaseCount");
+	      
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+			 pstmt.setInt(1, postNo);
+	         
+	         result = pstmt.executeUpdate();
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }
+	      
+	      return result;
+	   }
+	   
+	   //상세보기
+	   public Qna selectQna(Connection conn, int postNo) {
+		   
+		   Qna q = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rset = null;
+		   String sql = prop.getProperty("selectQna");
+		   
+		   try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				q = new Qna(rset.getString("post_title"),
+							rset.getString("user_file_rename"),
+							rset.getString("nickname"),
+							rset.getString("post_file_rename"),
+						    rset.getString("post_content"));
+				}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		   
+		   return q;
+	   }
+	   
+	   //상세보기 첨부파일 조회
+	   public ArrayList<Attachment> selectAttachment(Connection conn, int postNo) {
+		   ArrayList<Attachment> list= new ArrayList<>();
+		   PreparedStatement pstmt = null;
+		   ResultSet rset = null;
+		   String sql = prop.getProperty("selectAttachment");
+		   
+		   try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				Attachment at = new Attachment();
+				at.setPostFileNo(rset.getInt("post_file_no"));
+			    at.setPostNo(rset.getInt("post_no"));
+			    at.setPostFileRename(rset.getString("post_file_rename"));
+			    
+			    list.add(at);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		   
+		   return list;
+		   
+	   }
+	   
+	   
+	}

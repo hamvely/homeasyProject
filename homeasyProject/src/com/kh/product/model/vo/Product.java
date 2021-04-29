@@ -4,23 +4,23 @@ import java.sql.Date;
 
 public class Product {
 
-   private int productNo;         // 상품 고유번호
-   private int cate2No;         // 2차 카테고리 고유번호
+   private int productNo;         	// 상품 고유번호
+   private int cate2No;         	// 2차 카테고리 고유번호
    private String productName;      // 상품명
-   private String productBrand;   // 상품 업체명
-   private int productPrice;      // 상품 가격
-   private String productDetail;   // 상품 상세내용
-   private Date productDate;      // 상품 등록 날짜
-   private String productStatus;   // 상품 등록 상태 (Y:등록 / N:미등록)
+   private String productBrand;   	// 상품 업체명
+   private int productPrice;      	// 상품 가격
+   private String productDetail;   	// 상품 상세내용
+   private Date productDate;      	// 상품 등록 날짜
+   private String productStatus;	// 상품 등록 상태 (Y:등록 / N:미등록)
    
-   private String titleImg;      // 해당 게시글의 대표이미지경로
+   private String titleImg;			// 해당 게시글의 대표이미지경로
    
    private String cate1Name;      // 1차 카테고리명
    private String cate2Name;      // 2차 카테고리명
    
-   private String optionName;      // 옵션명
-   private int optionPrice;      // 옵션가격
-   private int optionStock;      // 옵션재고
+   private String optionName;	// 옵션명
+   private int optionPrice;		// 옵션가격
+   private int optionStock;		// 옵션재고
    
    public Product() {}
 
@@ -77,6 +77,11 @@ public class Product {
       this.optionStock = optionStock;
    }
 
+   public Product(int productPrice, int optionPrice) {
+	   super();
+	   this.productPrice = productPrice;
+	   this.optionPrice = optionPrice;
+   }
    public String getTitleImg() {
       return titleImg;
    }
@@ -199,5 +204,7 @@ public class Product {
             + ", productBrand=" + productBrand + ", productPrice=" + productPrice + ", productDetail="
             + productDetail + ", productDate=" + productDate + ", productStatus=" + productStatus + "]";
    }
+
+
    
 }
