@@ -126,8 +126,10 @@ String contextPath = request.getContextPath();
 		    $(function(){
 				$(".listArea>tbody>tr").click(function(){
 					// 쿼리스트링 이용해서 요청할 url 작성
-					location.href = '<%=contextPath%>/admin.no?nno=' + $(this).children().eq(0).text();			
-					
+					$('#myModal').modal({
+				        keyboard: true,
+				        backdrop: "static"
+				    });
 				})
 			})
 		   </script>

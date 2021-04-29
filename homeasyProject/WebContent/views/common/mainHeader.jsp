@@ -21,26 +21,15 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <style>
-    div {
-        box-sizing: border-box;
-    }
-    .wrap {
-        width: 1200px;
-        height: 250px;
-        margin: auto;
-        color: #2e363e;
-    }
-
+    div {box-sizing: border-box;}
+    .wrap {width: 1200px; height: 250px; margin: auto; }
     #wrap>div {width: 100%;}
+    
     #header {height: 150px;}
     #navigator {height: 100px;}
 
     #header>div, #content>div {float: left; height: 100%;}
-    #header_column {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    #header_column {display: flex; align-items: center; justify-content: center;}
     
     #header_column:first-child {width:300px;}
     #header_column:nth-child(2) {width:600px;}
@@ -49,7 +38,8 @@
     a {text-decoration: none; color: #2e363e;}
 
     /* 검색창 */
-    .search_form {position: relative;}
+    .search_form{margin-top:30px;}
+    .search_form {position: relative; margin-top:30px;}
 
     .search_form_text>input {
         width: 500px;
@@ -58,7 +48,7 @@
         border-radius: 5px;
     }
     .search_form_btn {
-    	margin-top: 70px;
+    	margin-top: 100px;
         position: absolute;
         bottom: 9px;
         right: 10px;
@@ -67,52 +57,27 @@
     }
     
     /* 네비게이션 */
-    .container, .mt-3{
-        margin: 0;
-        padding: 0;
-    }
-    .mt-3, .my-3 {
-        margin-top: 0!important;
-    }
-    .nav-tabs{
-        height: 50px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .container {
-        height: 50px;
-        font-size: 15px;
-        font-weight: bold;
-    }
+    .container, .mt-3{margin: 0; padding: 0;}
+    .mt-3, .my-3 {margin-top: 0!important;}
+    .nav-tabs{height: 50px; font-size: 20px; font-weight: bold;}
+    .container {height: 50px; font-size: 15px; font-weight: bold;}
     .nav-tabs .nav-link{border: none;}
-    .container a{
-        margin-left: 15px;
-        text-decoration: none;
-    }
+    .container a{margin-left: 15px; text-decoration: none;}
     .container a:hover {color: rgb(3, 79, 6);}
 
     /* 로그인 */
-    .beforeLogin a {color:black; text-decoration:none; font-weight: bold; padding: 0px 5px 0px 5px;}
+    .beforeLogin{margin-top:30px;}
+    .beforeLogin a {color:black; text-decoration:none; font-weight:bold; padding: 0px 5px 0px 5px;}
     .beforeLogin a:hover {color: rgb(3, 79, 6);}
 
-    .afterLogin {position:absolute;}
+    .afterLogin {position:absolute; margin-top: 30px;}
     .afterLogin div {margin: 10px 10px;}
     .afterLogin div a {color:black; text-decoration:none; font-weight: bold; padding: 0px 5px 0px 5px;}
     .afterLogin a:hover {color: rgb(3, 79, 6);}
-    
-    .mypage{text-align:center; font-size: 13px;}
-    
+        
     /* 버튼스타일 */
-    .btn-success {
-    	background-color:rgb(3, 79, 6); 
-    	border-color:rgb(3, 79, 6);
-    }
-
-    .btn-secondary {
-    	background-color:rgb(158, 158, 158); 
-    	border-color:rgb(158, 158, 158);
-    }
-    
+    .btn-success {background-color:rgb(3, 79, 6); border-color:rgb(3, 79, 6);}
+    .btn-secondary {background-color:rgb(158, 158, 158); border-color:rgb(158, 158, 158);}
 
 
 </style>
@@ -146,7 +111,7 @@
                         <input type="search">
                     </div>
                     <div class="search_form_btn">
-                        <a href="<%= contextPath %>/index.admin"><i class="fas fa-search"></i></a>
+                        <a href="	"><i class="fas fa-search"></i></a>
                     </div>
                 </form>
             </div>
@@ -175,14 +140,14 @@
 	                    </div>
 		        <% }else { %>
                     <div class="afterLogin">
-                        <div style="text-align: center;">
+                        <div style="text-align: center; height:40px">
                             <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
                             <a href="#"><i class="far fa-heart fa-lg"></i></a>
                             <a href="#"><i class="far fa-user-circle fa-lg"></i></a>
                             <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
                         </div>
 
-                        <div class="mypage">
+                        <div class="mypage" style="text-align: center; height:40px">
                             <a href="<%= contextPath %>/modification.me">마이페이지</a>
                             <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
                         </div>
