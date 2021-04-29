@@ -136,43 +136,43 @@ String contextPath = request.getContextPath();
 		   
 		<!-- 모달-->	  
 
-<div class="container">
-  <h2>상품</h2>
-  <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Open modal
-  </button>
-
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h1 class="modal-title">상품관련 </h1>
-          <button type="button" class="close" data-dismiss="modal">×</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          <h3>혜미님!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h3>
-          <p>ㅎㅖ미님 어디갔어..............흑흑흑흑흑어디어디</p>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  
-</div>
-
-
-
-
+			<div class="container">
+			  <h2>상품</h2>
+			  <!-- Button to Open the Modal -->
+			  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			    Open modal
+			  </button>
+			
+			  <!-- The Modal -->
+			  <div class="modal" id="myModal">
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			      
+			        <!-- Modal Header -->
+			        <div class="modal-header">
+			          <h1 class="modal-title">상품관련 </h1>
+			          <button type="button" class="close" data-dismiss="modal">×</button>
+			        </div>
+			        
+			        <!-- Modal body -->
+			        <div class="modal-body">
+			          <h3>혜미님!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h3>
+			          <p>ㅎㅖ미님 어디갔어..............흑흑흑흑흑어디어디</p>
+			        
+			        <!-- Modal footer -->
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			        </div>
+			        
+			      </div>
+			    </div>
+			  </div>
+			  
+			</div>
+			
+			
+			
+			
 
 
 		        
