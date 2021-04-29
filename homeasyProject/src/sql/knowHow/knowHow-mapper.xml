@@ -33,13 +33,13 @@
 		                SELECT
 		                       POST_NO
 		                     , POST_TITLE
-		                     , POST_UPDATE_DATE
+		                     , POST_CREATE_DATE
 		                     , POST_COUNT
 		                     , POST_STATUS
 		                  FROM POST
 		                 WHERE POST_CATE_NAME = '노하우'
 		                 ORDER
-		                    BY POST_UPDATE_DATE DESC
+		                    BY POST_CREATE_DATE DESC
 		               ) K
 		       )
 		 WHERE RNUM BETWEEN ? AND ?

@@ -116,7 +116,7 @@ public class KnowHowDao {
 			while(rset.next()) {
 				list.add(new KnowHow(rset.getInt("post_no"),
 								     rset.getString("post_title"),
-								     rset.getDate("post_update_date"),
+								     rset.getDate("post_create_date"),
 								     rset.getInt("post_count"),
 								     rset.getString("post_status")));
 			}
@@ -143,7 +143,7 @@ public class KnowHowDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, k.getPostTitle());
 			pstmt.setString(2, k.getPostContent());
-			pstmt.setDate(3, k.getPostUpdateDate());
+			pstmt.setDate(3, k.getPostCreateDate());
 			//pstmt.setString(5, k.getPostStatus());
 			
 			result = pstmt.executeUpdate();

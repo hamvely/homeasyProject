@@ -39,6 +39,7 @@ public class KnowHowService {
 		
 	}
 	
+	// 작성자:임지우 - 노하우관리 리스트 조회
 	public ArrayList<KnowHow> selectList(PageInfo pi) {
 		
 		Connection conn = getConnection();
