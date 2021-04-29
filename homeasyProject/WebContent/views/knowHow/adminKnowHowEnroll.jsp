@@ -66,7 +66,7 @@
 
     /* 등록 폼 스타일 */
     .knowhow_enroll table {
-        margin: auto;
+        margin-left: 30px;
     }
     th {
         color: #2e363e;
@@ -81,12 +81,16 @@
     <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
-        <div id="header"></div>
+        <div id="header">
+        	<%@ include file="../common/adminHeader.jsp" %>
+        </div>
 
         <!-- 본문 전체 -->
         <div id="content">
             <!-- 좌측 메뉴바 -->
-            <div id="content_1"></div>
+            <div id="content_1">
+            	<%@ include file="../common/adminMenubar.jsp" %>
+            </div>
 
             <!-- 우측 본문 -->
             <div id="content_2">
@@ -94,15 +98,15 @@
                 <!-- 페이지 제목 -->
                 <h3>노하우 등록</h3>
 
-                <!-- 버튼 -->
-                <div class="content_bar">
-                    <button class="content_btn">작성</button>
-                    <button class="content_btn">취소</button>
-                </div>
-                <br><br>
-
                 <!-- 노하우 등록 폼 -->
-                <form class="knowhow_enroll">
+                <form action="<%= contextPath %>/adminInsert.kh" class="knowhow_enroll" method="post" enctype="multipart/form-data">
+                	<!-- 버튼 -->
+	                <div class="content_bar">
+	                    <button type="submit" class="content_btn">작성</button>
+	                    <button type="reset" class="content_btn">취소</button>
+	                </div>
+	                <br><br>
+	                
                     <table>
                         <tr>
                             <th>제목</th>
@@ -111,7 +115,7 @@
                         </tr>
                         <tr>
                             <th>첨부사진</th>
-                            <td><img src="#" alt="" required></td>
+                            <td><input type="file" name="upfile"></td>
                             <td></td>
                         </tr>
                         <tr>

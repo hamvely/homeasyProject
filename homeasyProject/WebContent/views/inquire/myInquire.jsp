@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8" %>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,11 +12,13 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
     <style>
-    table,td,th{ border: 0px solid lightgray;
+    table,td,th{ border: 1px solid lightgray;
                 text-align: center;}
     
     .line {border-bottom: 1px solid lightgray;}
-    
+
+
+
 
 
     </style>
@@ -22,9 +28,9 @@
     <table width="900px" height="1150px" >
      
             <tr  style="height: 150px; border-collapse:collapse; text-align: left;">
-                <td class="line" colspan="5"><h1>1:1 문의 내역 </h1>
-                    집이지 서비스에 대해 궁금하신 점을 문의 해주시면 친절하게 답변드리겠습니다. <br>
-                    비회원의 경우, 문의 내용에 대한 답변을 못 받으신 경우에는 고객센터(1588-3333)로 문의해주시기 바랍니다.
+                <td class="line" colspan="5"><h1>1:1문의내역 </h1>
+                	집이지 서비스에 대해 궁금하신 점을 문의 해주시면 친절하게 답변드리겠습니다.
+                	비회원의 경으, 문의 내용에 대한 답변을 못받으신 경우에는 고객센터(1588-333)로 문의해주시기 바랍니다.<br>
                 </td>
             </tr>
       
@@ -60,37 +66,49 @@
 
             
             <tr style="height: 50px;">
-                <th>배송 / 배송일</td>
-                <td>13일 주문건 일주일안에 배송 가능?</td>
-                <td>2021.02.14</td>
-                <td style="color: blue;"><h4>답변완료</h4></td>
+                <th>배송 / 배송일</th>
+                <th>13일 주문건 일주일안에 배송 가능?</th>
+                <th>2021.02.14</th>
+                <th style="color: blue;"><h4>답변완료</h4></th>
                 <th><input type="reset" value="-"></th>
-                
             </tr>
 
             <tr style="height: 50px;">
-                <th>반품/교환</th>
-                <td>가구 색상이 다르게 배송</td>
-                <td>2021.03.30</td>
-                <td style="color:red;"><h4>대기</h4></td>
-                <td><input type="reset" value="-">
-                </td>
-                
+                <td colspan="5">가능가능</td>
             </tr>
 
-            <tr>
-                <th></th>
-                <td></td>
-                <th></th>
-                <td></td>
-                <th></th>
-            </tr>
-      
-      
+
+            <tr style="height: 50px;">
+                <th>반품/교환</th>
+                <th>가구 색상이 다르게 배송</th>
+                <th>2021.03.30</th>
+                <th style="color:red;"><h4>대기</h4></th>
+                <th><input type="reset" value="-"></th>
+                
+            </tr>   
 
     </table>
 
 
+    <script> 
+        $(function(){
+
+            $("th").click(function(){
+
+                var $th = $(this).next(); 
+
+                if($th.css("display") == "none"){
+                    $(this).siblings("th").slideUp();
+                    $th.slideDown(); 
+                }else{
+                    $th.slideUp(); 
+                }
+
+            })
+        })
+
+        </script>
+        
     
 </body>
 </html>

@@ -12,7 +12,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        table, th,td{border: 1px solid lightgray;}
+        div{border: 1px solid lightgray; box-sizing: border-box;}
+
+        .outer{width: 900px;
+               height: 800px;
+               margin: auto;
+               margin-top: 50px;
+               }
+        .navi{height: 30px;}
+
+        .thumbnail{
+            width: 220px;
+            display: inline-block;
+            margin: 5px;
+         
+           
+            
+        }
+
+    
 
   
         
@@ -21,113 +39,58 @@
 </head>
 <body>
 
-    <table style="width: 900px; height: 1150px;">
+    <div class="outer">
+            <br>
+            <h1 style="font-size: 50px;" align="center">스크랩</h1>
+            <br>
+
+        <div class=navi align="center">
+           <img style="width: 20px;" src="../resources/img/icon/user.png" alt=""> 닉네임
+        </div>
+        <!-- 삭제버튼  -->
+        <div align=" right">
+            <input type="button" value="삭제">
+        </div>
+
+        <div class="thumbnail" align="center">
+        <img src="해당게시글이미지경로" width="200" height="150">
+        </div>
         
-        <thead>
-            
-        <tr style="height: 150px; font-size: 20px;">
-            <td></td>
-            <th colspan="4">
-               <h1>스크랩</h1>
-               <td></td>
-            </th>
-        </tr>
-        </thead>
-        <tr style="height: 40px; ">
-            <td></td>
-            <th colspan="5">
-              <img src="resources/img/icon/user.png" style="width:15px;">  알렉스
-            </th>
-            
-        </tr>
+        <div class="thumbnail" align="center">
+            <img src="해당게시글이미지경로" width="200" height="150">
+        </div> 
 
-        <tr style="height: 40px; text-align: right;">
-            <td></td>
-            <td colspan="4">
-                완료 
-            </td>
-            <td></td>
-        </tr>
-    
-    <div id="img">
-        <tr>
-            <td></td>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <td></td>
-            
-        </tr>
-        <tr>
-            <th></th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <td></td>
-        </tr>
-        <tr>
-            <th></th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <td></td>
-        </tr>
-        <tr>
-            <th></th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <th>
-                <img src="">
-            </th>
-            <td></td>
-        </tr>
+        <div class="thumbnail" align="center">
+            <img src="해당게시글이미지경로" width="200" height="150">
+        </div> 
 
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        <div class="thumbnail" align="center">
+            <img src="해당게시글이미지경로" width="200" height="150">
+        </div>
 
+        <div class="thumbnail" align="center">
+            <img src="해당게시글이미지경로" width="200" height="150">
+        </div>
+
+        <div class="thumbnail" align="center">
+            <img src="해당게시글이미지경로" width="200" height="150">
+        </div>
+
+        <div class="thumbnail" align="center">
+            <img src="해당게시글이미지경로" width="200" height="150">
+        </div>
+
+        <div class="thumbnail" align="center">
+            <img src="해당게시글이미지경로" width="200" height="150">
+        </div> 
+
+        <div class="thumbnail" align="center">
+            <img src="해당게시글이미지경로" width="200" height="150">
+        </div> 
+
+
+      
     </div>
-
-    </table>
     
 </body>
 

@@ -53,5 +53,38 @@ public class QnaService {
 		ArrayList<Qna> list = new QnaDao().selectList(conn, pi);
 		close(conn);
 		return list;
+		
 	}
+	
+	// 질답 상세 게시글 카운트
+	   public int increaseCount(int postNo) {
+		   Connection conn = getConnection();
+		   int result = new QnaDao().increaseCount(conn, postNo);
+				  
+	       if(result > 0) {
+	    	   commit(conn);
+	       }else {
+	    	   rollback(conn);
+	       }
+		   
+		   close(conn);
+		   
+		   return result;
+	   }
+	   
+	   //조회된 Qna 객체를 반환하는(상세보기)
+	   public Qna selectQna(int postNo) {
+		   Connection conn = getConnection();
+		   Qna q = new QnaDao().selectQna(conn, postNo);
+		   close(conn);
+		   return q;
+	   }
+	   
+	   // 상세보기 파일 조회
+	   public ArrayList<Attachment> selectAttachment(int postNo) {
+		   Connection conn = getConnection();
+		   ArrayList<Attachment> list = new QnaDao().selectAttachment(conn, postNo);
+		   close(conn);
+		   return list;
+	   }
 }

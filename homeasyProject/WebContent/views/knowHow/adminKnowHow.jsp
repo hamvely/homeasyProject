@@ -122,7 +122,7 @@
 
                 <!-- 버튼 -->
                 <div class="content_bar">
-                    <button class="content_btn">등록</button>
+                	<a href="<%= contextPath %>/adminEnroll.kh" class="btn btn-secondary btn-sm">등록</a>
                     <button class="content_btn" data-toggle="modal" data-target="#deleteKnowhow">삭제</button>
                 </div>
             
@@ -218,8 +218,9 @@
                             
                             <!-- Modal footer -->
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">저장</button>
+                                <button type="submit" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">저장</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;">취소</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;" data-toggle="modal" data-target="#deleteKnowhow">삭제</button>
                             </div>
                     
                         </div>

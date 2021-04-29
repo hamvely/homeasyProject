@@ -1,29 +1,23 @@
-package com.kh.notice.controller;
+package com.kh.knowHow.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kh.notice.model.dao.NoticeInquireDao;
-import com.kh.notice.model.service.NoticeInquireService;
-import com.kh.notice.model.vo.NoticeInquire;
-
 /**
- * Servlet implementation class inquireOneServlet
+ * Servlet implementation class AdminKnowHowEnrollServlet
  */
-@WebServlet("/inquire.one")
-public class NoticeInquireOneServlet extends HttpServlet {
+@WebServlet("/adminEnroll.kh")
+public class AdminKnowHowEnrollServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeInquireOneServlet() {
+    public AdminKnowHowEnrollServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,12 +26,9 @@ public class NoticeInquireOneServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 		
-		ArrayList<NoticeInquire> list = new NoticeInquireService().inqruireList();
+		request.getRequestDispatcher("views/knowHow/adminKnowHowEnroll.jsp").forward(request, response);
 		
-		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/notice/noticeInquire.jsp").forward(request, response);
 		
 	}
 

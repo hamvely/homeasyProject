@@ -35,7 +35,7 @@ public class MyInServlet extends HttpServlet {
 		
 		request.setAttribute("i", i);
 		
-		request.getRequestDispatcher("views/inquire/Inquire.jsp").forward(request, response);
+		request.getRequestDispatcher("views/inquire/myInquire.jsp").forward(request, response);
 	
 	
 	}

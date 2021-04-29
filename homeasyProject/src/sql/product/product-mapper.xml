@@ -108,6 +108,17 @@
 		  , ?
 		  )
 	</entry>
+	
+ 
+	<entry key="selectcate2List">
+		SELECT 
+			   C1.CATE1_NO
+			 , C2.CATE2_NO
+		     , C2.CATE2_NAME
+		  FROM PRODUCT_CATEGORY1 C1, PRODUCT_CATEGORY2 C2
+		 WHERE C1.CATE1_NO = C2.CATE1_NO
+		   AND C2.CATE1_NO = ?
+	</entry>
 
 
 </properties>
