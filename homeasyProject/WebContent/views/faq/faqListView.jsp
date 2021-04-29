@@ -2,8 +2,6 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.faq.model.vo.Faq"%>
 <%
 	ArrayList<Faq> list = (ArrayList<Faq>)request.getAttribute("list");
-
-	String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
@@ -28,6 +26,8 @@
 </head>
 <body>
 
+	<%@ include file="../common/mainHeader.jsp" %>
+	
 	<div class="outer">
 
         <div class="faqHeder">
