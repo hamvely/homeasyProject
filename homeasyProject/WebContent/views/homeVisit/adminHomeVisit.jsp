@@ -63,31 +63,26 @@
         	cursor:pointer;
         }
         
-        .content1{height:820px;}
-        
-       
+		.header{float:left;}
+		.wrap1{float:left; width:900px; height:800px; margin:20px;}
+		
 </style>
 </head>
 <body>	
 <div class="wrap">
     
-        	<%@ include file="../common/adminHeader.jsp" %>
-
-           	<%@ include file="../common/adminMenubar.jsp" %>
-	       
+	<div class="header">
+	<%@ include file="../common/adminHeader.jsp" %>
+	</div> 
+	
+	<div class="header">
+	<%@ include file="../common/adminMenubar.jsp"%>
+	</div>  	       
 	       
 	   <div class="wrap1">
-	       <table class="table1" class="listArea" border="0">	
-			
 			<h3 style="font-weight:600;">집들이 관리</h3>
-			
-	        <%if(loginUser != null){ %>
-		        <div class="content">
-			        <br>
-			        <button type="button" class="btn btn-warning" style="color:white; width:100px; height:35px;">삭제</button>
-			        <br><br>
-		        </div>
-		  	<% } %>
+			<br>
+	       <table class="table1" class="listArea" border="0">	
 	            <thead>
 	                <tr>
 	                    <td width="50" height="40">No.</td>
@@ -132,28 +127,7 @@
 	                    	<button onclick="location.href='<%= contextPath %>/adminList.ho?currentPage=<%= currentPage+1 %>';">다음</button>
 						<% } %>
 	          </div>
-        
-		      <script>
-		        	$(function(){
-		        		$(".listArea>tbody>tr").click(function(){
-		        			        					
-		        			location.href = '<%=contextPath%>/detail.ho?hno=' + $(this).children().eq(0).text();
-		        			
-		        		})
-		        	})
-		        
-		      </script>
-
-	        <!--<div align="center" class="pageinArea">
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〈</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-warning" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">1</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">2</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">3</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">4</p></button>
-	            <button onclick="location.href='';" type="button" class="btn btn-light" style="width:25px; height:28px;"><p style="margin-left:-5px; margin-top:-5px;">〉</p></button>
-	        </div>
-			-->
-    </div>
+       </div>
 	
 </div>
 </body>

@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.kh.common.model.vo.PageInfo;
-import com.kh.homeVisit.model.service.HomeVisitService;
-import com.kh.homeVisit.model.vo.HomeVisit;
 import com.kh.qna.model.service.QnaService;
 import com.kh.qna.model.vo.Qna;
 
@@ -72,7 +70,7 @@ public class AdminQnaListServlet extends HttpServlet {
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
-		request.getRequestDispatcher("views/Qna/adminQna.jsp").forward(request, response);
+		request.getRequestDispatcher("views/qna/adminQna.jsp").forward(request, response);
 	}
 
 	/**

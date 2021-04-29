@@ -30,8 +30,8 @@
 
     <style>
         .wrap{
-            width:1000px;
-            height:800px;
+            width:1200px;
+            height:900px;
            	margin:auto;
             
         }
@@ -48,6 +48,7 @@
             border:solid #ccc;
             border-left:none;
             border-right:none;
+            margin-top:-10px;
 
         }
 
@@ -59,25 +60,28 @@
         td{
             border-bottom:1px solid #ccc;
         }
-    </style>
+
+		.header{float:left;}
+		.wrap1{float:left; width:900px; height:800px; margin:20px;}
+		
+</style>
 </head>
 <body>
 <div class="wrap">
 	
-	        <%@ include file="../common/adminHeader.jsp" %>
 	
-	        <%@ include file="../common/adminMenubar.jsp"%>
+	<div class="header">
+	<%@ include file="../common/adminHeader.jsp" %>
+	</div>        
+	
+	<div class="header">
+	<%@ include file="../common/adminMenubar.jsp"%>
+	</div>    
 	    
-	   <table class="table1" class="listArea" border="0">
-	    <%if(loginUser != null){ %>
-	        <br>
-	      <div class="content">
+	<div class="wrap1">
 	        <h3 style="font-weight:600;">질문과답변 관리</h3>
 	        <br>
-	        <button type="button" class="btn btn-warning" style="color:white; width:100px; height:35px;">삭제</button>
-	        <br><br>
-	      </div>
-	     <% } %>
+	  	 <table class="table1" class="listArea" border="0" >
 	            <thead>
 	                <tr>
 	                    <td width="50" height="40">No.</td>
@@ -121,20 +125,8 @@
                     	<button onclick="location.href='<%= contextPath %>/adminList.qna?currentPage=<%= currentPage+1 %>';">다음</button>
 					<% } %>
                 </div>
+		</div>
 
-		<script>
-        	$(function(){
-        		$(".listArea>tbody>tr").click(function(){
-        			        					
-        			location.href = '<%=contextPath%>/post.qna?qno=' + $(this).children().eq(0).text();
-        			
-        		})
-        	})
-        
-        </script>
-
-
-	</div>
-</table>
+</div>
 </body>
 </html>
