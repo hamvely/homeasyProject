@@ -157,11 +157,11 @@ public class QnaDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Qna(rset.getInt("post_no"),
-						         rset.getString("eamil"),
-						         rset.getString("post_title"),
-						         rset.getDate("post_create_date"),
-						         rset.getInt("post_count")));
+				list.add(new Qna(rset.getInt("POST_NO"),
+						         rset.getString("EMAIL"),
+						         rset.getString("POST_TITLE"),
+						         rset.getDate("POST_CREATE_DATE"),
+						         rset.getInt("POST_COUNT")));
 			}
 			
 		} catch (SQLException e) {
