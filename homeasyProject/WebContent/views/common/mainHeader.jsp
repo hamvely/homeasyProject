@@ -46,9 +46,10 @@
         height: 45px;
         border: 3px solid rgb(3, 79, 6);
         border-radius: 5px;
+        margin-left:15px;
     }
     .search_form_btn {
-    	margin-top: 100px;
+    	  margin-top: 100px;
         position: absolute;
         bottom: 9px;
         right: 10px;
@@ -110,9 +111,7 @@
                     <div class="search_form_text">
                         <input type="search">
                     </div>
-                    <div class="search_form_btn">
-                        <a href="	"><i class="fas fa-search"></i></a>
-                    </div>
+
                 </form>
             </div>
 
