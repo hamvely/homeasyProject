@@ -46,7 +46,7 @@ public class knowHowPostServlet extends HttpServlet {
 			request.setAttribute("list", list);
 		
 			
-			request.getRequestDispatcher("views/knowHow/knowHowPost.jsp").forward(request, response);
+			request.getRequestDispatcher("views/knowHow/KnowHowPost.jsp").forward(request, response);
 			
 		}else {
 			
