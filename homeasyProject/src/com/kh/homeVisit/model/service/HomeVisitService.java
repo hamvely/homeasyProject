@@ -25,7 +25,7 @@ public class HomeVisitService {
    }
    
    
-
+   // 집들이 사진 올리기  (이거에요 혜미님!)
    public int insertHomeVisitWrite(HomeVisit list, ArrayList<Attachment> at) {
 
       Connection conn = getConnection();
