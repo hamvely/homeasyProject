@@ -202,8 +202,8 @@
             <div id="content_2">
 	            <div class="main_right">
 		         	<div id="right">
-		            <div class="right_1"><a href="">커뮤니티</a></div>      
-		            <div class="right_2"><a href="">장바구니</a></div>
+		            <div class="right_1"><a href="<%= contextPath %>/list.no?currentPage=1">공지사항</a></div>      
+		            <div class="right_2"><a href="<%=contextPath%>/list.ho">집들이</a></div>
 		            <div class="right_3"><a href="">스크랩북</a></div>   
 		            <div class="right_4"><a href="">고객센터</a></div>
 		            <div class="right_5"><a href="">1:1문의</a></div>   
@@ -217,7 +217,7 @@
         <div id="footer">
         	  <!-- 로고 -->
             <div id="footer_1">  
-                <a href=""><img src="resources/img/logo/logo (1).png" width="250px;" style="padding-top:50px;"></a>
+                <a href="<%= contextPath %>/index.admin"><img src="resources/img/logo/logo (1).png" width="250px;" style="padding-top:50px;"></a>
             </div>
             
             <!-- 이용약관, 회사주소 등등 -->
