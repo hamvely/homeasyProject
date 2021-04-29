@@ -45,7 +45,7 @@ public class HomeVisitPostServlet extends HttpServlet {
 			request.setAttribute("h", h);
 			request.setAttribute("list", list);
 			//System.out.println(h);
-			//System.out.println(at);
+			//System.out.println(list);
 		
 			request.getRequestDispatcher("views/homeVisit/homeVisitPost.jsp").forward(request, response);
 			

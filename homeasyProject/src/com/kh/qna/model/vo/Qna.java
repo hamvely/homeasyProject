@@ -15,10 +15,24 @@ public class Qna {
 	private int postNo;
 	private String email;
 	private int postCount;
+	//아영 추가
+	private String pcomContent;
 	
 	public Qna() {}
 
-	//질문과답변하기메인
+	//질문과답변하기메인 
+	public Qna(int postNo, String postTitle, String postContent, String userFileRename, String nickName, String postFileRename
+			) {
+		super();
+		this.postNo = postNo;
+		this.postTitle = postTitle;
+		this.postContent = postContent;
+		this.userFileRename = userFileRename;
+		this.nickName = nickName;
+		this.postFileRename = postFileRename;
+	}
+	
+	// 게시글상세
 	public Qna(String postTitle, String postContent, String userFileRename, String nickName, String postFileRename) {
 		super();
 		this.postTitle = postTitle;
@@ -27,15 +41,8 @@ public class Qna {
 		this.nickName = nickName;
 		this.postFileRename = postFileRename;
 	}
-
-	public Qna(String postTitle, String postContent, String postFileRename, String userNo) {
-		super();
-		this.postTitle = postTitle;
-		this.postContent = postContent;
-		this.postFileRename = postFileRename;
-		this.userNo = userNo;
-	}
-
+	
+	
 	public Qna(String postTitle, String postContent, String userFileRename, String nickName, String postFileRename,
 			String userNo, String postCateName, Date postCreateDate) {
 		super();
@@ -49,6 +56,7 @@ public class Qna {
 		this.postCreateDate = postCreateDate;
 	}
 	
+
 	public Qna(int postNo,  String email, String postTitle, Date postCreateDate, int postCount) {
 		super();
 		this.postNo = postNo;
@@ -57,7 +65,6 @@ public class Qna {
 		this.postCreateDate = postCreateDate;
 		this.postCount = postCount;
 	}
-
 
 	public int getPostNo() {
 		return postNo;
@@ -147,12 +154,22 @@ public class Qna {
 		this.postFileRename = postFileRename;
 	}
 
+	
+	public String getPcomContent() {
+		return pcomContent;
+	}
+
+	public void setPcomContent(String pcomContent) {
+		this.pcomContent = pcomContent;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "Qna [postTitle=" + postTitle + ", postContent=" + postContent + ", userFileRename=" + userFileRename
 				+ ", nickName=" + nickName + ", postFileRename=" + postFileRename + ", userNo=" + userNo
 				+ ", postCateName=" + postCateName + ", postCreateDate=" + postCreateDate + ", postNo=" + postNo
-				+ ", email=" + email + ", postCount=" + postCount + "]";
+				+ ", email=" + email + ", postCount=" + postCount + ", pcomContent=" + pcomContent + "]";
 	}
 
 	

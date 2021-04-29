@@ -1,6 +1,7 @@
 package com.kh.knowHow.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,11 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kh.knowHow.model.service.KnowHowService;
 import com.kh.knowHow.model.vo.KnowHow;
+import com.kh.qna.model.vo.Attachment;
 
 /**
  * Servlet implementation class knowHowPostServlet
  */
-@WebServlet("/post.how")
+@WebServlet("/detail.kn")
 public class knowHowPostServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,7 +33,25 @@ public class knowHowPostServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	request.getRequestDispatcher("views/knowHow/knowHowPost.jsp").forward(request, response);
+		int postNo = Integer.parseInt(request.getParameter("kno"));
+		
+		int result = new KnowHowService().increaseCount(postNo);
+		
+		if(result>0) {
+			
+			KnowHow k = new KnowHowService().selectKnowHowPost(postNo);
+			ArrayList<Attachment> list = new KnowHowService().selectAttachment(postNo);
+		
+			request.setAttribute("k", k);
+			request.setAttribute("list", list);
+		
+			
+			request.getRequestDispatcher("views/knowHow/knowHowPost.jsp").forward(request, response);
+			
+		}else {
+			
+		}
+		
 	}
 
 	/**

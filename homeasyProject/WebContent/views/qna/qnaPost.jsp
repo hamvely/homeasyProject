@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.qna.model.vo.Qna, com.kh.qna.model.vo.Attachment"%>
+<%
+	Qna q = (Qna)request.getAttribute("q");
+    ArrayList<Attachment> list = (ArrayList<Attachment>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
     .post{
@@ -83,19 +88,20 @@
 <body>
     <div class="post">
         <div class="title">
+      
             <span class="title1">
-                <h3>현관 옆 화장실 어떻게 해야 할까요?</h3>
+                <h3><%=q.getPostTitle() %></h3>
             </span>
             <div class="user">
-                <img class="user1" src="">
+                <img class="user1" src="<%=q.getUserFileRename()%>">
                 <div class="id">
-                    <h1>user01</h1>
+                    <h1><%=q.getNickName() %></h1>
                 </div>
             </div>
         </div>
 
         <br><br><br>
-        <img class="postfile" src="">
+        <img class="postfile" src="<%=q.getPostFileRename()%>">
         <a href="">
         <img class="heart" src="">
         </a>
@@ -106,11 +112,7 @@
         <br><br>
         <div class="content">
         	<p>
-        	내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-        	내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-        	내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-        	내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-        	내용입니다 내용입니다 내용입니다 내용입니다 내용입니다
+        	<%=q.getPostContent() %>
         	</p>
         </div>
 

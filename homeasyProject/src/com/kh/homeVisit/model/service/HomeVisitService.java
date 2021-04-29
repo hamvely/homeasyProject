@@ -62,6 +62,7 @@ public class HomeVisitService {
 	   return list;
    }
 
+   // 집들이 상세 게시글 카운트
    public int increaseCount(int postNo) {
 	   Connection conn = getConnection();
 	   int result = new HomeVisitDao().increaseCount(conn, postNo);
