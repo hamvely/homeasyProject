@@ -15,11 +15,23 @@
     .wrap{width:1200px; height:1450px; margin:auto;}
     
     /* 컨텐츠 크기 */
-    #content{height:1150px;}
+    #content{height:1250px;}
     #content div{float:left;}
 
     /* 본문 크기 */
     #content_1{width:1100px; height:100%;}
+
+/*--------------------------------------------------------------*/    
+    /* 컨텐츠 스타일 */
+    p{font-size:22px; font-weight:bold; margin-left:20px; margin-top: 20px;}
+
+    #homeVisit{height:420px; width:100%;}
+    #homeVisitContent{height:350px; display: flex; width:33%;}
+    #homeVisitContent img{height:350px; display: block; margin:auto;}
+    
+    #product{height:330px; width:100%;}
+    #productContent{height:260px; display: flex; width:25%;}
+    #productContent img{height:260px; display: block; margin:auto;}
 /*--------------------------------------------------------------*/
     /* 리모콘 */
     #content_2{width:100px; height:100%;} 
@@ -86,17 +98,6 @@
             text-align: center;
             line-height: 60%;
             }
-/*--------------------------------------------------------------*/    
-    /* 컨텐츠 스타일 */
-    p{font-size:20px; font-weight:bolder; margin-left:20px; margin-top: 20px;}
-
-    #homeVisit{height:350px; width:100%;}
-    #homeVisitContent{height:300px; display: flex; width:33%;}
-    #homeVisitContent img{height:300px; display: block; margin:auto;}
-    
-    #product{height:300px; width:100%;}
-    #productContent{height:250px; display: flex; width:25%;}
-    #productContent img{height:250px; display: block; margin:auto;}
 /*--------------------------------------------------------------*/
 	/* 브라우저 마진과 패딩 리셋 */
 	* {margin:0;padding:0;}
@@ -133,7 +134,7 @@
 <body>   
     <%@ include file="views/common/mainHeader.jsp" %>
     
-    <br>
+    <br><br>
     
      <div class="wrap">
 
@@ -181,14 +182,16 @@
 
 
                 <div id="homeVisit">
-                    <div style="height:50px; width:100%;"><p>인기노하우</p></div>
+                    <div style="height:30px; width:100%;"></div>
+                    <div style="height:40px; width:100%;"><h4>인기노하우</h4></div>
                     <div id="homeVisitContent"><img src="resources/img/sample/knowhow (1).jpeg"></div>
                     <div id="homeVisitContent"><img src="resources/img/sample/knowhow (4).jpg"></div>
                     <div id="homeVisitContent"><img src="resources/img/sample/knowhow (12).jpg"></div>
                 </div>
                 
                 <div id="product">
-                    <div style="height:50px; width:100%;"><p>인기상품</p></div>
+                    <div style="height:30px; width:100%;"></div>
+                    <div style="height:40px; width:100%;"><h4>인기상품</h4></div>
                     <div id="productContent"><img src="resources/img/sample/popular (5).png"></div>
                     <div id="productContent"><img src="resources/img/sample/popular (1).jpg"></div>
                     <div id="productContent"><img src="resources/img/sample/popular (3).jpg"></div>
@@ -202,9 +205,9 @@
             <div id="content_2">
 	            <div class="main_right">
 		         	<div id="right">
-		            <div class="right_1"><a href="<%= contextPath %>/list.no?currentPage=1">공지사항</a></div>      
-		            <div class="right_2"><a href="<%=contextPath%>/list.ho">집들이</a></div>
-		            <div class="right_3"><a href="">스크랩북</a></div>   
+                    <div class="right_1"><a href="<%=contextPath%>/list.ho">집들이</a></div>
+		            <div class="right_2"><a href="">스크랩북</a></div>   
+		            <div class="right_3"><a href="<%= contextPath %>/list.no?currentPage=1">공지사항</a></div>      
 		            <div class="right_4"><a href="">고객센터</a></div>
 		            <div class="right_5"><a href="">1:1문의</a></div>   
 		            <div class="right_6"><a href="">TOP</a></div>

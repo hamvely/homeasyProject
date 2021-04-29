@@ -46,7 +46,8 @@ private Properties prop = new Properties();
 			
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {list.add(new Notice(rset.getString("NO_TITLE"),
+			while(rset.next()) {list.add(new Notice(rset.getInt("NO_NO"),
+													rset.getString("NO_TITLE"),
 													rset.getDate("NO_CREATE_DATE")));
 				
 				}
@@ -157,7 +158,7 @@ private Properties prop = new Properties();
 	}
 	
 	/* 공지사항 상세(관리자) */
-	public Notice selectNotice(Connection conn, int noticeNo) {
+	public Notice selectNoticeAdmin(Connection conn, int noticeNo) {
 		
 		//System.out.println(noticeNo);
 		
@@ -179,6 +180,40 @@ private Properties prop = new Properties();
 							   rset.getString("NO_CONTENT"),
 							   rset.getDate("NO_CREATE_DATE"),
 							   rset.getString("NO_STATUS"));
+			}
+			
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return n;
+		}
+	
+	/* 공지사항 상세(사용자) */
+	public Notice selectNotice(Connection conn, int noticeNo) {
+		
+		//System.out.println(noticeNo);
+		
+		Notice n = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectDetail");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, noticeNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				n = new Notice(rset.getInt("NO_NO"),
+							   rset.getString("NO_TITLE"),
+							   rset.getString("NO_CONTENT"),
+							   rset.getDate("NO_CREATE_DATE"));
 			}
 			
 			} catch (SQLException e) {

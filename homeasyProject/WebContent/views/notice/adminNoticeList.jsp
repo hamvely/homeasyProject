@@ -159,13 +159,11 @@
 	                    </tr>
 					</thead>
 					<tbody>
-						<!-- 조회된 결과가 없을 경우 -->
 	                	<% if(adminList.isEmpty()) { %>
 	                		<tr>
 	                			<td colspan="13">조회된 리스트가 없습니다.</td>
 	                		</tr>
 	                	<% }else { %>
-						<!-- 조회된 결과가 있을 경우 -->
 	                		<% for(Notice n : adminList) { %>
 		                    <tr>
 		                        <td><%= n.getNoticeNo() %></td>
