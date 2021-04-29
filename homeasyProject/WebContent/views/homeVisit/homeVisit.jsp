@@ -11,9 +11,9 @@
 <title>Insert title here</title>
 <style>
       .outer{
-         border:1px solid gray;
-            width:1100px;
-            height:1150px;
+         border:px solid gray;
+            width:1200px;
+            height:900px;
             margin:auto;
             padding-top:20px;
         }
@@ -56,10 +56,13 @@
            width:220px;
            display:inline-block;
            float:left;
+           margin:20px;
+
         }
         
         img:hover{cursor:pointer;}
         
+        .listArea{margin-left:7%;}
 
 </style> 
 </head>
@@ -68,45 +71,26 @@
    <%@ include file="../common/mainHeader.jsp" %>
    
    <div class="outer">
-         <div class="button">
-            <a href="" class="a1">
-                <div class="question">
-                   <li>정렬</li>
-                </div>
-            </a>
-         </div>
-           
-        <% if(loginUser != null){ %>
-         <div class="button1">
-          <a href="<%=contextPath %>/write.ho" class="a1">
-             <div class="question">
-                <li>글쓰기</li>
-             </div>
-            </a>
-          </div>
-        <% } %><br><br>
-      
+  	<br>
          <div class="listArea">
             <% for(HomeVisit h : list){ %>
                <div class="thumbnail" >
-               <input type="hidden" value="<%=h.getPostNo()%>">
-                  <div class="user" style="float:left;">
-                    <img src="<%=h.getUserFileRename()%>" width="48" height="49">
-                 </div>
-                 <h2 style="padding-top:"><%=h.getNickName() %></h2>
-                  <br><br><br>
-                  
-                  <div class="thumbnail" style="margin-top:-60px;">
-                     <img src="<%=contextPath %>/<%=h.getPostFileRename() %>" width="220" height="220">
-                  </div><br>
-                  
-                  <img class="heart" src="" width="48" height="49">
-                  <img class="chat" src="" width="48" height="49">
-                  
-                  <P><%=h.getPostContent() %></P>
-                  
-                  <p><%=h.getNickName() %> <%=h.getPcomContent() %></p>
-               </div>
+	               <input type="hidden" value="<%=h.getPostNo()%>">
+	                 
+	                  <div class="user" style="float:left;">
+	                    <i class="far fa-user-circle fa-2x"" ></i>
+	                 </div>
+	                 <h3 style="padding-top:"><%=h.getNickName() %></h3>
+	                  <br><br>
+	                  
+	                  <div class="thumbnail" style="margin-top:-60px; margin-left:-1px;">
+	                     <img src="/resources/img/sample/artRoom1_main.jpg" width="220" height="220">
+	                  </div>
+	                  
+	                  <P><br><br><%=h.getPostContent() %></P>
+	                  
+	                  <p><%=h.getNickName() %> <%=h.getPcomContent() %></p>
+	           </div>
             <% } %>   
       </div>
       

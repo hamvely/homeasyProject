@@ -213,10 +213,10 @@ public class QnaDao {
 			
 			if(rset.next()) {
 				q = new Qna(rset.getString("post_title"),
-							rset.getString("user_file_rename"),
 							rset.getString("nickname"),
 							rset.getString("post_file_rename"),
-						    rset.getString("post_content"));
+						    rset.getString("post_content"),
+						    rset.getString("pcom_content"));
 				}
 			
 		} catch (SQLException e) {

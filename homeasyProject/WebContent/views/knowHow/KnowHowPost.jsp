@@ -12,14 +12,23 @@
 <title>Insert title here</title>
 </head>
 <style>
-
+	.outer{width:1200px; height:900px;}
+	
+	.content{margin-left:43%;}
 </style>
 <body>
+
+   <%@ include file="../common/mainHeader.jsp" %>
+
     <div class="outer">
     
+       <div class="content">
 	     <table class="detailArea">
+	     	<div class="title" style="margin-left:25%">
+	     	<h5><%=k.getPostTitle() %></h5>
+	     	</div>
+	     	<br>
    			<tr>
-   				<th width="58" height="50"><img src="<%=k.getUserFileRename()%>"></th>
    				<td colspan="3"><%=k.getNickName() %></td>
    			</tr>
    			<tr>
@@ -30,25 +39,18 @@
    				</td>
    			</tr>
    			<tr>
-   				<th><img class="heart" src="" width="48" height="49"></th>
-   				<td></td>
-   				<td><img class="chat" src="" width="48" height="49"></td>
-   			</tr>
-   			<tr>
-   				<td colspan="3">
+   				<td colspan="3"><br><br>
    					<p style="height:50px;"><%=k.getPostContent() %></p>
    				</td>
    			</tr>
    			<tr>
-   				<th><%=k.getNickName() %></th>
-   				<td><%=k.getPcomContent() %></td>
+   				<td><%=k.getNickName() %> <%=k.getPcomContent() %></td>
    			</tr>
    			<tr>
-   				<th><%=k.getNickName() %></th>
-   				<td><%=k.getPcomContent() %></td>
+   				<td><%=k.getNickName() %> <%=k.getPcomContent() %></td>
    			</tr>
    		</table>
-		
+		</div>
 
     </div>
 </body>

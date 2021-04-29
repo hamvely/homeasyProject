@@ -87,15 +87,6 @@
 
     <div class="content">
     
-    	<% if(loginUser != null){ %>
-        <div class="button">
-            <a href="<%=contextPath%>/enrollForm.qna" class="a1">
-                <div class="question">
-                   <li>질문하기</li>
-                </div>
-            </a>
-        </div>
-        <% } %>
         <br>
 	
 		<% for(Qna q : list){ %>

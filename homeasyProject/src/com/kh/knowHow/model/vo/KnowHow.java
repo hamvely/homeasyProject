@@ -71,22 +71,10 @@ public class KnowHow {
 	}
 
 	//노하우게시글상세보기
-	public KnowHow(int postNo, String userFileRename, String nickName, String postFileRename, String postContent, String pcomContent) {
-		super();
-		this.postNo = postNo;
-		this.userFileRename = userFileRename;
-		this.nickName = nickName;
-		this.postFileRename = postFileRename;
-		this.postContent = postContent;
-		this.pcomContent = pcomContent;
-	}
-
-	
-	
-	public KnowHow(String postTitle, String name, String postFileRename, String postContent, String pcomContent) {
+	public KnowHow(String postTitle, String nickName, String postFileRename, String postContent, String pcomContent) {
 		super();
 		this.postTitle = postTitle;
-		this.name = name;
+		this.nickName = nickName;
 		this.postFileRename = postFileRename;
 		this.postContent = postContent;
 		this.pcomContent = pcomContent;

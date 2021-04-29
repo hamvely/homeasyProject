@@ -12,14 +12,20 @@
 <title>Insert title here</title>
 </head>
 <style>
-
+	.outer{width:1200px; height:900px;}
+	
+	.content{margin-left:43%;}
 </style>
 <body>
+
+   <%@ include file="../common/mainHeader.jsp" %>
+	
     <div class="outer">
     
+    	<div class="content">
 	     <table class="detailArea">
    			<tr>
-   				<th width="58" height="50"><img src="<%=h.getUserFileRename()%>"></th>
+   				<th width="58" height="50"><i class="far fa-user-circle fa-3x"" ></i></th>
    				<td colspan="3"><%=h.getNickName() %></td>
    			</tr>
    			<tr>
@@ -30,13 +36,8 @@
    				</td>
    			</tr>
    			<tr>
-   				<th><img class="heart" src="" width="48" height="49"></th>
-   				<td></td>
-   				<td><img class="chat" src="" width="48" height="49"></td>
-   			</tr>
-   			<tr>
    				<td colspan="3">
-   					<p style="height:50px;"><%=h.getPostContent() %></p>
+   					<p style="height:50px;"><br><%=h.getPostContent() %></p>
    				</td>
    			</tr>
    			<tr>
@@ -48,7 +49,7 @@
    				<td><%=h.getPcomContent() %></td>
    			</tr>
    		</table>
-		
+		</div>
 
     </div>
 </body>

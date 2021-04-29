@@ -51,7 +51,7 @@
     .content{
         border:1px solid rgb(186, 187, 189);
         width:490px; 
-        height:200px; 
+        height:100px; 
         border-radius:5px;
         
     }
@@ -83,6 +83,8 @@
         text-align:center;
         padding-top:5px;
     }
+    
+   
 </style>
 </head>
 <body>
@@ -93,40 +95,35 @@
                 <h3><%=q.getPostTitle() %></h3>
             </span>
             <div class="user">
-                <img class="user1" src="<%=q.getUserFileRename()%>">
+	                    <i class="far fa-user-circle fa-2x"" ></i>
                 <div class="id">
-                    <h1><%=q.getNickName() %></h1>
+                    <h3><%=q.getNickName() %></h3>
                 </div>
             </div>
         </div>
 
         <br><br><br>
         <img class="postfile" src="<%=q.getPostFileRename()%>">
-        <a href="">
-        <img class="heart" src="">
-        </a>
-        <a href="">
-        <img class="chat" src="">
-        </a>
-
+       
         <br><br>
         <div class="content">
         	<p>
         	<%=q.getPostContent() %>
         	</p>
         </div>
-
-        <br>
-        <input type="text" name="comment" placeholder="답변 달기..." class="comment">
-        
         <br><br>
-        <div class="submit">
-        <a href="">
-            <div class="submit1">
-               <li>게시</li>
-            </div>
-        </a>
-        </div>
+		<table>
+			<tr>
+   				<th><%=q.getNickName() %></th>
+   				<td><%=q.getPcomContent() %></td>
+   			</tr>
+   			<tr>
+   				<th><%=q.getNickName() %></th>
+   				<td><%=q.getPcomContent() %></td>
+   			</tr>
+       </table>
+       
+       
     </div>
 </body>
 </html>

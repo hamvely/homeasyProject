@@ -134,8 +134,7 @@
 	<!-- 작성자:아영 - 노하우 게시글 상세  -->
 	<entry key="selectKnowHowPost">
 		 SELECT   
-                 P.POST_NO
-		       , USER_FILE_RENAME
+				 POST_TITLE
 		       , NICKNAME
 		       , POST_FILE_RENAME
 		       , POST_CONTENT

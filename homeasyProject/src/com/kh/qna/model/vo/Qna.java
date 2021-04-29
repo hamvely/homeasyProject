@@ -33,13 +33,13 @@ public class Qna {
 	}
 	
 	// 게시글상세
-	public Qna(String postTitle, String postContent, String userFileRename, String nickName, String postFileRename) {
+	public Qna(String postTitle, String nickName, String postFileRename, String postContent, String pcomContent) {
 		super();
 		this.postTitle = postTitle;
-		this.postContent = postContent;
-		this.userFileRename = userFileRename;
 		this.nickName = nickName;
 		this.postFileRename = postFileRename;
+		this.postContent = postContent;
+		this.pcomContent = pcomContent;
 	}
 	
 	
