@@ -88,7 +88,7 @@
                <ul>
                    <li><a href="<%= contextPath %>/adminList.no">공지사항 관리</a></li>
                    <li><a href="">fAQ 관리</a></li>
-                   <li><a href="">1:1문의 관리</a></li>
+                   <li><a href="<%=contextPath%>/adminInquire.one?currentPage=1">1:1문의 관리</a></li>
                </ul>
            </li>
        </ul>

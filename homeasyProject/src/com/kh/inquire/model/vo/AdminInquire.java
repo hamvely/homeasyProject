@@ -1,8 +1,8 @@
-package com.kh.notice.model.vo;
+package com.kh.inquire.model.vo;
 
 import java.sql.Date;
 
-public class NoticeInquire {
+public class AdminInquire {
 		
 	 private int inqNo;
 	 private String inqCate;
@@ -12,9 +12,10 @@ public class NoticeInquire {
 	 private String inqAnswer;
 	 private String email;
 	 
-	 public NoticeInquire() {}
+	 public AdminInquire() {}
 
-	public NoticeInquire(int inqNo, String inqCate, String inqTitle, String inqContent, Date inqCreateDate,
+
+	public AdminInquire(int inqNo, String inqCate, String inqTitle, String inqContent, Date inqCreateDate,
 			String inqAnswer, String email) {
 		super();
 		this.inqNo = inqNo;
@@ -25,6 +26,7 @@ public class NoticeInquire {
 		this.inqAnswer = inqAnswer;
 		this.email = email;
 	}
+
 
 	public int getInqNo() {
 		return inqNo;
