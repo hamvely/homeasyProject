@@ -18,11 +18,7 @@
     #footer_3 {width: 200px;}
     
     /* 이미지 */
-    img{ 
-        display: block; 
-        margin: auto; 
-        padding: 50px;
-    }
+    img{display: block; margin-top:20px; padding: 50px;}
     
     /* 주소, 이용약관 ...등등 */
     #footer_2> p{width: 100%; margin: 3px; }
@@ -52,12 +48,12 @@
 </style>
 </head>
 <body>
-    <div class="wrap">
+    <div class="wrap" style="border-top:1px solid black">
 
         <div id="footer">
             <!-- 로고 -->
             <div id="footer_1">  
-                <a href=""><img src="resources/img/logo/logo (1).png" style="width: 70%;"></a>
+                <a href=""><img src="resources/img/logo/logo (1).png" style="width: 100%;"></a>
     
             </div>
             

@@ -13,7 +13,6 @@
         /* 크게 2가지 영역 */
         .wrap>div{width:100%;}
 
-
         #knoHow img{width: 340px;}
         #product img{width: 250px;}
         
