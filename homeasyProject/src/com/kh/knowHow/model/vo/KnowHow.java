@@ -36,14 +36,14 @@ public class KnowHow {
 	}
 	
 	// 작성자:임지우 - 노하우 작성
-	public KnowHow(int postNo, int userNo, String postCateName, String postTitle, String postContent, Date postCreateDate, String postStatus) {
+	public KnowHow(int postNo, int userNo, String postCateName, String postTitle, String postContent, Date postUpdateDate, String postStatus) {
 		super();
 		this.postNo = postNo;
 		this.userNo = userNo;
 		this.postCateName = postCateName;
 		this.postTitle = postTitle;
 		this.postContent = postContent;
-		this.postCreateDate = postCreateDate;
+		this.postUpdateDate = postUpdateDate;
 		this.postStatus = postStatus;
 	}
 	
@@ -218,6 +218,16 @@ public class KnowHow {
 
 	public void setUserFileRename(String userFileRename) {
 		this.userFileRename = userFileRename;
+	}
+	
+
+	public Date getPostCreateDate() {
+		return postCreateDate;
+	}
+
+
+	public void setPostCreateDate(Date postCreateDate) {
+		this.postCreateDate = postCreateDate;
 	}
 
 

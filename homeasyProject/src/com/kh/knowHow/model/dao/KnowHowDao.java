@@ -113,7 +113,7 @@ public class KnowHowDao {
 			
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
+			while(rset.next()) { // 뽑아서 list 객체에 담기 - 컬럼명제시
 				list.add(new KnowHow(rset.getInt("post_no"),
 								     rset.getString("post_title"),
 								     rset.getDate("post_create_date"),
@@ -143,8 +143,8 @@ public class KnowHowDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, k.getPostTitle());
 			pstmt.setString(2, k.getPostContent());
-			pstmt.setDate(3, k.getPostCreateDate());
-			//pstmt.setString(5, k.getPostStatus());
+			//pstmt.setDate(3, k.getPostUpdateDate());
+			//pstmt.setString(4, k.getPostStatus());
 			
 			result = pstmt.executeUpdate();
 			

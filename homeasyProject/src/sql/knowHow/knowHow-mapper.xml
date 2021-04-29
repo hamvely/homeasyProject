@@ -56,8 +56,7 @@
 		  , POST_CATE_NAME
 		  , POST_TITLE
 		  , POST_CONTENT
-		  , POST_CREATE_DATE
-		  , POST_UPDATE_DATE
+		  , POST_UPDATE_DATE <!-- create_date는 기본값 sysdate라서 따로 기재안함 -->
 		  , POST_STATUS
 		  )
 		  VALUES
@@ -67,8 +66,7 @@
 		  , '노하우' <!-- cate name -->
 		  , ? <!--1 title -->
 		  , ? <!--2  content -->
-		  , SYSDATE <!-- create -->
-		  , ? <!--3 update -->
+		  , SYSDATE <!-- update -->
 		  , 'Y' <!-- status -->
 		  )
 	</entry>
