@@ -14,13 +14,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 
 <!--작성자 : 김혜미-->
 <style>
-    * {font-family: 'Nanum Gothic Coding', monospace;} /* 나눔고딕코딩 */
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+* {font-family: 'Noto Sans KR', sans-serif;}
 
     .outer{width: 1446px; height: 800px; margin: auto; padding-top: 180px; background-color:rgb(3, 79, 6);}
 
