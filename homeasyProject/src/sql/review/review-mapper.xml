@@ -3,37 +3,35 @@
 <properties>
 
 
-<entry key="reviewList">
+	<entry key="reviewList">
+	    SELECT 
+	         PRODUCT_NAME
+	       , PRODUCT_BRAND
+	       , PRODUCT_PRICE
+	    FROM PRODUCT
+	</entry>
+	
+	<entry key="insertReview">
+		INSERT
+		    INTO REVIEW
+		    (
+		     RE_NO
+		   , PRODUCT_NO
+		   , USER_NO
+		   , RE_CONTENT
+		   , RE_MARK
+		   )
+		VALUES
+		    (
+		     SEQ_RENO.NEXTVAL
+		    , ?
+		    , ?
+		    , ?
+		    , ?
+		    )
+	</entry>
 
-    SELECT 
-         PRODUCT_NAME
-       , PRODUCT_BRAND
-       , PRODUCT_PRICE
-    FROM PRODUCT
 
-
-
-</entry>
-
-<entry key="insertReview">
-	INSERT
-	    INTO REVIEW
-	    (
-	     RE_NO
-	   , PRODUCT_NO
-	   , USER_NO
-	   , RE_CONTENT
-	   , RE_MARK
-	   )
-	VALUES
-	    (
-	     SEQ_RENO.NEXTVAL
-	    , ?
-	    , ?
-	    , ?
-	    , ?
-	    )
-</entry>
 	<!-- 작성자 : 임지우 -->
 	<entry key="selectListCount">
 		SELECT COUNT (*) LISTCOUNT
@@ -61,7 +59,33 @@
 		                ) R
 		       )
 		 WHERE RNUM BETWEEN ? AND ?
-
+	</entry>
+	
+	<!-- 작성자:임지우 - 리뷰관리 상세보기 -->
+	<entry key="selectReview">
+		SELECT
+			   RE_NO
+			 , PRODUCT_NAME
+			 , EMAIL
+			 , RE_CONTENT
+			 , RE_MARK
+		  FROM REVIEW
+		  JOIN PRODUCT USING(PRODUCT_NO)
+		  JOIN MEMBER USING(USER_NO)
+		 WHERE RE_NO = ?
+	</entry>
+	
+	<!-- 작성자:임지우 - 리뷰관리 삭제 -->
+	<entry key="deleteNotice">
+		DELETE
+			   REVIEW
+		 WHERE RE_NO = ?
 	</entry>
 
+
+
+
+
 </properties>
+
+
