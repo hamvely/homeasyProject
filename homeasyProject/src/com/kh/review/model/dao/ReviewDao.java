@@ -121,6 +121,34 @@ public class ReviewDao {
 		
 	}
 	
+	public Review selectReview(Connection conn, int reNo) {
+		
+		Review r = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectReview");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, reNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				r = new Review(rset.getInt("re_no"),
+							   rset.getInt("product_no"),
+							   rset.getInt("user_no"),
+							   rset.getString("re_content"),
+							   rset.getInt("re_mark"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 
 	
 }

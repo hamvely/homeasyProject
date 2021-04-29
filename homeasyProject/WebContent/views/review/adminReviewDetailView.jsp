@@ -1,23 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kh.knowHow.model.vo.*"%>
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.kh.review.model.vo.Review, com.kh.common.model.vo.PageInfo" %>
 <%
-	KnowHow k = (KnowHow)request.getAttribute("k");
-	// 노하우번호, 제목, 생성일, 조회수, 상태, 파일리네임, 내용
-	KnowHowFile kf = (KnowHowFile)request.getAttribute("kf");
-	// null or 파일번호, 파일리네임(실제 서버에 업로드된이름)
-%>
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Review> list = (ArrayList<Review>)request.getAttribute("list");
+	
+	int currentPage = pi.getCurrentPage();
+	int startPage = pi.getStartPage();
+	int endPage = pi.getEndPage();
+	int maxPage = pi.getMaxPage();
+%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>노하우 상세조회</title>
 <style>
     div {
         outline: 1px solid violet;
@@ -32,10 +37,9 @@
         width: 100%;
     }
     h3 {
-    font-weight: bold;
-    color: #2e363e;
+        font-weight: bold;
+        color: #2e363e;
     }
-    
     #header>div, #content>div {
         float: left;
         height: 100%;
@@ -69,9 +73,10 @@
         margin-right: 10px;
         border: none;
     }
-
+    
+    
     /* 등록 폼 스타일 */
-    .knowhow_list {
+    .review_list {
         width: 800px;
     }
     .knowhow_enroll table {
@@ -87,6 +92,7 @@
 </style>
 </head>
 <body>
+
     <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
@@ -105,63 +111,78 @@
             <div id="content_2">
 
                 <!-- 페이지 제목 -->
-                <h3>노하우 등록</h3>
+                <h3>리뷰관리</h3>
 
-                <!-- 노하우 상세 폼 -->
-                <form action="<%= contextPath %>/adminDetail.kh" class="knowhow_enroll" method="post" enctype="multipart/form-data">
+                <!-- 리뷰 상세 폼 -->
+                <form action="<%= contextPath %>/adminDetail.re" class="review_detail" method="post">
                 	<!-- 버튼 -->
 	                <div class="content_bar">
-	                    <button type="submit" class="content_btn">수정</button>
-	                    <button type="reset" class="content_btn">삭제</button>
+	                	<a href="">목록가기</a>
+	                    <a href="">수정</a>
+	                    <a href="">삭제</a>
 	                </div>
 	                <br><br>
 	                
-                    <table class="knowhow_list">
+                    <table class="review_list">
                         <tr>
-                            <th>제목</th>
+                            <th>회원이메일</th>
                             <td colspan="3"><%= k.getPostTitle() %></td>
                         </tr>
                         <tr>
-                            <th>작성일</th>
+                            <th>상품명</th>
                             <td colspan="3"><%= k.getPostUpdateDate() %></td>
                         </tr>
                         <tr>
-                            <th>조회수</th>
+                            <th>리뷰평점</th>
                             <td colspan="3"><%= k.getPostCount() %></td>
                         </tr>
                         <tr>
-                            <th>노출상태</th>
+                            <th>리뷰내용</th>
                             <td colspan="3"><%= k.getPostStatus() %></td>
-                        </tr>
-                        <tr>
-                            <th>첨부사진</th>
-                            <td colspan="3">
-                            	<!-- 첨부파일 없을 경우 -->
-                            	<% if(kf == null) { %>
-                            		첨부파일이 없습니다.
-                            	<% }else { %>
-                            		<a href="<%= contextPath %>/resources/post_upfiles/<%= kf.getPostFileRename() %>"><%= k.getPostFileRename() %></a>
-                            	<% } %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>내용</th>
-                            <td colspan="3">
-                                <p><%= k.getPostContent() %></p>
-                            </td>
                         </tr>
                     </table>
                 </form>
+                
+               
+            </div>
+        </div>
+    </div>
+    
 
 
+	
+
+    <!-- 리뷰 삭제 모달 -->
+    <div class="modal" id="deleteReview">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        
+                <!-- Modal Header -->
+	            <div class="modal-header">
+	                <h4 class="modal-title">리뷰삭제</h4>
+	                <button type="button" class="close" data-dismiss="modal">&times;</button>
+	            </div>
+	            
+	            <!-- Modal body -->
+	            <div class="modal-body">
+	               	리뷰를 정말 삭제하시겠습니까?
+	            </div>
+	            
+	            <!-- Modal footer -->
+	            <div class="modal-footer">
+	                <button type="submit" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">확인</button>
+                	<button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;">취소</button>
+	            </div>
+        
             </div>
         </div>
     </div>
 
-
+	
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"
       crossorigin="anonymous"
     ></script>
+
 </body>
 </html>

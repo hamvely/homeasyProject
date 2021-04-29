@@ -87,12 +87,12 @@
     }
 
     /* 상품 리스트 테이블 스타일 */
-    .product_list{
+    .review_list{
         text-align: left;
         font-size: 11px;
         width: 100%;
     }
-    .product_list>tbody>tr:hover{
+    .review_list>tbody>tr:hover{
         background:lightgray;
         cursor:pointer;
     }
@@ -136,10 +136,9 @@
                 <br><br>
 
                 <!-- 리뷰 리스트 테이블 -->
-                <table align="center" class="product_list" style="overflow-x:auto;">
+                <table align="center" class="review_list" style="overflow-x:auto;">
                 	<thead>
 	                    <tr>
-	                        <th>선택</th>
 	                        <th>리뷰 번호</th>
 	                        <th>상품명</th>
 	                        <th>회원이메일</th><!--2차카테고리번호-->
@@ -151,13 +150,12 @@
                     	<!-- 조회된 결과가 없을 경우 -->
 	                	<% if(list.isEmpty()) { %>
 	                		<tr>
-	                			<td colspan="6">조회된 리스트가 없습니다.</td>
+	                			<td colspan="5">조회된 리스트가 없습니다.</td>
 	                		</tr>
 	                	<% }else { %>
 	                	<!-- 조회된 결과가 있을 경우 -->
 		                	<% for(Review r : list) { %>
 			                    <tr>
-			                        <td><input type="checkbox"></td>
 			                        <td><%= r.getReNo() %></td>
 			                        <td><%= r.getProductName() %></td>
 			                        <td><%= r.getEmail() %></td>
@@ -192,6 +190,18 @@
                     	<button onclick="location.href='<%= contextPath %>/adminlist.me?currentPage=<%= currentPage+1 %>';">다음</button>
 					<% } %>
                 </div>
+                
+                <script>
+                	$(function() {
+                		
+                		$(".review_list>tbody>tr").click(function() {
+                			
+                			location.href = '<%= contextPath %>/adminDetail.re?rno=' + $(this).children().eq(0).text();
+                			
+                		})
+                		
+                	})
+                </script>
 
             </div>
         </div>

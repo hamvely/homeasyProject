@@ -47,6 +47,15 @@ public class ReviewService {
 		return list;
 		
 	}
+	
+	// 작성자:임지우 - 리뷰관리 상세보기
+	public Review selectReview(int reNo) {
+		
+		Connection conn = getConnection();
+		Review r = new ReviewDao().selectReview(conn, reNo);
+		
+		
+	}
 
 
 }
