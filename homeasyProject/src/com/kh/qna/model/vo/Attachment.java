@@ -114,7 +114,6 @@ public class Attachment {
 				+ ", fileLevel=" + fileLevel + ", changeName=" + changeName + "]";
 	}
 
-
 	
 
 

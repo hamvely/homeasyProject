@@ -12,16 +12,16 @@ import com.kh.notice.model.service.NoticeService;
 import com.kh.notice.model.vo.Notice;
 
 /**
- * Servlet implementation class AdminNoticeDetailServlet
+ * Servlet implementation class NoticeDetailServlet
  */
-@WebServlet("/adminDetail.no")
-public class AdminNoticeDetailServlet extends HttpServlet {
+@WebServlet("/detail.no")
+public class NoticeDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminNoticeDetailServlet() {
+    public NoticeDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,17 +37,17 @@ public class AdminNoticeDetailServlet extends HttpServlet {
 		
 		if(result > 0) { // 조회수 증가성공 (유효한 공지사항번호) => 해당 공지사항 조회 후 noticeDetailView.jsp 응답
 			
-			Notice n = new NoticeService().selectNoticeAdmin(noticeNo);
+			Notice n = new NoticeService().selectNotice(noticeNo);
 			
 			request.setAttribute("n", n);
 			
-			request.getRequestDispatcher("views/notice/adminNoticeDetail.jsp").forward(request, response);
+			request.getRequestDispatcher("views/notice/noticeDetail.jsp").forward(request, response);
 			
 			
 		}else { // 조회수 증가실패 => 공지사항 상세조회 실패 => 에러문구 담아서 에러페이지
 			
 			request.setAttribute("alertMsg", "공지사항 등록 실패");
-			request.getRequestDispatcher("views/notice/adminNoticeList.jsp").forward(request, response);
+			request.getRequestDispatcher("views/notice/noticeDetail.jsp").forward(request, response);
 			
 		}
 	
