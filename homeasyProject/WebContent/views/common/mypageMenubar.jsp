@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%
+String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -149,21 +153,21 @@
 
             <div class="profile-usermenu">
                 <div id="scrap">
-                    <a href="">
+                    <a href="<%= contextPath %>/scrap.sc">
                         <img src="resources/img/icon/scrap (1).png"><br>
                         스크랩북<br>
                         98
                     </a>
                 </div>
                 <div id="heart">
-                    <a href="">
+                    <a href="<%=contextPath %>/Like.li">
                         <img src="resources/img/icon/heart (1).png"><br>
                         좋아요<br>
                         54
                     </a>
                 </div>
                 <div id="coupon">
-                    <a href="">
+                    <a href="<%= contextPath%>/coupon.co">
                         <img src="resources/img/icon/coupon.png"><br>
                         내 쿠폰<br>
                         0
@@ -177,24 +181,24 @@
                 <li class="group">
                     <div class="title"><b>혜택</b></div>
                     <ul class="active">
-                        <li><a href="">쿠폰 조회</a></li>
+                        <li><a href="<%= contextPath%>/coupon.co">쿠폰 조회</a></li>
                     </ul>
                 </li>
                 <li class="group">
                     <div class="title"><b>구매 내역</b></div>
                     <ul class="active">
-                        <li><a href="">주문/배송 조회</a></li>
+                        <li><a href="<%= contextPath%>/order.li">주문/배송 조회</a></li>
                         <li><a href="">취소/환불 조회</a></li>
                     </ul>
                 </li>
                 <li class="group">
                     <div class="title"><b>나의 활동</b></div>
                     <ul class="active">
-                        <li><a href="">좋아요</a></li>
-                        <li><a href="">스크랩북</a></li>
+                        <li><a href="<%=contextPath %>/Like.li"">좋아요</a></li>
+                        <li><a href="<%= contextPath %>/scrap.sc"">스크랩북</a></li>
                         <li><a href="">나의 집들이</a></li>
-                        <li><a href="">나의 리뷰</a></li>
-                        <li><a href="">1:1 문의내역</a></li>
+                        <li><a href="<%= contextPath%>/review.li">">나의 리뷰</a></li>
+                        <li><a href="<%= contextPath%>/inquire.my"">1:1 문의내역</a></li>
                     </ul>
                 </li>
                 <li class="group">

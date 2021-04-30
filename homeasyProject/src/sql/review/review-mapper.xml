@@ -23,7 +23,6 @@
 	   , PRODUCT_NO
 	   , USER_NO
 	   , RE_CONTENT
-	   , RE_MARK
 	   )
 	VALUES
 	    (
@@ -34,6 +33,11 @@
 	    , ?
 	    )
 </entry>
+
+
+
+
+
 	<!-- 작성자 : 임지우 -->
 	<entry key="selectListCount">
 		SELECT COUNT (*) LISTCOUNT

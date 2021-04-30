@@ -4,6 +4,7 @@
     pageEncoding="UTF-8" import="com.kh.order.model.vo.*"%>
 <%
 	Order o = (Order)request.getAttribute("o");
+	Order d = (Order)request.getAttribute("d");
 	
 	String contextPath = request.getContextPath();
  %>
@@ -55,7 +56,7 @@
             <h2>주문 상세 정보</h2>
         </td>
         <tr>
-            <th colspan="1">주문일<br>(주문번호)</th>
+            <th colspan="1">주문일</th>
             <th></th>
             <th colspan="2">상품명</th>
             
@@ -67,16 +68,16 @@
             <tr height="150px">
                 <th><%= o.getBuyDate() %></th>
                 <th> <img src="../resources/img/toy/toy7-main.jpg" alt=""> </th>
-                <th colspan="2">전교1등 </th>
-                <th colspan="2">100,000원</th>
+                <th colspan="2"><%= d.getProductName() %></th>
+                <th colspan="2"><%= d.getProductPrice() %></th>
             </tr>
 			<tr  height="30px">
                 <td colspan="6" style="color: darkgreen;"><h2>결제정보</h2></td>
                  
             </tr>
             <tr  height="35x">
-                <td  class="line" style="width: 100px;"><p>주문일(주문번호)</p></td>
-                <td  class="line" colspan="5">주문일자  <%= o.getBuyDate() %></td>
+                <td  class="line" style="width: 100px;"><p>주문일</p></td>
+                <td  class="line" colspan="5"><%= o.getBuyDate() %></td>
          
             </tr>
             <tr style="width: 100px;" height="35px">
@@ -87,13 +88,13 @@
             </tr>
             <tr  style="width: 100px;" height="40px">
                 <td>판매금액</td>
-                <td colspan="5">100,000</td>
+                <td colspan="5"><%= d.getProductPrice() %></td>
           
                 
             </tr>
             <tr  style="width: 100px;" height="50px">
                 <td><h5>구매금액</h5></td>
-                <td colspan="4">100,000</td>
+                <td colspan="4"><%= d.getProductPrice() %></td>
                 
                
                 <th> <a href="<%=contextPath%>/order.li" onclick="alert('영수증출력되었습니다.'); return false; " 
@@ -102,19 +103,19 @@
             </tr>
             <tr >
                 <td height="30px" style="color: darkgreen;"><h5>상품정보</h5></tdlass=>
-                <th>수량</th>
+                <th></th>
                 <th>상품금액</th>
                 <th>할인금액</th>
                 <th>구매금액</th>
-                <th>배송비</th>            
+                <th></th>            
             </tr>
             <tr >
                 <td height="30px"><%= o.getProductNo() %></td>
-                <th>수량</th>
-                <th>100,000</th>
+                <th></th>
+                <th><%= d.getProductPrice() %></th>
                 <th>0</th>
-                <th>100,000</th>
-                <th>30,000</th>
+                <th><%= d.getProductPrice() %></th>
+                <th></th>
             </tr>
 
             <tr>

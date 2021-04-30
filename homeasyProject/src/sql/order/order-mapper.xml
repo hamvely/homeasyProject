@@ -28,10 +28,20 @@
  
  </entry>
  
- <entry key="리뷰에  "></entry>
+ <entry key="detailList">
  
- <entry key="리뷰작성">
- 
+		 SELECT
+		    PRODUCT_NAME
+		  , PRODUCT_PRICE
+		  FROM PRODUCT 
+		  WHERE PRODUCT_NO = '1'
+		 
  </entry>
+ 
+<entry key="selectReview">
+		SELECT 
+		    PRODUCT_NAME
+		FROM PRODUCT
+</entry>
 
 </properties>

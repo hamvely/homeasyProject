@@ -13,6 +13,8 @@ public class Order {
 	private Date buyDate;
 	private String buyMethod;
 	private int productNo;
+	private String productPrice;
+
 
 
 	public Order(){}
@@ -35,13 +37,13 @@ public class Order {
 
 
 
-
 	public Order(int orderNo, String productName) {
 		super();
 		this.orderNo = orderNo;
 		this.productName = productName;
 	}
 
+	
 
 
 	public Order(String name, String address, String phone, String orderMemo, Date buyDate, String buyMethod,
@@ -54,6 +56,28 @@ public class Order {
 		this.buyDate = buyDate;
 		this.buyMethod = buyMethod;
 		this.productNo = productNo;
+	}
+
+    
+
+	public Order(String productName, String productPrice) {
+		super();
+		this.productName = productName;
+		this.productPrice =productPrice;
+	}
+
+
+	
+
+
+
+
+
+
+
+
+	public Order(String productName) {
+		super();
 		this.productName = productName;
 	}
 
@@ -165,13 +189,25 @@ public class Order {
 		this.productNo = productNo;
 	}
 
+	public String getProductPrice() {
+		return productPrice;
+	}
+
+
+
+	public void setProductPrice(String productPcie) {
+		this.productPrice = productPrice;
+	}
+	
+
+
 
 
 	@Override
 	public String toString() {
 		return "Order [orderNo=" + orderNo + ", productName=" + productName + ", name=" + name + ", address=" + address
 				+ ", phone=" + phone + ", orderMemo=" + orderMemo + ", buyDate=" + buyDate + ", buyMethod=" + buyMethod
-				+ ", productNo=" + productNo + "]";
+				+ ", productNo=" + productNo + ", productPrice=" + productPrice + "]";
 	}
 	
 	 

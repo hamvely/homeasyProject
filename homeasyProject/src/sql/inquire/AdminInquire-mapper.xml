@@ -7,7 +7,10 @@ SELECT COUNT(*) LISTCOUNT
   FROM INQUIRE
 </entry>
 
-<entry key="inqruireList">
+
+
+
+<entry key="selectList">
    SELECT  *
      FROM(
         SELECT
@@ -29,6 +32,21 @@ SELECT COUNT(*) LISTCOUNT
                )A
           )
       WHERE NO BETWEEN ? AND ?
+</entry>
+
+
+<entry key="insertInquire">
+	INSERT 
+		INTO INQUIRE
+		  (
+   			INQ_NO
+          , INQ_ANSWER
+		  )
+		  VALUES
+		  (
+           ?
+           ?
+          )
 </entry>
 
 

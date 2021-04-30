@@ -85,12 +85,11 @@ String contextPath = request.getContextPath();
                     <th>No.</th>
                     <th>분류</th>
                     <th>작성일</th>
-                    <th>답변여부</th>
                     <th style="width: 200px;">제목</th>
                     <th>회원이메일</th>
                 </tr>
 
-            
+         
             <tbody > 
 				<%if(list.isEmpty()){ %>
 					<tr>
@@ -102,8 +101,7 @@ String contextPath = request.getContextPath();
 	                    <th><%= n.getInqNo() %></th>
 	                    <th><%= n.getInqCate() %></th>
 	                    <th><%= n.getInqCreateDate() %></th>
-	                    <th>미답</th>
-	                    <th><%= n.getInqContent() %></th>
+	                    <th><%= n.getInqTitle() %></th>
 	                    <th><%= n.getEmail() %></th>
                    </tr>
 	             <% } %>  
@@ -163,20 +161,14 @@ String contextPath = request.getContextPath();
                         </div>
                 
                        
-						<form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.no" method="post">
+						<form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.in" method="post">
                             <!-- Modal body -->
                             <div class="modal-body">
 
 								<table class="table table-borderless">
+						
 								    <tr>
-								        <td><p>문의유형 :ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</p><br>
-								        	<p>상품 :ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</p><br>
-								        	<p>제목 :ㄴㅇㄹㄴㅇㄹㄴㅇㄹ</p><br>
-								        </td>
-								    </tr>
-								    
-								    <tr>
-								        <td><textarea name="content" class="form-control" rows="10" style="resize:none;" placeholder="내용을 입력해주세요." required></textarea></td>
+								        <td><textarea name="answer" class="form-control" rows="10" style="resize:none;" placeholder="내용을 입력해주세요." required></textarea></td>
 								    </tr>
 								</table>
 
@@ -184,7 +176,7 @@ String contextPath = request.getContextPath();
                                 
                             <!-- Modal footer -->
                             <div class="modal-footer">
-                                <a href="" class="btn btn-warning btn-sm">등록</a>  
+                                <button type="submit" class="btn btn-warning btn-sm">등록</button>  
                                 <a href="" class="btn btn-secondary btn-sm">취소</a> 
                             </div>
 						</form>

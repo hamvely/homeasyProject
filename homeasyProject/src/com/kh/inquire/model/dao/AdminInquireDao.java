@@ -1,9 +1,6 @@
 package com.kh.inquire.model.dao;
 
-import static com.kh.common.JDBCTemplate.close;
-import static com.kh.common.JDBCTemplate.getConnection;
-
-
+import static com.kh.common.JDBCTemplate.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -67,7 +64,7 @@ public class AdminInquireDao {
 	}
 	
 
-	public ArrayList<AdminInquire> inqruireList(Connection conn, PageInfo pi){
+	public ArrayList<AdminInquire> selectList(Connection conn, PageInfo pi){
 		
 		ArrayList<AdminInquire> list = new ArrayList<>();
 		PreparedStatement pstmt = null;
@@ -106,6 +103,27 @@ public class AdminInquireDao {
 				
 	}
 	
-	
+	public int insertInquire(Connection conn, AdminInquire i) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("insertInquire");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, i.getInqNo());
+			pstmt.setString(2, i.getInqAnswer());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+		
+		
+	}
 
 }

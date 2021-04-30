@@ -21,15 +21,32 @@ public class AdminInquireService {
 	}
 	
 	
-	public ArrayList<AdminInquire> inqruireList(PageInfo pi){
+	public ArrayList<AdminInquire> selectList(PageInfo pi){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<AdminInquire> list = new AdminInquireDao().inqruireList(conn, pi);
+		ArrayList<AdminInquire> list = new AdminInquireDao().selectList(conn, pi);
 		close(conn);
 		return list;
 		
 	}
+	
+	public int insertInquire(AdminInquire i) {
+		Connection conn = getConnection();
+		int result = new AdminInquireDao().insertInquire(conn, i);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+	}
+	
 	
 	
 
