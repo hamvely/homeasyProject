@@ -48,16 +48,16 @@ public class KnowHow {
 	}
 	
 	// 작성자: 임지우 - 노하우관리 상세보기
-	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postContent, String postFileRename,
-			 String postStatus) {
+	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postStatus, String postFileRename,
+			String postContent) {
 		super();
-		this.postTitle = postTitle;
-		this.postContent = postContent;
-		this.postFileRename = postFileRename;
 		this.postNo = postNo;
+		this.postTitle = postTitle;
 		this.postCreateDate = postCreateDate;
 		this.postCount = postCount;
 		this.postStatus = postStatus;
+		this.postFileRename = postFileRename;
+		this.postContent = postContent;
 	}
 
 
