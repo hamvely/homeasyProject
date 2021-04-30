@@ -15,7 +15,7 @@ public class HomeVisit {
    private String postTitle;
    private Date postCreateDate;
    private int postCount;
-   private String userNo;
+   private int userNo;
    private String postCateName;
    private String postStatus;
    
@@ -43,7 +43,7 @@ public class HomeVisit {
       this.postNo = postNo;
    }
 
-   public HomeVisit(String postContent, int postNo, String postTitle, Date postCreateDate, String userNo,
+   public HomeVisit(String postContent, int postNo, String postTitle, Date postCreateDate, int userNo,
          String postCateName) {
       super();
       this.postContent = postContent;
@@ -66,7 +66,7 @@ public class HomeVisit {
    
 
    
-   public HomeVisit(String postContent, int postNo, String postTitle, String userNo) {
+   public HomeVisit(String postContent, int postNo, String postTitle, int userNo) {
       super();
       this.postContent = postContent;
       this.postNo = postNo;
@@ -74,7 +74,13 @@ public class HomeVisit {
       this.userNo = userNo;
    }
 
-   
+
+   public HomeVisit(int userNo, String postTitle, String postContent) {
+	super();
+	this.userNo = userNo;
+	this.postTitle = postTitle;
+	this.postContent = postContent;
+   }
 
    public String getPostStatus() {
       return postStatus;
@@ -100,11 +106,11 @@ public class HomeVisit {
       this.postCateName = postCateName;
    }
 
-   public String getUserNo() {
+   public int getUserNo() {
       return userNo;
    }
 
-   public void setUserNo(String userNo) {
+   public void setUserNo(int userNo) {
       this.userNo = userNo;
    }
 
@@ -196,7 +202,6 @@ public class HomeVisit {
             + postCreateDate + ", postCount=" + postCount + ", userNo=" + userNo + ", postCateName=" + postCateName
             + "]";
    }
-
    
    
    

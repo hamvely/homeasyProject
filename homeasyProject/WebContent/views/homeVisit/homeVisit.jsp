@@ -70,6 +70,16 @@
 
    <%@ include file="../common/mainHeader.jsp" %>
    
+     <% if(loginUser != null){ %>
+        <div class="button1">
+	         <a href="<%=contextPath %>/write.ho" class="a1">
+	                <div class="question">
+	                   <li>글쓰기</li>
+	                </div>
+	         </a>
+        </div>
+       <% } %>
+       
    <div class="outer">
   	<br>
          <div class="listArea">
