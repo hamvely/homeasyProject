@@ -28,6 +28,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 * {font-family: 'Noto Sans KR', sans-serif;}
 
+  div {outline:1px solid violet;}
   div {box-sizing: border-box;}
   .wrap {width: 1200px; height: 250px; margin: auto; }
   #wrap>div {width: 100%;}
@@ -138,7 +139,7 @@
                    
                 <% }else if(loginUser != null && loginUser.getEmail().equals("admin@gmail.com")) { %>
 				        <div class="afterLogin">
-	                        <div style="text-align: center; height:40px;">
+	                        <div style="text-align:center; height:40px;">
 	                            <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
 	                        </div>
 	
@@ -150,8 +151,6 @@
 		        <% }else { %>
                     <div class="afterLogin">
                         <div style="text-align: center; height:40px;">
-                            <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
-                            <a href="#"><i class="far fa-heart fa-lg"></i></a>
                             <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
                         </div>
 
@@ -161,6 +160,7 @@
                             <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="<%= contextPath %>/modification.me">마이페이지</a>
                               <div class="dropdown-menu">
+                                <a class="dropdown-item" href="<%= contextPath %>/modification.me">회원정보수정</a>
                                 <a class="dropdown-item" href="#">쿠폰관리</a>
                                 <a class="dropdown-item" href="#">주문조회</a>
                                 <a class="dropdown-item" href="#">좋아요</a>
@@ -168,7 +168,6 @@
                                 <a class="dropdown-item" href="#">나의집들이</a>
                                 <a class="dropdown-item" href="#">나의리뷰</a>
                                 <a class="dropdown-item" href="#">나의문의내역</a>
-                                <a class="dropdown-item" href="#">회원정보수정</a>
                                 </div>
                             </li>
                             <li class="nav-item">

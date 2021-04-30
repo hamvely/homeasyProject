@@ -158,7 +158,7 @@
 							</li>
 							<li class="slideitem">
 								<a><img src="resources/img/sample/main6.jpg" width="1100px"height="500px"></a>
-							</li class="slideitem">
+							</li>
 						</ul>
 						
 							
