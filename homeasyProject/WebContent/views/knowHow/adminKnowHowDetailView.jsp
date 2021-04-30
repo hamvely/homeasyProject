@@ -108,11 +108,10 @@
                 <h3>노하우 등록</h3>
 
                 <!-- 노하우 상세 폼 -->
-                <form action="<%= contextPath %>/adminDetail.kh" class="knowhow_enroll" method="post" enctype="multipart/form-data">
                 	<!-- 버튼 -->
 	                <div class="content_bar">
 	                    <a href="<%= contextPath %>/adminlist.kh?currentPage=1" class="btn btn-warning">목록가기</a>
-	                    <a href="<%= contextPath %>/adminDelete.kh?kno=<%= k.getPostNo() %>" class="btn btn-warning">삭제</a>
+	                    <%--<a href="<%= contextPath %>/adminDelete.kh?kno=<%= k.getPostNo() %>" class="btn btn-warning">삭제</a> --%>
 	                </div>
 	                <br><br>
 	                
@@ -151,7 +150,6 @@
                             </td>
                         </tr>
                     </table>
-                </form>
 
 
             </div>

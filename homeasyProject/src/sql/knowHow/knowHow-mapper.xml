@@ -118,6 +118,7 @@
 		       POST_FILE_NO
 		     , POST_FILE_RENAME
 		  FROM POST_FILE
+		  JOIN POST USING(POST_NO)
 		 WHERE POST_NO = ?
 	</entry>
 	

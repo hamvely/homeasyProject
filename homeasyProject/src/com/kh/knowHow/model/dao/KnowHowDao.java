@@ -194,13 +194,13 @@ public class KnowHowDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {  // 뽑아서 knowhow객체에 담기 - 컬럼명제시
-				k = new KnowHow(rset.getInt("post_no"),
-								rset.getString("post_title"),
-								rset.getDate("post_create_date"),
-								rset.getInt("post_count"),
-								rset.getString("post_status"),
-								rset.getString("post_file_rename"),
-								rset.getString("post_content"));
+				k = new KnowHow(rset.getInt("POST_NO"),
+								rset.getString("POST_TITLE"),
+								rset.getDate("POST_CREATE_DATE"),
+								rset.getInt("POST_COUNT"),
+								rset.getString("POST_STATUS"),
+								rset.getString("POST_FILE_RENAME"),
+								rset.getString("POST_CONTENT"));
 			}
 			
 		} catch (SQLException e) {

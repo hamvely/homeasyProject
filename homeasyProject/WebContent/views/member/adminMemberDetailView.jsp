@@ -112,11 +112,10 @@
                 <h3>회원관리</h3>
 
                 <!-- 회원 상세 폼 -->
-                <form action="<%= contextPath %>/adminDetail.me?" class="member_detail" method="post">
                 	<!-- 버튼 -->
 	                <div class="content_bar">
 	                	<a href="<%= contextPath %>/adminlist.me?currentPage=1" class="btn btn-warning">목록가기</a>
-	                    <a href="" class="btn btn-warning">삭제</a>
+	                    <a href="<%= contextPath %>/adminDelete.me?uno=<%= m.getUserNo() %>" class="btn btn-warning">삭제</a>
 	                </div>
 	                <br><br>
 	                
@@ -170,7 +169,7 @@
                             <td colspan="3"><%= m.getAdmin() %></td>
                         </tr>
                     </table>
-                </form>
+
                 
                
             </div>

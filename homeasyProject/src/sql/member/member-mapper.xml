@@ -122,6 +122,7 @@
              , USER_STATUS
              , ADMIN
           FROM MEMBER
+         WHERE USER_NO = ?
 	</entry>
 	
 	

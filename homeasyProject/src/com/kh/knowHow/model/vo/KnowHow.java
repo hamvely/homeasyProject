@@ -48,17 +48,17 @@ public class KnowHow {
 	}
 	
 	// 작성자: 임지우 - 노하우관리 상세보기
-	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postStatus, String postFileRename, String postContent) {
+	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postContent, String postFileRename,
+			 String postStatus) {
 		super();
-		this.postNo = postNo;
 		this.postTitle = postTitle;
+		this.postContent = postContent;
+		this.postFileRename = postFileRename;
+		this.postNo = postNo;
 		this.postCreateDate = postCreateDate;
 		this.postCount = postCount;
 		this.postStatus = postStatus;
-		this.postFileRename = postFileRename;
-		this.postContent = postContent;
 	}
-	
 
 
 	//노하우메인
@@ -69,6 +69,8 @@ public class KnowHow {
 		this.postContent = postContent;
 		this.postFileRename = postFileRename;
 	}
+
+
 
 	//노하우게시글상세보기
 	public KnowHow(String postTitle, String nickName, String postFileRename, String postContent, String pcomContent) {
@@ -108,8 +110,7 @@ public class KnowHow {
 
 	public void setPostFileRename(String postFileRename) {
 		this.postFileRename = postFileRename;
-	}	
-	
+	}
 
 
 	public String getName() {
@@ -136,8 +137,19 @@ public class KnowHow {
 		return postNo;
 	}
 
+
 	public void setPostNo(int postNo) {
 		this.postNo = postNo;
+	}
+
+
+	public Date getPostCreateDate() {
+		return postCreateDate;
+	}
+
+
+	public void setPostCreateDate(Date postCreateDate) {
+		this.postCreateDate = postCreateDate;
 	}
 
 
@@ -170,9 +182,11 @@ public class KnowHow {
 		this.postStatus = postStatus;
 	}
 
+
 	public int getUserNo() {
 		return userNo;
 	}
+
 
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
@@ -207,34 +221,19 @@ public class KnowHow {
 	public void setUserFileRename(String userFileRename) {
 		this.userFileRename = userFileRename;
 	}
-	
-
-	public Date getPostCreateDate() {
-		return postCreateDate;
-	}
-
-
-	public void setPostCreateDate(Date postCreateDate) {
-		this.postCreateDate = postCreateDate;
-	}
 
 
 	@Override
 	public String toString() {
 		return "KnowHow [postTitle=" + postTitle + ", postContent=" + postContent + ", postFileRename=" + postFileRename
-				+ ", name=" + name + ", pcomContent=" + pcomContent + ", postNo=" + postNo + ", postUpdateDate="
-				+ postUpdateDate + ", postCount=" + postCount + ", postStatus=" + postStatus + ", nickName=" + nickName
+				+ ", name=" + name + ", pcomContent=" + pcomContent + ", postNo=" + postNo + ", postCreateDate="
+				+ postCreateDate + ", postUpdateDate=" + postUpdateDate + ", postCount=" + postCount + ", postStatus="
+				+ postStatus + ", userNo=" + userNo + ", postCateName=" + postCateName + ", nickName=" + nickName
 				+ ", userFileRename=" + userFileRename + "]";
 	}
 
 
-
-
-
-
-
-
-	
+		
 	
 	
 	
