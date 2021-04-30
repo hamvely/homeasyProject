@@ -276,6 +276,74 @@ public class MemberDao {
 		
 	}
 
+	public int updateMember(Connection conn, Member m) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updateMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql); // 미완성된sql문
+			pstmt.setString(1, m.getNickName());
+			pstmt.setString(2, m.getPhone());
+			pstmt.setString(3, m.getBirth());
+			pstmt.setInt(4, m.getUserNo());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	
+	
+	
+	}
+
+	public Member selectMem(Connection conn, String email) {
+		// select문 => ResultSet객체 (한행)
+				Member m = null;
+				PreparedStatement pstmt = null;
+				ResultSet rset = null;
+				
+				String sql = prop.getProperty("selectMem");
+				
+				try {
+					pstmt = conn.prepareStatement(sql); // 미완성된sql문
+					pstmt.setString(1, email);
+					
+					rset = pstmt.executeQuery();
+					
+					if(rset.next()) {
+						m = new Member(rset.getInt("USER_NO"),
+									   rset.getString("EMAIL"),
+									   rset.getString("NAME"),
+									   rset.getString("NICKNAME"),
+									   rset.getString("GENDER"),
+									   rset.getString("BIRTH"),
+									   rset.getInt("POST_CODE"),
+									   rset.getString("ADDRESS"),
+									   rset.getString("PHONE"),
+									   rset.getDate("JOIN_DATE"),
+									   rset.getString("USER_STATUS"),
+									   rset.getString("ADMIN"));
+					}
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close(rset);
+					close(pstmt);
+				}
+				
+				return m;
+	
+	}
+
 	
 	
 	

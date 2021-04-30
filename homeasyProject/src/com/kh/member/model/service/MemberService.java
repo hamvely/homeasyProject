@@ -105,6 +105,27 @@ public class MemberService {
 	}
 
 
+	public Member updateMember(Member m) {
+
+		Connection conn = getConnection();
+		int result = new MemberDao().updateMember(conn, m);
+		
+		Member updateMem = null;
+		if(result > 0) { // update 성공 했을 경우 => 갱신된 회원 객체 다시 조회해야됨
+			commit(conn);
+			
+			updateMem = new MemberDao().selectMem(conn, m.getEmail());
+			
+		}else { // update 실패 했을 경우
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return updateMem;
+	}
+
+
 	
 	
 	

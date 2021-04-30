@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MemberModificationServlet
@@ -29,9 +30,21 @@ public class MemberModificationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		RequestDispatcher view = request.getRequestDispatcher("views/member/memberModification.jsp");
-		view.forward(request, response);
-	
+		// url로 직접 요청도 가능하기 때문에
+		HttpSession session = request.getSession();
+		
+		// 로그인 전에 해당 url 요청됐을 경우 => 메인페이지 출력 / alert "로그인 후 이용가능한 서비스입니다."
+		if(session.getAttribute("loginUser") == null) {
+			
+			session.setAttribute("alertMsg", "로그인 후 이용가능한 서비스입니다.");
+			
+			response.sendRedirect(request.getContextPath());
+			
+		}else {
+
+			RequestDispatcher view = request.getRequestDispatcher("views/member/memberModification.jsp");
+			view.forward(request, response);
+		}
 	}
 
 	/**
