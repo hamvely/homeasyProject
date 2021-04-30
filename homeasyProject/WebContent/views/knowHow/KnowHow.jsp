@@ -52,8 +52,8 @@
         }
 
         .imgfile{
-            width:150px; 
-            height:150px; 
+            width:170px; 
+            height:170px; 
             float:right;
             margin:-130px 80px;
         }
@@ -96,7 +96,7 @@
 		                 <p style="margin-top:20px"><%=k.getPostTitle()%><br><br>
 		                 <%=k.getPostContent() %></p>
 		                 
-		           		 <img src="<%=contextPath %>/<%=k.getPostFileRename() %>" class="imgfile">
+		           		 <img src="./resources/img/sample/knowhow (10).jpg" class="imgfile">
 		
 		              <br><br>
 		              <hr>

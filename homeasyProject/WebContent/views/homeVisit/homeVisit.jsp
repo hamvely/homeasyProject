@@ -52,7 +52,7 @@
         }
         
         .thumbnail{
-             border:1px solid gray; 
+             border:px solid gray; 
            width:220px;
            display:inline-block;
            float:left;
@@ -84,7 +84,7 @@
 	                  <br><br>
 	                  
 	                  <div class="thumbnail" style="margin-top:-60px; margin-left:-1px;">
-	                     <img src="" width="220" height="220">
+	                     <img src="./resources/img/sample/artRoom1_main.jpg" width="220" height="220">
 	                  </div>
 	                  
 	                  <P><br><br><%=h.getPostContent() %></P>

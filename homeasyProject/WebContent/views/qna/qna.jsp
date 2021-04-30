@@ -105,7 +105,7 @@
                     <br><br>
                 </div>
                 
-                    <img src="<%=contextPath %>/<%=q.getPostFileRename() %>" class="imgfile">
+                    <img src="./resources/img/sample/qna4.jpg" class="imgfile">
                 <br>
                 <hr>
         </div>

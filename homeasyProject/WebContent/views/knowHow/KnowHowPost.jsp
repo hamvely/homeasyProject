@@ -34,7 +34,7 @@
    			<tr>
    				<td colspan="3">
    					<div>
-   						<img src="<%=k.getPostFileRename() %>" width="500" height="500">
+   						<img src="./resources/img/sample/knowhow (10).jpg" width="500" height="500">
    					</div>
    				</td>
    			</tr>

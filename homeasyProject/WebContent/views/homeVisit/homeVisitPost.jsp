@@ -31,7 +31,7 @@
    			<tr>
    				<td colspan="3">
    					<div>
-   						<img src="" width="500" height="500">
+   						<img src="./resources/img/sample/artRoom1_main.jpg" width="500" height="500">
    					</div>
    				</td>
    			</tr>

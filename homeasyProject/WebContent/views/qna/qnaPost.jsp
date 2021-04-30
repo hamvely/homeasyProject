@@ -102,7 +102,7 @@
         </div>
 
         <br><br><br>
-        <img class="postfile" src="<%=q.getPostFileRename()%>">
+        <img class="postfile" src="./resources/img/sample/qna4.jpg">
        
         <br><br>
         <div class="content">
