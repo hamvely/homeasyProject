@@ -61,6 +61,21 @@
 	
 	
 	
+	<!--작성자 : 김혜미-->
+	<entry key="updateMember">
+	UPDATE
+       	   MEMBER
+	   SET 
+	       NICKNAME = ?
+	     , GENDER = ?
+	     , PHONE = ?
+	     , BIRTH = ?
+	     , USER_FILE_RENAME = ?
+	 WHERE USER_NO = ?
+	</entry>
+	
+	
+	
 	
 	<!-- 작성자 : 임지우 -->
 	<entry key="selectListCount">
