@@ -288,7 +288,7 @@ public class MemberDao {
 			pstmt.setString(1, m.getNickName());
 			pstmt.setString(2, m.getPhone());
 			pstmt.setString(3, m.getBirth());
-			pstmt.setInt(4, m.getUserNo());
+			pstmt.setString(4, m.getEmail());
 			
 			result = pstmt.executeUpdate();
 			
@@ -299,8 +299,6 @@ public class MemberDao {
 		}
 		
 		return result;
-	
-	
 	
 	}
 

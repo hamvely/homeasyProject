@@ -69,7 +69,7 @@
 	       NICKNAME = ?
 	     , PHONE = ?
 	     , BIRTH = ?
-	 WHERE USER_NO = ?
+	 WHERE EMAIL = ?
 	</entry>
 	
 	<entry key="selectMem">
