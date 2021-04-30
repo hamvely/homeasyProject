@@ -10,26 +10,6 @@
 	       , PRODUCT_PRICE
 	    FROM PRODUCT
 	</entry>
-	
-	<entry key="insertReview">
-		INSERT
-		    INTO REVIEW
-		    (
-		     RE_NO
-		   , PRODUCT_NO
-		   , USER_NO
-		   , RE_CONTENT
-		   , RE_MARK
-		   )
-		VALUES
-		    (
-		     SEQ_RENO.NEXTVAL
-		    , ?
-		    , ?
-		    , ?
-		    , ?
-		    )
-	</entry>
 
 
 <entry key="insertReview">
@@ -43,9 +23,8 @@
 	   )
 	VALUES
 	    (
-	     SEQ_RENO.NEXTVAL
-	    , ?
-	    , ?
+	      SEQ_RENO.NEXTVAL
+	    , SEQ_PRNO.NEXTVAL
 	    , ?
 	    , ?
 	    )

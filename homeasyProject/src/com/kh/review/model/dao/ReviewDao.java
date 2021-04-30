@@ -175,9 +175,35 @@ public class ReviewDao {
 		
 		return result;
 		
+	} 
+
+	
+	public int insertReview(Connection conn, Review r) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertReview");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, r.getUserNo());
+			pstmt.setString(2, r.getReContent());
+		
+			result = pstmt.executeUpdate();
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+		
 	}
 	
-
 }
 
 

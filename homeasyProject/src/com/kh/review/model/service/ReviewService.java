@@ -75,6 +75,20 @@ public class ReviewService {
 		return result;
 		
 	}
+	
+	public int insertReview(Review r) {
+		Connection conn = getConnection();
+		
+		int result = new ReviewDao().insertReview(conn, r);
+	
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
+	}
 
 
 }

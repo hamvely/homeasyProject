@@ -68,21 +68,21 @@ String contextPath = request.getContextPath();
         <!--상품 목록  -->
 
         <tr style="height: 200px;">
-            <td><img src=""
+            <td><img src="">
                      style="width:100px;">
             </td>
             <td colspan="4"><%= p.getProductName() %></td>
         </tr>
 
       <!-- 리뷰작성 -->
-      <form action="">
+      <form action="<%=contextPath%>/Review.In" method="post">
         <tr>
             <th><h4>리뷰작성</h4></th>
             <td style="height: 30px; "></td>           
         </tr>
         <tr>
-            <th colspan="6">
-                <textarea placeholder="자세하고 솔직한 리뷰는 다른 고객에게 도움이 됩니다. "></textarea>
+            <th  colspan="6">
+                <textarea name="content" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 도움이 됩니다. "></textarea>
             </th>
         </tr>
      </form>
