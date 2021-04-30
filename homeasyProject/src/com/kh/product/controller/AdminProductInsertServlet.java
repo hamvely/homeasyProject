@@ -39,7 +39,7 @@ public class AdminProductInsertServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		if(ServletFileUpload.isMultipartContent(request)) {
+		if(ServletFileUpload.isMultipartContent(request)) { //enctype이 multipart/form-data인지 조건검사후 true일 경우 실행
 			// enctype이 multipart/form-data로 잘 전송될 경우
 			// 1_1. 용량제한
 			int maxSize = 10 * 1024 * 1024;
