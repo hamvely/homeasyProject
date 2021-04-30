@@ -13,6 +13,7 @@ import java.util.Properties;
 
 import com.kh.review.model.vo.Review;
 import com.kh.common.model.vo.PageInfo;
+import com.kh.order.model.vo.Order;
 
 
 public class ReviewDao {
@@ -202,6 +203,35 @@ public class ReviewDao {
 		return result;
 		
 		
+	}
+	
+	
+	public Review selectReview(Connection conn) {
+		Review r = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectReview");
+		
+			try {
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					r = new Review(rset.getString("product_name"),
+							       rset.getInt("product_no"));
+							     
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+				close(rset);
+			}
+			return r;
 	}
 	
 }

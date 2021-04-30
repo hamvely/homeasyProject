@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kh.member.model.vo.Member;
+import com.kh.order.model.service.OrderService;
+import com.kh.order.model.vo.Order;
 import com.kh.review.model.service.ReviewService;
 import com.kh.review.model.vo.Review;
 
@@ -32,7 +34,12 @@ public class ReviewWriterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
+		
+		Review r = new ReviewService().selectReivew();
+		
+		
+		request.setAttribute("r", r);
 		request.getRequestDispatcher("/views/review/reviewWriter.jsp").forward(request, response);
 	
 	}

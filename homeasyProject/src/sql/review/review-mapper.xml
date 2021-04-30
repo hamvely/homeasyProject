@@ -11,6 +11,15 @@
 	    FROM PRODUCT
 	</entry>
 
+<entry key="selectReview">
+		SELECT 
+		    PRODUCT_NAME
+		FROM PRODUCT
+</entry>
+
+
+
+
 <!-- 리뷰작성 --> 
 <entry key="insertReview">
 	INSERT

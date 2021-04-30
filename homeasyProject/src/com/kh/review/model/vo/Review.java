@@ -42,7 +42,12 @@ public class Review {
 	}
 	
 	
-	
+	public Review (String productName, int productNo) {
+		super();
+		this.productName = productName;
+		this.productNo = productNo;
+	}
+
 	
 	
 	public Review(int reNo, int productNo, int userNo, String recontent) {

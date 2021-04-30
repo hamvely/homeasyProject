@@ -41,7 +41,7 @@ public class OrderDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()){
-				list.add(new Order(rset.getInt("order_no"),
+				list.add(new Order(rset.getInt("product_no"),
 						 		   rset.getString("product_name")
 						   			));
 			}
@@ -119,31 +119,6 @@ public class OrderDao {
 			return d;
 	}
 	
-	public Order selectReview(Connection conn) {
-		Order p = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String sql = prop.getProperty("selectReview");
-		
-			try {
-				
-				pstmt = conn.prepareStatement(sql);
-				
-				rset = pstmt.executeQuery();
-				
-				if(rset.next()) {
-					p = new Order(rset.getString("product_name"));
-							     
-				}
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				close(pstmt);
-				close(rset);
-			}
-			return p;
-	}
+
 	
 }

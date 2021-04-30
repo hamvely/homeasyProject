@@ -37,6 +37,7 @@ public class ReviewInsertServlet extends HttpServlet {
 		 request.setCharacterEncoding("utf-8");
 		 
 		 String recontent = request.getParameter("content");
+		 int productNo = Integer.parseInt(request.getParameter("productNo"));
 		 
 		 HttpSession session = request.getSession();
 		 Member loginUser = (Member)session.getAttribute("loginUser");

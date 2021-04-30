@@ -5,7 +5,7 @@
     
 <%
 
-Order p = (Order)request.getAttribute("p");
+Review r = (Review)request.getAttribute("r");
 
 String contextPath = request.getContextPath();
 %>
@@ -69,9 +69,11 @@ String contextPath = request.getContextPath();
 
         <tr style="height: 200px;">
             <td><img src="">
-                     style="width:100px;">
+                     
             </td> 
-            <td colspan="4" value="productName"><%= p.getProductName() %></td>
+           
+            
+            <td colspan="4" ><%= p.getProductName() %></td>
         </tr>
 
       <!-- 리뷰작성 -->

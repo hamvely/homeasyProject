@@ -34,18 +34,7 @@ public class Order {
 		this.buyMethod = buyMethod;
 		this.productNo = productNo;
 	}
-
-
-
-	public Order(int orderNo, String productName) {
-		super();
-		this.orderNo = orderNo;
-		this.productName = productName;
-	}
-
 	
-
-
 	public Order(String name, String address, String phone, String orderMemo, Date buyDate, String buyMethod,
 			int productNo ) {
 		super();
@@ -60,6 +49,9 @@ public class Order {
 
     
 
+
+
+
 	public Order(String productName, String productPrice) {
 		super();
 		this.productName = productName;
@@ -67,18 +59,10 @@ public class Order {
 	}
 
 
-	
-
-
-
-
-
-
-
-
-	public Order(String productName) {
+	public Order(int productNo, String productName) {
 		super();
 		this.productName = productName;
+		this.productNo = productNo;
 	}
 
 
