@@ -82,8 +82,9 @@
                     <form>
                     <p><%= p.getProductBrand() %></p>
                     <p><%= p.getProductName() %></p>
-                    <p><%= p.getProductPrice() %></p>
-                    
+                    <span id="productPrice"><%= p.getProductPrice() %></span>
+                    <br>
+                    <!-- 
 			        <select id="selectOption" name="selectOption" onchange="optionSelect()">
                     <option selected>옵션을 선택하세요</option>
                     <% for(int i=0; i<optionList.size(); i++) {%>
@@ -93,16 +94,35 @@
                             </option>
                             <% } else { %>
                            		<option value="<%= optionList.get(i).getOptionNo() %>">
-                              		<%= optionList.get(i).getOptionName() %>(+<span><%= optionList.get(i).getOptionPrice() %></span>원)
+                              		<%= optionList.get(i).getOptionName() %>(+<span id="price"><%= optionList.get(i).getOptionPrice() %></span>원)
                        			</option>
                             <% } %>
                        <% } %>
-                 </select>
+                       </select>
+                        -->
+                        
+                    <select id="selectOption" name="selectOption" onchange="optionSelect()">
+                    <option selected>옵션을 선택하세요</option>
+                    <% for(int i=0; i<optionList.size(); i++) {%>
+                    	<% if(optionList.get(i).getOptionStock() == 0) { %>
+                           <option value="<%= optionList.get(i).getOptionPrice() %>" disabled>
+                               <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
+                            </option>
+                            <% } else { %>
+                           		<option value="<%= optionList.get(i).getOptionPrice() %>">
+                              		<%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
+                       			</option>
+                            <% } %>
+                       <% } %>
+                       </select>
+                 
 			        <br>
                                      수량 : <input type="number" id="amount">  
                     </form>
                     <br>
-                    <p>총가격 : 원</p>
+                    <span>총가격 :</span> 
+                    <span id="totalPrice"></span>
+                    <span>원</span> <br>
                     <button>장바구니 담기</button>
                     <button>결제하기</button> 
                     <hr><hr>
@@ -117,19 +137,31 @@
         </div>
 
 		<script> 
+			var optionPrice = 0;
+			var totalPrice = 0;
+			var amount = 0;
+			
 			function optionSelect(){
-				var optionPrice = $("#selectOption option:selected").find("span").text(); 
+				optionPrice = parseInt($("#selectOption option:selected").val());
+				totalPrice = parseInt($("#productPrice").text());
 				console.log(optionPrice);
-				/*
-				// select element에서 선택된 option의 value가 저장된다. 
-				var selectValue = langSelect.options[langSelect.selectedIndex].value; 
+				console.log(productPrice);
+				totalPrice += optionPrice;
+				console.log(totalPrice);
 				
-				// select element에서 선택된 option의 text가 저장된다. 
-				var selectText = langSelect.options[langSelect.selectedIndex].text; 
-				}
-			*/
+				$("#amount").focusout(function() {
+				  	amount = Number(document.getElementById("amount").value);
+				  	console.log(amount);
+				  	totalPrice = (totalPrice + optionPrice)*amount;
+					console.log(totalPrice);
+					document.getElementById("totalPrice").innerHTML = totalPrice;
+				});
+				
 			}
 		</script>
+		
+			
+		
 
 
 		
