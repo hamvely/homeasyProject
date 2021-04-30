@@ -136,7 +136,6 @@
                 <!-- 버튼 -->
                 <div class="content_bar">
                     <button class="content_btn" data-toggle="modal" data-target="#updateMember">수정</button>
-                    <button class="content_btn" data-toggle="modal" data-target="#deleteMember">삭제</button>
                     <form class="member_search">
                         <a class="search_btn" href="#"><i class="fas fa-search fa-2x"></i></a>
                         <input class="search_text" type="search" placeholder="회원 이메일/회원명 입력">
@@ -149,7 +148,6 @@
                 <table align="center" class="member_list" style="overflow-x:auto;">
                 	<thead>
 	                    <tr>
-	                        <th>선택</th>
 	                        <th>회원번호</th>
 	                        <th>회원이메일</th>
 	                        <th>회원이름</th>
@@ -161,20 +159,19 @@
 	                        <th>연락처</th>
 	                        <th>가입일</th>
 	                        <th>회원<br>상태</th>
-	                        <th>관리자<br>유무</th>
+	                        <th>관리자<br>여부</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
 	                	<!-- 조회된 결과가 없을 경우 -->
 	                	<% if(list.isEmpty()) { %>
 	                		<tr>
-	                			<td colspan="13">조회된 리스트가 없습니다.</td>
+	                			<td colspan="12">조회된 리스트가 없습니다.</td>
 	                		</tr>
 	                	<% }else { %>
 	                	<!-- 조회된 결과가 있을 경우 -->
 	                		<% for(Member m : list) { %>
 			                    <tr>
-			                        <td><input type="checkbox"></td>
 			                        <td><%= m.getUserNo() %></td>
 			                        <td><%= m.getEmail() %></td>
 			                        <td><%= m.getUserName() %></td>
@@ -216,119 +213,17 @@
 					<% } %>
                 </div>
 
-                <!-- 회원 조회 및 수정 모달 -->
-                <div class="modal" id="updateMember">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                    
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">회원 조회/수정</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                <form class="member_update">
-                                    <table>
-                                        <tr>
-                                            <th>회원번호</th>
-                                            <td><input type="number" name="user_no" required></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>회원이메일</th>
-                                            <td><input type="email" name="email" maxlength="50" required></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>회원명</th>
-                                            <td><input type="text" name="name" maxlength="10" required></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>별명</th>
-                                            <td><input type="text" name="nickname" maxlength="50" required></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>성별</th>
-                                            <td><input type="gender" name="gender" maxlength="1"></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>생년월일</th>
-                                            <td><input type="text" name="birth"></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>우편번호</th>
-                                            <td><input type="number" name="post_code"></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>주소</th>
-                                            <td><input type="text" name="address"></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>연락처</th>
-                                            <td><input type="text" name="phone"></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>가입일</th>
-                                            <td><input type="date" name="join_date" required></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>회원상태</th>
-                                            <td><input type="text" name="user_status" maxlength="1" required></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th>관리자유무</th>
-                                            <td><input type="text" name="admin" maxlength="1" required></td>
-                                            <td></td>
-                                        </tr>
-                                    </table>
-                                </form>
-                            </div>
-                            
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal">저장</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
-                            </div>
-                    
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 회원 삭제 모달 -->
-                <div class="modal" id="deleteMember">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                    
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">회원삭제</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                            	해당 회원을 정말 삭제하시겠습니까?
-                            </div>
-                            
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">확인</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;">취소</button>
-                            </div>                    
-                        </div>
-                    </div>
-                </div>
+                <script>
+                	$(function() {
+                		
+                		$(".member_list>tbody>tr").click(function() {
+                			
+                			location.href = '<%= contextPath %>/adminDetail.me?uno=' + $(this).children().eq(0).text();
+                			
+                		})
+                		
+                	})
+                </script>
 
             </div>
         </div>

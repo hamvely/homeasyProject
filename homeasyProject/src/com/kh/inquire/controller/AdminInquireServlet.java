@@ -13,7 +13,6 @@ import com.kh.common.model.vo.PageInfo;
 import com.kh.inquire.model.service.AdminInquireService;
 import com.kh.inquire.model.vo.AdminInquire;
 
-
 /**
  * Servlet implementation class adminInquireServlet
  */
@@ -78,10 +77,12 @@ public class AdminInquireServlet extends HttpServlet {
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
 		// 현재 요청한 페이지 
-		ArrayList<AdminInquire> list = new AdminInquireService().inqruireList(pi);
+		ArrayList<AdminInquire> list = new AdminInquireService().selectList(pi);
 		
 		request.setAttribute("pi", pi);
+		
 		request.setAttribute("list", list);
+		
 		request.getRequestDispatcher("views/inquire/adminInquire.jsp").forward(request, response);
 		
 	}

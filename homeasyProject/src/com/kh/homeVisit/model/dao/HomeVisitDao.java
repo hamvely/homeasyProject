@@ -65,7 +65,7 @@ public class HomeVisitDao {
    
 
 
-
+   //이거에요 혜미님!
    public int insertHvWrite(Connection conn, HomeVisit h) {
       
       int result = 0;
@@ -74,10 +74,9 @@ public class HomeVisitDao {
       
       try {
          pstmt = conn.prepareStatement(sql);
-         pstmt.setInt(1, h.getPostNo());
-         pstmt.setString(2, h.getUserNo());
-         pstmt.setString(3, h.getPostTitle());
-         pstmt.setString(4, h.getPostContent());
+         pstmt.setString(1, h.getUserNo());
+         pstmt.setString(2, h.getPostTitle());
+         pstmt.setString(3, h.getPostContent());
          
          result = pstmt.executeUpdate();
          
@@ -90,6 +89,7 @@ public class HomeVisitDao {
       return result;
    }
    
+   //이거에요 혜미님!!2
    public int insertHomeVisitAttachmentList(Connection conn, ArrayList<Attachment> list) {
       
       int result = 0;

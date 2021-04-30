@@ -37,7 +37,7 @@ public class knowHowServlet extends HttpServlet {
 		
 		//System.out.println(list);
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("views/knowHow/knowHow.jsp").forward(request, response);
+		request.getRequestDispatcher("views/knowHow/KnowHow.jsp").forward(request, response);
 
 	}
 

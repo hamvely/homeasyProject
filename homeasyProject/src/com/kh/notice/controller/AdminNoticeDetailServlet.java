@@ -37,7 +37,7 @@ public class AdminNoticeDetailServlet extends HttpServlet {
 		
 		if(result > 0) { // 조회수 증가성공 (유효한 공지사항번호) => 해당 공지사항 조회 후 noticeDetailView.jsp 응답
 			
-			Notice n = new NoticeService().selectNotice(noticeNo);
+			Notice n = new NoticeService().selectNoticeAdmin(noticeNo);
 			
 			request.setAttribute("n", n);
 			

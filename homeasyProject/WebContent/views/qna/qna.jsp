@@ -87,15 +87,6 @@
 
     <div class="content">
     
-    	<% if(loginUser != null){ %>
-        <div class="button">
-            <a href="<%=contextPath%>/enrollForm.qna" class="a1">
-                <div class="question">
-                   <li>질문하기</li>
-                </div>
-            </a>
-        </div>
-        <% } %>
         <br>
 	
 		<% for(Qna q : list){ %>
@@ -106,14 +97,15 @@
             
                 <div class="content1_1">
                     <p><%=q.getPostContent() %></p>
-                	<img src="<%=q.getUserFileRename() %>" class="user">
                 </div>
                 
                 <div class="id1">
-                    <h3><%=q.getNickName() %></h3>
+                     <i class="far fa-user-circle fa-2x" style="float:left;"></i>
+                    <h3 style="float:left;"><%=q.getNickName() %></h3>
+                    <br><br>
                 </div>
                 
-                    <img src="<%=contextPath %>/<%=q.getPostFileRename() %>" class="imgfile">
+                    <img src="./resources/img/sample/qna4.jpg" class="imgfile">
                 <br>
                 <hr>
         </div>

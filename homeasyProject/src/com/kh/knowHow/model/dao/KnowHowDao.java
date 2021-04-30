@@ -13,7 +13,9 @@ import java.util.Properties;
 
 import com.kh.common.model.vo.PageInfo;
 import com.kh.knowHow.model.vo.KnowHow;
+import com.kh.knowHow.model.vo.KnowHowFile;
 import com.kh.qna.model.vo.Attachment;
+
 
 public class KnowHowDao {
 
@@ -111,12 +113,12 @@ public class KnowHowDao {
 			
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
-				list.add(new KnowHow(rset.getInt("postNo"),
-								     rset.getString("postTitle"),
-								     rset.getDate("postUpdateDate"),
-								     rset.getInt("postCount"),
-								     rset.getString("postStatus")));
+			while(rset.next()) { // 뽑아서 list 객체에 담기 - 컬럼명제시
+				list.add(new KnowHow(rset.getInt("post_no"),
+								     rset.getString("post_title"),
+								     rset.getDate("post_create_date"),
+								     rset.getInt("post_count"),
+								     rset.getString("post_status")));
 			}
 			
 		} catch (SQLException e) {
@@ -130,6 +132,122 @@ public class KnowHowDao {
 		
 	}
 	
+	// 작성자:임지우 - 노하우 테이블 insert
+	public int insertKnowHow(Connection conn, KnowHow k) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertKnowHow");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, k.getPostTitle());
+			pstmt.setString(2, k.getPostContent());
+			//pstmt.setDate(3, k.getPostUpdateDate());
+			//pstmt.setString(4, k.getPostStatus());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
+	// 작성자:임지우 - 노하우첨부 포스트파일 테이블 insert
+	public int insertKnowHowFile(Connection conn, KnowHowFile kf) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("insertKnowHowFile");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, kf.getPostFileRename());			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;		
+		
+	}
+
+	// 작성자:임지우 - 노하우 상세보기 노하우테이블 조회
+	public KnowHow selectKnowHow(Connection conn, int postNo) {
+		
+		KnowHow k = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectKnowHow");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {  // 뽑아서 knowhow객체에 담기 - 컬럼명제시
+				k = new KnowHow(rset.getInt("POST_NO"),
+								rset.getString("POST_TITLE"),
+								rset.getDate("POST_CREATE_DATE"),
+								rset.getInt("POST_COUNT"),
+								rset.getString("POST_STATUS"),
+								rset.getString("POST_FILE_RENAME"),
+								rset.getString("POST_CONTENT"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return k;
+		
+	}
+	
+	// 작성자:임지우 - 노하우 상세보기 노하우첨부 포스트파일 테이블 조회
+	public KnowHowFile selectKnowHowFile(Connection conn, int postNo) {
+		
+		KnowHowFile kf = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectKnowHowFile");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				kf = new KnowHowFile();
+				kf.setPostFileNo(rset.getInt("POST_FILE_NO"));
+				kf.setRefPostNo(rset.getInt("POST_NO"));
+				kf.setPostFileRename(rset.getString("POST_FILE_RENAME"));
+			}			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return kf;
+		
+	}
+	
+	
+
 	// 노하우 상세 게시글 카운트
 	 public int increaseCount(Connection conn, int postNo) {
 
@@ -151,6 +269,7 @@ public class KnowHowDao {
 	      
 	      return result;
 	   }
+
 	
 	 
 	 //상세보기
@@ -168,12 +287,11 @@ public class KnowHowDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				k = new KnowHow(rset.getInt("post_no"),
-								rset.getString("user_file_rename"),
-								rset.getString("nickname"),
-								rset.getString("post_file_rename"),
-						        rset.getString("post_content"),
-						        rset.getString("pcom_content"));
+				k = new KnowHow(rset.getString("POST_TITLE"),
+								rset.getString("NICKNAME"),
+								rset.getString("POST_FILE_RENAME"),
+						        rset.getString("POST_CONTENT"),
+						        rset.getString("PCOM_CONTENT"));
 			}
 			
 		} catch (SQLException e) {
@@ -218,6 +336,35 @@ public class KnowHowDao {
 		   return list;
 		   
 	   }
+	 
+	 public int deleteKnowHow(Connection conn, int postNo) {
+			
+			int result = 0;
+			PreparedStatement pstmt = null;
+			
+			String sql = prop.getProperty("deleteKnowHow");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, postNo);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+			
+		}
+	 
+	 
+	 
+	 
+	 
+	 
 }
 
 

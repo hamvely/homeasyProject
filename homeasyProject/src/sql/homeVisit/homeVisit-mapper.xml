@@ -21,26 +21,29 @@
 		      BY POST_CREATE_DATE DESC
 	</entry>
 
-	
+
+	<!-- 이거에요 혜미님! -->	
 	<entry key="insertHvWrite">
 		INSERT
 		    INTO POST
 		    (
 		      POST_NO
+		    , POST_CATE_NAME
 		    , USER_NO
 		    , POST_TITLE
 		    , POST_CONTENT
-		    
 		    )
 		 VALUES
 		    (
 		     SEQ_PONO.NEXTVAL
-		    ,SEQ_UNO.NEXTVAL
+		    , '집들이'
+		    ,?
 		    ,?
 		    ,?
 		    )
 	</entry>
 
+	<!-- 이거에요 혜미님! -->	
 	<entry key="insertHomeVisitWriteAttachmentList">
 		INSERT
 		    INTO POST_FILE

@@ -40,8 +40,7 @@
             <a href="#"><img src="resources/img/logo/logo (4).png" class="header_column_logo"></a>
         </div>
         <div class="header_column">
-            <a href="#"><i class="fas fa-home fa-2x"></i></a>
-            <a href="#"><i class="fas fa-user fa-2x"></i><i class="fas fa-sort-down fa-2x"></i></a>
+            <a href="<%= request.getContextPath() %>"><i class="fas fa-home fa-2x"></i></a>
         </div>
     </div>
 	

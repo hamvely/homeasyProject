@@ -28,5 +28,18 @@ public class OrderService {
 
 	}
 
+	public Order detailList() {
+		Connection conn = getConnection();
+	    Order d = new OrderDao().detailList(conn);
+		
+	    close(conn);
+	    return d;
+	}
 	
+	public Order selectReivew() {
+		Connection conn = getConnection();
+		Order p = new OrderDao().selectReview(conn);
+		close(conn);
+		return p;
+	}
 }

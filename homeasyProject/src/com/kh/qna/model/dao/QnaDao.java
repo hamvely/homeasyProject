@@ -157,11 +157,11 @@ public class QnaDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				list.add(new Qna(rset.getInt("post_no"),
-						         rset.getString("eamil"),
-						         rset.getString("post_title"),
-						         rset.getDate("post_create_date"),
-						         rset.getInt("post_count")));
+				list.add(new Qna(rset.getInt("POST_NO"),
+						         rset.getString("EMAIL"),
+						         rset.getString("POST_TITLE"),
+						         rset.getDate("POST_CREATE_DATE"),
+						         rset.getInt("POST_COUNT")));
 			}
 			
 		} catch (SQLException e) {
@@ -213,10 +213,10 @@ public class QnaDao {
 			
 			if(rset.next()) {
 				q = new Qna(rset.getString("post_title"),
-							rset.getString("user_file_rename"),
 							rset.getString("nickname"),
 							rset.getString("post_file_rename"),
-						    rset.getString("post_content"));
+						    rset.getString("post_content"),
+						    rset.getString("pcom_content"));
 				}
 			
 		} catch (SQLException e) {

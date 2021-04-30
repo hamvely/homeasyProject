@@ -50,8 +50,8 @@ public class HomeVisitInsertServlet extends HttpServlet {
 		
 			HomeVisit h = new HomeVisit();
 			h.setUserNo(multiRequest.getParameter("userNo"));
-			h.setPostTitle(multiRequest.getParameter("postTitle"));
-			h.setPostContent(multiRequest.getParameter("postContent"));
+			h.setPostTitle(multiRequest.getParameter("title"));
+			h.setPostContent(multiRequest.getParameter("content"));
 			
 			ArrayList<Attachment> list = new ArrayList<>();
 			

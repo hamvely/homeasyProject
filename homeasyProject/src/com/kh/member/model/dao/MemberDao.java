@@ -205,6 +205,77 @@ public class MemberDao {
 		
 	}
 
+	public int idCheck(Connection conn, String checkId) {
+		
+		// select문 => ResultSet(한개값)
+		int count = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("idCheck");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, checkId);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				count = rset.getInt("count");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return count;
+	
+	}
+	
+	public Member selectMember(Connection conn, int userNo) {
+		
+		Member m = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectMember");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, userNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				m = new Member(rset.getInt("USER_NO"),
+							   rset.getString("EMAIL"),
+							   rset.getString("NAME"),
+							   rset.getString("NICKNAME"),
+							   rset.getString("GENDER"),
+							   rset.getString("BIRTH"),
+							   rset.getInt("POST_CODE"),
+							   rset.getString("ADDRESS"),
+							   rset.getString("PHONE"),
+							   rset.getDate("JOIN_DATE"),
+							   rset.getString("USER_STATUS"),
+							   rset.getString("ADMIN")							   
+							  );
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return m;	
+		
+	}
+
 	
 	
 	

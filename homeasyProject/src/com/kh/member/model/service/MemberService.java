@@ -87,7 +87,22 @@ public class MemberService {
 		return list;
 	}
 
-
+	public int idCheck(String checkId) {
+		Connection conn = getConnection();
+		int count = new MemberDao().idCheck(conn, checkId);
+		close(conn);
+		return count;
+	}
+	
+	public Member selectMember(int userNo) {
+		
+		Connection conn = getConnection();
+		Member m = new MemberDao().selectMember(conn, userNo);
+		
+		close(conn);
+		return m;
+		
+	}
 
 
 	

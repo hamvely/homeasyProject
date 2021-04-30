@@ -13,6 +13,9 @@ public class Review {
 	private String email;
 	private String reContent;
 	private int reMark;
+	private int productNo;
+	private int userNo;
+	
     
     public Review() {}
 
@@ -37,7 +40,7 @@ public class Review {
 
 	public String getName() {
 		return name;
-	}
+	}	
 
 	public void setName(String name) {
 		this.name = name;
@@ -97,6 +100,23 @@ public class Review {
 
 	public void setReMark(int reMark) {
 		this.reMark = reMark;
+	}
+	
+
+	public int getProductNo() {
+		return productNo;
+	}
+
+	public void setProductNo(int productNo) {
+		this.productNo = productNo;
+	}
+
+	public int getUserNo() {
+		return userNo;
+	}
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
 
 	@Override

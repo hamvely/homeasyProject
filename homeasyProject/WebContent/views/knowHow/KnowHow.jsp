@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.knowHow.model.vo.KnowHow"%>
-
-    
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.knowHow.model.vo.KnowHow"%>  
 <%
 	ArrayList<KnowHow> list = (ArrayList<KnowHow>)request.getAttribute("list");
 %> 
@@ -54,8 +52,8 @@
         }
 
         .imgfile{
-            width:150px; 
-            height:150px; 
+            width:170px; 
+            height:170px; 
             float:right;
             margin:-130px 80px;
         }
@@ -87,26 +85,18 @@
 
     <div class="content">
         
-        <div class="button">
-            <a href="" class="a1">
-                <div class="question">
-                   <li>정렬</li>
-                </div>
-            </a>
-        </div>
-        
       <div class="listArea">
         
 		   
 			  <% for(KnowHow k : list) {%>
-			   <br><br><br>
+			   <br><br>
 		        <div class="thumbnail">
 		        	<input type="hidden" value="<%=k.getPostNo()%>">
 		        
-		                 <p><%=k.getPostTitle()%><br>
+		                 <p style="margin-top:20px"><%=k.getPostTitle()%><br><br>
 		                 <%=k.getPostContent() %></p>
 		                 
-		           		 <img src="<%=contextPath %>/<%=k.getPostFileRename() %>" class="imgfile">
+		           		 <img src="./resources/img/sample/knowhow (10).jpg" class="imgfile">
 		
 		              <br><br>
 		              <hr>

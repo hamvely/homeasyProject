@@ -1,51 +1,55 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.kh.order.model.vo.*"%>
+    
+    
+<%
+
+Order p = (Order)request.getAttribute("p");
+
+String contextPath = request.getContextPath();
+%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://kit.fontawesome.com/6478f529f2.js"crossorigin="anonymous">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </script>
 <style>
     table,td,th{border: 1px solid lightgray;}
-
     textarea{
         width: 800px;
         height: 400px;
         font-size: 15px;
         resize: none;
     }
+    
+    .btn1{background-color: darkgrey;
+                                color: white;
+                                border: none;
+                                border-radius: 3px;}
 
-    #star a{ text-decoration: none; color: gray; } 
-    #star a.on{ color: red; }
-
-
-    #btn1{
-        width: 70px;
-        height: 30px;
-         background-color: darkgrey;
-         color: white;
-         border: none;
-         border-radius: 3px;}
-
-    #btn2{
-        width: 70px;
-        height: 30px;
-        background-color: gold;
-        color:white;
-        border: none;
-        border-radius: 3px;} 
-
-  
+    .btn2{ background-color: gold;
+                                color:white;
+                                border: none;
+                                border-radius: 3px;}
+    .reviewBtn{
+        width: 900px;
+        height: 20px;
+        text-align:center;
+    } 
 </style>
 </head>
 <body>
-    <table width="900px" height="1150px" >
+    <table  >
 
         <!-- 상단 리뷰쓰기 -->
         <tr style="height: 100px;">
@@ -57,122 +61,36 @@
         <tr>
             <th style=" height: 40px; background-color: gray; 
                         color: white; border-radius: 5px;" colspan="4">
-                베스트 리뷰 작성자에겐 추첨을 통해 쿠폰을 지급해드립니다.
+              			  베스트 리뷰 작성자에겐 추첨을 통해 쿠폰을 지급해드립니다.
             </th>
         </tr>
 
         <!--상품 목록  -->
 
         <tr style="height: 200px;">
-            <td><img src="../resources/img/toy/toy4-main.jpg"
+            <td><img src=""
                      style="width:100px;">
             </td>
-            <td colspan="4">
-                <h4>&nbsp; 강아지 장난감12345
-                    <br>&nbsp; 색상 : 장난감
-                </h4>
-                
-            </td>
-        </tr>
-
-
-
-
-        <!-- 별점 평가  -->
-        <tr style="height: 50px; padding: 15px; font-size: 20px;" >
-            <td colspan="5"><strong>별점평가</strong></td>
-        </tr>
-
-        <!-- 내구성 리뷰 -->
-        <tr class="RatingStar">
-            <th >내구성</th> 
-            <th>
-                    <i class="far fa-star fa-3x"></i>
-                    <i class="far fa-star fa-3x"></i>
-                    <i class="far fa-star fa-3x"></i>
-                    <i class="far fa-star fa-3x"></i>
-                    <i class="far fa-star fa-3x"></i>
-            </th>
-
-            <!-- 가격 리뷰  -->
-            <th >가격</th>
-                <th>
-                    <i class="far fa-star fa-3x"></i>
-                    <i class="far fa-star fa-3x"></i>
-                    <i class="far fa-star fa-3x"></i>
-                    <i class="far fa-star fa-3x"></i>
-                    <i class="far fa-star fa-3x"></i>
-                </th>
-        </tr>
-
-        <!-- 디자인리뷰 -->
-        <tr>
-            <th>디자인</th>
-            <th>
-                <i class="far fa-star fa-3x"></i>
-                <i class="far fa-star fa-3x"></i>
-                <i class="far fa-star fa-3x"></i>
-                <i class="far fa-star fa-3x"></i>
-                <i class="far fa-star fa-3x"></i>
-            </th>   
-
-        
-            <!-- 배송 리뷰 -->
-            <th >배송</th>
-            <th >
-                <i class="far fa-star fa-3x"></i>
-                <i class="far fa-star fa-3x"></i>
-                <i class="far fa-star fa-3x"></i>
-                <i class="far fa-star fa-3x"></i>
-                <i class="far fa-star fa-3x"></i>
-            </th>
+            <td colspan="4"><%= p.getProductName() %></td>
         </tr>
 
       <!-- 리뷰작성 -->
-        <tr>
-            <td></td>
-        </tr>
+      <form action="">
         <tr>
             <th><h4>리뷰작성</h4></th>
-            <td colspan="4" style="height: 30px; "></td>           
+            <td style="height: 30px; "></td>           
         </tr>
         <tr>
             <th colspan="6">
                 <textarea placeholder="자세하고 솔직한 리뷰는 다른 고객에게 도움이 됩니다. "></textarea>
             </th>
         </tr>
-
-        <tr>
-            <th colspan="4">
-                <input id="btn2" type="button" value="완료">
-                <input id="btn1" type="button" value="취소">
-            </th>            
-        </tr>
+     </form>
     </table>
-
-
-    <script>
-        $("i").on("click",function(){
-
-            var $i = $(this).next();
-
-        if($i.css("display")=="none"){
-          $(this).css("backgroundColor", "Yellow").class("far");
-        }else{
-            $i.css("backgorundColor", "white").class("far");
-        }
-        })
-
-
-    </script>
-   
-
-    
-
-
-
-   
-
+        <div class="reviewBtn" >
+            <a href="" class="btn btn-warning btn-sm">완료</a>
+            <a class="btn btn-secondary btn-sm" >취소</a>
+        </div>
 </body>
 
 </html>

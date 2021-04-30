@@ -33,17 +33,104 @@
 		                SELECT
 		                       POST_NO
 		                     , POST_TITLE
-		                     , POST_UPDATE_DATE
+		                     , POST_CREATE_DATE
 		                     , POST_COUNT
 		                     , POST_STATUS
 		                  FROM POST
 		                 WHERE POST_CATE_NAME = '노하우'
 		                 ORDER
-		                    BY POST_UPDATE_DATE DESC
+		                    BY POST_CREATE_DATE DESC
 		               ) K
 		       )
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+
+	<!-- 작성자:임지우 - 노하우테이블 insert -->
+	<entry key="insertKnowHow">
+		INSERT
+		  INTO POST
+		  (
+		    POST_NO
+		  , USER_NO
+		  , POST_CATE_NAME
+		  , POST_TITLE
+		  , POST_CONTENT
+		  , POST_UPDATE_DATE <!-- create_date는 기본값 sysdate라서 따로 기재안함 -->
+		  , POST_STATUS
+		  )
+		  VALUES
+		  (
+		    SEQ_PONO.NEXTVAL <!-- post no -->
+		  , 1 <!--  user no -->
+		  , '노하우' <!-- cate name -->
+		  , ? <!--1 title -->
+		  , ? <!--2  content -->
+		  , SYSDATE <!-- update -->
+		  , 'Y' <!-- status -->
+		  )
+	</entry>
+	
+	<!-- 작성자:임지우 - 노하우첨부 포스트파일 테이블 insert -->
+	<entry key="insertKnowHowFile">
+		INSERT
+		  INTO POST_FILE
+		  (
+		    POST_FILE_NO
+		  , POST_NO
+		  , POST_FILE_RENAME
+		  )
+		  VALUES
+		  (
+		    SEQ_POFNO.NEXTVAL
+		  , SEQ_PONO.CURRVAL
+		  , ?
+		  )
+	</entry>
+	
+	<!-- 노하우 상세조회 조회수증가 -->
+	<entry key="increaseCount">
+		UPDATE
+		       POST
+		   SET POST_COUNT = POST_COUNT+1
+		 WHERE POST_NO = ?
+	</entry>
+	
+	<!-- 작성자:임지우 - 노하우 상세보기 노하우테이블 조회 -->
+	<entry key="selectKnowHow">
+		SELECT
+		       POST_NO
+		     , POST_TITLE
+		     , POST_CREATE_DATE
+		     , POST_COUNT
+		     , POST_STATUS
+		     , POST_FILE_RENAME
+		     , POST_CONTENT
+		  FROM POST
+		  JOIN POST_FILE USING (POST_NO)
+		 WHERE POST_CATE_NAME = '노하우'
+		   AND POST_NO = ?
+	</entry>
+	
+	<!-- 작성자:임지우 - 노하우 상세보기 노하우첨부 포스트파일 테이블 조회 -->
+	<entry key="selectKnowHowFile">
+		SELECT
+		       POST_FILE_NO
+		     , POST_NO
+		     , POST_FILE_RENAME
+		  FROM POST_FILE
+		  JOIN POST USING(POST_NO)
+		 WHERE POST_NO = ?
+	</entry>
+	
+	<!-- 작성자:임지우 - 노하우관리 삭제 -->
+	<entry key="deleteKnowHow">
+		DELETE
+			   POST
+		 WHERE POST_NO = ?
+	</entry>
+	
+
 	
 	<!-- 작성자 :아영 - 노하우 게시글 조회수 -->
 	<entry key="increaseCount">
@@ -51,14 +138,12 @@
 		       POST
 		   SET POST_COUNT = POST_COUNT+1
 		 WHERE POST_NO = ?
-		   AND POST_STATUS = 'Y'
 	</entry>
-
+	
 	<!-- 작성자:아영 - 노하우 게시글 상세  -->
 	<entry key="selectKnowHowPost">
 		 SELECT   
-                 P.POST_NO
-		       , USER_FILE_RENAME
+				 POST_TITLE
 		       , NICKNAME
 		       , POST_FILE_RENAME
 		       , POST_CONTENT

@@ -24,11 +24,26 @@ String contextPath = request.getContextPath();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
-    div,table, tr, th{outline: 1px solid darkgreen;}
-    
-    .wrap{width: 900px; height: 1150px;}
+    div,table, tr, th{outline: 0px solid darkgreen;}
     table,tr,td{height: 85px; border-bottom: 1px solid lightgray;}
+    button{ text-align: center;}
+    .wrap{width: 900px; height: 1150px;}
+
+    .btn-warning {
+        background-color:rgb(241, 196, 15); 
+    	border-color:rgb(241, 196, 15);
+        color: white;
+    }
+
+    .btn-secondary {
+    	background-color:rgb(158, 158, 158); 
+    	border-color:rgb(158, 158, 158);
+    }
   
+    .line{border-bottom: 1px solid lightgray;}
+
+	.paddingArea{padding: 10px}
+
     #a{height: 100px; }
     #b{height: 50px; }
 
@@ -38,10 +53,12 @@ String contextPath = request.getContextPath();
 </head>
 <body>
 
+  
+
     <div class="wrap">
         <div>
-            <div id="a" ><h1><br>1:1문의 관리</h1></div>
-            <div id="b"><br><button>주문조회 </button></div>
+            <div class="line" id="a" ><h1><br>1:1문의 관리</h1></div>
+            <div  id="b"><br> <a href="" class="btn btn-warning btn-sm">주문조회</a> </div>
         </div>
         
         <!--문의유형 문의 상태  -->
@@ -68,12 +85,11 @@ String contextPath = request.getContextPath();
                     <th>No.</th>
                     <th>분류</th>
                     <th>작성일</th>
-                    <th>답변여부</th>
                     <th style="width: 200px;">제목</th>
                     <th>회원이메일</th>
                 </tr>
 
-            
+         
             <tbody > 
 				<%if(list.isEmpty()){ %>
 					<tr>
@@ -85,40 +101,36 @@ String contextPath = request.getContextPath();
 	                    <th><%= n.getInqNo() %></th>
 	                    <th><%= n.getInqCate() %></th>
 	                    <th><%= n.getInqCreateDate() %></th>
-	                    <th>미답</th>
-	                    <th><%= n.getInqContent() %></th>
+	                    <th><%= n.getInqTitle() %></th>
 	                    <th><%= n.getEmail() %></th>
-	                </tr>
-	              
+                   </tr>
 	             <% } %>  
 	              <% } %>   
 	            </tbody>     
 	            </table>
 	        </form>
 		          
-	          <tr>
-                <th>
-                    <th align="center" style="padding: 200px;">
-						
-					  <%if(currentPage !=1) {%>
-                         <button onclick="location.href='<%=contextPath%>/adminInquire.one?currentPage=<%=currentPage -1%>';">이전</button>
-                       <% } %>
-                       <% for(int p=startPage; p<=endPage; p++) { %>
-                        
-                       <% if(currentPage == p){ %>
-                         <button><%= p %> </button>
-                       <% }else{ %>
-                       	 <button onclick="location.href='<%= contextPath %>/adminInquire.one?currentPage=<%= p %>';"><%= p %></button>
-                       <%  } %>
-                       
-                       <% } %>
-                      
-                      <% if(currentPage != maxPge){ %>
-                        <button onclick="location.href='<%= contextPath%>/adminInquire.one?currentPage=<%=currentPage +1%>';">다음</button>
- 					  <% } %>	
-                    </th>
-                </th>
-            </tr>
+	          
+            <div align="center" class="paddingArea">
+				<%if(currentPage !=1) {%>
+		            <button class="btn btn-secondary btn-sm" onclick="location.href='<%=contextPath%>/adminInquire.one?currentPage=<%=currentPage -1%>';">이전</button>
+		            <% } %>
+		            <% for(int p=startPage; p<=endPage; p++) { %>
+		             
+		            <% if(currentPage == p){ %>
+		              <button class="btn btn-secondary btn-sm" ><%= p %> </button>
+		            <% }else{ %>
+		            	 <button class="btn btn-secondary btn-sm" onclick="location.href='<%= contextPath %>/adminInquire.one?currentPage=<%= p %>';"><%= p %></button>
+		            <%  } %>
+		            
+		            <% } %>
+		           
+		           <% if(currentPage != maxPge){ %>
+		             <button class="btn btn-secondary btn-sm" onclick="location.href='<%= contextPath%>/adminInquire.one?currentPage=<%=currentPage +1%>';">다음</button>
+				<% } %>
+			</div>
+            
+ 
   		  </div>  
 
 		    
@@ -126,8 +138,10 @@ String contextPath = request.getContextPath();
 		    $(function(){
 				$(".listArea>tbody>tr").click(function(){
 					// 쿼리스트링 이용해서 요청할 url 작성
-					location.href = '<%=contextPath%>/admin.no?nno=' + $(this).children().eq(0).text();			
-					
+					$('#myModal').modal({
+				        keyboard: true,
+				        backdrop: "static"
+				    });
 				})
 			})
 		   </script>
@@ -135,44 +149,44 @@ String contextPath = request.getContextPath();
 		   
 		   
 		<!-- 모달-->	  
+		<!-- The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+	                        <h3 class="modal-title">1:1 문의 관리</h3>
+	                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                
+                       
+						<form id="insertNoticeForm" action="<%= contextPath %>/adminInsert.in" method="post">
+                            <!-- Modal body -->
+                            <div class="modal-body">
 
-<div class="container">
-  <h2>상품</h2>
-  <!-- Button to Open the Modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Open modal
-  </button>
+								<table class="table table-borderless">
+						
+								    <tr>
+								        <td><textarea name="answer" class="form-control" rows="10" style="resize:none;" placeholder="내용을 입력해주세요." required></textarea></td>
+								    </tr>
+								</table>
 
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h1 class="modal-title">상품관련 </h1>
-          <button type="button" class="close" data-dismiss="modal">×</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-          <h3>혜미님!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h3>
-          <p>ㅎㅖ미님 어디갔어..............흑흑흑흑흑어디어디</p>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  
-</div>
-
-
-
-
+                            </div>
+                                
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-warning btn-sm">등록</button>  
+                                <a href="" class="btn btn-secondary btn-sm">취소</a> 
+                            </div>
+						</form>
+                    </div>
+                </div>
+            </div>
+			
+			
+			
+			
 
 
 		        

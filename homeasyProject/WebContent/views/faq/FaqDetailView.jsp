@@ -11,6 +11,9 @@
 </head>
 <body>
 
+	<%@ include file="../common/mainHeader.jsp" %>
+	<br><br>
+
         <table id="detailArea" align="center" border="1">
             <tr>
                 <th width="70">카테고리</th>

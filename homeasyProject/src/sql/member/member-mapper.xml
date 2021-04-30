@@ -61,6 +61,21 @@
 	
 	
 	
+	<!--작성자 : 김혜미-->
+	<entry key="updateMember">
+	UPDATE
+       	   MEMBER
+	   SET 
+	       NICKNAME = ?
+	     , GENDER = ?
+	     , PHONE = ?
+	     , BIRTH = ?
+	     , USER_FILE_RENAME = ?
+	 WHERE USER_NO = ?
+	</entry>
+	
+	
+	
 	
 	<!-- 작성자 : 임지우 -->
 	<entry key="selectListCount">
@@ -97,5 +112,33 @@
 		       )
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+	<entry key="idCheck">
+		SELECT
+		       COUNT(*) "COUNT"
+		  FROM MEMBER
+		 WHERE EMAIL = ?
+	</entry>
+	
+	
+	<!-- 작성자:임지우 - 회원관리 상세보기 -->
+	<entry key="selectMember">
+		SELECT 
+               USER_NO
+             , EMAIL
+             , NAME
+             , NICKNAME
+             , GENDER
+             , BIRTH
+             , POST_CODE
+             , ADDRESS
+             , PHONE
+             , JOIN_DATE
+             , USER_STATUS
+             , ADMIN
+          FROM MEMBER
+         WHERE USER_NO = ?
+	</entry>
+	
 	
 </properties>

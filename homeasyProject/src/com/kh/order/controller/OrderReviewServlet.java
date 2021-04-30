@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kh.order.model.service.OrderService;
+import com.kh.order.model.vo.Order;
+
 /**
  * Servlet implementation class OrderReviewServlet
  */
@@ -26,7 +29,12 @@ public class OrderReviewServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		Order p = new OrderService().selectReivew();
+		
+		
+		request.setAttribute("p", p);
+		
 		request.getRequestDispatcher("views/review/reviewWriter.jsp").forward(request, response);
 	
 	

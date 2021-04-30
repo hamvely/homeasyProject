@@ -11,9 +11,12 @@ public class KnowHow {
 	private String pcomContent;
 	// 작성자:임지우 - 매개변수 추가
 	private int postNo;
+	private Date postCreateDate;
 	private Date postUpdateDate;
 	private int postCount;
 	private String postStatus; 
+	private int userNo;
+	private String postCateName;
 	// 작성자:장아영 - 추가
 	private String nickName;
 	private String userFileRename;
@@ -23,15 +26,39 @@ public class KnowHow {
 	
 	
 	// 작성자:임지우 - 노하우관리 리스트조회
-	public KnowHow(int postNo, String postTitle, Date postUpdateDate, int postCount, String postStatus) {
+	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postStatus) {
 		super();
 		this.postNo = postNo;
 		this.postTitle = postTitle;
-		this.postUpdateDate = postUpdateDate;
+		this.postCreateDate = postCreateDate;
 		this.postCount = postCount;
 		this.postStatus = postStatus;
 	}
-
+	
+	// 작성자:임지우 - 노하우 작성
+	public KnowHow(int postNo, int userNo, String postCateName, String postTitle, String postContent, Date postUpdateDate, String postStatus) {
+		super();
+		this.postNo = postNo;
+		this.userNo = userNo;
+		this.postCateName = postCateName;
+		this.postTitle = postTitle;
+		this.postContent = postContent;
+		this.postUpdateDate = postUpdateDate;
+		this.postStatus = postStatus;
+	}
+	
+	// 작성자: 임지우 - 노하우관리 상세보기
+	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postStatus, String postFileRename,
+			String postContent) {
+		super();
+		this.postNo = postNo;
+		this.postTitle = postTitle;
+		this.postCreateDate = postCreateDate;
+		this.postCount = postCount;
+		this.postStatus = postStatus;
+		this.postFileRename = postFileRename;
+		this.postContent = postContent;
+	}
 
 
 	//노하우메인
@@ -42,25 +69,14 @@ public class KnowHow {
 		this.postContent = postContent;
 		this.postFileRename = postFileRename;
 	}
-	
+
+
 
 	//노하우게시글상세보기
-	public KnowHow(int postNo, String UserFileRename, String NickName, String postFileRename, String postContent, String pcomContent) {
-		super();
-		this.postNo = postNo;
-		this.userFileRename = userFileRename;
-		this.nickName = nickName;
-		this.postFileRename = postFileRename;
-		this.postContent = postContent;
-		this.pcomContent = pcomContent;
-	}
-
-	
-	
-	public KnowHow(String postTitle, String name, String postFileRename, String postContent, String pcomContent) {
+	public KnowHow(String postTitle, String nickName, String postFileRename, String postContent, String pcomContent) {
 		super();
 		this.postTitle = postTitle;
-		this.name = name;
+		this.nickName = nickName;
 		this.postFileRename = postFileRename;
 		this.postContent = postContent;
 		this.pcomContent = pcomContent;
@@ -127,6 +143,16 @@ public class KnowHow {
 	}
 
 
+	public Date getPostCreateDate() {
+		return postCreateDate;
+	}
+
+
+	public void setPostCreateDate(Date postCreateDate) {
+		this.postCreateDate = postCreateDate;
+	}
+
+
 	public Date getPostUpdateDate() {
 		return postUpdateDate;
 	}
@@ -157,6 +183,26 @@ public class KnowHow {
 	}
 
 
+	public int getUserNo() {
+		return userNo;
+	}
+
+
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
+	}
+
+
+	public String getPostCateName() {
+		return postCateName;
+	}
+
+
+	public void setPostCateName(String postCateName) {
+		this.postCateName = postCateName;
+	}
+
+
 	public String getNickName() {
 		return nickName;
 	}
@@ -180,12 +226,14 @@ public class KnowHow {
 	@Override
 	public String toString() {
 		return "KnowHow [postTitle=" + postTitle + ", postContent=" + postContent + ", postFileRename=" + postFileRename
-				+ ", name=" + name + ", pcomContent=" + pcomContent + ", postNo=" + postNo + ", postUpdateDate="
-				+ postUpdateDate + ", postCount=" + postCount + ", postStatus=" + postStatus + ", nickName=" + nickName
+				+ ", name=" + name + ", pcomContent=" + pcomContent + ", postNo=" + postNo + ", postCreateDate="
+				+ postCreateDate + ", postUpdateDate=" + postUpdateDate + ", postCount=" + postCount + ", postStatus="
+				+ postStatus + ", userNo=" + userNo + ", postCateName=" + postCateName + ", nickName=" + nickName
 				+ ", userFileRename=" + userFileRename + "]";
 	}
-	
-	
+
+
+		
 	
 	
 	

@@ -31,7 +31,7 @@
         }
 
     
-
+   .content{margin-left:12%;}
   
         
       
@@ -52,42 +52,43 @@
             <input type="button" value="삭제">
         </div>
 
-        <div class="thumbnail" align="center">
-        <img src="해당게시글이미지경로" width="200" height="150">
+      <div class="content">
+        <div class="thumbnail">
+        <img src="/jsp/resources/" width="200" height="150">
         </div>
         
-        <div class="thumbnail" align="center">
+        <div class="thumbnail">
             <img src="해당게시글이미지경로" width="200" height="150">
         </div> 
 
-        <div class="thumbnail" align="center">
+        <div class="thumbnail">
             <img src="해당게시글이미지경로" width="200" height="150">
         </div> 
 
-        <div class="thumbnail" align="center">
+        <div class="thumbnail">
             <img src="해당게시글이미지경로" width="200" height="150">
         </div>
 
-        <div class="thumbnail" align="center">
+        <div class="thumbnail">
             <img src="해당게시글이미지경로" width="200" height="150">
         </div>
 
-        <div class="thumbnail" align="center">
+        <div class="thumbnail">
             <img src="해당게시글이미지경로" width="200" height="150">
         </div>
 
-        <div class="thumbnail" align="center">
+        <div class="thumbnail">
             <img src="해당게시글이미지경로" width="200" height="150">
         </div>
 
-        <div class="thumbnail" align="center">
+        <div class="thumbnail">
             <img src="해당게시글이미지경로" width="200" height="150">
         </div> 
 
-        <div class="thumbnail" align="center">
+        <div class="thumbnail">
             <img src="해당게시글이미지경로" width="200" height="150">
         </div> 
-
+      </div>
 
       
     </div>

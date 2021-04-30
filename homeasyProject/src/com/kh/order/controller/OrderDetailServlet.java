@@ -34,8 +34,10 @@ public class OrderDetailServlet extends HttpServlet {
 		
 		
 		Order o = new OrderService().selectDetail();
+		Order d = new OrderService().detailList();
 		
 		request.setAttribute("o", o);
+		request.setAttribute("d", d);
 		
 		request.getRequestDispatcher("views/order/orderDetail.jsp").forward(request, response);
 		

@@ -70,7 +70,7 @@ public class OrderDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-			 o = new Order(rset.getString("name"),
+			 o = new Order(   rset.getString("name"),
 						      rset.getString("address"),
 						      rset.getString("phone"),
 						      rset.getString("order_memo"),
@@ -91,6 +91,59 @@ public class OrderDao {
 		return o;
 
 	}
-
+	
+	public Order detailList(Connection conn) {
+		Order d = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("detailList");
+		
+			try {
+				pstmt = conn.prepareStatement(sql);
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					d = new Order(rset.getString("product_name"),
+							      rset.getString("product_price"));
+				}
+				
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+				close(rset);
+			}
+			
+			return d;
+	}
+	
+	public Order selectReview(Connection conn) {
+		Order p = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectReview");
+		
+			try {
+				
+				pstmt = conn.prepareStatement(sql);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					p = new Order(rset.getString("product_name"));
+							     
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close(pstmt);
+				close(rset);
+			}
+			return p;
+	}
 	
 }

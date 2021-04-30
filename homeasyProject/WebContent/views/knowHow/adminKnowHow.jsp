@@ -132,7 +132,7 @@
                 <table align="center" class="knowhow_list" style="overflow-x:auto;">
                 	<thead>
 	                    <tr>
-	                        <th>선택</th>
+	                    	<th>번호</th>
 	                        <th>노하우 게시글 제목</th>
 	                        <th>작성일</th>
 	                        <th>조회수</th>
@@ -149,9 +149,9 @@
 	                	<!-- 조회된 결과가 있을 경우 -->
 	                		<% for(KnowHow k : list) { %>
 			                    <tr>
-			                        <td><input type="checkbox"></td>
-			                        <td data-toggle="modal" data-target="#updateKnowhow"><%= k.getPostTitle() %></td>
-			                        <td><%= k.getPostUpdateDate() %></td>
+			                    	<td><%= k.getPostNo() %></td>
+			                        <td><%= k.getPostTitle() %></td>
+			                        <td><%= k.getPostCreateDate() %></td>
 			                        <td><%= k.getPostCount() %></td>
 			                        <td><%= k.getPostStatus() %></td>
 			                    </tr>
@@ -159,6 +159,16 @@
 	                    <% } %>
                     </tbody>                    
                 </table>
+                
+                <script>
+                	$(function() {
+                		$(".knowhow_list>tbody>tr").click(function() {
+                			// /jsp/adminDetail.kh?pno=글번호
+                			location.href = '<%= contextPath %>/adminDetail.kh?pno=' + $(this).children().eq(0).text();
+                		})
+                	})
+                </script>
+                
                 <br><br>
 
                 <div align="center" class="pagingArea">

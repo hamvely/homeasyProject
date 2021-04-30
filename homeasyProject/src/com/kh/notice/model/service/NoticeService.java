@@ -55,6 +55,15 @@ public class NoticeService {
 	}
 
 	/* 공지사항 상세(관리자) */
+	public Notice selectNoticeAdmin(int noticeNo) {
+		Connection conn = getConnection();
+		Notice n = new NoticeDao().selectNoticeAdmin(conn, noticeNo);
+		
+		close(conn);
+		return n;
+	}
+	
+	/* 공지사항 상세(사용자) */
 	public Notice selectNotice(int noticeNo) {
 		Connection conn = getConnection();
 		Notice n = new NoticeDao().selectNotice(conn, noticeNo);
@@ -62,8 +71,6 @@ public class NoticeService {
 		close(conn);
 		return n;
 	}
-	
-	
 	
 	
 	
