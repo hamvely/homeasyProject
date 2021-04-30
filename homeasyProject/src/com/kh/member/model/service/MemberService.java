@@ -93,6 +93,16 @@ public class MemberService {
 		close(conn);
 		return count;
 	}
+	
+	public Member selectMember(int userNo) {
+		
+		Connection conn = getConnection();
+		Member m = new MemberDao().selectMember(conn, userNo);
+		
+		close(conn);
+		return m;
+		
+	}
 
 
 	

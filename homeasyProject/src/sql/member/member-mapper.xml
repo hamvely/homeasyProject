@@ -105,4 +105,24 @@
 		 WHERE EMAIL = ?
 	</entry>
 	
+	
+	<!-- 작성자:임지우 - 회원관리 상세보기 -->
+	<entry key="selectMember">
+		SELECT 
+               USER_NO
+             , EMAIL
+             , NAME
+             , NICKNAME
+             , GENDER
+             , BIRTH
+             , POST_CODE
+             , ADDRESS
+             , PHONE
+             , JOIN_DATE
+             , USER_STATUS
+             , ADMIN
+          FROM MEMBER
+	</entry>
+	
+	
 </properties>

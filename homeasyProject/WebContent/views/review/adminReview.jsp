@@ -160,9 +160,7 @@
 			                        <td><%= r.getReNo() %></td>
 			                        <td><%= r.getProductName() %></td>
 			                        <td><%= r.getEmail() %></td>
-			                        <td data-toggle="modal" data-target="#detailReview">
-			                        	<%= r.getReContent() %>
-			                        </td>
+			                        <td><%= r.getReContent() %></td>
 			                        <td><%= r.getReMark() %></td>
 			                    </tr>
 			                <% } %>
