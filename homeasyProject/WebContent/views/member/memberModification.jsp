@@ -102,17 +102,17 @@ div{outline: 1px solid violet;}
             <table>
                 <tr>
                     <td>이메일</td>
-                    <td><input type="text" name="userEmail" size="30" value="<%=getEmail()%> readonly></td>
+                    <td><input type="text" name="userEmail" size="30" value="<%= loginUser.getEmail() %>" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>이름</td>
-                    <td><input type="text" name="userName" size="30" readonly></td>
+                    <td><input type="text" name="userName" size="30" value="<%= loginUser.getUserName() %>" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>별명</td>
-                    <td><input type="text" name="nickName" maxlength="10" size="30" placeholder="별명(2~10자)" required></td>
+                    <td><input type="text" name="nickName" maxlength="10" size="30" placeholder="별명(2~10자)" value="<%= loginUser.getNickName() %>" required></td>
                     <td></td>
                 </tr>
 
@@ -126,6 +126,11 @@ div{outline: 1px solid violet;}
                 <tr>
                     <td>전화번호</td>
                     <td><input type="text" name="phone" size="30" placeholder="(-포함해서 입력)"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                	<td>생년월일</td>
+                    <td><input type="date" name="birth" size="30"></td>
                     <td></td>
                 </tr>
                 <tr>
