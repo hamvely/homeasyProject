@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kh.review.model.vo.Review"%>
+    pageEncoding="UTF-8" import="com.kh.member.model.vo.Member"%>
 <%
-	Review r = (Review)request.getAttribute("r");
-	// 회원이메일, 상품명, 리뷰평점, 리뷰내용
+	Member m = (Member)request.getAttribute("m");
+	// 회원번호, 이메일, 이름, 별명, 성별, 생일, 우편번호, 주소, 폰번호, 가입일, 회원상태, 관리자여부
 %> 
 <!DOCTYPE html>
 <html>
@@ -112,30 +112,62 @@
                 <h3>회원관리</h3>
 
                 <!-- 회원 상세 폼 -->
-                <form action="<%= contextPath %>/adminDetail.re?" class="review_detail" method="post">
+                <form action="<%= contextPath %>/adminDetail.me?" class="member_detail" method="post">
                 	<!-- 버튼 -->
 	                <div class="content_bar">
-	                	<a href="<%= contextPath %>/adminlist.re?currentPage=1" class="btn btn-warning">목록가기</a>
-	                    <a href="<%= contextPath %>/adminDelete.re?rno=<%= r.getReNo() %>" class="btn btn-warning">삭제</a>
+	                	<a href="<%= contextPath %>/adminlist.me?currentPage=1" class="btn btn-warning">목록가기</a>
+	                    <a href="" class="btn btn-warning">삭제</a>
 	                </div>
 	                <br><br>
 	                
                     <table class="member_list">
                         <tr>
+                            <th>회원번호</th>
+                            <td colspan="3"><%= m.getUserNo() %></td>
+                        </tr>
+                        <tr>
                             <th>회원이메일</th>
-                            <td colspan="3"><%= r.getEmail() %></td>
+                            <td colspan="3"><%= m.getEmail() %></td>
                         </tr>
                         <tr>
-                            <th>상품명</th>
-                            <td colspan="3"><%= r.getProductName() %></td>
+                            <th>회원이름</th>
+                            <td colspan="3"><%= m.getUserName() %></td>
                         </tr>
                         <tr>
-                            <th>리뷰평점</th>
-                            <td colspan="3"><%= r.getReMark() %></td>
+                            <th>별명</th>
+                            <td colspan="3"><%= m.getNickName() %></td>
                         </tr>
                         <tr>
-                            <th>리뷰내용</th>
-                            <td colspan="3"><%= r.getReContent() %></td>
+                            <th>성별</th>
+                            <td colspan="3"><%= m.getGender() %></td>
+                        </tr>
+                        <tr>
+                            <th>생년월일</th>
+                            <td colspan="3"><%= m.getBirth() %></td>
+                        </tr>
+                        <tr>
+                            <th>우편번호</th>
+                            <td colspan="3"><%= m.getPostCode() %></td>
+                        </tr>
+                        <tr>
+                            <th>주소</th>
+                            <td colspan="3"><%= m.getAddress() %></td>
+                        </tr>
+                        <tr>
+                            <th>연락처</th>
+                            <td colspan="3"><%= m.getPhone() %></td>
+                        </tr>
+                        <tr>
+                            <th>가입일</th>
+                            <td colspan="3"><%= m.getJoinDate() %></td>
+                        </tr>
+                        <tr>
+                            <th>회원상태</th>
+                            <td colspan="3"><%= m.getUserStatus() %></td>
+                        </tr>
+                        <tr>
+                            <th>관리자여부</th>
+                            <td colspan="3"><%= m.getAdmin() %></td>
                         </tr>
                     </table>
                 </form>
