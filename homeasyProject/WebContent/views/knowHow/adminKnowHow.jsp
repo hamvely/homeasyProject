@@ -151,7 +151,7 @@
 			                    <tr>
 			                    	<td><%= k.getPostNo() %></td>
 			                        <td><%= k.getPostTitle() %></td>
-			                        <td><%= k.getPostUpdateDate() %></td>
+			                        <td><%= k.getPostCreateDate() %></td>
 			                        <td><%= k.getPostCount() %></td>
 			                        <td><%= k.getPostStatus() %></td>
 			                    </tr>

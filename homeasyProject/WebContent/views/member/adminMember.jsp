@@ -149,7 +149,6 @@
                 <table align="center" class="member_list" style="overflow-x:auto;">
                 	<thead>
 	                    <tr>
-	                        <th>선택</th>
 	                        <th>회원번호</th>
 	                        <th>회원이메일</th>
 	                        <th>회원이름</th>
@@ -168,13 +167,12 @@
 	                	<!-- 조회된 결과가 없을 경우 -->
 	                	<% if(list.isEmpty()) { %>
 	                		<tr>
-	                			<td colspan="13">조회된 리스트가 없습니다.</td>
+	                			<td colspan="12">조회된 리스트가 없습니다.</td>
 	                		</tr>
 	                	<% }else { %>
 	                	<!-- 조회된 결과가 있을 경우 -->
 	                		<% for(Member m : list) { %>
 			                    <tr>
-			                        <td><input type="checkbox"></td>
 			                        <td><%= m.getUserNo() %></td>
 			                        <td><%= m.getEmail() %></td>
 			                        <td><%= m.getUserName() %></td>

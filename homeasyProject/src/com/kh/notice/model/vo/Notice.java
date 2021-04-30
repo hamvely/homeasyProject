@@ -24,12 +24,8 @@ public class Notice {
 	}
 	
 	/* 공지사항 리스트조회(사용자)*/
-	public Notice(String noticeTitle, Date createDate) {
-		super();
-		this.noticeTitle = noticeTitle;
-		this.createDate = createDate;
-	}
 	
+
 	/* 공지사항 리스트조회(관리자)*/
 	public Notice(int noticeNo, String noticeTitle, int count, Date createDate, String status) {
 		super();
@@ -58,6 +54,16 @@ public class Notice {
 		this.status = status;
 	}
 	
+	/* 공지사항 상세(사용자) */
+	public Notice(int noticeNo, String noticeTitle, String noticeContent, Date createDate) {
+		super();
+		this.noticeNo = noticeNo;
+		this.noticeTitle = noticeTitle;
+		this.noticeContent = noticeContent;
+		this.createDate = createDate;
+	}
+
+	
 	/* 관리자 메인 박스 공지사항 리스트 */
 	public Notice(int noticeNo, String noticeTitle, Date createDate) {
 		super();
@@ -65,6 +71,7 @@ public class Notice {
 		this.noticeTitle = noticeTitle;
 		this.createDate = createDate;
 	}
+
 
 	public int getNoticeNo() {
 		return noticeNo;

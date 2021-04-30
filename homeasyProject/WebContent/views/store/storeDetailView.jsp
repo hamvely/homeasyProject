@@ -92,12 +92,12 @@
                                <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
                             </option>
                             <% } else { %>
-                           		<option value="<%= optionList.get(i).getOptionNo() %>">
+                           		<option value="<%= optionList.get(i).getOptionPrice()  %>">
                               		<%= optionList.get(i).getOptionName() %>(+<span><%= optionList.get(i).getOptionPrice() %></span>원)
                        			</option>
                             <% } %>
                        <% } %>
-                 </select>
+                 	</select>
 			        <br>
                                      수량 : <input type="number" id="amount">  
                     </form>
@@ -117,21 +117,31 @@
         </div>
 
 		<script> 
+		function optionSelect(){
+		    var option = document.getElementById("selectOption");
+			console.log(selectOption);
+		}
+		
+		</script>
+
+<!--  
 			function optionSelect(){
-				var optionPrice = $("#selectOption option:selected").find("span").text(); 
-				console.log(optionPrice);
+				//var optionPrice = $("#selectOption option:selected").find("span").text(); 
+				//console.log(optionPrice);
+				
+					
+			}
+				$("select[name=selectOption]").change(function(){
+					  console.log($(this).val());
+
 				/*
 				// select element에서 선택된 option의 value가 저장된다. 
 				var selectValue = langSelect.options[langSelect.selectedIndex].value; 
 				
 				// select element에서 선택된 option의 text가 저장된다. 
 				var selectText = langSelect.options[langSelect.selectedIndex].text; 
-				}
 			*/
-			}
-		</script>
-
-
+-->
 		
     </div>
         

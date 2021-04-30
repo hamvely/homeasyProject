@@ -10,109 +10,44 @@ String contextPath = request.getContextPath();
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-    .outer{
-        width: 200px;
-        height: 1150px;
-        margin:auto;
-    }
+    .outer{width: 200px;  height: 1150px;}
 
-    .profile{
-        width: 100%;
-        height: 300px;
-        outline: none;
-        box-shadow: 0 0 0 2px;
-        border-radius: 15px;
-    }
+    .profile{width: 100%; height: 300px; outline: none; box-shadow: 0 0 0 2px; border-radius: 15px;}
 
-    #menubar{
-        width: 100%;
-        height: 850px;
-        outline: none;
-        box-shadow: 0 0 0 2px;
-        border-radius: 15px;
-    }
+    #menubar{ width: 100%; height: 850px; outline: none; box-shadow: 0 0 0 2px; border-radius: 15px;}
     
     /* 프로필 메뉴바 */
-    .profile-sidebar{
-        width: 100%;
-        height: 190px;
-        padding-top: 20px;
-    }
+    .profile-sidebar{width: 100%; height: 190px; padding-top: 20px;}
     
-    .profile-userimg {
-        display: block;
-        margin: auto;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        overflow: hidden;
-    }
+    .profile-userimg {display: block; margin: auto; width: 120px; height: 120px; border-radius: 50%; overflow: hidden;}
 
-    .profile-userimg img{
-        width: 100%;
-        height: 100%;
-    }
+    .profile-userimg img{width: 100%; height: 100%;}
 
-    .profile-usertitle{
-        text-align: center;
-        padding-top: 10px;
-    }
+    .profile-usertitle{text-align: center; padding-top: 10px;}
     
-    .profile-usertitle a{
-        text-decoration:none;
-        font-size: 20px;
-        color: black;                
-    }
+    .profile-usertitle a{text-decoration:none; font-size: 20px; color: black;}
 
     /* 스크랩/좋아요/쿠폰 */
-    .profile-usermenu>div{
-        display: block;
-        margin: auto;
-        float: left;
-        width: 66px;
-        height: 100px;
-        text-align: center;
-    }
+    .profile-usermenu>div{display: block; margin: auto; float: left; width: 66px; height: 100px; text-align: center;}
     
-    #scrap{
-        padding-left: 2px;
-    }
+    #scrap{padding-left: 2px;}
 
-    .profile-usermenu img{
-        width:30px;
-    }
+    .profile-usermenu img{width:30px;}
 
-    .profile-usermenu a{
-        text-decoration:none;
-        color: black;
-    }
+    .profile-usermenu a{text-decoration:none; color: black;}
 
      /* 메뉴바 div */
-     #menubar{
-        width: 100%;
-        height: 850px;
-        padding: 0;
-    }
+    #menubar{width: 100%; height: 850px; padding: 0;}
 
-    #bar{
-        margin-top: 10px;
-    }
+    #bar{margin-top: 10px;}
 
-    .group{
-        padding-top: 20px;
-    }
+    .group{padding-top: 20px;}
 
-    ul#bar{
-        width: 100%;
-        text-indent: 10px;
-    }
-    ul#bar, ul#bar ul{
-        padding: 0;
-        list-style: none;
-    }
-    li.group{
-        margin-bottom: 3px; 
-    }
+    ul#bar{width: 100%; text-indent: 10px;}
+
+    ul#bar, ul#bar ul{padding: 0; list-style: none;}
+    li.group{margin-bottom: 3px;}
+
 
     /* 메뉴바 타이틀 */
     li.group div.title{
@@ -136,6 +71,7 @@ String contextPath = request.getContextPath();
         text-decoration: none;
         color: black;
     }
+
 </style>
 </head>
 <body>

@@ -98,4 +98,11 @@
 		 WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
+	<entry key="idCheck">
+		SELECT
+		       COUNT(*) "COUNT"
+		  FROM MEMBER
+		 WHERE EMAIL = ?
+	</entry>
+	
 </properties>

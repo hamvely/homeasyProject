@@ -11,6 +11,7 @@ public class KnowHow {
 	private String pcomContent;
 	// 작성자:임지우 - 매개변수 추가
 	private int postNo;
+	private Date postCreateDate;
 	private Date postUpdateDate;
 	private int postCount;
 	private String postStatus; 
@@ -25,11 +26,11 @@ public class KnowHow {
 	
 	
 	// 작성자:임지우 - 노하우관리 리스트조회
-	public KnowHow(int postNo, String postTitle, Date postUpdateDate, int postCount, String postStatus) {
+	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postStatus) {
 		super();
 		this.postNo = postNo;
 		this.postTitle = postTitle;
-		this.postUpdateDate = postUpdateDate;
+		this.postCreateDate = postCreateDate;
 		this.postCount = postCount;
 		this.postStatus = postStatus;
 	}
@@ -47,11 +48,11 @@ public class KnowHow {
 	}
 	
 	// 작성자: 임지우 - 노하우관리 상세보기
-	public KnowHow(int postNo, String postTitle, Date postUpdateDate, int postCount, String postStatus, String postFileRename, String postContent) {
+	public KnowHow(int postNo, String postTitle, Date postCreateDate, int postCount, String postStatus, String postFileRename, String postContent) {
 		super();
 		this.postNo = postNo;
 		this.postTitle = postTitle;
-		this.postUpdateDate = postUpdateDate;
+		this.postCreateDate = postCreateDate;
 		this.postCount = postCount;
 		this.postStatus = postStatus;
 		this.postFileRename = postFileRename;
@@ -70,22 +71,10 @@ public class KnowHow {
 	}
 
 	//노하우게시글상세보기
-	public KnowHow(int postNo, String userFileRename, String nickName, String postFileRename, String postContent, String pcomContent) {
-		super();
-		this.postNo = postNo;
-		this.userFileRename = userFileRename;
-		this.nickName = nickName;
-		this.postFileRename = postFileRename;
-		this.postContent = postContent;
-		this.pcomContent = pcomContent;
-	}
-
-	
-	
-	public KnowHow(String postTitle, String name, String postFileRename, String postContent, String pcomContent) {
+	public KnowHow(String postTitle, String nickName, String postFileRename, String postContent, String pcomContent) {
 		super();
 		this.postTitle = postTitle;
-		this.name = name;
+		this.nickName = nickName;
 		this.postFileRename = postFileRename;
 		this.postContent = postContent;
 		this.pcomContent = pcomContent;
@@ -218,6 +207,16 @@ public class KnowHow {
 	public void setUserFileRename(String userFileRename) {
 		this.userFileRename = userFileRename;
 	}
+	
+
+	public Date getPostCreateDate() {
+		return postCreateDate;
+	}
+
+
+	public void setPostCreateDate(Date postCreateDate) {
+		this.postCreateDate = postCreateDate;
+	}
 
 
 	@Override
@@ -227,6 +226,8 @@ public class KnowHow {
 				+ postUpdateDate + ", postCount=" + postCount + ", postStatus=" + postStatus + ", nickName=" + nickName
 				+ ", userFileRename=" + userFileRename + "]";
 	}
+
+
 
 
 

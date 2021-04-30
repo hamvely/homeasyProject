@@ -14,65 +14,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
 <!--작성자 : 김혜미-->
 <style>
-    .outer{
-        width: 1200px;
-        margin: auto;
-        padding-top: 50px;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+* {font-family: 'Noto Sans KR', sans-serif;}
 
-    .inner{
-        width: 400px;
-        margin: auto;
-        border: 1px solid black;
-    }
+    .outer{width: 1446px; height: 800px; margin: auto; padding-top: 180px; background-color:rgb(3, 79, 6);}
 
-    #logo img {
-        padding-top: 30px;
-        padding-bottom: 30px;
-        display:block; 
-        margin:auto;
-    }
+    .inner{width: 400px; height:400px; margin: auto; border: 1px solid black; background-color:rgb(248, 243, 243); border-radius:25px;
+           border: 1px solid #ccc;}
+
+    #logo img {padding-top: 30px; padding-bottom: 30px; display:block; margin:auto;}
     
     #loginForm{
         margin: auto;
-        width: 250px;
+        width: 260px;
         height: 200px;
         text-align:center !important;
     }
-
-
-    #snsForm{margin-top: 40px;}
-    #snsForm table {
-        margin: auto;
-        width: 350px;
-        height: 180px;
-        font-size: 13px;
-        text-align:center !important;
-    }
-
-    #sns img {max-width: 40px;}
     
     /* 버튼스타일 */
-    .btn-success {
-    	background-color:rgb(3, 79, 6); 
-    	border-color:rgb(3, 79, 6);
-    }
-
-    .btn-secondary {
-    	background-color:rgb(158, 158, 158); 
-    	border-color:rgb(158, 158, 158);
-    }
-
-    button {
-        margin: 10px 5px 10px 0;
-    }
+    .btn-success {background-color:rgb(3, 79, 6); border-color:rgb(3, 79, 6);}
+    .btn-secondary {background-color:rgb(158, 158, 158); border-color:rgb(148, 143, 143);}
+    button {margin: 10px 5px 10px 0;}
     
     /* input 스타일 */
     input {height:40px;}
-    
-    .terms input {vertical-align: -13px;}
 
 	/* input 네온스타일 */
     textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
@@ -94,7 +62,6 @@
 		}
 	</script>
 
-
     <div class="outer">
         <div class="inner">
             <a href="<%= request.getContextPath() %>" id="logo"><img src="resources/img/logo/logo (1).png" width="55%"></a>
@@ -113,12 +80,13 @@
                 </div>
                 
                 <div align="center">
-                    <button type="submit" class="btn btn-success" style="width: 240px;">로그인</button>
+                    <button type="submit" class="btn btn-success" style="width: 250px;">로그인</button>
                 </div>
                 <div align="center">
                     <button type="button" class="btn btn-secondary">비밀번호 재설정</button>
                     <button type="button" class="btn btn-secondary" onclick="enrollPage();">회원가입</button>
                 </div>
+                <div></div>
                 
                 <script>
                     function enrollPage(){
@@ -127,25 +95,6 @@
                     }
                 </script>
             </form>    
-
-            <form action="" method="post" id="snsForm">
-                <table>
-                    <tr>
-                        <td colspan="6">SNS계정으로 간편 로그인/회원가입</td>
-                    </tr>
-                    <tr id="sns">
-                        <th colspan="2"><a href=""><img src="resources/img/icon/facebook.png" style="float: right;"></a></th>
-                        <th colspan="2"><a href=""><img src="resources/img/icon/kakao.png"></a></th>
-                        <th colspan="2"><a href=""><img src="resources/img/icon/naver.png" style="float: left;"></a></th>
-                    </tr>
-                    <tr>
-                        <th colspan="6">
-                            <button type="submit" class="btn btn-secondary" style="width: 240px;">비회원 주문 조회하기</button>
-                        </th>
-                    </tr>
-                </table> 
-            </form>
-    
         </div>
     </div>
 </body>

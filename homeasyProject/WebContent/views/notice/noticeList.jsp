@@ -55,24 +55,37 @@
         </div>
         <br><br>
 
-		<table class="listArea" align="center">
-
-			<% if(list.isEmpty()) { %>
-				<tr><td>존재하는 공지사항이 없습니다.</td></tr>
-			<% }else{ %>
-			
-				<% for(Notice n:list){ %>
-				
-					 <tr><td><%= n.getNoticeTitle() %></td></tr>
-					 <tr><td><%= n.getCreateDate() %></td></tr>
-					 <tr><td><hr></td></tr>
-					 
-				<% } %>
-			<% } %>
+		<table class="listArea" align="center" border="1">
+			<tbody>
 		
+				<% if(list.isEmpty()) { %>
+					<tr>
+						<td>존재하는 공지사항이 없습니다.</td>
+					</tr>
+				<% }else { %>
+					<% for(Notice n : list) { %>
+					<tr>
+						<td width="700px"><%= n.getNoticeTitle() %></td>
+						<td width="100px"><%= n.getCreateDate() %></td>
+						<td><%= n.getNoticeNo() %></td>
+						<td><hr></td>
+					</tr>
+					<% } %>
+				<% } %>
+				
+			</tbody>
 		</table>
 		
+		
+		
+		
+		
 		<br><br>
+			<colgroup>
+				<col width="5%;"/>
+				<col width="65%;"/>
+				<col width="30%;"/>
+			</colgroup>
 		
         <ul class="pagination justify-content-center">
             <% if(currentPage != 1) { %>
@@ -94,10 +107,17 @@
                     <li class="page-item"><a class="page-link" href="<%= contextPath %>/list.no?currentPage=<%= currentPage+1 %>">다음</a></li>
             <% } %>
         </ul>
-  
-		
-		
     </div>
+    
+    <script>
+    	$(function(){
+			$(".listArea>tbody>tr").click(function(){
+				// 쿼리스트링 이용해서 요청할 url 작성
+				location.href = '<%=contextPath%>/detail.no?nno=' + $(this).children().eq(2).text();
+									
+			})
+    	})
+	</script>
 	
 </body>
 </html>

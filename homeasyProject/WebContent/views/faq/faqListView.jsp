@@ -2,8 +2,6 @@
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.faq.model.vo.Faq"%>
 <%
 	ArrayList<Faq> list = (ArrayList<Faq>)request.getAttribute("list");
-
-	String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
@@ -28,9 +26,12 @@
 </head>
 <body>
 
+	<%@ include file="../common/mainHeader.jsp" %>
+    <br><br>
+	
 	<div class="outer">
 
-        <div class="faqHeder">
+        <div class="faqHeder" style="margin-left: 600px;"><!-- 텍스트크기 늘리면 여기 줄여-->
             <div class="info faq">
                 <h1>FAQ</h1>
                 <p>
@@ -39,7 +40,7 @@
                     전화 : xxxx-xxxxx
                 </p>
             </div>
-            <div class="topquestion faq">
+            <div class="topquestion faq" style="margin-left: 400px;"><!-- 텍스트크기 늘리면 여기 줄여-->
                 <a href="">배송은 얼마나 걸리나요?</a> <br>
                 <a href="">배송은 얼마나 걸리나요?</a> <br>
                 <a href="">배송은 얼마나 걸리나요?</a>
@@ -47,7 +48,7 @@
         </div>
 
         <div class="faqNavigator">
-            <table class="nav">
+            <table class="nav" style="margin-left: 600px;"><!-- 텍스트크기 늘리면 여기 줄여-->
                 <tr>
                     <td><a href="<%= contextPath %>/listAll.faq">전체</a></td>
                     <td><a href="<%= contextPath %>/listPay.faq">주문/결제</a></td>
@@ -61,7 +62,7 @@
 
         <hr>
 		
-		<table align="center" class="listArea">
+		<table class="listArea" style="margin-left:950px;"> <!-- 텍스트크기 늘리면 여기 줄여-->
             <thead>
                 <tr>
                 	<th width="0">

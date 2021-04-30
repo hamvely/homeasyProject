@@ -11,6 +11,8 @@ public class Attachment {
 	private String fileSystemName;
 	private String filePath;
 	private int fileLevel;
+	private String changeName;
+	
 	
 	public Attachment() {}
 
@@ -29,6 +31,20 @@ public class Attachment {
 		this.fileSystemName = fileSystemName;
 		this.filePath = filePath;
 		this.fileLevel = fileLevel;
+	}
+	
+	
+
+	public Attachment(String originName, String filePath, String changeName) {
+		super();
+		this.originName = originName;
+		this.filePath = filePath;
+		this.changeName = changeName;
+	}
+
+	
+	public void setChangeName(String changeName) {
+		this.changeName = changeName;
 	}
 
 	public int getPostFileNo() {
@@ -94,11 +110,10 @@ public class Attachment {
 
 	@Override
 	public String toString() {
-		return "Attachment [postFileNo=" + postFileNo + ", postNo=" + postNo + ", postFileReName=" + postFileRename
+		return "Attachment [postFileNo=" + postFileNo + ", postNo=" + postNo + ", postFileRename=" + postFileRename
 				+ ", originName=" + originName + ", fileSystemName=" + fileSystemName + ", filePath=" + filePath
-				+ ", fileLevel=" + fileLevel + "]";
+				+ ", fileLevel=" + fileLevel + ", changeName=" + changeName + "]";
 	}
-
 
 	
 

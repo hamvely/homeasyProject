@@ -121,6 +121,29 @@ public class CouponDao {
 		
 	}
 	
+	public int deleteCoupon(Connection conn, int cp_no) {
+		
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteCoupon");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cp_no);
+			
+			result = pstmt.executeUpdate();			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+		
+	}
+	
 	
 	
 

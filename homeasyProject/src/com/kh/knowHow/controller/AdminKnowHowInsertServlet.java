@@ -1,6 +1,7 @@
 package com.kh.knowHow.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,11 +48,17 @@ public class AdminKnowHowInsertServlet extends HttpServlet {
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
 			
+			// postTitle 변수에 enroll 인풋 name에 지정한 post_title 기록
+			String userNo = multiRequest.getParameter("user_no");
+			String postCateName = multiRequest.getParameter("post_cate_name");
 			String postTitle = multiRequest.getParameter("post_title");
 			String postContent = multiRequest.getParameter("post_content");
+			String postUpdateDate = multiRequest.getParameter("post_update_date");
+			String postStatus = multiRequest.getParameter("post_status");
+			
 			
 			KnowHow k = new KnowHow();
-			k.setPostTitle(postTitle);
+			k.setPostTitle(postTitle); // KnowHow.vo클래스 변수에 ? 값 담기
 			k.setPostContent(postContent);
 			
 			//System.out.println(multiRequest.getOriginalFileName("upfile")); // view단에 input type="file"의 name

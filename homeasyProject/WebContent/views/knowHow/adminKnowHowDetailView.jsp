@@ -71,6 +71,9 @@
     }
 
     /* 등록 폼 스타일 */
+    .knowhow_list {
+        width: 800px;
+    }
     .knowhow_enroll table {
         margin-left: 30px;
     }
@@ -78,7 +81,7 @@
         color: #2e363e;
         font-size: 17px;
         font-weight: bold;
-        height: 50px;
+        height: 60px;
         width: 150px;
     }
 </style>
@@ -108,12 +111,12 @@
                 <form action="<%= contextPath %>/adminDetail.kh" class="knowhow_enroll" method="post" enctype="multipart/form-data">
                 	<!-- 버튼 -->
 	                <div class="content_bar">
-	                    <button type="submit" class="content_btn">수정</button>
-	                    <button type="reset" class="content_btn">삭제</button>
+	                    <a href="<%= contextPath %>/adminlist.kh?currentPage=1" class="btn btn-warning">목록가기</a>
+	                    <a href="<%= contextPath %>/adminDelete.kh?kno=<%= k.getPostNo() %>" class="btn btn-warning">삭제</a>
 	                </div>
 	                <br><br>
 	                
-                    <table>
+                    <table class="knowhow_list">
                         <tr>
                             <th>제목</th>
                             <td colspan="3"><%= k.getPostTitle() %></td>
@@ -143,10 +146,9 @@
                         </tr>
                         <tr>
                             <th>내용</th>
-                            <td>
+                            <td colspan="3">
                                 <p><%= k.getPostContent() %></p>
                             </td>
-                            <td></td>
                         </tr>
                     </table>
                 </form>

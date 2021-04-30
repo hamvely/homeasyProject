@@ -13,19 +13,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <style>
-    .outer{
-        width: 900px;
-        height: 1150px;
-        margin: auto;
-        padding-top: 20px;
-    }
 
-    .inner{
-        width: 800px;
-        margin: auto;
-        border: 1px solid black;
-    }
+div{outline: 1px solid violet;}
 
+    div {box-sizing: border-box;}
+
+    .outer{width: 1200px; height: 1150px; margin: auto;}
+    .outer div{float: left;}
+
+    .mypageMenubar{width:200px; height:100%; clear: both;}
+    .content{width:1000px; height:100%;}
+    /*
     h1 {margin-left: 85px;}
 
     #modificationForm table {
@@ -46,62 +44,16 @@
     }
 
     #modificationForm input, img{margin:5px; margin-left: 20px;}
+    */
 
+    
 </style>
 </head>
 <body>
 
 	<%@ include file="../common/mainHeader.jsp" %>
+    <br><br>
 	
-    <div class="outer">
-        <div class="inner">    
 
-            <a href="<%= request.getContextPath() %>/withdrawal.me" style="float: right;">탈퇴하기</a>
-            <h1>회원정보수정</h1>
-
-            <form action="" method="post" id="modificationForm">
-                <table>
-                    <tr>
-                        <td>이메일</td>
-                        <td><input type="text" name="userEmail" size="30" readonly></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>이름</td>
-                        <td><input type="text" name="userName" size="30" readonly></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>별명</td>
-                        <td><input type="text" name="nickName" maxlength="10" size="30" placeholder="별명(2~10자)" required></td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td>성별</td>
-                        <td>
-                            <input id="radioM" type="radio" name="gender" value="M"> <label for="radioM">남</label>
-                            <input id="radioF" type="radio" name="gender" value="F"> <label for="radioF">여</label>
-                        </td>                    
-                    </tr>
-                    <tr>
-                        <td>전화번호</td>
-                        <td><input type="text" name="phone" size="30" placeholder="(-포함해서 입력)"></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td style="vertical-align : top;">프로필사진</td>
-                        <td><img src="" width="240" height="240"></td>
-                        <td style="vertical-align : bottom;"><input type="file" name="uploadFile" ></td>
-                    </tr>
-                    <tr>
-                        <th colspan="3"><button type="submit">회원 정보 수정</button></th>
-                    </tr>
-                </table>
-            </form>    
-
-    
-        </div>
-    </div>
 </body>
 </html>

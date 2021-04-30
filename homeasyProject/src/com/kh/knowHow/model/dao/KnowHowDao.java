@@ -113,10 +113,10 @@ public class KnowHowDao {
 			
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) {
+			while(rset.next()) { // 뽑아서 list 객체에 담기 - 컬럼명제시
 				list.add(new KnowHow(rset.getInt("post_no"),
 								     rset.getString("post_title"),
-								     rset.getDate("post_update_date"),
+								     rset.getDate("post_create_date"),
 								     rset.getInt("post_count"),
 								     rset.getString("post_status")));
 			}
@@ -132,7 +132,7 @@ public class KnowHowDao {
 		
 	}
 	
-
+	// 작성자:임지우 - 노하우 테이블 insert
 	public int insertKnowHow(Connection conn, KnowHow k) {
 		
 		int result = 0;
@@ -143,8 +143,8 @@ public class KnowHowDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, k.getPostTitle());
 			pstmt.setString(2, k.getPostContent());
-			pstmt.setDate(3, k.getPostUpdateDate());
-			//pstmt.setString(5, k.getPostStatus());
+			//pstmt.setDate(3, k.getPostUpdateDate());
+			//pstmt.setString(4, k.getPostStatus());
 			
 			result = pstmt.executeUpdate();
 			
@@ -158,6 +158,7 @@ public class KnowHowDao {
 		
 	}
 	
+	// 작성자:임지우 - 노하우첨부 포스트파일 테이블 insert
 	public int insertKnowHowFile(Connection conn, KnowHowFile kf) {
 		
 		int result = 0;
@@ -178,7 +179,7 @@ public class KnowHowDao {
 		
 	}
 
-	
+	// 작성자:임지우 - 노하우 상세보기 노하우테이블 조회
 	public KnowHow selectKnowHow(Connection conn, int postNo) {
 		
 		KnowHow k = null;
@@ -213,6 +214,7 @@ public class KnowHowDao {
 		
 	}
 	
+	// 작성자:임지우 - 노하우 상세보기 노하우첨부 포스트파일 테이블 조회
 	public KnowHowFile selectKnowHowFile(Connection conn, int postNo) {
 		
 		KnowHowFile kf = null;
@@ -284,8 +286,7 @@ public class KnowHowDao {
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				k = new KnowHow(rset.getInt("POST_NO"),
-								rset.getString("USER_FILE_RENAME"),
+				k = new KnowHow(rset.getString("POST_TITLE"),
 								rset.getString("NICKNAME"),
 								rset.getString("POST_FILE_RENAME"),
 						        rset.getString("POST_CONTENT"),
@@ -334,6 +335,35 @@ public class KnowHowDao {
 		   return list;
 		   
 	   }
+	 
+	 public int deleteKnowHow(Connection conn, int postNo) {
+			
+			int result = 0;
+			PreparedStatement pstmt = null;
+			
+			String sql = prop.getProperty("deleteKnowHow");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, postNo);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+			
+		}
+	 
+	 
+	 
+	 
+	 
+	 
 }
 
 
