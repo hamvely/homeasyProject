@@ -51,6 +51,22 @@ public class CouponService {
 		
 	}
 	
+	public int deleteCoupon(int cp_no) {
+		
+		Connection conn = getConnection();
+		int result = new CouponDao().deleteCoupon(conn, cp_no);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		return result;
+		
+	}
+	
 	
 	
 	

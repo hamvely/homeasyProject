@@ -1,23 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kh.knowHow.model.vo.*"%>
+    pageEncoding="UTF-8" import="com.kh.review.model.vo.Review"%>
 <%
-	KnowHow k = (KnowHow)request.getAttribute("k");
-	// 노하우번호, 제목, 생성일, 조회수, 상태, 파일리네임, 내용
-	KnowHowFile kf = (KnowHowFile)request.getAttribute("kf");
-	// null or 파일번호, 파일리네임(실제 서버에 업로드된이름)
-%>
+	Review r = (Review)request.getAttribute("r");
+	// 회원이메일, 상품명, 리뷰평점, 리뷰내용
+%> 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>노하우 상세조회</title>
 <style>
     div {
         outline: 1px solid violet;
@@ -32,10 +31,9 @@
         width: 100%;
     }
     h3 {
-    font-weight: bold;
-    color: #2e363e;
+        font-weight: bold;
+        color: #2e363e;
     }
-    
     #header>div, #content>div {
         float: left;
         height: 100%;
@@ -69,12 +67,11 @@
         margin-right: 10px;
         border: none;
     }
-
+    
+    
     /* 등록 폼 스타일 */
-    .knowhow_list {
+    .member_list {
         width: 800px;
-    }
-    .knowhow_enroll table {
         margin-left: 30px;
     }
     th {
@@ -84,9 +81,16 @@
         height: 60px;
         width: 150px;
     }
+    .content_bar a {
+    	width: 100px;
+    	font-weight: bold;
+    	color: white;
+    	margin-right: 10px;
+    }
 </style>
 </head>
 <body>
+
     <!-- 전체 화면 -->
     <div class="wrap">
         <!-- 상단바 -->
@@ -105,63 +109,50 @@
             <div id="content_2">
 
                 <!-- 페이지 제목 -->
-                <h3>노하우 등록</h3>
+                <h3>회원관리</h3>
 
-                <!-- 노하우 상세 폼 -->
-                <form action="<%= contextPath %>/adminDetail.kh" class="knowhow_enroll" method="post" enctype="multipart/form-data">
+                <!-- 회원 상세 폼 -->
+                <form action="<%= contextPath %>/adminDetail.re?" class="review_detail" method="post">
                 	<!-- 버튼 -->
 	                <div class="content_bar">
-	                    <a href="<%= contextPath %>/adminlist.kh?currentPage=1" class="btn btn-warning">목록가기</a>
-	                    <a href="<%= contextPath %>/adminDelete.kh?kno=<%= k.getPostNo() %>" class="btn btn-warning">삭제</a>
+	                	<a href="<%= contextPath %>/adminlist.re?currentPage=1" class="btn btn-warning">목록가기</a>
+	                    <a href="<%= contextPath %>/adminDelete.re?rno=<%= r.getReNo() %>" class="btn btn-warning">삭제</a>
 	                </div>
 	                <br><br>
 	                
-                    <table class="knowhow_list">
+                    <table class="member_list">
                         <tr>
-                            <th>제목</th>
-                            <td colspan="3"><%= k.getPostTitle() %></td>
+                            <th>회원이메일</th>
+                            <td colspan="3"><%= r.getEmail() %></td>
                         </tr>
                         <tr>
-                            <th>작성일</th>
-                            <td colspan="3"><%= k.getPostUpdateDate() %></td>
+                            <th>상품명</th>
+                            <td colspan="3"><%= r.getProductName() %></td>
                         </tr>
                         <tr>
-                            <th>조회수</th>
-                            <td colspan="3"><%= k.getPostCount() %></td>
+                            <th>리뷰평점</th>
+                            <td colspan="3"><%= r.getReMark() %></td>
                         </tr>
                         <tr>
-                            <th>노출상태</th>
-                            <td colspan="3"><%= k.getPostStatus() %></td>
-                        </tr>
-                        <tr>
-                            <th>첨부사진</th>
-                            <td colspan="3">
-                            	<!-- 첨부파일 없을 경우 -->
-                            	<% if(kf == null) { %>
-                            		첨부파일이 없습니다.
-                            	<% }else { %>
-                            		<a href="<%= contextPath %>/resources/post_upfiles/<%= kf.getPostFileRename() %>"><%= k.getPostFileRename() %></a>
-                            	<% } %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>내용</th>
-                            <td colspan="3">
-                                <p><%= k.getPostContent() %></p>
-                            </td>
+                            <th>리뷰내용</th>
+                            <td colspan="3"><%= r.getReContent() %></td>
                         </tr>
                     </table>
                 </form>
-
-
+                
+               
             </div>
         </div>
     </div>
+    
 
+
+	
 
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"
       crossorigin="anonymous"
     ></script>
+
 </body>
 </html>

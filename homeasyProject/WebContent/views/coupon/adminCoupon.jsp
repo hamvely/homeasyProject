@@ -167,7 +167,7 @@
 			                        <td><%= c.getCp_condition() %></td>
 			                        <td><%= c.getCp_limit() %></td>
 			                        <td><%= c.getCp_memo() %></td>
-                                    <td><a href="" class="btn btn-warning btn-sm btn-delete">삭제</a></td>
+                                    <td><a href="<%= contextPath %>/adminDelete.co?cno=<%= c.getCp_no() %>" class="btn btn-warning btn-sm btn-delete">삭제</a></td>
 			                    </tr>
 			                <% } %>
 	                    <% } %>

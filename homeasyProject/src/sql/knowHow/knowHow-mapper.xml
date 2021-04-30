@@ -121,6 +121,13 @@
 		 WHERE POST_NO = ?
 	</entry>
 	
+	<!-- 작성자:임지우 - 노하우관리 삭제 -->
+	<entry key="deleteKnowHow">
+		DELETE
+			   POST
+		 WHERE POST_NO = ?
+	</entry>
+	
 
 	
 	<!-- 작성자 :아영 - 노하우 게시글 조회수 -->

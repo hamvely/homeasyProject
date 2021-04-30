@@ -335,6 +335,35 @@ public class KnowHowDao {
 		   return list;
 		   
 	   }
+	 
+	 public int deleteKnowHow(Connection conn, int postNo) {
+			
+			int result = 0;
+			PreparedStatement pstmt = null;
+			
+			String sql = prop.getProperty("deleteKnowHow");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, postNo);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+			
+		}
+	 
+	 
+	 
+	 
+	 
+	 
 }
 
 

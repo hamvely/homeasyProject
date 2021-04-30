@@ -10,6 +10,7 @@ import com.kh.knowHow.model.dao.KnowHowDao;
 import com.kh.knowHow.model.vo.KnowHow;
 import com.kh.knowHow.model.vo.KnowHowFile;
 import com.kh.qna.model.vo.Attachment;
+import com.kh.review.model.dao.ReviewDao;
 
 
 public class KnowHowService {
@@ -111,6 +112,22 @@ public class KnowHowService {
 		KnowHowFile kf = new KnowHowDao().selectKnowHowFile(conn, postNo);
 		close(conn);
 		return kf;
+	}
+	
+	public int deleteKnowHow(int postNo) {
+		
+		Connection conn = getConnection();
+		int result = new KnowHowDao().deleteKnowHow(conn, postNo);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		return result;
+		
 	}
 	
 	
