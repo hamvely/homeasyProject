@@ -65,6 +65,18 @@ public class Review {
 		this.reMark = reMark;
 	}
 
+	
+	
+	
+
+
+	public Review(String recontent, int productNo, int userNo) {
+		super();
+		this.recontent = recontent;
+		this.productNo = productNo;
+		this.userNo = userNo;
+	}
+
 
 
 	public String getName() {

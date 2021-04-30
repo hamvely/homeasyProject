@@ -166,7 +166,7 @@
                                 <a class="dropdown-item" href="#">좋아요</a>
                                 <a class="dropdown-item" href="#">스크랩북</a>
                                 <a class="dropdown-item" href="#">나의집들이</a>
-                                <a class="dropdown-item" href="#">나의리뷰</a>
+                                <a class="dropdown-item" href="<%= contextPath %>/order.li">나의리뷰</a>
                                 <a class="dropdown-item" href="#">나의문의내역</a>
                                 </div>
                             </li>

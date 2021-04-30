@@ -178,6 +178,7 @@ public class ReviewDao {
 	} 
 
 	
+	/* 리뷰작성 */
 	public int insertReview(Connection conn, Review r) {
 		
 		int result = 0;
@@ -186,12 +187,11 @@ public class ReviewDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, r.getUserNo());
-			pstmt.setString(2, r.getReContent());
+			pstmt.setInt(1, r.getProductNo());
+			pstmt.setInt(2, r.getUserNo());
+			pstmt.setString(3, r.getReContent());
 		
 			result = pstmt.executeUpdate();
-			
-			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

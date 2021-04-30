@@ -73,9 +73,10 @@ public class ReviewService {
 		
 		close(conn);
 		return result;
-		
 	}
 	
+	
+	// 리뷰작성
 	public int insertReview(Review r) {
 		Connection conn = getConnection();
 		

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kh.member.model.vo.Member;
+import com.kh.order.model.vo.Order;
 import com.kh.review.model.service.ReviewService;
 import com.kh.review.model.vo.Review;
 
@@ -18,6 +19,7 @@ import com.kh.review.model.vo.Review;
 @WebServlet("/Review.In")
 public class ReviewInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -40,7 +42,10 @@ public class ReviewInsertServlet extends HttpServlet {
 		 Member loginUser = (Member)session.getAttribute("loginUser");
 		 int userNo = loginUser.getUserNo();
 		 
+		 //int productNo = Integer.parseInt(request.getParameter("productNo"));
+		 
 		 Review r = new Review();
+		 r.setProductNo(productNo);
 		 r.setUserNo(userNo);
 		 r.setReContent(recontent);
 		 

@@ -70,8 +70,8 @@ String contextPath = request.getContextPath();
         <tr style="height: 200px;">
             <td><img src="">
                      style="width:100px;">
-            </td>
-            <td colspan="4"><%= p.getProductName() %></td>
+            </td> 
+            <td colspan="4" value="productName"><%= p.getProductName() %></td>
         </tr>
 
       <!-- 리뷰작성 -->
@@ -85,12 +85,12 @@ String contextPath = request.getContextPath();
                 <textarea name="content" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 도움이 됩니다. "></textarea>
             </th>
         </tr>
-     </form>
-    </table>
         <div class="reviewBtn" >
-            <a href="" class="btn btn-warning btn-sm">완료</a>
+            <button type="submit">완료</button>
             <a class="btn btn-secondary btn-sm" >취소</a>
         </div>
+     </form>
+    </table>
 </body>
 
 </html>

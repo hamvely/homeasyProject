@@ -11,7 +11,7 @@
 	    FROM PRODUCT
 	</entry>
 
-
+<!-- 리뷰작성 --> 
 <entry key="insertReview">
 	INSERT
 	    INTO REVIEW
@@ -20,13 +20,15 @@
 	   , PRODUCT_NO
 	   , USER_NO
 	   , RE_CONTENT
+       , RE_MARK
 	   )
 	VALUES
 	    (
 	      SEQ_RENO.NEXTVAL
-	    , SEQ_PRNO.NEXTVAL
 	    , ?
 	    , ?
+	    , ?
+        , 0
 	    )
 </entry>
 
