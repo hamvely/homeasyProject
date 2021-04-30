@@ -81,7 +81,7 @@
     /* 쿠폰 목록 */
     .coupon_list{
         text-align: left;
-        font-size: 11px;
+        font-size: 14px;
         width: 100%;
     }
     .coupon_list>tbody>tr:hover{
@@ -89,14 +89,24 @@
         cursor:pointer;
     }
     th, td {
+        height: 45px;
         padding: 5px;
         border-bottom: 1px solid #ddd;
     }
-    th {
-        height: 40px;
+    th {        
         background-color: lightgray;
     }
-
+    .content_bar a {
+    	width: 100px;
+    	font-weight: bold;
+    	color: white;
+    	margin-right: 10px;
+    }
+    .btn-delete {
+        font-size:10px;
+        background-color: lightgray;
+        border: none;
+    }
 </style>
 </head>
 <body>
@@ -123,10 +133,7 @@
 
                 <!-- 버튼 -->
                 <div class="content_bar">
-                    <button class="content_btn">
-                    	<a href="<%= contextPath %>/adminEnroll.cp">추가</a>
-                    </button>
-                    <button class="content_btn" data-toggle="modal" data-target="#deleteCoupon">삭제</button>
+                    <a href="<%= contextPath %>/adminEnroll.cp" class="btn btn-warning">추가</a>
                 </div>
             
                 <br><br><br>
@@ -154,13 +161,13 @@
 	                	<!-- 조회된 결과가 있을 경우 -->
 	                		<% for(Coupon c : list) { %>
 			                    <tr>
-			                        <td><input type="checkbox"></td>
 			                        <td><%= c.getCp_no() %></td>
 			                        <td><%= c.getCp_name() %></td>
 			                        <td><%= c.getCp_price() %></td>
 			                        <td><%= c.getCp_condition() %></td>
 			                        <td><%= c.getCp_limit() %></td>
 			                        <td><%= c.getCp_memo() %></td>
+                                    <td><a href="" class="btn btn-warning btn-sm btn-delete">삭제</a></td>
 			                    </tr>
 			                <% } %>
 	                    <% } %>
