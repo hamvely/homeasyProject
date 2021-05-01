@@ -1,6 +1,12 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.coupon.model.vo.Coupon"%>
+    
+    
+<% 
+ArrayList<Coupon> list = (ArrayList<Coupon>)request.getAttribute("list");
+String contextPath = request.getContextPath(); 
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,60 +33,18 @@
             <td  colspan="6"> 보유쿠폰</td>
 
         </tr>
-
-
-
-        <tr style="height: 100px" >
-            <td></td>
-            <th colspan="4" >
-                <p style="color: darkgreen;">무료배송</p>
-                <p style="font-size: 20px;"> 5만원 이상 구매시 무료배송</p>
-            </th>
-            <td ></td>
-        </tr>
-
-
+        
+        
+		<%for(Coupon c:list){%>
         <tr style="height: 100px">
             <td ></td>
             <th colspan="4" >
-                <p  style="color: darkgreen;">3,000원할인</p>
-                <p style="font-size: 20px;">강아지 장난감 2만원 이상 구매시 3,000원 할인</p>
+                <p  style="color: darkgreen;"><%= c.getCp_memo() %></p>
+                <p style="font-size: 20px;"><%= c.getCp_memo() %> <%= c.getCp_condition() %>이상 구매시 <%= c.getCp_price() %>원 할인</p>
             </th>
             <td></td>
         </tr>
-
-        <tr style="height: 100px" >
-            <td></td>
-            <th colspan="4">
-                <p  style="color: darkgreen;">5,000원할인</p>
-                <p style="font-size: 20px;">VIP 3만원 이상 구매시 5,000원 할인</p>
-            </th>
-            <td></td>
-        </tr>
-
-        <tr style="height: 100px" >
-            <td></td>
-            <th colspan="4">
-                <p  style="color: darkgreen;">4,000원할인</p>
-                <p style="font-size: 20px;">조명 5만원 이상 구매시 3,000원 할인</p>
-            </th>
-            <td></td>
-        </tr>
-
-        <tr style="height: 100px" >
-            <td></td>
-            <th colspan="4" >
-                <p  style="color: darkgreen;">2,000원할인</p>
-                <p style="font-size: 20px;">생활용품 4만원 이상 구매시 3,000원 할인</p>
-            </th>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td ></td>
-        
-        </tr>
-      
+		 <% } %>
    
     </table>
 
