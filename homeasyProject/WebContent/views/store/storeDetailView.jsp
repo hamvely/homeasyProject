@@ -76,30 +76,13 @@
             <div class="detailHeader">
                 
                 <div class="img">
-                    <img src="">
+                    <img src="<%= contextPath %>/<%= p.getTitleImg() %>" width="300" height="300">
                 </div>   
                 <div class="content">
-                    <form>
-                    <p><%= p.getProductBrand() %></p>
-                    <p><%= p.getProductName() %></p>
-                    <span id="productPrice"><%= p.getProductPrice() %></span>
-                    <br>
-                    <!-- 
-			        <select id="selectOption" name="selectOption" onchange="optionSelect()">
-                    <option selected>옵션을 선택하세요</option>
-                    <% for(int i=0; i<optionList.size(); i++) {%>
-                    	<% if(optionList.get(i).getOptionStock() == 0) { %>
-                           <option value="<%= optionList.get(i).getOptionNo() %>" disabled>
-                               <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
-                            </option>
-                            <% } else { %>
-                           		<option value="<%= optionList.get(i).getOptionNo() %>">
-                              		<%= optionList.get(i).getOptionName() %>(+<span id="price"><%= optionList.get(i).getOptionPrice() %></span>원)
-                       			</option>
-                            <% } %>
-                       <% } %>
-                       </select>
-                        -->
+                    <form action="<%= contextPath %>/insert.cart" id="enrollForm" method="post" enctype="multipart/form-data">
+                    <span name="productBrand"><%= p.getProductBrand() %></span> <br>
+                    <span name="productName"><%= p.getProductName() %></span> <br>
+                    <span id="productPrice" name="productPrice"><%= p.getProductPrice() %></span> <br>
                         
                     <select id="selectOption" name="selectOption" onchange="optionSelect()">
                     <option selected>옵션을 선택하세요</option>
@@ -117,12 +100,12 @@
                        </select>
                  
 			        <br>
-                                     수량 : <input type="number" id="amount">  
-                    </form>
+                                        수량 : <input type="number" id="amount" name="amount">  
                     <br>
                     <span>총가격 :</span> 
-                    <span id="totalPrice"></span>
+                    <span id="totalPrice" name="totalPrice"></span>
                     <span>원</span> <br>
+                    </form>
                     <button>장바구니 담기</button>
                     <button>결제하기</button> 
                     <hr><hr>
@@ -131,7 +114,7 @@
             </div>
             
             <div class="detailBody">
-                <img src="">
+                <span><%= p.getProductDetail() %></span>
             </div>
 
         </div>
@@ -150,9 +133,9 @@
 				console.log(totalPrice);
 				
 				$("#amount").focusout(function() {
-				  	amount = Number(document.getElementById("amount").value);
+				  	amount = parseInt(document.getElementById("amount").value);
 				  	console.log(amount);
-				  	totalPrice = (totalPrice + optionPrice)*amount;
+				  	totalPrice *= amount;
 					console.log(totalPrice);
 					document.getElementById("totalPrice").innerHTML = totalPrice;
 				});

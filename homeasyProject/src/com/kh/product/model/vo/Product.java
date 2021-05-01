@@ -13,7 +13,7 @@ public class Product {
    private Date productDate;      	// 상품 등록 날짜
    private String productStatus;	// 상품 등록 상태 (Y:등록 / N:미등록)
    
-   private String titleImg;			// 해당 게시글의 대표이미지경로
+   private String titleImg;			// 해당 게시글의 대표이미지 경로+이름
    
    private String cate1Name;      // 1차 카테고리명
    private String cate2Name;      // 2차 카테고리명
@@ -37,13 +37,14 @@ public class Product {
       this.productStatus = productStatus;
    }
    
-   public Product(int productNo, String productBrand, String productName, int productPrice,
+   public Product(int productNo, String productBrand, String productName, int productPrice, String titleImg,
          String productDetail, Date productDate) {
       super();
       this.productNo = productNo;
       this.productBrand = productBrand;
       this.productName = productName;
       this.productPrice = productPrice;
+      this.titleImg = titleImg;
       this.productDetail = productDetail;
       this.productDate = productDate;
    }
@@ -82,7 +83,8 @@ public class Product {
 	   this.productPrice = productPrice;
 	   this.optionPrice = optionPrice;
    }
-   public String getTitleImg() {
+   
+public String getTitleImg() {
       return titleImg;
    }
 

@@ -47,34 +47,36 @@
          ORDER BY PRODUCT.PRODUCT_NO ASC
 	</entry>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<entry key="selectProduct">
+	<entry key="selectStore">
 		SELECT
-		       PRODUCT_NO
+		       PRODUCT.PRODUCT_NO
 		     , PRODUCT_BRAND
 		     , PRODUCT_NAME
 		     , PRODUCT_PRICE
+		     , PRODUCT_FILE_RENAME
 		     , PRODUCT_DETAIL
 		     , PRODUCT_DATE
-		  FROM PRODUCT
-		 WHERE PRODUCT_NO = ?
+		  FROM PRODUCT, PRODUCT_FILE
+		 WHERE PRODUCT.PRODUCT_NO = PRODUCT_FILE.PRODUCT_NO
+		   AND PRODUCT.PRODUCT_NO = ?
 		   AND PRODUCT_STATUS = 'Y'
 	</entry>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<entry key="selectProductFile">
 		SELECT

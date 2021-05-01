@@ -46,17 +46,29 @@ public class StoreService {
 		return cList;
 	}
 	
-	
-	
-	
-	
-	
 	public Product selectStore(int productNo) {
 		Connection conn = getConnection();
 		Product p = new StoreDao().selectStore(conn, productNo);
 		close(conn);
 		return p;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public ArrayList<ProductFile> selectProductFileList(int productNo) {
 		Connection conn = getConnection();

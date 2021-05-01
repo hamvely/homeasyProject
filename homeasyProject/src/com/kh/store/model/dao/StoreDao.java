@@ -166,7 +166,7 @@ public class StoreDao {
 		Product p = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		String sql = prop.getProperty("selectProduct");
+		String sql = prop.getProperty("selectStore");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -179,6 +179,7 @@ public class StoreDao {
 							    rset.getString("product_brand"),
 							    rset.getString("product_name"),
 							    rset.getInt("product_price"),
+							    rset.getString("product_file_rename"),
 							    rset.getString("product_detail"),
 							    rset.getDate("product_date"));
 			}
