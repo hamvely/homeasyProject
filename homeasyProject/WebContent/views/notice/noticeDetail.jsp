@@ -44,7 +44,7 @@
 
         <table id="detailArea" align="center">
             <tr>
-                <th><%=n.getNoticeTitle()%></th>
+                <th><%= n.getNoticeTitle() %></th>
             </tr>
             <tr>
                 <td><%= n.getCreateDate() %></td>

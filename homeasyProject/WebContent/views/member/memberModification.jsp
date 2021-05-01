@@ -58,7 +58,7 @@ div{outline: 1px solid violet;}
         margin: auto;
         border: 1px solid black;
     }
-
+                                                        
     h1 {margin-left: 85px;}
 
     #modificationForm table {
@@ -87,9 +87,11 @@ div{outline: 1px solid violet;}
 	<%@ include file="../common/mainHeader.jsp" %>
 	
 	<%
-	String email = (loginUser.getEmail() == null) ? "" : loginUser.getEmail();
+	String email = loginUser.getEmail();
 	String userName = loginUser.getUserName();
+	String nickName = loginUser.getNickName();
 	String phone = (loginUser.getPhone() == null) ? "" : loginUser.getPhone();
+	String birth = (loginUser.getBirth() == null) ? "" : loginUser.getBirth();
 	%>
     <br><br>
 	
@@ -98,95 +100,34 @@ div{outline: 1px solid violet;}
         <a href="<%= request.getContextPath() %>/withdrawal.me" style="float: right;">탈퇴하기</a>
         <h1>회원정보수정</h1>
 
-        <form action="" method="post" id="modificationForm">
+        <form action="<%= request.getContextPath() %>/update.me" method="post" id="modificationForm">
             <table>
                 <tr>
                     <td>이메일</td>
-                    <td><input type="text" name="userEmail" size="30" value="<%= loginUser.getEmail() %>" readonly></td>
+                    <td><input type="text" name="userEmail" size="30" value="<%= email %>" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>이름</td>
-                    <td><input type="text" name="userName" size="30" value="<%= loginUser.getUserName() %>" readonly></td>
+                    <td><input type="text" name="userName" size="30" value="<%= userName %>" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>별명</td>
-                    <td><input type="text" name="nickName" maxlength="10" size="30" placeholder="별명(2~10자)" value="<%= loginUser.getNickName() %>" required></td>
+                    <td><input type="text" name="nickName" maxlength="10" size="30" placeholder="별명(2~10자)" value="<%= nickName %>" required></td>
                     <td></td>
-                </tr>
-
-                <tr>
-                    <td>성별</td>
-                    <td>
-                        <input id="radioM" type="radio" name="gender" value="M"> <label for="radioM">남</label>
-                        <input id="radioF" type="radio" name="gender" value="F"> <label for="radioF">여</label>
-                    </td>                    
                 </tr>
                 <tr>
                     <td>전화번호</td>
-                    <td><input type="text" name="phone" size="30" placeholder="(-포함해서 입력)"></td>
+                    <td><input type="text" name="phone" size="30" placeholder="(-포함해서 입력)" value="<%= phone %>"></td>
                     <td></td>
-                </tr>
+                </tr> 
                 <tr>
                 	<td>생년월일</td>
-                    <td><input type="date" name="birth" size="30"></td>
+                    <td><input type="date" name="birth" size="30" value="<%= birth %>"></td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td style="vertical-align : top;">프로필사진</td>
-                    <td><img id="titleImg" width="240" height="240"></td>
-                </tr>
             </table>
-            
-			<div id="fileArea">
-                <input type="file" name="file1" id="file1" onchange="loadImg(this, 1);" required>
-            </div>
-            
-            <script>
-				
-            $(function(){
-            	
-            	$("#fileArea").hide();
-
-                $("#titleImg").click(function(){
-                    $("#file1").click();
-                });
-            })
-            	
-            function loadImg(inputFile, num){
-				// inputFile : 현재 변화가 생긴 input type="file" 요소객체
-				// num : 몇번째 input요소인지 확인 후 해당 그 영역에 미리보기하기 위해
-
-                // 파일을 선택하는 순간 inputFile.files라는 속성배열에 0번인덱스에 파일 담김
-                //console.log(inputFile.files);
-             
-				if(inputFile.files.length == 1){ // 선택된 파일이 있을 경우
-               
-                	// 파일을 읽어들일 FileReader 객체 생성
-                    var reader = new FileReader();
-
-                    // 선택된 파일을 읽어들이기
-                    // => 읽어들이는 순간 해당 그 파일만의 고유한 url 부여됨
-                    reader.readAsDataURL(inputFile.files[0]);
-
-                    // 파일 읽어들이기가 다 완료된 순간 실행할 함수 정의
-                    reader.onload = function(e){
-                    // 각 영역에 맞춰서 이미지 미리보기
-						switch(num){
-							case 1: $("#titleImg").attr("src", e.target.result); break;
-                         }
-                    }
-                 	
-                 	
-				}else{ // 선택된 파일이 사라졌을 경우 
-                 	
-                	 	switch(num){
-                     	case 1: $("#titleImg").attr("src", null); break;
-                 	}
-                 }
-             }
-            </script>
             
             <br>
             <div align="center">

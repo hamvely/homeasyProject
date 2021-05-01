@@ -37,13 +37,14 @@ public class MemberUpdateServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		// 2. 전달값 뽑아서 변수 및 객체 담기
-		String nickname = request.getParameter("nickName");
-		String gender = request.getParameter("gender");
-		String birth = request.getParameter("birth");
-		String phone = request.getParameter("phone");
-		String userFileRename = request.getParameter("titleImg");
 		
-		Member m = new Member(nickname, gender, birth, phone, userFileRename);
+		String email = request.getParameter("email");
+		String userName = request.getParameter("userName");
+		String nickname = request.getParameter("nickName");
+		String phone = request.getParameter("phone");
+		String birth = request.getParameter("birth");
+		
+		Member m = new Member(email, userName, nickname, phone, birth);
 		
 		// 3. 요청처리를 위한 Service 메소드 호출 및 결과 돌려받기
 		Member updateMem = new MemberService().updateMember(m);
@@ -65,7 +66,7 @@ public class MemberUpdateServlet extends HttpServlet {
 			
 			// > forwarding 방식   : 뷰가 선택되서 보여지는 것 뿐 url이 변경되지 않음(현재 이서블릿의 매핑값이 남아잇음)
 			// > sendRedirect방식 : url 재요청하는 방식 (** 해당 이페이지를 응답해주는 url이 존재할 경우)
-			response.sendRedirect(request.getContextPath() + "/myPage.me");
+			response.sendRedirect(request.getContextPath() + "/modification.me");
 			
 		}
 	

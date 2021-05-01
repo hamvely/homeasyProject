@@ -107,7 +107,6 @@
 
                 <!-- 상품 등록 폼 -->
                 <form action="<%= contextPath %>/adminInsert.pd" class="product_enroll" method="post" enctype="multipart/form-data">
-                    <!-- 수업에서는 여기에 로그인유저 관련 input 태그있음 -->
                     <table>
                         <tr>
                             <th>진열여부</th>
@@ -117,7 +116,7 @@
                         <tr>
                             <th>카테고리</th>
                             <td>
-                                <select name="category1" class="cate1_no" required>
+                                <select id="category1" onchange="cate1select" required>
                                     <option value="1">가구</option>
                                     <option value="2">패브릭</option>
                                     <option value="3">홈데코/조명</option>
@@ -126,33 +125,14 @@
                                     <option value="6">주방</option>
                                     <option value="7">반려동물</option>
                                 </select>
-                                <!-- 
-                                <select name="category1" class="cate1_no" required>
-                                    <option value="1">가구</option>
-                                    <option value="2">패브릭</option>
-                                    <option value="3">홈데코/조명</option>
-                                    <option value="4">수납/정리</option>
-                                    <option value="5">생활</option>
-                                    <option value="6">주방</option>
-                                    <option value="7">반려동물</option>
-                                </select>
-                                -->
                             </td>
                             <td>
-                                <select name="category2" class="cate2_no" required>
-                                    <option value="#">2차분류1</option>
-                                    <option value="#">2차분류2</option>
-                                    <option value="#">2차분류3</option>
-                                    <option value="#">2차분류4</option>
+                                <select id="category2" required>
+                                    <option value="1">침실가구</option>
+                                    <option value="2">서재가구</option>
+                                    <option value="3">거실가구</option>
+                                    <option value="4">주방가구</option>
                                 </select>
-                                <!-- 
-                                <select name="category2" class="cate2_no" required>
-                                    <option value="#">2차분류1</option>
-                                    <option value="#">2차분류2</option>
-                                    <option value="#">2차분류3</option>
-                                    <option value="#">2차분류4</option>
-                                </select>
-                                -->
                             </td>
                         </tr>
                         <tr>
@@ -183,14 +163,14 @@
                             <th>상품이미지</th>
                             <td colspan="3">
                             	<!-- 대표이미지 미리보기 할 img -->
-                            	<img id="titleImg" width="250" height="150">
+                            	<img id="titleImg" width="100" height="100">
                             </td>
                         </tr>
                         <tr>
                             <th>상세이미지</th>
                             <td colspan="3">
                             	<!-- 상세이미지 미리보기할 img -->
-                            	<img id="detailImg" width="250" height="200">
+                            	<img id="detailImg" width="100" height="100">
                             </td>
                         </tr>
                     </table>
@@ -201,7 +181,15 @@
                     </div>
 
                     <script>
-
+                    
+                    	var cate1 = 0;
+                    
+	                    function cate1select(){
+	                    	cate1 = parseInt($("#category1 option:selected").val());
+	                    	console.log(cate1);
+	                    }
+						
+	                    <%--
                         $(function() {
                         	
                         	$("#fileArea").hide(); // 하단 파일선택버튼 안보이게
@@ -220,17 +208,17 @@
                             // num : 몇번재째 input 요소인지 확인후 해당 영역에 미리보기하기 위해
 
                             // 파일 선택하는 순간 inputFile.files라는 속성배열에 0인덱스에 파일 담김
-                            if(inputFile.files.legth == 1) { // 선택된 파일 있을 경우
+                            if(inputFile.files.length == 1) { // 선택된 파일 있을 경우
 
                                 // 파일읽어들일 FileReader 객체 생성
                                 var reader = new FileReader();
 
                                 // 선택된 파일을 읽어들이기
                                 // => 읽어들이는 순간 해당 파일의 고유url 부여됨
-                                reader.readAsDataURL(inputFil.files[0]);
+                                reader.readAsDataURL(inputFile.files[0]);
 
                                 // 파일 읽어들이기가 다 완료된 순간 실행할 함수 정의
-                                reader.onload = function(e) {
+                                reader.onload = function(e) { // 고유한 url
                                     // 각 영역에 맞춰서 이미지 미리보기
                                     switch(num) {
                                         case 1: $("#titleImg").attr("src", e.target.result); break; 
@@ -247,10 +235,9 @@
 
                             }
 
-                        }
+                        } --%>
+                        
                     </script>
-                    
-
                 </form>
 
 

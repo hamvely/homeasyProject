@@ -42,8 +42,8 @@ public class AdminKnowHowDetailServlet extends HttpServlet {
 			KnowHow k = new KnowHowService().selectKnowHow(postNo);
 			KnowHowFile kf = new KnowHowService().selectKnowHowFile(postNo);
 			
-			System.out.println(k);
-			System.out.println(kf);
+			//System.out.println(k);
+			//System.out.println(kf);
 			
 			request.setAttribute("k", k);
 			request.setAttribute("kf", kf);

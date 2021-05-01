@@ -71,15 +71,18 @@ public class Member {
 	}
 	
 	/* 작성자 : 김혜미 -- 회원정보수정 매개변수 생성자*/
-	public Member(String nickName, String gender, String userFileRename, String birth, String phone) {
+	public Member(String email, String userName, String nickName, String birth, String phone) {
 		super();
+		this.email = email;
+		this.userName = userName;
 		this.nickName = nickName;
-		this.gender = gender;
-		this.userFileRename = userFileRename;
 		this.birth = birth;
 		this.phone = phone;
 	}
 
+	
+	
+	
 	public int getUserNo() {
 		return userNo;
 	}
