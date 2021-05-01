@@ -70,7 +70,7 @@ public class AdminInquireDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("inqruireList");
+		String sql = prop.getProperty("selectList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
