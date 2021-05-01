@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>HOMEASY</title>
 <style>
 
     div{outline: 1px solid violet; box-sizing: border-box;}

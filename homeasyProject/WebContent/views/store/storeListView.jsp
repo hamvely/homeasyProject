@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, com.kh.product.model.vo.*"%>
 <%
-	ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
-	ArrayList<ProductCate> cate2List = (ArrayList<ProductCate>)request.getAttribute("cate2List");
+   ArrayList<Product> list = (ArrayList<Product>)request.getAttribute("list");
+   ArrayList<ProductCate> cate2List = (ArrayList<ProductCate>)request.getAttribute("cate2List");
 %>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,7 @@
 
 <style>
     .outer{
-     	display:"flex";
+        display:"flex";
         width:1200px;
         margin:auto;
         margin-top:10px;
@@ -35,50 +35,50 @@
         cursor:pointer;
         opacity:0.5;
     }
-	.cate2nav{height: 50px;}
-	.cate2nav a{margin-right: 20px;}
-	.thumbnail p{margin-left: 25px; padding-top: 10px;}
+   .cate2nav{height: 50px;}
+   .cate2nav a{margin-right: 20px;}
+   .thumbnail p{margin-left: 25px; padding-top: 10px;}
 </style>
 </head>
 <body>
 
-	<%@ include file="../common/mainHeader.jsp" %>
+   <%@ include file="../common/mainHeader.jsp" %>
     <div class="outer">
         <br>
         </div>
             <div class="listArea" align="center">
-				<div class="cate2nav">
-					<% for(ProductCate pc : cate2List){ %>
-						<a href="<%= contextPath %>/sortedList.st?cate1No=<%= pc.getCate1No() %>&cate2No=<%= pc.getCate2No() %>">
-							<%= pc.getCate2Name() %>
-						</a>
-					<% } %>
-				</div>
-				<% for(Product p : list){ %>
-	            <div class="thumbnail" align="center">
-	            	<input type="hidden" value="<%=p.getProductNo()%>">
-					<input type="hidden" value="<%=p.getProductDate()%>">
-					<input type="hidden" value="<%=p.getCate2No()%>">
-	            	
-	                <img src="<%= contextPath %>/<%= p.getTitleImg() %>" width="300" height="300">
-	                <p align="left">
-	                    <%= p.getProductBrand() %> <br>
-	                    <%= p.getProductName() %><br>
-	                   	<%= p.getProductPrice() %>
-	                </p>
-	            </div>
-	            <% } %>
-	            
-	        </div>
+            <div class="cate2nav">
+               <% for(ProductCate pc : cate2List){ %>
+                  <a href="<%= contextPath %>/sortedList.st?cate1No=<%= pc.getCate1No() %>&cate2No=<%= pc.getCate2No() %>">
+                     <%= pc.getCate2Name() %>
+                  </a>
+               <% } %>
+            </div>
+            <% for(Product p : list){ %>
+               <div class="thumbnail" align="center">
+                  <input type="hidden" value="<%=p.getProductNo()%>">
+               <input type="hidden" value="<%=p.getProductDate()%>">
+               <input type="hidden" value="<%=p.getCate2No()%>">
+                  
+                   <img src="<%= contextPath %>/<%= p.getTitleImg() %>" width="300" height="300">
+                   <p align="left">
+                       <%= p.getProductBrand() %> <br>
+                       <%= p.getProductName() %><br>
+                         <%= p.getProductPrice() %>
+                   </p>
+               </div>
+               <% } %>
+               
+           </div>
         
         <script>
-        	$(function(){
-        		$(".thumbnail").click(function(){
-        			location.href = '<%=contextPath%>/detail.st?pno=' + $(this).children().eq(0).val();
-        		})
-        	})
+           $(function(){
+              $(".thumbnail").click(function(){
+                 location.href = '<%=contextPath%>/detail.st?pno=' + $(this).children().eq(0).val();
+              })
+           })
         </script>
-    </div>
-	<br><br><br>
+
+   <br><br><br>
 </body>
 </html>
