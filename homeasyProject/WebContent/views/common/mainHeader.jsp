@@ -160,6 +160,7 @@
                               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="<%= contextPath %>/modification.me">마이페이지</a>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<%= contextPath %>/modification.me">회원정보수정</a>
+                                <a class="dropdown-item" href="<%= contextPath %>/coupon.co">쿠폰조회</a>
                                 <a class="dropdown-item" href="<%= contextPath %>/order.li">주문조회</a>
                                 <a class="dropdown-item" href="<%= contextPath %>/review.li">나의리뷰</a>
                                 </div>
