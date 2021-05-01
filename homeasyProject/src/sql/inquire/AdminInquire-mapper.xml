@@ -7,9 +7,6 @@ SELECT COUNT(*) LISTCOUNT
   FROM INQUIRE
 </entry>
 
-
-
-
 <entry key="selectList">
    SELECT  *
      FROM(

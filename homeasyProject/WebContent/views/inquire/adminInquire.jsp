@@ -58,27 +58,9 @@ String contextPath = request.getContextPath();
     <div class="wrap">
         <div>
             <div class="line" id="a" ><h1><br>1:1문의 관리</h1></div>
-            <div  id="b"><br> <a href="" class="btn btn-warning btn-sm">주문조회</a> </div>
         </div>
         
         <!--문의유형 문의 상태  -->
-        <div>
-            <div id="b"> <br>
-                <select name="option">
-                    <option value="sixmonth">상품</option>
-                    <option value="year">배송</option>
-                    <option value="everything">교환/반품</option>
-                    <option selected><p>문의유형</p></option>
-                </select>
-                <select name="option">
-                    <option value="sixmonth">전체</option>
-                    <option value="year">미답변</option>
-                    <option value="everything">답변완료</option>
-                    <option selected><p>문의상태</p></option>
-                </select>
-            </div>
-        </div>
-
         <form action="">
             <table class="listArea" style="width: 900px;border-collapse:collapse;">
                 <tr style="height: 40px;">
