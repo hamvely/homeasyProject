@@ -182,14 +182,6 @@
 
                     <script>
                     
-                    	var cate1 = 0;
-                    
-	                    function cate1select(){
-	                    	cate1 = parseInt($("#category1 option:selected").val());
-	                    	console.log(cate1);
-	                    }
-						
-	                    <%--
                         $(function() {
                         	
                         	$("#fileArea").hide(); // 하단 파일선택버튼 안보이게
@@ -235,7 +227,7 @@
 
                             }
 
-                        } --%>
+                        }
                         
                     </script>
                 </form>
