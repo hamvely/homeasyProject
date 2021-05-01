@@ -11,6 +11,9 @@
 <title>Insert title here</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
+* {font-family: 'Noto Sans KR', sans-serif;}
+
 	#header { /*상단바 크기*/
 	    width: 1200px;
 	    height: 80px;

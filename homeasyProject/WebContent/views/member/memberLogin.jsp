@@ -25,7 +25,7 @@
     .inner{width: 400px; height:400px; margin: auto; border: 1px solid black; background-color:rgb(248, 243, 243); border-radius:25px;
            border: 1px solid #ccc;}
 
-    #logo img {padding-top: 30px; padding-bottom: 30px; display:block; margin:auto;}
+    #logo img {padding-top: 45px; padding-bottom: 30px; display:block; margin:auto;}
     
     #loginForm{
         margin: auto;
@@ -48,6 +48,10 @@
         box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
         outline: 0 none;
     }
+
+    text {color: rgb(134, 134, 134);}
+    .enroll {color: black; font-size: 13px; margin-top: 10px;}
+    o:hover {text-decoration: underline;}
 
 </style>
 </head>
@@ -82,9 +86,8 @@
                 <div align="center">
                     <button type="submit" class="btn btn-success" style="width: 250px;">로그인</button>
                 </div>
-                <div align="center">
-                    <button type="button" class="btn btn-secondary">비밀번호 재설정</button>
-                    <button type="button" class="btn btn-secondary" onclick="enrollPage();">회원가입</button>
+                <div class="enroll" align="center">
+                    <text>집이지 회원이 아니신가요?</text> &nbsp <o onclick="enrollPage();">회원가입</o>
                 </div>
                 <div></div>
                 
