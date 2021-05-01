@@ -4,7 +4,7 @@
 
  <entry key="OrderList">
 	SELECT 
-		   ORDER_NO
+		   PRODUCT_NO
 		 , PRODUCT_NAME
 	 FROM ORDER_FORM, PRODUCT
 	 WHERE ROWNUM BETWEEN 1 AND 3
@@ -38,10 +38,6 @@
 		 
  </entry>
  
-<entry key="selectReview">
-		SELECT 
-		    PRODUCT_NAME
-		FROM PRODUCT
-</entry>
+
 
 </properties>

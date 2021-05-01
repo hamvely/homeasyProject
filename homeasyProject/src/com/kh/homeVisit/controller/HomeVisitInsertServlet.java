@@ -17,9 +17,8 @@ import com.kh.homeVisit.model.vo.HomeVisit;
 import com.kh.qna.model.vo.Attachment;
 import com.oreilly.servlet.MultipartRequest;
 
-
 /**
- * Servlet implementation class homeVisitWrite
+ * Servlet implementation class HomeVisitInsertServlet
  */
 @WebServlet("/insert.ho")
 public class HomeVisitInsertServlet extends HttpServlet {
@@ -37,7 +36,7 @@ public class HomeVisitInsertServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+			
 		request.setCharacterEncoding("utf-8");
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
@@ -47,12 +46,13 @@ public class HomeVisitInsertServlet extends HttpServlet {
 			String savePath = request.getSession().getServletContext().getRealPath("/resources/post_upfiles/");
 			
 			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new MyFileRenamePolicy());
-		
+			
 			HomeVisit h = new HomeVisit();
-			h.setUserNo(multiRequest.getParameter("userNo"));
+			h.setUserNo(Integer.parseInt(multiRequest.getParameter("userNo")));			
 			h.setPostTitle(multiRequest.getParameter("title"));
 			h.setPostContent(multiRequest.getParameter("content"));
-			
+		
+
 			ArrayList<Attachment> list = new ArrayList<>();
 			
 			for(int i=1; i<=1; i++) {
@@ -89,8 +89,7 @@ public class HomeVisitInsertServlet extends HttpServlet {
 			}
 			
 		}
-	
-	}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

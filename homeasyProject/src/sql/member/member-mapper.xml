@@ -67,11 +67,31 @@
        	   MEMBER
 	   SET 
 	       NICKNAME = ?
-	     , GENDER = ?
 	     , PHONE = ?
 	     , BIRTH = ?
-	     , USER_FILE_RENAME = ?
-	 WHERE USER_NO = ?
+	 WHERE EMAIL = ?
+	</entry>
+	
+	<entry key="selectMem">
+		SELECT 
+			   USER_NO
+			 , EMAIL
+			 , PWD
+			 , NAME
+			 , NICKNAME
+			 , GENDER
+			 , USER_FILE_RENAME
+			 , BIRTH
+			 , POST_CODE
+			 , ADDRESS
+			 , PHONE
+             , JOIN_DATE
+             , USER_STATUS
+             , ADMIN
+		  FROM 
+		  	   MEMBER
+		 WHERE USER_STATUS = 'Y'
+	       AND EMAIL = ?
 	</entry>
 	
 	

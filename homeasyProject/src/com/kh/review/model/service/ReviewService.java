@@ -5,6 +5,8 @@ import static com.kh.common.JDBCTemplate.*;
 import java.sql.Connection;
 import java.util.ArrayList;
 import com.kh.common.model.vo.PageInfo;
+import com.kh.order.model.dao.OrderDao;
+import com.kh.order.model.vo.Order;
 import com.kh.review.model.dao.ReviewDao;
 import com.kh.review.model.vo.Review;
 
@@ -73,7 +75,28 @@ public class ReviewService {
 		
 		close(conn);
 		return result;
+	}
+	
+	public Review selectReivew() {
+		Connection conn = getConnection();
+		Review r = new ReviewDao().selectReview(conn);
+		close(conn);
+		return r;
+	}
+	
+	// 리뷰작성
+	public int insertReview(Review r) {
+		Connection conn = getConnection();
 		
+		int result = new ReviewDao().insertReview(conn, r);
+	
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		close(conn);
+		return result;
 	}
 
 

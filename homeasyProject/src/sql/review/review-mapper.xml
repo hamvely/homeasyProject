@@ -10,28 +10,19 @@
 	       , PRODUCT_PRICE
 	    FROM PRODUCT
 	</entry>
-	
-	<entry key="insertReview">
-		INSERT
-		    INTO REVIEW
-		    (
-		     RE_NO
-		   , PRODUCT_NO
-		   , USER_NO
-		   , RE_CONTENT
-		   , RE_MARK
-		   )
-		VALUES
-		    (
-		     SEQ_RENO.NEXTVAL
-		    , ?
-		    , ?
-		    , ?
-		    , ?
-		    )
-	</entry>
+
+<entry key="selectReview">
+		SELECT 
+		    PRODUCT_NAME
+		  , PRODUCT_NO 
+		FROM PRODUCT
+        WHERE PRODUCT_NO = ?
+</entry>
 
 
+
+
+<!-- 리뷰작성 --> 
 <entry key="insertReview">
 	INSERT
 	    INTO REVIEW
@@ -40,14 +31,15 @@
 	   , PRODUCT_NO
 	   , USER_NO
 	   , RE_CONTENT
+       , RE_MARK
 	   )
 	VALUES
 	    (
-	     SEQ_RENO.NEXTVAL
+	      SEQ_RENO.NEXTVAL
 	    , ?
 	    , ?
 	    , ?
-	    , ?
+        , 0
 	    )
 </entry>
 

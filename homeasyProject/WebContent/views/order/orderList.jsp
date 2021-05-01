@@ -62,15 +62,6 @@ String contextPath = request.getContextPath();
         <tbody>
             <tr class="line" >
                 <h1 class="line"   style="width: 900px;" >주문 목록</h1>
-                <td  colspan="6" style="height: 50px;">
-                    <select name="op">
-                        <option value="sixmonth"> 최근 6개월</option>
-                        <option value="year">최근 1년</option>
-                        <option value="everything">전체조회</option>
-                        <option selected><p>기간</p></option>
-                    </select>
-                     
-                </td>
             </tr>
 
             <tr class="line" id="pay" >
@@ -99,7 +90,7 @@ String contextPath = request.getContextPath();
          
   
                <%for(Order o:list) { %>
-                <td colspan="6" height="20px"><%=o.getOrderNo() %></td>
+                <td colspan="6" height="20px" value="productNo"><%=o.getProductNo() %></td>
             	</tr>
             
             <tr class="line">
@@ -110,7 +101,7 @@ String contextPath = request.getContextPath();
                
                 <th>
                     <a href="<%=contextPath %>/Order.de" class="btn btn-secondary">주문상세</a><br>
-                    <a href="<%=contextPath %>/Order.re" class="btn btn-warning">리뷰작성</a>
+                    <a href="<%=contextPath %>/Review.wr" class="btn btn-warning">리뷰작성</a>
                 </th>
                 
             </tr>

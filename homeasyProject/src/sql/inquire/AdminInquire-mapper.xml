@@ -35,19 +35,7 @@ SELECT COUNT(*) LISTCOUNT
 </entry>
 
 
-<entry key="insertInquire">
-	INSERT 
-		INTO INQUIRE
-		  (
-   			INQ_NO
-          , INQ_ANSWER
-		  )
-		  VALUES
-		  (
-           ?
-           ?
-          )
-</entry>
+
 
 
 

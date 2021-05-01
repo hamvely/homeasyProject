@@ -36,10 +36,4 @@ public class OrderService {
 	    return d;
 	}
 	
-	public Order selectReivew() {
-		Connection conn = getConnection();
-		Order p = new OrderDao().selectReview(conn);
-		close(conn);
-		return p;
-	}
 }

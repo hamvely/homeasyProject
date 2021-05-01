@@ -131,11 +131,7 @@
                 <!-- 버튼 -->
                 <div class="content_bar">
                     <button class="content_btn">검색</button>
-                    <button class="content_btn">
-                    	<a href="<%= contextPath %>/adminEnroll.pd">상품추가</a>
-                    </button>
-                    <button class="content_btn">상품수정</button>
-                    <button class="content_btn" data-toggle="modal" data-target="#deleteProduct">상품삭제</button>
+                    <a href="<%= contextPath %>/adminEnroll.pd" class="btn btn-secondary">상품추가</a>
                 </div>
                 <br>
 
@@ -170,10 +166,10 @@
                 <table align="center" class="product_list" style="overflow-x:auto;">
                 	<thead>
 	                    <tr>
-	                        <th>선택</th>
 	                        <th>상품번호</th>
 	                        <th>1차분류</th><!--2차카테고리번호-->
 	                        <th>2차분류</th>
+	                        <th>상품사진</th>
 	                        <th>상품명</th>
 	                        <th>업체명</th>
 	                        <th>가격</th>
@@ -191,10 +187,10 @@
 	                	<!-- 조회된 결과가 있을 경우 -->
 	                		<% for(Product p : list) { %>
 			                    <tr>
-			                        <td><input type="checkbox"></td>
 			                        <td><%= p.getProductNo() %></td>
 			                        <td><%= p.getCate1Name() %></td>
 			                        <td><%= p.getCate2Name() %></td>
+			                        <td><img src="" width="30" height="30"></td>
 			                        <td><%= p.getProductName() %></td>
 			                        <td><%= p.getProductBrand() %></td>
 			                        <td><%= p.getProductPrice() %></td>
@@ -232,31 +228,7 @@
         </div>
     </div>
 
-    <!-- 상품 삭제 모달 -->
-    <div class="modal" id="deleteProduct">
-        <div class="modal-dialog">
-            <div class="modal-content">
-        
-                <!-- Modal Header -->
-	            <div class="modal-header">
-	                <h4 class="modal-title">상품삭제</h4>
-	                <button type="button" class="close" data-dismiss="modal">&times;</button>
-	            </div>
-	            
-	            <!-- Modal body -->
-	            <div class="modal-body">
-	               	해당 상품을 정말 삭제하시겠습니까?
-	            </div>
-	            
-	            <!-- Modal footer -->
-	            <div class="modal-footer">
-	                <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">확인</button>
-                	<button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;">취소</button>
-	            </div>
-        
-            </div>
-        </div>
-    </div>
+    
     
 
 
