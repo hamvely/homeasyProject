@@ -24,7 +24,6 @@
 <title>상품관리</title>
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
@@ -62,7 +61,7 @@
         box-sizing: border-box;
         display: flex;
     }
-    .content_btn {
+    .btn-secondary {
         background-color: rgb(241, 196, 15);
         width: 90px;
         height: 35px;
@@ -97,6 +96,7 @@
         cursor:pointer;
     }
     th, td {
+        height: 40px;
         padding: 5px;
         border-bottom: 1px solid #ddd;
     }
@@ -130,36 +130,8 @@
 
                 <!-- 버튼 -->
                 <div class="content_bar">
-                    <button class="content_btn">검색</button>
                     <a href="<%= contextPath %>/adminEnroll.pd" class="btn btn-secondary">상품추가</a>
                 </div>
-                <br>
-
-                <!-- 카테고리, 상품찾기 -->
-                <div class="search_bar">
-                    <form class="product_search">
-                        <input type="search" class="search_text" placeholder="검색할 상품명을 입력하세요.">
-                    </form>
-                    <select name="category1" class="product_category">
-                        <option value="1">가구</option>
-                        <option value="2">패브릭</option>
-                        <option value="3">홈데코/조명</option>
-                        <option value="4">수납/정리</option>
-                        <option value="5">생활</option>
-                        <option value="6">주방</option>
-                        <option value="7">반려동물</option>
-                    </select>
-                    <select name="stock" class="product_category">
-                        <option value="#">전체</option>
-                        <option value="#">품절</option>
-                        <option value="#">부족</option>
-                    </select>
-                    <select name="status" class="product_category">
-                        <option value="Y">진열함(Y)</option>
-                        <option value="N">진열대기(N)</option>
-                    </select>
-                </div>
-            
                 <br>
 
                 <!-- 상품 리스트 테이블 -->
@@ -169,7 +141,6 @@
 	                        <th>상품번호</th>
 	                        <th>1차분류</th><!--2차카테고리번호-->
 	                        <th>2차분류</th>
-	                        <th>상품사진</th>
 	                        <th>상품명</th>
 	                        <th>업체명</th>
 	                        <th>가격</th>
@@ -181,7 +152,7 @@
                     	<!-- 조회된 결과가 없을 경우 -->
 	                	<% if(list.isEmpty()) { %>
 	                		<tr>
-	                			<td colspan="9">조회된 리스트가 없습니다.</td>
+	                			<td colspan="8">조회된 리스트가 없습니다.</td>
 	                		</tr>
 	                	<% }else { %>
 	                	<!-- 조회된 결과가 있을 경우 -->
@@ -190,7 +161,6 @@
 			                        <td><%= p.getProductNo() %></td>
 			                        <td><%= p.getCate1Name() %></td>
 			                        <td><%= p.getCate2Name() %></td>
-			                        <td><img src="" width="30" height="30"></td>
 			                        <td><%= p.getProductName() %></td>
 			                        <td><%= p.getProductBrand() %></td>
 			                        <td><%= p.getProductPrice() %></td>

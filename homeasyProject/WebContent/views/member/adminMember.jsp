@@ -24,7 +24,6 @@
 <title>회원관리</title>
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
@@ -110,6 +109,16 @@
         background-color: lightgray;
     }
 
+    /* 페이징바 */
+    .pagination a {color:black;}
+
+	.pagination a:hover, 
+	.pagination a:focus {
+	  background: lightgrey;
+	  border-color: lightgrey;
+	  color:black;
+	}
+
 </style>
 </head>
 <body>
@@ -188,6 +197,28 @@
 
                 <br><br>
 
+                <ul class="pagination justify-content-center">
+
+					<% if(currentPage != 1) { %>
+                    	<button onclick="location.href='<%= contextPath %>/adminlist.me?currentPage=<%= currentPage-1 %>';">이전</button>
+					<% } %>
+					
+					<% for(int p=startPage; p<=endPage; p++) { %>
+					
+						<% if(currentPage == p) { %>
+                    		<button disabled><%= p %></button>
+                    	<% }else { %>
+                    		<button onclick="location.href='<%= contextPath %>/adminlist.me?currentPage=<%= p %>';"><%= p %></button>
+                    	<% } %>
+                    
+                    <% } %>
+                    
+                    <% if(currentPage != maxPage) { %>
+                    	<button onclick="location.href='<%= contextPath %>/adminlist.me?currentPage=<%= currentPage+1 %>';">다음</button>
+					<% } %>
+                    </ul>
+
+                <!--
                 <div align="center" class="pagingArea">
 
 					<% if(currentPage != 1) { %>
@@ -208,6 +239,7 @@
                     	<button onclick="location.href='<%= contextPath %>/adminlist.me?currentPage=<%= currentPage+1 %>';">다음</button>
 					<% } %>
                 </div>
+                -->
 
                 <script>
                 	$(function() {

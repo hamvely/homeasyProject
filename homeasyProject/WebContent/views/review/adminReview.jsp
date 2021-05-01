@@ -25,7 +25,6 @@
 
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
@@ -98,6 +97,7 @@
         cursor:pointer;
     }
     th, td {
+        height: 40px;
         padding: 5px;
         border-bottom: 1px solid #ddd;
     }
@@ -134,7 +134,6 @@
                 <div class="content_bar">
                 	
                 </div>
-                <br><br>
 
                 <!-- 리뷰 리스트 테이블 -->
                 <table align="center" class="review_list" style="overflow-x:auto;">

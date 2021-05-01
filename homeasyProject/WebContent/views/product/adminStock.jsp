@@ -24,7 +24,6 @@
 <title>재고관리</title>
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
@@ -61,18 +60,9 @@
     .content_bar {
         box-sizing: border-box;
         display: flex;
-    }
-    .content_btn {
-        background-color: rgb(241, 196, 15);
-        width: 90px;
         height: 35px;
-        font-size: 13px;
-        font-weight: bold;
-        color: white;
-        border-radius: 3px;
-        margin-right: 10px;
-        border: none;
     }
+
     .search_bar {
         display: flex;
     }
@@ -92,6 +82,7 @@
         cursor:pointer;
     }
     th, td {
+        height: 40px;
         padding: 5px;
         border-bottom: 1px solid #ddd;
     }
@@ -125,44 +116,14 @@
 
                 <!-- 버튼 -->
                 <div class="content_bar">
-                    <button type="submit" class="content_btn">조회</button>
-                    <button type="reset" class="content_btn">초기화</button>
+                    
                 </div>
-                <br>
-
-                <!-- 카테고리, 상품찾기 -->
-                <div class="search_bar">
-                    <select name="category" class="product_category">
-                        <option value="">전체</option>
-                        <option value="">품절</option>
-                        <option value="">부족</option>
-                        <option value="">여유</option>
-                    </select>
-                    <select name="category" class="product_category">
-                        <option value="1">가구</option>
-                        <option value="2">패브릭</option>
-                        <option value="3">홈데코/조명</option>
-                        <option value="4">수납/정리</option>
-                        <option value="5">생활</option>
-                        <option value="6">주방</option>
-                        <option value="7">반려동물</option>
-                    </select>
-
-                    <select name="category" class="product_category">
-                        <option value="#">침실가구</option>
-                        <option value="#">서재가구</option>
-                        <option value="#">거실가구</option>
-                        <option value="#">주방가구</option>
-                    </select>
-                </div>
-            
                 <br>
 
                 <!-- 상품 리스트 테이블 -->
                 <table align="center" class="product_list" style="overflow-x:auto;">
                 	<thead>
 	                    <tr>
-	                        <th>No.</th>
 	                        <th>상품번호</th>
 	                        <th>2차분류</th>
 	                        <th>업체명</th>
@@ -177,13 +138,12 @@
                     	<!-- 조회된 결과가 없을 경우 -->
 	                	<% if(list.isEmpty()) { %>
 	                		<tr>
-	                			<td colspan="9">조회된 리스트가 없습니다.</td>
+	                			<td colspan="8">조회된 리스트가 없습니다.</td>
 	                		</tr>
 	                	<% }else { %>
 	                	<!-- 조회된 결과가 있을 경우 -->
 	                		<% for(Product p : list) { %>
 			                    <tr>
-			                        <td><input type="checkbox"></td>
 			                        <td><%= p.getProductNo() %></td>
 			                        <td><%= p.getCate2Name() %></td>
 			                        <td><%= p.getProductBrand() %></td>

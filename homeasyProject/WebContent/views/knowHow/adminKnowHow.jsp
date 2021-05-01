@@ -24,7 +24,6 @@
 <title>노하우 관리</title>
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
@@ -63,7 +62,7 @@
         display: flex;
         position: absolute;
     }
-    .content_btn {
+    .btn-secondary {
         background-color: rgb(241, 196, 15);
         width: 90px;
         height: 35px;
@@ -73,9 +72,6 @@
         border-radius: 3px;
         margin-right: 10px;
         border: none;
-    }
-    .content_btn:nth-child(2) {
-        margin-right: 400px;
     }
 
     /* 노하우 목록 */
@@ -89,6 +85,7 @@
         cursor:pointer;
     }
     th, td {
+        height: 40px;
         padding: 5px;
         border-bottom: 1px solid #ddd;
     }
@@ -123,7 +120,6 @@
                 <!-- 버튼 -->
                 <div class="content_bar">
                 	<a href="<%= contextPath %>/adminEnroll.kh" class="btn btn-secondary btn-sm">등록</a>
-                    <button class="content_btn" data-toggle="modal" data-target="#deleteKnowhow">삭제</button>
                 </div>
             
                 <br><br><br>

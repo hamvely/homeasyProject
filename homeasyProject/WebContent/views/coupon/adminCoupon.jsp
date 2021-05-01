@@ -24,7 +24,6 @@
 
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
@@ -63,7 +62,7 @@
         display: flex;
         position: absolute;
     }
-    .content_btn {
+    .btn-warning {
         background-color: rgb(241, 196, 15);
         width: 90px;
         height: 35px;
@@ -74,9 +73,7 @@
         margin-right: 10px;
         border: none;
     }
-    .content_btn:nth-child(2) {
-        margin-right: 400px;
-    }
+
 
     /* 쿠폰 목록 */
     .coupon_list{
@@ -102,11 +99,8 @@
     	color: white;
     	margin-right: 10px;
     }
-    .btn-delete {
-        font-size:10px;
-        background-color: lightgray;
-        border: none;
-    }
+
+
 </style>
 </head>
 <body>
@@ -148,14 +142,13 @@
 	                        <th>할인금액(원)</th>
 	                        <th>최소구매금액(원)</th>
 	                        <th>사용기간</th>
-	                        <th>특이사항</th>
 	                    </tr>
                     </thead>
                     <tbody>
                     	<!-- 조회된 결과가 없을 경우 -->
 	                	<% if(list.isEmpty()) { %>
 	                		<tr>
-	                			<td colspan="7">조회된 리스트가 없습니다.</td>
+	                			<td colspan="6">조회된 리스트가 없습니다.</td>
 	                		</tr>
 	                	<% }else { %>
 	                	<!-- 조회된 결과가 있을 경우 -->
@@ -167,7 +160,6 @@
 			                        <td><%= c.getCp_condition() %></td>
 			                        <td><%= c.getCp_limit() %></td>
 			                        <td><%= c.getCp_memo() %></td>
-                                    <td><a href="<%= contextPath %>/adminDelete.co?cno=<%= c.getCp_no() %>" class="btn btn-warning btn-sm btn-delete">삭제</a></td>
 			                    </tr>
 			                <% } %>
 	                    <% } %>
@@ -198,31 +190,7 @@
                 </div>
                 
 
-                <!-- 쿠폰삭제 모달 -->
-                <div class="modal" id="deleteCoupon">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                    
-                            <!-- Modal Header -->
-	                        <div class="modal-header">
-	                            <h4 class="modal-title">쿠폰삭제</h4>
-	                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-	                        </div>
-	                        
-	                        <!-- Modal body -->
-	                        <div class="modal-body">
-	                        	해당 쿠폰을 정말 삭제하시겠습니까?
-	                        </div>
-	                        
-	                        <!-- Modal footer -->
-	                        <div class="modal-footer">
-	                            <button type="button" class="btn btn-success" data-dismiss="modal" style="background-color:rgb(241, 196, 15);">확인</button>
-                            	<button type="button" class="btn btn-danger" data-dismiss="modal" style="background-color:darkgray;">취소</button>
-	                        </div>
-                    
-                        </div>
-                    </div>
-                </div>
+
 
             </div>
         </div>
