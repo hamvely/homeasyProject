@@ -28,7 +28,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 * {font-family: 'Noto Sans KR', sans-serif;}
 
-  div {outline:1px solid violet;}
+  /* div {outline:1px solid violet;} */
   div {box-sizing: border-box;}
   .wrap {width: 1200px; height: 250px; margin: auto; }
   #wrap>div {width: 100%;}

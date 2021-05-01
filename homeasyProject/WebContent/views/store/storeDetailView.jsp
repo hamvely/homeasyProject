@@ -106,8 +106,7 @@
                     <span id="totalPrice" name="totalPrice"></span>
                     <span>원</span> <br>
                     </form>
-                    <button>장바구니 담기</button>
-                    <button>결제하기</button> 
+                    <button onclick="buy()">구매하기</button> 
                     <hr><hr>
                     <button>리뷰</button>
                 </div>
@@ -140,6 +139,10 @@
 					document.getElementById("totalPrice").innerHTML = totalPrice;
 				});
 				
+			}
+			
+			function buy(){
+				alert("입금할 계좌 : 국민)882602-04-135340");
 			}
 		</script>
 		

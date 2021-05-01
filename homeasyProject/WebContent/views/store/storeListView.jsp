@@ -25,7 +25,6 @@
         margin:auto;
     }
     .thumbnail{
-        border:1px solid black;
         width:330px;
         height:400px;
         display:inline-block;
@@ -36,13 +35,16 @@
         cursor:pointer;
         opacity:0.5;
     }
+	.cate2nav{height: 50px;}
+	.cate2nav a{margin-right: 20px;}
+	.thumbnail p{margin-left: 25px; padding-top: 10px;}
 </style>
 </head>
 <body>
 
 	<%@ include file="../common/mainHeader.jsp" %>
     <div class="outer">
-        <br><!-- <h1>1차 카테고리 이름 가져오기</h1> -->
+        <br>
         </div>
             <div class="listArea" align="center">
 				<div class="cate2nav">
@@ -77,6 +79,6 @@
         	})
         </script>
     </div>
-
+	<br><br><br>
 </body>
 </html>
