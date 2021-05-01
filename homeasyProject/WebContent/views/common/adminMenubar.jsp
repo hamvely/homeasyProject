@@ -63,14 +63,14 @@
       <ul id="navi">
            <li><a href="">회원관리</a>
                <ul>
-                   <li><a href="<%= contextPath %>/adminlist.me?currentPage=1">회원조회/수정/삭제</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.me?currentPage=1">회원조회</a></li>
                    <li><a href="<%= contextPath %>/adminlist.co?currentPage=1">쿠폰 관리</a></li>
                </ul>
            </li>
 
            <li><a href="">상품관리</a>
                <ul>
-                   <li><a href="<%= contextPath %>/adminlist.pd?currentPage=1">상품조회/수정/삭제</a></li>
+                   <li><a href="<%= contextPath %>/adminlist.pd?currentPage=1">상품조회</a></li>
                    <li><a href="<%= contextPath %>/adminlist.st?currentPage=1">재고관리</a></li>
                    <li><a href="<%= contextPath %>/adminlist.re?currentPage=1">리뷰관리</a></li>
                </ul>
