@@ -136,12 +136,12 @@
                 <table align="center" class="coupon_list" style="overflow-x:auto;">
                 	<thead>
 	                    <tr>
-	                        <th>선택</th>
-	                        <th>쿠폰번호</th>
+                            <th>쿠폰번호</th>
 	                        <th>쿠폰명</th>
 	                        <th>할인금액(원)</th>
 	                        <th>최소구매금액(원)</th>
-	                        <th>사용기간</th>
+	                        <th>사용기간(개월)</th>
+	                        <th>쿠폰메모</th>
 	                    </tr>
                     </thead>
                     <tbody>

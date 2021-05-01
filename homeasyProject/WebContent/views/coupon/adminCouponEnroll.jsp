@@ -64,6 +64,7 @@
 
     /* 등록 폼 스타일 */
     .coupon_enroll table {
+        width: 500px;
         margin-left: 30px;
     }
     th {
