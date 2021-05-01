@@ -78,7 +78,7 @@
         color: #2e363e;
         font-size: 17px;
         font-weight: bold;
-        height: 60px;
+        height: 50px;
         width: 150px;
     }
     .content_bar a {
@@ -117,7 +117,7 @@
 	                	<a href="<%= contextPath %>/adminlist.me?currentPage=1" class="btn btn-warning">목록가기</a>
 	                    <a href="<%= contextPath %>/adminDelete.me?uno=<%= m.getUserNo() %>" class="btn btn-warning">삭제</a>
 	                </div>
-	                <br><br>
+	                <br>
 	                
                     <table class="member_list">
                         <tr>
