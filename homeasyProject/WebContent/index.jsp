@@ -205,11 +205,11 @@
             <div id="content_2">
 	            <div class="main_right">
 		         	<div id="right">
-                    <div class="right_1"><a href="<%=contextPath%>/list.ho">집들이</a></div>
-		            <div class="right_2"><a href="">스크랩북</a></div>   
-		            <div class="right_3"><a href="<%= contextPath %>/list.no?currentPage=1">공지사항</a></div>      
-		            <div class="right_4"><a href="">고객센터</a></div>
-		            <div class="right_5"><a href="">1:1문의</a></div>   
+                    <div class="right_1"><a href="<%= contextPath %>/list.st?cate1No=1">스토어</a></div>
+                    <div class="right_2"><a href="<%= contextPath %>/list.no?currentPage=1">공지사항</a></div>   
+                    <div class="right_3"><a href="<%=contextPath%>/list.ho">집들이</a></div>
+		            <div class="right_4"><a href="<%=contextPath%>/list.how">노하우</a></div>   
+		            <div class="right_5"><a href="<%=contextPath%>/list.qna">질답</a></div>      
 		            <div class="right_6"><a href="">TOP</a></div>
 		         	</div>
 	      		</div>
