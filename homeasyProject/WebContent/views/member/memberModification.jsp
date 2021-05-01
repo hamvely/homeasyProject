@@ -124,7 +124,7 @@ div{outline: 1px solid violet;}
                 </tr> 
                 <tr>
                 	<td>생년월일</td>
-                    <td><input type="date" name="birth" size="30" value="<%= birth %>"></td>
+                    <td><input type="text" name="birth" size="30" value="<%= birth %>"></td>
                     <td></td>
                 </tr>
             </table>

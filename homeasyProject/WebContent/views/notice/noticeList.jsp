@@ -55,7 +55,7 @@
         </div>
         <br><br>
 
-		<table class="listArea" align="center" border="1">
+		<table class="listArea table-bordered table-hover" align="center" border="1">
 			<tbody>
 		
 				<% if(list.isEmpty()) { %>
@@ -66,8 +66,8 @@
 					<% for(Notice n : list) { %>
 					<tr>
 						<td width="700px"><%= n.getNoticeTitle() %></td>
-						<td width="100px"><%= n.getCreateDate() %></td>
-						<td><%= n.getNoticeNo() %></td>
+						<td width="10px"><%= n.getCreateDate() %></td>
+						<td><input value="<%= n.getNoticeNo() %>" type="hidden"></td>
 						<td><hr></td>
 					</tr>
 					<% } %>
