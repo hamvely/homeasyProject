@@ -29,8 +29,9 @@
     table{
         text-align: center;
         margin: auto;
-
     }
+    th, td{height: 55px;}
+
     .outer{
         margin: auto;
     }
@@ -51,13 +52,13 @@
     
     .faqHeder{border-bottom: 1px solid black; background-color: rgb(212, 237, 218);}
 
-    h1{margin-left: 25px; padding-top: 25px;}
+    h1{margin-left: 30px; padding-top: 25px;}
 </style>
 </head>
 <body>
 
 	<%@ include file="../common/mainHeader.jsp" %>
-    <br><br>
+    <hr><br><br>
 	
 	<div class="outer" style="width: 1200px;">
 

@@ -154,7 +154,10 @@
                         <span class="price_info">원</span> <br>
                     </form> 
                     <br>
-                    <button onclick="buy()" class="product_buy">구매하기</button>
+                    <!--로그인한 사용자만 볼 수 있는 버튼-->
+        			<% if(loginUser != null) { %>
+                    	<button onclick="buy()" class="product_buy">구매하기</button>
+                    <% } %>
                 </div>
             </div>
             
