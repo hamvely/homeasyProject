@@ -43,7 +43,7 @@ public class Member {
 	}
 	
 	
-	/* 작성자 : 임지우 -- 회원관리 조회 매개변수 생성자 */
+	/* 작성자 : 임지우 -- 회원관리 상세조회 매개변수 생성자 */
 	public Member(int userNo, String email, String userName, String nickName, String gender, String birth, int postCode,
 			String address, String phone, Date joinDate, String userStatus, String admin) {
 		super();

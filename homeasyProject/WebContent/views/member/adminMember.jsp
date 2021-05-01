@@ -61,7 +61,7 @@
     .content_bar {
         box-sizing: border-box;
         display: flex;
-        position: absolute;
+        height: 40px;
     }
     .content_btn {
         background-color: rgb(241, 196, 15);
@@ -106,7 +106,7 @@
         border-bottom: 1px solid #ddd;
     }
     th {
-        height: 40px;
+        height: 45px;
         background-color: lightgray;
     }
 
@@ -135,14 +135,10 @@
 
                 <!-- 버튼 -->
                 <div class="content_bar">
-                    <button class="content_btn" data-toggle="modal" data-target="#updateMember">수정</button>
-                    <form class="member_search">
-                        <a class="search_btn" href="#"><i class="fas fa-search fa-2x"></i></a>
-                        <input class="search_text" type="search" placeholder="회원 이메일/회원명 입력">
-                    </form>
+                    
                 </div>
             
-                <br><br><br>
+                <br>
                 
                 <!-- 회원 리스트 테이블 -->
                 <table align="center" class="member_list" style="overflow-x:auto;">
