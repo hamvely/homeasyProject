@@ -6,7 +6,6 @@
 	Order o = (Order)request.getAttribute("o");
 	Order d = (Order)request.getAttribute("d");
 	
-	String contextPath = request.getContextPath();
  %>
 <!DOCTYPE html>
 <html>
@@ -26,6 +25,8 @@
 
     .line, td, th{border-bottom: 1px solid lightgray;}
 
+    .content{margin-left:22%}
+    
     .btn-secondary {
     	background-color:rgb(158, 158, 158); 
     	border-color:rgb(158, 158, 158);
@@ -49,7 +50,9 @@
 </head>
 <body>
 
-    
+	<%@ include file="../common/mainHeader.jsp" %>
+
+    <div class="content">
     <table width="900px" height="1150px" ">
         
         <td   colspan="8" style="width: 900px;">
@@ -133,7 +136,7 @@
 
             <tr >
                 
-                <td height="50px" colspan="6" style="color: darkgreen;"><h3>주문자 /  배송조회</h3></td>
+                <td height="50px" colspan="6" style="color: darkgreen;"><h3>주문자 /배송조회</h3></td>
               
             </tr>
             <tr >
@@ -175,7 +178,7 @@
         </tbody>
     </table>
 
-
+</div>
     
 
 </body>

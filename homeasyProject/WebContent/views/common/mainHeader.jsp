@@ -28,7 +28,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 * {font-family: 'Noto Sans KR', sans-serif;}
 
-  div {outline:1px solid violet;}
+  /* div {outline:1px solid violet;} */
   div {box-sizing: border-box;}
   .wrap {width: 1200px; height: 250px; margin: auto; }
   #wrap>div {width: 100%;}
@@ -132,7 +132,6 @@
                 <% if(loginUser == null) { %>
 
                    <div class="beforeLogin">
-                       <a href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
                        <a href="<%= request.getContextPath() %>/loginForm.me">로그인</a>
                        <a href="<%= request.getContextPath() %>/enrollForm.me">회원가입</a>
                    </div>
@@ -145,7 +144,7 @@
 	
 	                        <div class="mypage" style="text-align: center; height:40px;">
 	                            <a href="<%= contextPath %>/index.admin">관리자페이지</a>
-	                            <a href="<%= contextPath %>/logout.me" style="">로그아웃</a>
+	                            <a href="<%= contextPath %>/logout.me">로그아웃</a>
 	                        </div>
 	                    </div>
 		        <% }else { %>
@@ -161,9 +160,8 @@
                               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="<%= contextPath %>/modification.me">마이페이지</a>
                               <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<%= contextPath %>/modification.me">회원정보수정</a>
-                                <a class="dropdown-item" href="#">주문조회</a>
-                                <a class="dropdown-item" href="<%= contextPath %>/order.li">나의리뷰</a>
-                                <a class="dropdown-item" href="#">나의문의내역</a>
+                                <a class="dropdown-item" href="<%= contextPath %>/order.li">주문조회</a>
+                                <a class="dropdown-item" href="<%= contextPath %>/review.li">나의리뷰</a>
                                 </div>
                             </li>
                             <li class="nav-item">

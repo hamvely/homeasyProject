@@ -21,14 +21,9 @@ pageEncoding="UTF-8" %>
         .d {
             display: flex;
         }
-        
-        
-        
    </style>
 </head>
 <body>
-	
-		<%@ include file="../common/mainHeader.jsp" %>
      
         <div class="myInquire">
         <div class="title">

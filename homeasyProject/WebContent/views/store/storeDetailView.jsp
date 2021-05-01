@@ -13,7 +13,6 @@
 <title>Insert title here</title>
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
 
@@ -41,7 +40,7 @@
         justify-content: space-between;
         width: 1100px;
         height: 380px;
-        margin: auto;
+        padding: 0 50px;
     }
 
 
@@ -105,11 +104,9 @@
                     <span>총가격 :</span> 
                     <span id="totalPrice" name="totalPrice"></span>
                     <span>원</span> <br>
-                    </form>
-                    <button>장바구니 담기</button>
-                    <button>결제하기</button> 
+                    </form> 
                     <hr><hr>
-                    <button>리뷰</button>
+                    <button onclick="buy()">구매하기</button>
                 </div>
             </div>
             
@@ -140,6 +137,10 @@
 					document.getElementById("totalPrice").innerHTML = totalPrice;
 				});
 				
+			}
+			
+			function buy(){
+				alert("입금할 계좌 : 국민)882602-04-135340");
 			}
 		</script>
 		

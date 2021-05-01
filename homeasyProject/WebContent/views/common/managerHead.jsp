@@ -54,11 +54,11 @@
     <div class="wrap">
         <div id="header">
             <div id="header_1">
-                <a href=""><img src="logo4.png" art= "ì§ì´ì§ ê´ë¦¬ì ë¡ê³ " width="70%" height="90%"></a> 
+                <a href="<%= contextPath %>/index.admin"><img src="logo4.png" width="70%" height="90%"></a> 
             </div>
             <div id="header_2">
-                <a href=""><img src="user (3).png" art= "ë¡ê·¸ìì" height="30px" ></a> 
-                <a href=""><img src="home (1).png" art= "ê´ë¦¬ì ë©ì¸" height="30px" ></a> 
+                <a href=""><img src="user (3).png" height="30px" ></a> 
+                <a href=""><img src="home (1).png" height="30px" ></a> 
             </div>
             
         </div>

@@ -22,6 +22,36 @@
         background:gray;
         cursor:pointer;
     }
+   
+    .listArea{
+        font-size: 20px;
+    }
+    table{
+        text-align: center;
+        margin: auto;
+
+    }
+    .outer{
+        margin: auto;
+    }
+    .faqNavigator{
+        text-align: center;
+        margin: auto;
+        height: 50px;
+        padding-top: 18px;
+    }
+    .faqNavigator a{
+        margin-right: 20px;
+        font-size: 20px;
+    }
+    .info{
+        margin-left: 820px;
+        padding-bottom: 7px;
+    }
+    
+    .faqHeder{border-bottom: 1px solid black; background-color: rgb(212, 237, 218);}
+
+    h1{margin-left: 25px; padding-top: 25px;}
 </style>
 </head>
 <body>
@@ -29,45 +59,36 @@
 	<%@ include file="../common/mainHeader.jsp" %>
     <br><br>
 	
-	<div class="outer">
+	<div class="outer" style="width: 1200px;">
 
-        <div class="faqHeder" style="margin-left: 600px;"><!-- 텍스트크기 늘리면 여기 줄여-->
-            <div class="info faq">
-                <h1>FAQ</h1>
+        <div class="faqHeder"><!-- 텍스트크기 늘리면 여기 줄여-->
+            <h1>FAQ</h1>
+            <div class="info">
                 <p>
                     운영시간 : 평일 09:00 ~ 18:00(주말 & 공휴일 제외) <br>
                     이메일 문의 : homeasy@gmail.com <br>
-                    전화 : xxxx-xxxxx
+                    전화 : 0318-0505
                 </p>
-            </div>
-            <div class="topquestion faq" style="margin-left: 400px;"><!-- 텍스트크기 늘리면 여기 줄여-->
-                <a href="">배송은 얼마나 걸리나요?</a> <br>
-                <a href="">배송은 얼마나 걸리나요?</a> <br>
-                <a href="">배송은 얼마나 걸리나요?</a>
             </div>
         </div>
 
         <div class="faqNavigator">
-            <table class="nav" style="margin-left: 600px;"><!-- 텍스트크기 늘리면 여기 줄여-->
-                <tr>
-                    <td><a href="<%= contextPath %>/listAll.faq">전체</a></td>
-                    <td><a href="<%= contextPath %>/listPay.faq">주문/결제</a></td>
-                    <td><a href="<%= contextPath %>/listDel.faq">배송</a></td>
-                    <td><a href="<%= contextPath %>/listCancel.faq">취소/환불</a></td>
-                    <td><a href="<%= contextPath %>/listChange.faq">반품/교환</a></td>
-                    <td><a href="<%= contextPath %>/listEtc.faq">기타/서비스</a></td>
-                </tr>
-            </table>
+                    <a href="<%= contextPath %>/listAll.faq">전체</a>
+                    <a href="<%= contextPath %>/listPay.faq">주문/결제</a>
+                    <a href="<%= contextPath %>/listDel.faq">배송</a>
+                    <a href="<%= contextPath %>/listCancel.faq">취소/환불</a>
+                    <a href="<%= contextPath %>/listChange.faq">반품/교환</a>
+                    <a href="<%= contextPath %>/listEtc.faq">기타/서비스</a>
         </div>
 
-        <hr>
+        <hr><br>
 		
-		<table class="listArea" style="margin-left:950px;"> <!-- 텍스트크기 늘리면 여기 줄여-->
+		<table class="listArea table-bordered table-hover"> <!-- 텍스트크기 늘리면 여기 줄여-->
             <thead>
-                <tr>
+                <tr class="table-active">
                 	<th width="0">
-                    <th width="150">카테고리</th>
-                    <th width="600">제목 </th>
+                    <th width="250">카테고리</th>
+                    <th width="750">제목 </th>
                 </tr>
             </thead>
             <tbody>
@@ -86,7 +107,9 @@
 	                <% } %>
                 <% } %>
             </tbody>
-    	</table> 
+    	</table>
+        
+        <br><br><br>
     	<script>
     		$(function(){
     			$('.listArea>tbody>tr').click(function(){
