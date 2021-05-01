@@ -84,7 +84,7 @@
 <body>
 
    <%@ include file="../common/mainHeader.jsp" %>
-	<hr><br><br>
+	<hr><br>
     <div class="content">
     
         <br>
