@@ -15,7 +15,7 @@
             width:1100px;
             height:1150px;
             margin:auto;
-            padding-top:20px;
+            padding-top:0px;
             padding-left:100px;
         }
 
@@ -84,7 +84,7 @@
 <body>
 
    <%@ include file="../common/mainHeader.jsp" %>
-
+	<hr><br><br>
     <div class="content">
     
         <br>
