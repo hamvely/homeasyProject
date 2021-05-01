@@ -13,7 +13,6 @@
 <title>Insert title here</title>
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
 
@@ -41,7 +40,7 @@
         justify-content: space-between;
         width: 1100px;
         height: 380px;
-        margin: auto;
+        padding: 0 50px;
     }
 
 
@@ -105,10 +104,9 @@
                     <span>총가격 :</span> 
                     <span id="totalPrice" name="totalPrice"></span>
                     <span>원</span> <br>
-                    </form>
-                    <button onclick="buy()">구매하기</button> 
+                    </form> 
                     <hr><hr>
-                    <button>리뷰</button>
+                    <button onclick="buy()">구매하기</button>
                 </div>
             </div>
             
