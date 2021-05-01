@@ -12,7 +12,6 @@
 <title>상품 등록</title>
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
@@ -119,12 +118,12 @@
                         </tr>
                         <tr>
                             <th>할인금액</th>
-                            <td><input type="number" name="cp_price" required>원</td>
+                            <td><input type="number" name="cp_price" required></td>
                             <td></td>
                         </tr>
                         <tr>
                             <th>최소구매금액</th>
-                            <td><input type="number" name="cp_condition" required>원</td>
+                            <td><input type="number" name="cp_condition" required></td>
                             <td></td>
                         </tr>
                         <tr>

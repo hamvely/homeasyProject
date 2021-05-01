@@ -101,6 +101,7 @@
         cursor:pointer;
     }
     th, td {
+        height: 45px;
         padding: 5px;
         border-bottom: 1px solid #ddd;
     }
@@ -140,7 +141,7 @@
             <div id="content_2">
 
                 <!-- 페이지 제목 -->
-                <h3>회원관리</h3>
+                <h3>회원조회</h3>
 
                 <!-- 버튼 -->
                 <div class="content_bar">
@@ -156,14 +157,12 @@
 	                        <th>회원번호</th>
 	                        <th>회원이메일</th>
 	                        <th>회원이름</th>
-	                        <th>별명</th>
-	                        <th>성별</th>
+
 	                        <th>생년월일</th>
-	                        <th>우편번호</th>
-	                        <th>주소</th>
+
 	                        <th>연락처</th>
 	                        <th>가입일</th>
-	                        <th>회원<br>상태</th>
+
 	                        <th>관리자<br>여부</th>
 	                    </tr>
 	                </thead>
@@ -180,14 +179,13 @@
 			                        <td><%= m.getUserNo() %></td>
 			                        <td><%= m.getEmail() %></td>
 			                        <td><%= m.getUserName() %></td>
-			                        <td><%= m.getNickName() %></td>
-			                        <td><%= m.getGender() %></td>
+
+	
 			                        <td><%= m.getBirth() %></td>
-			                        <td><%= m.getPostCode() %></td>
-			                        <td><%= m.getAddress() %></td>
+
 			                        <td><%= m.getPhone() %></td>
 			                        <td><%= m.getJoinDate() %></td>
-			                        <td><%= m.getUserStatus() %></td>
+
 			                        <td><%= m.getAdmin() %></td>
 			                    </tr>
 			                <% } %>

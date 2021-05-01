@@ -19,7 +19,6 @@
 
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
@@ -115,7 +114,6 @@
                 	<!-- 버튼 -->
 	                <div class="content_bar">
 	                	<a href="<%= contextPath %>/adminlist.me?currentPage=1" class="btn btn-warning">목록가기</a>
-	                    <a href="<%= contextPath %>/adminDelete.me?uno=<%= m.getUserNo() %>" class="btn btn-warning">삭제</a>
 	                </div>
 	                <br>
 	                

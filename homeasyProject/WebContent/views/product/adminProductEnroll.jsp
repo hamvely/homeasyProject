@@ -13,7 +13,6 @@
 <title>상품 등록</title>
 <style>
     div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
