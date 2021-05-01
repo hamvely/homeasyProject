@@ -55,7 +55,7 @@ public class AdminKnowHowInsertServlet extends HttpServlet {
 			String postContent = multiRequest.getParameter("post_content");
 			String postUpdateDate = multiRequest.getParameter("post_update_date");
 			String postStatus = multiRequest.getParameter("post_status");
-			
+			String upFile = multiRequest.getParameter("upfile");
 			
 			KnowHow k = new KnowHow();
 			k.setPostTitle(postTitle); // KnowHow.vo클래스 변수에 ? 값 담기
@@ -63,11 +63,11 @@ public class AdminKnowHowInsertServlet extends HttpServlet {
 			
 			//System.out.println(multiRequest.getOriginalFileName("upfile")); // view단에 input type="file"의 name
 			KnowHowFile kf = null;
-			
+			System.out.println(upFile);
 			if(multiRequest.getOriginalFileName("upfile") != null) {
 				
 				kf = new KnowHowFile(); // KnowHowFile테이블에 insert할 데이터 담기
-				kf.setPostFileRename(multiRequest.getFilesystemName("upfile"));		
+				kf.setPostFileRename(multiRequest.getFilesystemName("upfile"));
 				
 			}
 			

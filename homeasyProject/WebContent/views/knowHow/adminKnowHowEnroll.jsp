@@ -115,7 +115,7 @@
                         </tr>
                         <tr>
                             <th>첨부사진</th>
-                            <td><input type="file" name="upfile"></td>
+                            <td><input type="file" name="fileName" id="fileName" onchange="alert(this.value)"></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -128,11 +128,11 @@
                     </table>
                 </form>
 
-
+				<script>
+				</script>
             </div>
         </div>
     </div>
-
 
     <script
       src="https://kit.fontawesome.com/6478f529f2.js"

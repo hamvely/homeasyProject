@@ -231,7 +231,7 @@ public class KnowHowDao {
 			if(rset.next()) {
 				kf = new KnowHowFile();
 				kf.setPostFileNo(rset.getInt("POST_FILE_NO"));
-				kf.setRefPostNo(rset.getInt("POST_NO"));
+				kf.setPostNo(rset.getInt("POST_NO"));
 				kf.setPostFileRename(rset.getString("POST_FILE_RENAME"));
 			}			
 			

@@ -101,9 +101,7 @@ public class HomeVisitDao {
          for(Attachment at : list){
             
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, at.getPostFileNo());
-            pstmt.setInt(2, at.getPostNo());
-            pstmt.setString(3, at.getPostFileRename());
+            pstmt.setString(1, at.getPostFileRename());
             
             result = pstmt.executeUpdate();
             

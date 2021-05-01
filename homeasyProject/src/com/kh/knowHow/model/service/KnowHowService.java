@@ -10,7 +10,6 @@ import com.kh.knowHow.model.dao.KnowHowDao;
 import com.kh.knowHow.model.vo.KnowHow;
 import com.kh.knowHow.model.vo.KnowHowFile;
 import com.kh.qna.model.vo.Attachment;
-import com.kh.review.model.dao.ReviewDao;
 
 
 public class KnowHowService {
@@ -77,6 +76,8 @@ public class KnowHowService {
 		return result1 * result2;
 		
 	}
+
+	
 	
 		
 

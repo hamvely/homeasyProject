@@ -111,8 +111,8 @@
                 <form action="<%= contextPath %>/adminDetail.kh" class="knowhow_enroll" method="post" enctype="multipart/form-data">
                 	<!-- 버튼 -->
 	                <div class="content_bar">
-	                    <a href="<%= contextPath %>/adminlist.kh?currentPage=1" class="btn btn-warning">목록가기</a>
-	                    <a href="<%= contextPath %>/adminDelete.kh?kno=<%= k.getPostNo() %>" class="btn btn-warning">삭제</a>
+	                    <%--<a href="<%= contextPath %>/adminlist.kh?currentPage=1" class="btn btn-warning">목록가기</a>
+	                    <a href="<%= contextPath %>/adminDelete.kh?kno=<%= k.getPostNo() %>" class="btn btn-warning">삭제</a> --%>
 	                </div>
 	                <br><br>
 	                
@@ -123,7 +123,7 @@
                         </tr>
                         <tr>
                             <th>작성일</th>
-                            <td colspan="3"><%= k.getPostUpdateDate() %></td>
+                            <td colspan="3"><%= k.getPostCreateDate() %></td>
                         </tr>
                         <tr>
                             <th>조회수</th>

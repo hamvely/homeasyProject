@@ -3,15 +3,15 @@ package com.kh.knowHow.model.vo;
 public class KnowHowFile {
 	
 	private int postFileNo;			// 첨부파일 고유번호
-	private int refPostNo;			// 참조하고 있는 게시글 번호
+	private int postNo;			// 참조하고 있는 게시글 번호
 	private String postFileRename;	// 첨부파일 수정명
 	
 	public KnowHowFile() {}
 
-	public KnowHowFile(int postFileNo, int refPostNo, String postFileRename) {
+	public KnowHowFile(int postFileNo, int postNo, String postFileRename) {
 		super();
 		this.postFileNo = postFileNo;
-		this.refPostNo = refPostNo;
+		this.postNo = postNo;
 		this.postFileRename = postFileRename;
 	}
 
@@ -23,12 +23,12 @@ public class KnowHowFile {
 		this.postFileNo = postFileNo;
 	}
 
-	public int getRefPostNo() {
-		return refPostNo;
+	public int getPostNo() {
+		return postNo;
 	}
 
-	public void setRefPostNo(int refPostNo) {
-		this.refPostNo = refPostNo;
+	public void setPostNo(int postNo) {
+		this.postNo = postNo;
 	}
 
 	public String getPostFileRename() {
@@ -41,9 +41,10 @@ public class KnowHowFile {
 
 	@Override
 	public String toString() {
-		return "KnowHowFile [postFileNo=" + postFileNo + ", refPostNo=" + refPostNo + ", postFileRename="
-				+ postFileRename + "]";
+		return "KnowHowFile [postFileNo=" + postFileNo + ", postNo=" + postNo + ", postFileRename=" + postFileRename
+				+ "]";
 	}
+
 	
 	
 	
