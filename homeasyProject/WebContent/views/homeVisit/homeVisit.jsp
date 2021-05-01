@@ -35,7 +35,7 @@
             margin-right:-10px;
             float:right;
             margin-top:-35px;
-            margin-right:10px;
+            margin-right:40px;
         }
         
          .a1{
@@ -70,6 +70,9 @@
 
    <%@ include file="../common/mainHeader.jsp" %>
    
+   <div class="outer">
+  	<br>
+  	
      <% if(loginUser != null){ %>
         <div class="button1">
 	         <a href="<%=contextPath %>/write.ho" class="a1">
@@ -80,8 +83,6 @@
         </div>
        <% } %>
        
-   <div class="outer">
-  	<br>
          <div class="listArea">
             <% for(HomeVisit h : list){ %>
                <div class="thumbnail" >
@@ -94,7 +95,7 @@
 	                  <br><br>
 	                  
 	                  <div class="thumbnail" style="margin-top:-60px; margin-left:-1px;">
-	                     <img src="./resources/img/sample/artRoom1_main.jpg" width="220" height="220">
+	                     <img src="<%= contextPath %>/<%= h.getPostFileRename() %>" width="220" height="220">
 	                  </div>
 	                  
 	                  <P><br><br><%=h.getPostContent() %></P>
