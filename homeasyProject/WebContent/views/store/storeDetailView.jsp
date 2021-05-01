@@ -37,24 +37,72 @@
 
     .detailHeader{
         display: flex;
-        justify-content: space-between;
+        margin: auto;
+        justify-content: center;
         width: 1100px;
         height: 380px;
         padding: 0 50px;
     }
 
-
-
+    .img {
+        width: 500px;
+        text-align: center;
+    }
+    .product_info {
+        border: 1px solid lightgrey;
+        width: 400px;
+        height: 380px;
+        padding: 20px 20px;
+    }
+    #brand_info{
+        color: darkgray;
+    }
+    #name_info {
+        font-size: 25px;
+    }
+    #productPrice {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #selectOption {
+        width: 360px;
+        height: 40px;
+    }
+    #amount {
+        width: 300px;
+        height: 40px;
+    }
+    .price_info {
+        font-size: 23px;
+    }
+    .product_buy {
+        width: 100px;
+        height: 40px;
+        background-color: green;
+        color: white;
+        border-radius: 5px;
+        float: right;
+    }
     .detailBody{
+        display: flex;
+        flex-direction:column;
         width: 1100px;
-        height: 300px;
         margin: auto;
+        padding: 30px 0;
+    }
+    .detailbar {
+        text-align: center;
+        width: 1100px;
+        height: 40px;
+        font-size: 20px;
+        border-top: 1px solid lightgrey;
+        border-bottom: 1px solid lightgrey;
+        color: gray;
     }
 
     .option{
         margin: 20px;
-    }
-    
+    }    
     #selectOption{
     	width:300px;
     }
@@ -68,50 +116,52 @@
 
         <!-- 상단바 -->
         <div class="header"><%@ include file="../common/mainHeader.jsp" %></div>
-
+        <br><br>
         <!-- 본문 전체 -->
         <div class="content">
 
             <div class="detailHeader">
                 
                 <div class="img">
-                    <img src="<%= contextPath %>/<%= p.getTitleImg() %>" width="300" height="300">
+                    <img src="<%= contextPath %>/<%= p.getTitleImg() %>" height="380">
                 </div>   
-                <div class="content">
+                <div class="product_info">
                     <form action="<%= contextPath %>/insert.cart" id="enrollForm" method="post" enctype="multipart/form-data">
-                    <span name="productBrand"><%= p.getProductBrand() %></span> <br>
-                    <span name="productName"><%= p.getProductName() %></span> <br>
-                    <span id="productPrice" name="productPrice"><%= p.getProductPrice() %></span> <br>
-                        
-                    <select id="selectOption" name="selectOption" onchange="optionSelect()">
-                    <option selected>옵션을 선택하세요</option>
-                    <% for(int i=0; i<optionList.size(); i++) {%>
-                    	<% if(optionList.get(i).getOptionStock() == 0) { %>
-                           <option value="<%= optionList.get(i).getOptionPrice() %>" disabled>
-                               <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
-                            </option>
-                            <% } else { %>
-                           		<option value="<%= optionList.get(i).getOptionPrice() %>">
-                              		<%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
-                       			</option>
-                            <% } %>
-                       <% } %>
-                       </select>
-                 
-			        <br>
-                                        수량 : <input type="number" id="amount" name="amount">  
-                    <br>
-                    <span>총가격 :</span> 
-                    <span id="totalPrice" name="totalPrice"></span>
-                    <span>원</span> <br>
+                        <span id="brand_info" name="productBrand"><%= p.getProductBrand() %></span> <br>
+                        <span id="name_info" name="productName"><%= p.getProductName() %></span> <br>
+                        <span id="productPrice" name="productPrice"><%= p.getProductPrice() %></span> <br><br>
+                            
+                        <select id="selectOption" name="selectOption" onchange="optionSelect()">
+                        <option selected>옵션을 선택하세요</option>
+                        <% for(int i=0; i<optionList.size(); i++) {%>
+                            <% if(optionList.get(i).getOptionStock() == 0) { %>
+                            <option value="<%= optionList.get(i).getOptionPrice() %>" disabled>
+                                <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
+                                </option>
+                                <% } else { %>
+                                    <option value="<%= optionList.get(i).getOptionPrice() %>">
+                                        <%= optionList.get(i).getOptionName() %>(+<%= optionList.get(i).getOptionPrice() %>원)
+                                    </option>
+                                <% } %>
+                        <% } %>
+                        </select>
+                    
+                        <br><br>
+                             수량 : <input type="number" id="amount" name="amount">  
+                        <br><br>
+                        <span class="price_info">총가격 :</span> 
+                        <span class="price_info" id="totalPrice" name="totalPrice"></span>
+                        <span class="price_info">원</span> <br>
                     </form> 
-                    <hr><hr>
-                    <button onclick="buy()">구매하기</button>
+                    <br>
+                    <button onclick="buy()" class="product_buy">구매하기</button>
                 </div>
             </div>
             
             <div class="detailBody">
+                <div class="detailbar">상품정보</div>
                 <span><%= p.getProductDetail() %></span>
+                <img src="https://exit.ohou.se/e9fff699fa40d75d03b309d4b8394dd30b4e587d/oheimev.diskn.com/dodam/uj/dodam_family/family/A_1.jpg" alt="">
             </div>
 
         </div>
