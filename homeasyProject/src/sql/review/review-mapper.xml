@@ -14,7 +14,9 @@
 <entry key="selectReview">
 		SELECT 
 		    PRODUCT_NAME
+		  , PRODUCT_NO 
 		FROM PRODUCT
+        WHERE PRODUCT_NO = ?
 </entry>
 
 

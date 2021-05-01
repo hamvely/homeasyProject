@@ -1,6 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.kh.review.model.vo.*, "%>
+    pageEncoding="UTF-8" import="com.kh.review.model.vo.*"%>
     
     
 <%
@@ -73,7 +73,7 @@ String contextPath = request.getContextPath();
             </td> 
            
             
-            <td colspan="4" ><%= p.getProductName() %></td>
+            <td colspan="4" ><%= r.getProductName() %></td>
         </tr>
 
       <!-- 리뷰작성 -->

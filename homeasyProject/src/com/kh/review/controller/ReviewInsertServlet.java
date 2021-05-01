@@ -55,7 +55,7 @@ public class ReviewInsertServlet extends HttpServlet {
 		 if(result > 0) { 
 			 
 			 session.setAttribute("alertMsg", "성공적으로 등록되었습니다.");
-			 response.sendRedirect(request.getContextPath()+"/Order.li");
+			 response.sendRedirect(request.getContextPath()"/Review.re");
 		 }else {
 			 request.setAttribute("errorMsg", "공지사항 등록실패");
 			 request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
