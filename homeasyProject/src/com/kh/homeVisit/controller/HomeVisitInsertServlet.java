@@ -78,7 +78,7 @@ public class HomeVisitInsertServlet extends HttpServlet {
 			
 			int result = new HomeVisitService().insertHomeVisitWrite(h, list);
 			
-			if(result > 0) {
+			/*if(result > 0) {
 				
 				request.getSession().setAttribute("alertMsg", "집들이 글쓰기 성공");
 				response.sendRedirect(request.getContextPath() + "/list.ho");
@@ -86,7 +86,7 @@ public class HomeVisitInsertServlet extends HttpServlet {
 			}else {
 				request.getSession().setAttribute("alertMsg", "집들이 글쓰기 실패");
 				response.sendRedirect(request.getContextPath() + "/write.ho");
-			}
+			}*/
 			
 		}
 		}

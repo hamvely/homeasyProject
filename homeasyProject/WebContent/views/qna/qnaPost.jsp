@@ -15,7 +15,7 @@
         width:490px;
         height:1150px;
         margin:auto;
-        padding-left:100px;
+        padding-left:px;
     }
     .title{padding-top:10px;}
 
