@@ -278,6 +278,8 @@ public class MemberDao {
 
 	public int updateMember(Connection conn, Member m) {
 		
+		
+		System.out.println(m);
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
@@ -319,9 +321,11 @@ public class MemberDao {
 					if(rset.next()) {
 						m = new Member(rset.getInt("USER_NO"),
 									   rset.getString("EMAIL"),
+									   rset.getString("PWD"),
 									   rset.getString("NAME"),
 									   rset.getString("NICKNAME"),
 									   rset.getString("GENDER"),
+									   rset.getString("USER_FILE_RENAME"),
 									   rset.getString("BIRTH"),
 									   rset.getInt("POST_CODE"),
 									   rset.getString("ADDRESS"),

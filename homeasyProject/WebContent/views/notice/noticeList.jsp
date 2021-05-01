@@ -24,9 +24,7 @@
         padding-top: 50px;
     }
     
-    table {
-        width: 900px;
-    }
+    table {width: 900px;}
 
     th{font-size: 15px;}
     td{float: left; margin: 15px 0 5px 15px;}
@@ -42,6 +40,8 @@
 	  border-color: lightgrey;
 	  color:black;
 	}
+
+	h1{background-color: rgb(212, 237, 218);}
     
 </style>
 <body>
@@ -55,7 +55,7 @@
         </div>
         <br><br>
 
-		<table class="listArea" align="center" border="1">
+		<table class="listArea table-bordered table-hover" align="center">
 			<tbody>
 		
 				<% if(list.isEmpty()) { %>
@@ -65,9 +65,9 @@
 				<% }else { %>
 					<% for(Notice n : list) { %>
 					<tr>
-						<td width="700px"><%= n.getNoticeTitle() %></td>
+						<td width="720px"><%= n.getNoticeTitle() %></td>
 						<td width="100px"><%= n.getCreateDate() %></td>
-						<td><%= n.getNoticeNo() %></td>
+						<td style="visibility:hidden"><%= n.getNoticeNo() %></td>
 						<td><hr></td>
 					</tr>
 					<% } %>

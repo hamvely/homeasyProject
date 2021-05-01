@@ -20,6 +20,17 @@ public class Coupon {
 		this.cp_limit = cp_limit;
 		this.cp_memo = cp_memo;
 	}
+	
+	
+	
+
+	public Coupon(String cp_name, int cp_price, int cp_condition, String cp_memo) {
+		super();
+		this.cp_name = cp_name;
+		this.cp_price = cp_price;
+		this.cp_condition = cp_condition;
+		this.cp_memo = cp_memo;
+	}
 
 	public int getCp_no() {
 		return cp_no;

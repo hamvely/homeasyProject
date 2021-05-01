@@ -38,7 +38,7 @@ public class MemberUpdateServlet extends HttpServlet {
 		
 		// 2. 전달값 뽑아서 변수 및 객체 담기
 		
-		String email = request.getParameter("email");
+		String email = request.getParameter("userEmail");
 		String userName = request.getParameter("userName");
 		String nickname = request.getParameter("nickName");
 		String phone = request.getParameter("phone");
