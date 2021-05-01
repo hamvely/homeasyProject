@@ -19,7 +19,7 @@
 <body>
 
    <%@ include file="../common/mainHeader.jsp" %>
-	
+	<hr><br>
     <div class="outer">
     
     	<div class="content">

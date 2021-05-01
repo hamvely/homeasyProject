@@ -100,6 +100,8 @@
 </style> 
 </head>
 <body>
+
+	
     <div class="wrap">
         <div class="content1">
             <h1>집들이 글쓰기</h1>
