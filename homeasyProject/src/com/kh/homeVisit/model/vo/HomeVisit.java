@@ -19,6 +19,7 @@ public class HomeVisit {
    private String postCateName;
    private String postStatus;
    
+   
    public HomeVisit() {}
 
    public HomeVisit(int postNo, String postContent, String nickName, String userFileRename, 
@@ -73,6 +74,7 @@ public class HomeVisit {
       this.postTitle = postTitle;
       this.userNo = userNo;
    }
+
 
 
    public HomeVisit(int userNo, String postTitle, String postContent) {
@@ -196,11 +198,11 @@ public class HomeVisit {
 
    @Override
    public String toString() {
-      return "HomeVisit [userFileRename=" + userFileRename + ", nickName=" + nickName + ", postFileRename="
-            + postFileRename + ", postContent=" + postContent + ", pcomContent=" + pcomContent + ", postNo="
-            + postNo + ", rowNum=" + rowNum + ", email=" + email + ", postTitle=" + postTitle + ", postCreateDate="
-            + postCreateDate + ", postCount=" + postCount + ", userNo=" + userNo + ", postCateName=" + postCateName
-            + "]";
+	return "HomeVisit [userFileRename=" + userFileRename + ", nickName=" + nickName + ", postFileRename="
+			+ postFileRename + ", postContent=" + postContent + ", pcomContent=" + pcomContent + ", postNo=" + postNo
+			+ ", rowNum=" + rowNum + ", email=" + email + ", postTitle=" + postTitle + ", postCreateDate="
+			+ postCreateDate + ", postCount=" + postCount + ", userNo=" + userNo + ", postCateName=" + postCateName
+			+ ", postStatus=" + postStatus + "]";
    }
    
    
