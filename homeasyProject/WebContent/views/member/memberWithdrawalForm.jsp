@@ -156,6 +156,8 @@
                         </td>
                     </tr>
                 </table>
+                
+                	        <br><br><br><br>
             </form>    
             
 			<script>
@@ -198,12 +200,14 @@
 				<button type="submit" class="btn btn-success">탈퇴하기</button>
 			</form>
 	        
+
 	      </div>
 
 	    </div>
 	  </div>
 	</div>
     
+
 
 </body>
 </html>
