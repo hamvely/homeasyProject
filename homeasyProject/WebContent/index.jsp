@@ -134,7 +134,7 @@
 <body>   
     <%@ include file="views/common/mainHeader.jsp" %>
     
-    <br><hr><br>
+    <br><br>
     
      <div class="wrap">
 
