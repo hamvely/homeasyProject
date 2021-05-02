@@ -20,10 +20,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 * {font-family: 'Noto Sans KR', sans-serif;}
 
-    .outer{width: 1625px; height: 850px; margin: auto; padding-top: 180px; background-color:rgb(3, 79, 6);}
+    .outer{width: 1625px; height: 900px; margin: auto; padding-top: 180px; background-color:rgb(3, 79, 6);}
 
     .inner{width: 400px; height:400px; margin: auto; border: 1px solid black; background-color:rgb(248, 243, 243); border-radius:25px;
-           border: 1px solid #ccc; margin-top: 35px;}
+           border: 1px solid #ccc; margin-top: 40px;}
 
     #logo img {padding-top: 45px; padding-bottom: 30px; display:block; margin:auto;}
     

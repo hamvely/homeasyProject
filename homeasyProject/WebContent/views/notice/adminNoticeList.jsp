@@ -211,6 +211,9 @@
 										
 				})
 	    	})
+
+            
+            
 	    	</script>
             
 			<%--  
@@ -255,7 +258,7 @@
 
 								<table class="table table-borderless">
 								    <tr>
-								        <td><input type="text" name="title" class="form-control" placeholder="제목을 입력해주세요." required></td>
+								        <td><input type="text" name="title" id="writeTitle" class="form-control" placeholder="제목을 입력해주세요." required></td>
 								    </tr>
 								    <tr>
 								        <td><textarea name="content" class="form-control" rows="10" style="resize:none;" placeholder="내용을 입력해주세요." required></textarea></td>
@@ -272,7 +275,15 @@
 						</form>
                     </div>
                 </div>
+                
             </div>
+            <script>
+                var len = $('#writeTitle').val().length;
+                $('#writeTitle').focus();
+                $('#writeTitle')[0].setSelectionRange(len, len);
+            </script>
+
+           
             
             <!-- 
             <div>

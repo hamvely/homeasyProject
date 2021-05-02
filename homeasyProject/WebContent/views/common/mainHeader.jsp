@@ -133,7 +133,7 @@
                        <a href="<%= request.getContextPath() %>/enrollForm.me">회원가입</a>
                    </div>
                    
-                <% }else if(loginUser != null && loginUser.getEmail().equals("admin@gmail.com")) { %>
+                <% }else if(loginUser != null && loginUser.getEmail().equals("homeasy@admin")) { %>
 				        <div class="afterLogin">
 	                        <div style="text-align:center; height:40px;">
 	                            <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>

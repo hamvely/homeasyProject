@@ -84,26 +84,26 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
                 <form action="<%= request.getContextPath() %>/insert.me" method="post" id="enrollForm">
                     <div class="form-group">
                         <button type="button" onclick="idCheck();" style="float: right;" class="btn btn-secondary btn-sm">중복확인</button>
-                        <label for="userEmail">이메일</label>
+                        <label for="userEmail">이메일 (필수)</label>
                         <input type="email" class="form-control" name="email" id="email" maxlength="20" placeholder="이메일" required>
                     </div>
                     <div class="form-group">
-                        <label for="userPwd">비밀번호</label>
+                        <label for="userPwd">비밀번호 (필수)</label>
                         <input type="password" class="form-control" name="userPwd" id="userPwd" minlength="8" placeholder="8자 이상 입력해주세요" required>
                     </div>
                 
                     <div class="form-group">
-                        <label for="userPwd">비밀번호 재확인</label>
+                        <label for="userPwd">비밀번호 재확인 (필수)</label>
                         <input type="password" class="form-control" id="userPwd" maxlength="15" placeholder="비밀번호 확인" required>
                     </div>
                 
                     <div class="form-group">
-                        <label for="userName">이름</label>
+                        <label for="userName">이름 (필수)</label>
                         <input type="text" class="form-control" name="userName" id="userName" placeholder="이름을 입력해주세요" maxlength="50" required>
                     </div>
                 
                     <div class="form-group">
-                        <label for="nickName">닉네임</label>
+                        <label for="nickName">닉네임 (필수)</label>
                         <input type="text" class="form-control" name="nickName" id="nickName" placeholder="별명(2~10자)" required>
                     </div>
                     

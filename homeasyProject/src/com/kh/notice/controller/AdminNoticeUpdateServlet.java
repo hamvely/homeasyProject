@@ -53,7 +53,7 @@ public class AdminNoticeUpdateServlet extends HttpServlet {
 		
 		if(result > 0) { // 수정 성공 => /detail.no?nno=글번호  url재요청 => 상세보기페이지
 			
-			request.getSession().setAttribute("alertMsg", "성공적으로 공지사항 수정됐습니다.");
+			//request.getSession().setAttribute("alertMsg", "성공적으로 공지사항 수정됐습니다.");
 			// => 상세보기 요청 (detail.no)
 			response.sendRedirect(request.getContextPath() + "/adminDetail.no?nno=" + noticeNo);
 			

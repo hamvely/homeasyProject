@@ -38,7 +38,7 @@ public class AdminNoticeDeleteServlet extends HttpServlet {
 		
 		if(result > 0) { // 성공 => /jsp/list.no 재요청 => 공지사항리스트페이지
 			
-			request.getSession().setAttribute("alertMsg", "성공적으로 공지사항이 삭제되었습니다.");
+			//request.getSession().setAttribute("alertMsg", "성공적으로 공지사항이 삭제되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/adminList.no?currentPage=1");
 			
 		}else { // 실패 => 에러문구 담아서 에러페이지로 포워딩

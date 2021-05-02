@@ -53,7 +53,7 @@ public class AdminNoticeInsertServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
-			session.setAttribute("alertMsgAdmin", "공지사항이 성공적으로  등록되었습니다.");
+			//session.setAttribute("alertMsgAdmin", "공지사항이 성공적으로  등록되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/adminList.no?currentPage=1");
 			
 		}else {
