@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>HOMEASY</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -36,8 +36,8 @@
   #header>div, #content>div {float: left; height: 100%;}
   #header_column {display: flex; align-items: center; justify-content: center;}
   
-  #header_column:first-child {width:300px;}
-  #header_column:nth-child(2) {width:600px;}
+  #header_column:first-child {width:320px;}
+  #header_column:nth-child(2) {width:570px;}
   #header_column:nth-child(3) {width:300px;}
 
   a {text-decoration: none; color: #2e363e;}
@@ -147,7 +147,7 @@
 		        <% }else { %>
                     <div class="afterLogin">
                         <div style="text-align: center; height:40px;">
-                            <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님</a>
+                            <a href="" style="font-size: 18px;"><%= loginUser.getNickName() %>님&nbsp;&nbsp;</a>
                         </div>
 
                         <div class="mypage" style="text-align: center; height:40px; width:200px;">
@@ -171,54 +171,57 @@
                 <% } %>
             </div>
           </div>
-        
-      
-      <!-- 네비게이션 -->   
-        <div class="container mt-3">
+          
+          <!-- 네비게이션 -->   
+          <div class="container mt-3">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" style="border-bottom: 0;">
               <li class="nav-item">
-                <a class="nav-link" href="#home">커뮤니티</a>
+                <a class="nav-link" href="#home" onclick='preventClick(event)'>커뮤니티</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#menu1">스토어</a>
+                <a class="nav-link" href="#menu1" onclick='preventClick(event)'>스토어</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#menu2">고객센터</a>
+                <a class="nav-link" href="#menu2" onclick='preventClick(event)'>고객센터</a>
               </li>
             </ul>
-          
+            
             <!-- Tab panes -->
             <div class="tab-content">
               <div id="home" class="container tab-pane active"><br>
-                <a href="<%=contextPath%>/list.ho">집들이</a>
-                <a href="<%=contextPath%>/list.how">노하우</a>
-                <a href="<%=contextPath%>/list.qna">질문과답변</a>
+                <a href="<%=contextPath%>/list.ho" onclick='preventClick(event)'>집들이</a>
+                <a href="<%=contextPath%>/list.how" onclick='preventClick(event)'>노하우</a>
+                <a href="<%=contextPath%>/list.qna" onclick='preventClick(event)'>질문과답변</a>
               </div>
               <div id="menu1" class="container tab-pane fade"><br>
-                <a href="<%= contextPath %>/list.st?cate1No=1">가구</a>
-                <a href="<%= contextPath %>/list.st?cate1No=2">패브릭</a>
-                <a href="<%= contextPath %>/list.st?cate1No=3">홈데코/조명</a>
-                <a href="<%= contextPath %>/list.st?cate1No=4">수납/정리</a>
-                <a href="<%= contextPath %>/list.st?cate1No=5">생활</a>
-                <a href="<%= contextPath %>/list.st?cate1No=6">주방</a>
-                <a href="<%= contextPath %>/list.st?cate1No=7">반려동물</a>
+                <a href="<%= contextPath %>/list.st?cate1No=1" onclick='preventClick(event)'>가구</a>
+                <a href="<%= contextPath %>/list.st?cate1No=2" onclick='preventClick(event)'>패브릭</a>
+                <a href="<%= contextPath %>/list.st?cate1No=3" onclick='preventClick(event)'>홈데코/조명</a>
+                <a href="<%= contextPath %>/list.st?cate1No=4" onclick='preventClick(event)'>수납/정리</a>
+                <a href="<%= contextPath %>/list.st?cate1No=5" onclick='preventClick(event)'>생활</a>
+                <a href="<%= contextPath %>/list.st?cate1No=6" onclick='preventClick(event)'>주방</a>
+                <a href="<%= contextPath %>/list.st?cate1No=7" onclick='preventClick(event)'>반려동물</a>
               </div>
               <div id="menu2" class="container tab-pane fade"><br>
-                <a href="<%= contextPath %>/list.no?currentPage=1">공지사항</a>
-                <a href="<%= contextPath %>/listAll.faq">FAQ</a>
-                <a href="<%= contextPath %>">1:1문의</a>
+                <a href="<%= contextPath %>/list.no?currentPage=1" onclick='preventClick(event)'>공지사항</a>
+                <a href="<%= contextPath %>/listAll.faq" onclick='preventClick(event)'>FAQ</a>
+                <a href="<%= contextPath %>" onclick='preventClick(event)'>1:1문의</a>
               </div>
             </div>
           </div>
           
           <script>
-          $(document).ready(function(){
-            $(".nav-tabs a").click(function(){
-              $(this).tab('show');
+            $(document).ready(function(){
+              $(".nav-tabs a").click(function(){
+                $(this).tab('show');
+              });
             });
-          });
-          </script>
+            
+            function preventClick(e){
+              e.preventDefalut()
+            }
+            </script>
 
 
         

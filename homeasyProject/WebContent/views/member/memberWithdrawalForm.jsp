@@ -15,37 +15,47 @@
 
 <style>
     .outer{
-        width: 900px;
+        width: 1200px;
         height: 1150px;
         margin: auto;
-        padding-top: 20px;
     }
 
     .inner{
-        width: 800px;
-        margin: auto;
+        width: 1200px;
     }
 
-    h1 {margin-left: -40px;}
-
+    h1{margin-left: 30px; padding-top: 30px;}
+    .noticeHeader{
+		height: 110px; 
+		background-color: rgba(212, 237, 218, 0.4);
+		border-bottom: 3px solid dimgray;
+	}
     #withdrawalForm table {
         padding-bottom: 20px;
         margin: auto;
         height: 950px;
     }
 
-    #withdrawalForm {margin-left: -60px;}
+    #withdrawalForm {margin-left: -60px; width: 900px; margin: auto;}
 
     #withdrawalForm input{margin:5px; margin-left: 20px;}
     
     button {margin: 10px 0 0 10px;}
 
-    label {vertical-align:+1px; margin:3px;}
+    label {vertical-align:+12px; margin:3px;}
 
-    #title {font-size: 17px; margin-left: 13px;}
-
+    #title {font-size: 20px; font-weight: bold; height: 70px;}
     fieldset, textarea {margin-left: 10px;}
 
+    /* input 스타일 */
+    input {height:40px;}
+    
+	/* input 네온스타일 */
+    textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+        border-color: rgb(3, 79, 6); 
+        box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
+        outline: 0 none;
+    }
     
 </style>
 </head>
@@ -53,16 +63,22 @@
 	<%@ include file="../common/mainHeader.jsp" %>
 
 	<% String nickName = loginUser.getNickName(); %>
+    <hr>
 
     <div class="outer">
+        <div class="noticeHeader">
+            <h1>회원탈퇴</h1>
+        </div>
+
+        <br>
+        
         <div class="inner">    
 
-            <h1>회원탈퇴</h1>
 
             <form action="" method="post" id="withdrawalForm">
                 <table>
                     <tr>
-                        <td><b id="title">회원 탈퇴 신청에 앞서 아래 내용을 반드시 확인해주세요.</b></td>
+                        <td id="title">회원 탈퇴 신청에 앞서 아래 내용을 반드시 확인해주세요.</td>
                     </tr>
                     <tr>
                         <td><fieldset>
@@ -86,7 +102,7 @@
                     </tr>
                     <tr>
                         <td><br>
-                            <b id="title">집이지 회원에서 탈퇴하려는 이유가 무엇인가요? (복수선택 가능)</b>
+                            <b>집이지 회원에서 탈퇴하려는 이유가 무엇인가요? (복수선택 가능)</b>
                         </td>
                     </tr>
                     <tr>
@@ -115,12 +131,12 @@
                     </tr>
                     <tr>
                         <td><br><br>
-                            <b id="title">집이지 서비스 이용 중 어떤 부분이 불편하셨나요?</b>
+                            <b>집이지 서비스 이용 중 어떤 부분이 불편하셨나요?</b>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <textarea name="content" placeholder="집이지를 떠나는 이유를 자세히 알려주시겠어요? 여러분의 소중한 의견을 반영해 더 좋은 서비스로 꼭 찾아뵙겠습니다." cols="130" rows="5" style="resize:none"></textarea>
+                            <textarea name="content" class="form-control" placeholder="집이지를 떠나는 이유를 자세히 알려주시겠어요? 여러분의 소중한 의견을 반영해 더 좋은 서비스로 꼭 찾아뵙겠습니다." cols="100" rows="5" style="resize:none"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -134,7 +150,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td style="text-align: center;"><br><br>
          			       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#deleteModal">회원탈퇴</button>
                            <button type="button" class="btn btn-secondary" onclick="myPage();">취소하기</button>
                         </td>
