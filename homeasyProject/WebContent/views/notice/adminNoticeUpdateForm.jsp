@@ -15,11 +15,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>Homeasy Admin</title>
+<title>HOMEASY ADMIN</title>
 
 <style>
     div {
-        outline: 1px solid violet;
+        /* outline: 1px solid violet; */
         box-sizing: border-box;
     }
     .wrap {
@@ -77,7 +77,7 @@
         width:100px; 
     }
 
-    a, button{margin-left:10px;}
+    .atag, button{margin-left:10px;}
 
     /* input 스타일 */
     input {width:700px; height:40px; border:none; outline: none;}
@@ -118,7 +118,7 @@
                         <h3>공지사항 수정하기</h3>
                         <div align="right">
                             <button type="submit" class="btn btn-warning">완료</button>
-                            <a href="<%= contextPath %>/adminDetail.no?nno=<%= n.getNoticeNo() %>" class="btn btn-secondary">취소</a>
+                            <a id="atag" href="<%= contextPath %>/adminDetail.no?nno=<%= n.getNoticeNo() %>" class="btn btn-secondary">취소</a>
                     </div>
 
                     <table id="detailArea" class="table-bordered">
@@ -146,13 +146,6 @@
                     	var len = $('#title').val().length;
                     	$('#title').focus();
                     	$('#title')[0].setSelectionRange(len, len);
-                    
-                    	<%--
-                   	 	$("[name=title]").focus();
-						$("[name=title]").focus().setCursorPosition(last);
-						document.forms[0].title.focus();
-						document.forms[0].title.select();
-						--%>
 					</script>
                     
                     

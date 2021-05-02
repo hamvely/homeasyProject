@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>HOMEASY</title>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -14,52 +14,34 @@
 
 <style>
 
-div{outline: 1px solid violet;}
+    /* div{outline: 1px solid violet;} */
 
     div {box-sizing: border-box;}
 
-    .outer{width: 1200px; height: 1150px; margin: auto;}
-    .outer div{float: left;}
-
-    .mypageMenubar{width:200px; height:100%; clear: both;}
-    .content{width:1000px; height:100%;}
-    /*
-    h1 {margin-left: 85px;}
-
-    #modificationForm table {
-        padding-bottom: 20px;
-        margin: auto;
-        height: 350px;
-    }
-
-    input {height:30px;}
-    button {height:30px; float: left; margin: 30px 0 10px 100px;}
-
-    label {vertical-align:+9px;}
-    a {
-        text-decoration:none; 
-        color: gray; 
-        margin-top: 10px;
-        margin-right: 10px;
-    }
-
-    #modificationForm input, img{margin:5px; margin-left: 20px;}
-    */
-
-    .outer{
-        width: 900px;
-        height: 1150px;
-        margin: auto;
-        padding-top: 20px;
-    }
-
     .inner{
-        width: 800px;
+        width: 1200px;
         margin: auto;
-        border: 1px solid black;
     }
-                                                        
-    h1 {margin-left: 85px;}
+    .content{width:1000px; height:100%;}
+
+
+    h1{margin-left: 30px; padding-top: 30px;}
+    .noticeHeader{
+		height: 110px; 
+		background-color: rgba(212, 237, 218, 0.4);
+		border-bottom: 3px solid dimgray;
+	}
+
+    /* input 스타일 */
+    input {height:40px;}
+    
+	/* input 네온스타일 */
+    textarea.form-control:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+        border-color: rgb(3, 79, 6); 
+        box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075) inset, 0 0 8px rgba(3, 79, 6, 0.6);
+        outline: 0 none;
+    }
+
 
     #modificationForm table {
         padding-bottom: 20px;
@@ -67,10 +49,8 @@ div{outline: 1px solid violet;}
         height: 350px;
     }
 
-    input {height:30px;}
     button {float: center;}
 
-    label {vertical-align:+9px;}
     a {
         text-decoration:none; 
         color: gray; 
@@ -93,38 +73,42 @@ div{outline: 1px solid violet;}
 	String phone = (loginUser.getPhone() == null) ? "" : loginUser.getPhone();
 	String birth = (loginUser.getBirth() == null) ? "" : loginUser.getBirth();
 	%>
-    <br><br>
+    <hr>
+
 	
     <div class="inner">    
 
-        <a href="<%= request.getContextPath() %>/withdrawal.me" style="float: right;">탈퇴하기</a>
-        <h1>회원정보수정</h1>
+        <div class="noticeHeader">
+            <a href="<%= request.getContextPath() %>/withdrawal.me" style="float: right;">탈퇴하기</a>
+            <h1>회원정보수정</h1>
+        </div>
+        <br>
 
         <form action="<%= request.getContextPath() %>/update.me" method="post" id="modificationForm">
             <table>
                 <tr>
                     <td>이메일</td>
-                    <td><input type="text" name="userEmail" size="30" value="<%= email %>" readonly></td>
+                    <td><input type="text" name="userEmail" class="form-control" size="30" value="<%= email %>" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>이름</td>
-                    <td><input type="text" name="userName" size="30" value="<%= userName %>" readonly></td>
+                    <td><input type="text" name="userName" class="form-control" size="30" value="<%= userName %>" readonly></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>별명</td>
-                    <td><input type="text" name="nickName" maxlength="10" size="30" placeholder="별명(2~10자)" value="<%= nickName %>" required></td>
+                    <td><input type="text" id="nickName" name="nickName" class="form-control" maxlength="10" size="30" placeholder="별명(2~10자)" value="<%= nickName %>" required></td>
                     <td></td>
                 </tr>
                 <tr>
                     <td>전화번호</td>
-                    <td><input type="text" name="phone" size="30" placeholder="(-포함해서 입력)" value="<%= phone %>"></td>
+                    <td><input type="text" name="phone" class="form-control" size="30" placeholder="(-포함해서 입력)" value="<%= phone %>"></td>
                     <td></td>
                 </tr> 
                 <tr>
                 	<td>생년월일</td>
-                    <td><input type="date" name="birth" size="30" value="<%= birth %>"></td>
+                    <td><input type="date" name="birth" class="form-control" size="30" value="<%= birth %>"></td>
                     <td></td>
                 </tr>
             </table>
@@ -138,6 +122,13 @@ div{outline: 1px solid violet;}
         </form>    
 
     </div>
+
+    <script>
+        var len = $('#nickName').val().length;
+        $('#nickName').focus();
+        $('#nickName')[0].setSelectionRange(len, len);
+        
+    </script>
 
 </body>
 </html>

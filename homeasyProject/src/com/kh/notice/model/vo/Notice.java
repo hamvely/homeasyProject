@@ -55,12 +55,13 @@ public class Notice {
 	}
 	
 	/* 공지사항 상세(사용자) */
-	public Notice(int noticeNo, String noticeTitle, String noticeContent, Date createDate) {
+	public Notice(int noticeNo, String noticeTitle, String noticeContent, Date createDate, int count) {
 		super();
 		this.noticeNo = noticeNo;
 		this.noticeTitle = noticeTitle;
 		this.noticeContent = noticeContent;
 		this.createDate = createDate;
+		this.count = count;
 	}
 
 	

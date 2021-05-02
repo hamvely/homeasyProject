@@ -23,11 +23,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>Homeasy Admin</title>
+<title>HOMEASY ADMIN</title>
 
 <style>
     div {
-        outline: 1px solid violet;
+        /* outline: 1px solid violet; */
         box-sizing: border-box;
     }
     .wrap {
@@ -84,7 +84,7 @@
         width:100px; 
     }
     
-    a, button{margin-left:10px;}
+    .atag, button{margin-left:10px;}
     
 
     /* input 스타일 */
@@ -137,7 +137,7 @@
                 <div class="content_bar">
 	                <h3>공지사항</h3>
 						<div align="right">
-	                    	<a class="btn btn-warning" data-toggle="modal" data-target="#insertNotice">글 작성</a>
+	                    	<a id="atag" class="btn btn-warning" data-toggle="modal" data-target="#insertNotice">글 작성</a>
 	                    </div>
                 </div>
 

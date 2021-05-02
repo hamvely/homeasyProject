@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Homeasy</title>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -16,12 +16,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 * {font-family: 'Noto Sans KR', sans-serif;}
 
-    .outer{width: 1446px; height: 1500px; margin: auto; padding-top: 20px; background-color:rgb(3, 79, 6);}
+    .outer{width: 1625px; height: 1500px; margin: auto; padding-top: 20px; background-color:rgb(3, 79, 6);}
     .inner{width: 800px; height:1230px; margin: auto; border: 1px solid black; background-color:rgb(248, 243, 243); border-radius:25px;}
     .inner2{width: 500px; margin: auto;}
 
     #logo {margin-left: 25px;}
-    h1 { text-align: center;}
+    h1 {text-align: center; margin-bottom: 20px;}
 
     #enrollForm {
         padding-top: 30px;
@@ -157,7 +157,7 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
                     </div>
                     
                     <div align="center">
-                        <button type="submit" class="btn btn-success" style="width: 300px;">회원가입 완료</button>
+                        <button type="submit" class="btn btn-success btn-lg" style="width: 300px;">회원가입 완료</button>
                     </div>
                 </form>
             </div>
@@ -179,12 +179,12 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 					//console.log(result);
 					if(result == 'NNNNN'){ // 사용불가능
 						alert("이미 존재하거나 탈퇴한 회원의 아이디입니다.");
-						$userId.focus();					
+						$email.focus();					
 					}else{ // 사용가능
 						
 						if(confirm("사용가능한 아이디입니다. 정말로 사용하시겠습니까?")){
 							// 사용하겠다 => 더이상 변경불가, 회원가입버튼 활성화
-							$userId.attr("readonly", true);
+							$email.attr("readonly", true);
 							$("#enrollForm :submit").removeAttr("disabled");							
 						}else{
 							// 다시입력하겠다
@@ -195,37 +195,18 @@ ul.join_box{border: 1px solid #ddd;background-color: #fff;}
 					console.log("아이디 중복체크용 ajax 통신 실패");
 				}
 			});
-			
 		}
+
+        var len = $('#email').val().length;
+        $('#email').focus();
+        $('#email')[0].setSelectionRange(len, len);
+        
 	</script>
     
     
 </body>
 </html>
 
-
-<!--
-<tr>
-    <td class="terms">
-        <div style="border: 1px solid; padding-left: 7px; width: 400px;">
-            <input type="checkbox" name="terms" value="check1" id="check1" required>
-            <label for="check1">만 14세 이상입니다 (필수)</label>
-            <br>
-            
-            <input type="checkbox" name="terms" value="check2" id="check2" required>
-            <label for="check2">이용약관 (필수)</label>
-            <br>
-
-            <input type="checkbox" name="terms" value="check3" id="check3" required>
-            <label for="check3">개인정보 수집 및 이용동의 (필수)</label>
-            <br>
-            
-            <input type="checkbox" name="terms" value="check4" id="check4">
-            <label for="check4">이벤트 열람 메일 및 SMS 수신</label>
-        </div>
-    </td>
-</tr>
--->
 
 
  <!--

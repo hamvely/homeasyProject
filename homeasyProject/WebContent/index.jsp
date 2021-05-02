@@ -75,8 +75,8 @@
 	/* 하단바  */
     #footer{height:200px;}
     #footer>div {height: 100%; float: left;}
-    #footer_1 {width: 250px;}
-    #footer_2 {width: 750px; padding-left: 30px;}
+    #footer_1 {width: 240px;}
+    #footer_2 {width: 690px; padding-left: 30px;}
     #footer_3 {width: 200px;}
     
     /* 주소, 이용약관 ...등등 */

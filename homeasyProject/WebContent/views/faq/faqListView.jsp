@@ -12,6 +12,8 @@
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
+    /* div{outline: 1px solid violet;} */
+
     .faq{
         display: inline-block;
     }
@@ -58,7 +60,7 @@
 <body>
 
 	<%@ include file="../common/mainHeader.jsp" %>
-    <hr><br><br>
+    <hr>
 	
 	<div class="outer" style="width: 1200px;">
 

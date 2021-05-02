@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Homeasy</title>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -20,10 +20,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap');
 * {font-family: 'Noto Sans KR', sans-serif;}
 
-    .outer{width: 1446px; height: 800px; margin: auto; padding-top: 180px; background-color:rgb(3, 79, 6);}
+    .outer{width: 1625px; height: 850px; margin: auto; padding-top: 180px; background-color:rgb(3, 79, 6);}
 
     .inner{width: 400px; height:400px; margin: auto; border: 1px solid black; background-color:rgb(248, 243, 243); border-radius:25px;
-           border: 1px solid #ccc;}
+           border: 1px solid #ccc; margin-top: 35px;}
 
     #logo img {padding-top: 45px; padding-bottom: 30px; display:block; margin:auto;}
     
@@ -72,7 +72,7 @@
 
             <form action="<%= request.getContextPath() %>/login.me" method="post" id="loginForm">
                 <div class="form-group">
-                    <input type="email" class="form-control" name="email" placeholder="이메일을 입력하세요" size="25" required>
+                    <input id="email" type="email" class="form-control" name="email" placeholder="이메일을 입력하세요" size="25" required>
                 </div>
                 <div class="form-group">
                     <input type="password" class="form-control" name="userPwd" placeholder="비밀번호를 입력하세요" size="25" required>
@@ -96,6 +96,10 @@
                         //location.href="/homeasy/views/member/memberEnrollForm.jsp";
                         location.href="<%= request.getContextPath() %>/enrollForm.me";
                     }
+
+                    var len = $('#email').val().length;
+                    $('#email').focus();
+                    $('#email')[0].setSelectionRange(len, len);
                 </script>
             </form>    
         </div>

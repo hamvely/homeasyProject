@@ -15,11 +15,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<title>Homeasy Admin</title>
+<title>HOMEASY ADMIN</title>
 
 <style>
     div {
-        outline: 1px solid violet;
+        /* outline: 1px solid violet; */
         box-sizing: border-box;
     }
     .wrap {
@@ -76,8 +76,11 @@
         border-color:rgb(158, 158, 158);
         width:100px; 
     }
+    .btn-danger {
+        width:100px; 
+    }
 
-    a, button{margin-left:10px;}
+    .atag, button{margin-left:10px;}
 
     /* input 스타일 */
     input {width:700px; height:40px; border:none; outline: none;}
@@ -115,9 +118,9 @@
                 <div class="content_bar">
 	                <h3>공지사항 상세보기</h3>
                 	<div align="right">
-						<a href="<%= contextPath %>/adminUpdateForm.no?nno=<%= n.getNoticeNo() %>" class="btn btn-warning">수정하기</a>
-	                	<a href="<%= contextPath %>/adminDelete.no?nno=<%= n.getNoticeNo() %>" class="btn btn-secondary">삭제하기</a>
-	                	<a href="<%= contextPath %>/adminList.no?currentPage=1" class="btn btn-secondary">뒤로가기</a>
+						<a id="atag" href="<%= contextPath %>/adminUpdateForm.no?nno=<%= n.getNoticeNo() %>" class="btn btn-warning">수정하기</a>
+	                	<a id="atag" data-toggle="modal" data-target="#deletetNotice" class="btn btn-secondary">삭제하기</a>
+	                	<a id="atag" href="<%= contextPath %>/adminList.no?currentPage=1" class="btn btn-secondary">뒤로가기</a>
 	                </div>
                 </div>
 
@@ -146,8 +149,8 @@
 <!-- ------------------------------------------------------------------------------------------------------------------- -->   
 
 			<!-- 공지사항 삭제 모달 -->
-            <div class="modal" id="deleteNotice">
-                <div class="modal-dialog">
+            <div class="modal" id="deletetNotice">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                 
                         <!-- Modal Header -->
@@ -158,12 +161,14 @@
                         
                         <!-- Modal body -->
                         <div class="modal-body">
+                            <br>
                         	해당 공지사항을 정말 삭제하시겠습니까?
+                            <br><br>
                         </div>
                         
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">확인</button>
+                            <a href="<%= contextPath %>/adminDelete.no?nno=<%= n.getNoticeNo() %>" class="btn btn-danger">삭제하기</a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
                         </div>                    
                     </div>

@@ -213,7 +213,8 @@ private Properties prop = new Properties();
 				n = new Notice(rset.getInt("NO_NO"),
 							   rset.getString("NO_TITLE"),
 							   rset.getString("NO_CONTENT"),
-							   rset.getDate("NO_CREATE_DATE"));
+							   rset.getDate("NO_CREATE_DATE"),
+							   rset.getInt("NO_COUNT"));  
 			}
 			
 			} catch (SQLException e) {

@@ -79,6 +79,7 @@
 		     , NO_TITLE
 		     , NO_CONTENT
 		     , NO_CREATE_DATE
+		     , NO_COUNT
 		  FROM NOTICE N
 		 WHERE NO_NO = ?
 	</entry>

@@ -7,27 +7,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>HOMEASY</title>
 <style>
+
+    table{width: 900px; margin: auto;}
+    th{height: 55px;}
+    td{height: 55px; padding-left: 20px;}
+    .table-active{text-align: center;}
+
+    .atag{text-align: center; margin-top: 25px;}
     .btn-secondary {
         background-color:rgb(158, 158, 158); 
         border-color:rgb(158, 158, 158);
         width:150px; 
     }
 
-    table{width: 900px; margin: auto;}
-    th{height: 55px;}
-    td{height: 55px; padding-left: 15px;}
-    .table-active{text-align: center;}
-
-    .atag{text-align: center; margin-top: 20px;}
-
 </style>
 </head>
 <body>
 
 	<%@ include file="../common/mainHeader.jsp" %>
-	<hr><br><br>
+	<hr><br>
 
         <table id="detailArea" class="listArea table-bordered" border="1">
             <colgroup>

@@ -14,26 +14,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>HOMEASY</title>
 <style>
-    
-    .outer{
-        width: 1200px;
-        height: 1150px;
-        margin: auto;
-        padding-top: 50px;
-    }
-    
-    table {width: 900px;}
+	/* div{outline: 1px solid violet;} */
 
-    th{font-size: 15px;}
-    td{float: left; margin: 15px 0 5px 15px;}
+    .outer{width: 1200px; height: 1150px; margin: auto;}
+    
+	h1{margin-left: 30px; padding-top: 30px;}
+    .noticeHeader{
+		height: 110px; 
+		background-color: rgba(212, 237, 218, 0.4);
+		border-bottom: 3px solid dimgray;
+	}
+	
+    table {width: 900px; font-size: 17px;}
     table hr {width: 840px;}
-
-    h1{font-weight:bolder;}
+    td{float: left; margin: 20px 0 5px 15px;}
     
-    .pagination a {color:black;}
 
+    .pagination a {color:black;}
 	.pagination a:hover, 
 	.pagination a:focus {
 	  background: lightgrey;
@@ -41,21 +40,21 @@
 	  color:black;
 	}
 
-	h1{background-color: rgb(212, 237, 218);}
-    
+
 </style>
 <body>
 
     <%@ include file="../common/mainHeader.jsp" %>
+	<hr>
 
 	<div class="outer">
 
         <div class="noticeHeader">
-            <h1>공지사항</h1><hr>
+            <h1>공지사항</h1>
         </div>
         <br><br>
 
-		<table class="listArea table-bordered table-hover" align="center">
+		<table class="listArea table-hover" align="center">
 			<tbody>
 		
 				<% if(list.isEmpty()) { %>
@@ -65,8 +64,8 @@
 				<% }else { %>
 					<% for(Notice n : list) { %>
 					<tr>
-						<td width="720px"><%= n.getNoticeTitle() %></td>
-						<td width="100px"><%= n.getCreateDate() %></td>
+						<td width="670px"><%= n.getNoticeTitle() %></td>
+						<td width="130px"><%= n.getCreateDate() %></td>
 						<td style="visibility:hidden"><%= n.getNoticeNo() %></td>
 						<td><hr></td>
 					</tr>
@@ -76,9 +75,7 @@
 			</tbody>
 		</table>
 		
-		
-		
-		
+
 		
 		<br><br>
 			<colgroup>
