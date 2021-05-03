@@ -26,7 +26,7 @@
 		                      , CP_MEMO
 		                   FROM COUPON
 		                  ORDER
-		                     BY CP_NO
+		                     BY CP_NO DESC
 		               ) C
 		       )
 		 WHERE RNUM BETWEEN ? AND ?
