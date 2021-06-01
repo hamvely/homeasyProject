@@ -14,7 +14,7 @@ import com.kh.qna.model.vo.Attachment;
 
 public class KnowHowService {
 	
-	// 작성자:장아영 - 노하우리스트 조회
+	// 작성자:장아영 - 사용자 노하우리스트 조회
 	public ArrayList<KnowHow> selectKnowHowList(){ 
 		Connection conn = getConnection();
 		
@@ -26,7 +26,7 @@ public class KnowHowService {
 	}
 
 	
-	// 작성자:임지우 - 노하우관리 리스트카운트조회
+	// 작성자:임지우 - 관리자 노하우 조회수
 	public int selectListCount() {
 		
 		Connection conn = getConnection();
@@ -39,7 +39,7 @@ public class KnowHowService {
 		
 	}
 	
-	// 작성자:임지우 - 노하우관리 리스트 조회
+	// 작성자:임지우 - 관리자 노하우 리스트 조회
 	public ArrayList<KnowHow> selectList(PageInfo pi) {
 		
 		Connection conn = getConnection();
@@ -50,19 +50,18 @@ public class KnowHowService {
 		
 		return list;
 		
-	}
+	}	
 	
-
+	// 관리자 노하우 작성
 	public int insertKnowHow(KnowHow k, KnowHowFile kf) {
 		
 		Connection conn = getConnection();
 		
-		// 두개의 테이블에 각각 insert
-		int result1 = new KnowHowDao().insertKnowHow(conn, k); //KnowHow테이블에 insert하는 dao메소드
+		int result1 = new KnowHowDao().insertKnowHow(conn, k);
 		
-		int result2 = 1; // file테이블에 insert안될수있으니 1로 초기화(null일때도 insert되게)
-		if(kf != null) { // 첨부파일 있을경우 KnowHowFile 테이블에 insert하는 dao메소드
-			result2 = new KnowHowDao().insertKnowHowFile(conn, kf); //KnowHowFile 테이블에 insert하는 dao메소드
+		int result2 = 1;
+		if(kf != null) {
+			result2 = new KnowHowDao().insertKnowHowFile(conn, kf);
 		}
 		
 		if(result1 > 0 && result2 > 0) {
@@ -75,13 +74,9 @@ public class KnowHowService {
 		
 		return result1 * result2;
 		
-	}
+	}		
 
-	
-	
-		
-
-	// 노하우 상세 게시글 카운트
+	// 노하우 상세 게시글 조회수
 	public int increaseCount(int postNo) { 
 
 		Connection conn = getConnection();
