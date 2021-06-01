@@ -58,15 +58,15 @@ public class AdminKnowHowInsertServlet extends HttpServlet {
 			String upFile = multiRequest.getParameter("upfile");
 			
 			KnowHow k = new KnowHow();
-			k.setPostTitle(postTitle); // KnowHow.vo클래스 변수에 ? 값 담기
+			k.setPostTitle(postTitle);
 			k.setPostContent(postContent);
 			
-			//System.out.println(multiRequest.getOriginalFileName("upfile")); // view단에 input type="file"의 name
+			//System.out.println(multiRequest.getOriginalFileName("upfile"));
 			KnowHowFile kf = null;
 			System.out.println(upFile);
 			if(multiRequest.getOriginalFileName("upfile") != null) {
 				
-				kf = new KnowHowFile(); // KnowHowFile테이블에 insert할 데이터 담기
+				kf = new KnowHowFile();
 				kf.setPostFileRename(multiRequest.getFilesystemName("upfile"));
 				
 			}
@@ -77,7 +77,6 @@ public class AdminKnowHowInsertServlet extends HttpServlet {
 			// case2 : 첨부파일x -> insertKnowHow(생성된 k객체, null)
 			
 			if(result > 0) {
-				
 				request.getSession().setAttribute("alertMsg", "노하우 등록 성공");
 				response.sendRedirect(request.getContextPath() + "/adminlist.kh?currentPage=1");
 			}else {
