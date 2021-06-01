@@ -50,10 +50,8 @@ public class KnowHowDao {
 			list.add(new KnowHow(rset.getInt("post_no"),
 					             rset.getString("post_title"),
 					             rset.getString("post_content"),
-					             rset.getString("post_file_rename")));
-						
-			}
-					
+					             rset.getString("post_file_rename")));						
+			}					
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -113,7 +111,7 @@ public class KnowHowDao {
 			
 			rset = pstmt.executeQuery();
 			
-			while(rset.next()) { // 뽑아서 list 객체에 담기 - 컬럼명제시
+			while(rset.next()) { 
 				list.add(new KnowHow(rset.getInt("post_no"),
 								     rset.getString("post_title"),
 								     rset.getDate("post_create_date"),
@@ -244,9 +242,7 @@ public class KnowHowDao {
 		
 		return kf;
 		
-	}
-	
-	
+	}	
 
 	// 노하우 상세 게시글 카운트
 	 public int increaseCount(Connection conn, int postNo) {
@@ -268,31 +264,29 @@ public class KnowHowDao {
 	      }
 	      
 	      return result;
-	   }
-
-	
+	   }	
 	 
-	 //상세보기
-	 public KnowHow selectKnowHowPost(Connection conn, int postNo) {
+	//상세보기
+	public KnowHow selectKnowHowPost(Connection conn, int postNo) {
 		   
-		   KnowHow k = null;
-		   PreparedStatement pstmt = null;
-		   ResultSet rset = null;
-		   String sql = prop.getProperty("selectKnowHowPost");
-		   
-		   try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, postNo);
-			
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {
-				k = new KnowHow(rset.getString("POST_TITLE"),
-								rset.getString("NICKNAME"),
-								rset.getString("POST_FILE_RENAME"),
-						        rset.getString("POST_CONTENT"),
-						        rset.getString("PCOM_CONTENT"));
-			}
+	   KnowHow k = null;
+	   PreparedStatement pstmt = null;
+	   ResultSet rset = null;
+	   String sql = prop.getProperty("selectKnowHowPost");
+	   
+	   try {
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, postNo);
+		
+		rset = pstmt.executeQuery();
+		
+		if(rset.next()) {
+			k = new KnowHow(rset.getString("POST_TITLE"),
+							rset.getString("NICKNAME"),
+							rset.getString("POST_FILE_RENAME"),
+					        rset.getString("POST_CONTENT"),
+					        rset.getString("PCOM_CONTENT"));
+		}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -301,30 +295,31 @@ public class KnowHowDao {
 			close(pstmt);
 		}
 		   
-		   return k;
-	   }
+	   return k;
+	   
+	}
 	 
 	//상세보기 첨부파일 조회
-	 public ArrayList<Attachment> selectAttachment(Connection conn, int postNo) {
-		   ArrayList<Attachment> list= new ArrayList<>();
-		   PreparedStatement pstmt = null;
-		   ResultSet rset = null;
-		   String sql = prop.getProperty("selectAttachment");
+	public ArrayList<Attachment> selectAttachment(Connection conn, int postNo) {
+		ArrayList<Attachment> list= new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String sql = prop.getProperty("selectAttachment");
 		   
-		   try {
+		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, postNo);
 			
 			rset = pstmt.executeQuery();
-			
-			while(rset.next()) {
-				Attachment at = new Attachment();
-				at.setPostFileNo(rset.getInt("post_file_no"));
-			    at.setPostNo(rset.getInt("post_no"));
-			    at.setPostFileRename(rset.getString("post_file_rename"));
+				
+		while(rset.next()) {
+			Attachment at = new Attachment();
+			at.setPostFileNo(rset.getInt("post_file_no"));
+			at.setPostNo(rset.getInt("post_no"));
+			at.setPostFileRename(rset.getString("post_file_rename"));
 			    
-			    list.add(at);
-			}
+			list.add(at);
+		}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -333,38 +328,34 @@ public class KnowHowDao {
 			close(pstmt);
 		}
 		   
-		   return list;
-		   
-	   }
+		return list;
+	
+	}
 	 
-	 public int deleteKnowHow(Connection conn, int postNo) {
+	public int deleteKnowHow(Connection conn, int postNo) {
 			
-			int result = 0;
-			PreparedStatement pstmt = null;
+		int result = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("deleteKnowHow");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, postNo);
 			
-			String sql = prop.getProperty("deleteKnowHow");
+			result = pstmt.executeUpdate();
 			
-			try {
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, postNo);
-				
-				result = pstmt.executeUpdate();
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close(pstmt);
-			}
-			
-			return result;
-			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
 		}
-	 
-	 
-	 
+		
+		return result;
+
+	 } 
 	 
 	 
 	 
 }
-
 
