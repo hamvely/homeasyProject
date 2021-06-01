@@ -29,7 +29,6 @@ public class LikeServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/views/like/like.jsp").forward(request, response);
 		
-		
 	}
 
 	/**
