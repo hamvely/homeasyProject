@@ -43,8 +43,8 @@ public class ProductService {
 		
 		Connection conn = getConnection();
 		
-		int result1 = new ProductDao().insertPd(conn, p);
-		int result2 = new ProductDao().insertPdFileList(conn, list);
+		int result1 = new ProductDao().insertPd(conn, p); // Product테이블 insert
+		int result2 = new ProductDao().insertPdFileList(conn, list); // ProductFile테이블 insert
 		
 		if(result1 > 0 && result2 > 0) {
 			commit(conn);			
@@ -53,7 +53,7 @@ public class ProductService {
 		}
 		close(conn);
 		
-		return result1 * result2;
+		return result1 * result2; // 결과 1 or 0 => 서블렛으로 반환
 		
 	}
 	
