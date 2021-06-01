@@ -64,8 +64,6 @@ public class HomeVisitDao {
    }
    
 
-
-   //이거에요 혜미님!
    public int insertHvWrite(Connection conn, HomeVisit h) {
       
       int result = 0;
@@ -89,7 +87,6 @@ public class HomeVisitDao {
       return result;
    }
    
-   //이거에요 혜미님!!2
    public int insertHomeVisitAttachmentList(Connection conn, ArrayList<Attachment> list) {
       
       int result = 0;
