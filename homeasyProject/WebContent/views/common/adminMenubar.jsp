@@ -87,7 +87,7 @@
            <li><a href="">고객센터 관리</a>
                <ul>
                    <li><a href="<%= contextPath %>/adminList.no?currentPage=1">공지사항 관리</a></li>
-                   <li><a href="">FAQ 관리</a></li>
+                   <li><a href="<%= contextPath %>/adminList.qna?currentPage=1">FAQ 관리</a></li>
                    <li><a href="<%=contextPath%>/adminInquire.one?currentPage=1">1:1문의 관리</a></li>
                </ul>
            </li>
