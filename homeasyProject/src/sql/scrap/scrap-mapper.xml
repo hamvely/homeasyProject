@@ -2,12 +2,12 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
- <entry key="selectThumbnail">
- 	
-	SELECT
-	    SCRAP_NO
-	  , PRODUCT_FILE_RENAME
-	  FROM SCRAP, PRODUCT_FILE
- </entry>
+	<entry key="selectThumbnail">
+	 	
+		SELECT
+		       SCRAP_NO
+		     , PRODUCT_FILE_RENAME
+		  FROM SCRAP, PRODUCT_FILE
+	</entry>
 
 </properties>
