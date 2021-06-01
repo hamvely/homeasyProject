@@ -176,8 +176,7 @@ public class ReviewDao {
 		
 		return result;
 		
-	} 
-
+	}
 	
 	/* 리뷰작성 */
 	public int insertReview(Connection conn, Review r) {
@@ -200,11 +199,9 @@ public class ReviewDao {
 			close(pstmt);
 		}
 		
-		return result;
+		return result;		
 		
-		
-	}
-	
+	}	
 	
 	public Review selectReview(Connection conn) {
 		Review r = null;
@@ -231,6 +228,7 @@ public class ReviewDao {
 				close(pstmt);
 				close(rset);
 			}
+			
 			return r;
 	}
 	
