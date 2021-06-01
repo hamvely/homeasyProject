@@ -62,8 +62,6 @@ public class MemberService {
 	}
 	
 	
-	
-	
 	/* ----- 작성자 : 임지우 ----- */
 	public int selectListCount() {
 		
