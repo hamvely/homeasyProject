@@ -34,7 +34,7 @@ public class AdminReviewDeleteServlet extends HttpServlet {
 		
 		int result = new ReviewService().deleteNotice(reNo);
 		
-		if(result > 0) { // adminlist.re 재요청 => 리뷰리스트페이지
+		if(result > 0) {
 			
 			request.getSession().setAttribute("alertMsg", "성공적으로 리뷰가 삭제되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/adminlist.re?currentPage=1");
@@ -44,8 +44,7 @@ public class AdminReviewDeleteServlet extends HttpServlet {
 			request.setAttribute("errorMsg", "리뷰 삭제에 실패하였습니다.");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			
-		}
-		
+		}		
 		
 	}
 
