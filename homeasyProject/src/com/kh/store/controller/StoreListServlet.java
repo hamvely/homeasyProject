@@ -42,6 +42,7 @@ public class StoreListServlet extends HttpServlet {
       request.setAttribute("cate2List", cate2List);
       
       request.getRequestDispatcher("views/store/storeListView.jsp").forward(request, response);
+      
    }
 
    /**
