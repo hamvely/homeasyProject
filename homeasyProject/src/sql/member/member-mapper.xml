@@ -95,8 +95,6 @@
 	</entry>
 	
 	
-	
-	
 	<!-- 작성자 : 임지우 -->
 	<entry key="selectListCount">
 		SELECT COUNT(*) LISTCOUNT
