@@ -10,10 +10,7 @@ import com.kh.order.model.vo.Order;
 import com.kh.review.model.dao.ReviewDao;
 import com.kh.review.model.vo.Review;
 
-
-
 public class ReviewService {
-
 
 	public Review reviewList() {
 		Connection conn = getConnection();
@@ -23,8 +20,6 @@ public class ReviewService {
 		return r;
 		
 	}
-	
-	
 
 	public int selectListCount() {
 		
@@ -50,7 +45,7 @@ public class ReviewService {
 		
 	}
 	
-//임지우 - 리뷰관리 상세보기
+	//임지우 - 리뷰관리 상세보기
 	public Review selectReview(int reNo) {
 		
 		Connection conn = getConnection();
