@@ -14,7 +14,6 @@ import java.util.Properties;
 import com.kh.common.model.vo.PageInfo;
 import com.kh.member.model.vo.Member;
 
-/* 작성자 : 김혜미 */
 public class MemberDao {
 	
 	private Properties prop = new Properties();
@@ -130,10 +129,7 @@ public class MemberDao {
 		return result;
 	}
 
-	
-	
-	
-	
+
 	/* ----- 작성자 : 임지우 ----- */
 	public int selectListCount(Connection conn) {
 
@@ -286,7 +282,7 @@ public class MemberDao {
 		String sql = prop.getProperty("updateMember");
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // 미완성된sql문
+			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, m.getNickName());
 			pstmt.setString(2, m.getPhone());
 			pstmt.setString(3, m.getBirth());
@@ -305,7 +301,6 @@ public class MemberDao {
 	}
 
 	public Member selectMem(Connection conn, String email) {
-		// select문 => ResultSet객체 (한행)
 				Member m = null;
 				PreparedStatement pstmt = null;
 				ResultSet rset = null;
@@ -313,7 +308,7 @@ public class MemberDao {
 				String sql = prop.getProperty("selectMem");
 				
 				try {
-					pstmt = conn.prepareStatement(sql); // 미완성된sql문
+					pstmt = conn.prepareStatement(sql);
 					pstmt.setString(1, email);
 					
 					rset = pstmt.executeQuery();
@@ -345,11 +340,6 @@ public class MemberDao {
 				return m;
 	
 	}
-
-	
-	
-	
-
 	
 	
 }
