@@ -143,7 +143,7 @@ int maxPge = pi.getMaxPage();
             <div id="content_2">
 				
 				<div>
-            <div class="line" id="a" ><h1><br>1:1문의 관리</h1></div>
+            <div class="line" id="a" ><h1>1:1문의 관리</h1></div>
         </div>
         
         <!--문의유형 문의 상태  -->
