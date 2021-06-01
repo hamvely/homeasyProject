@@ -2,34 +2,34 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-<entry key="selectCount">
-SELECT COUNT(*) LISTCOUNT
-  FROM INQUIRE
-</entry>
+	<entry key="selectCount">
+	SELECT COUNT(*) LISTCOUNT
+	  FROM INQUIRE
+	</entry>
 
-<entry key="selectList">
-   SELECT  *
-     FROM(
-        SELECT
-                ROWNUM NO
-        , A.*
-        FROM(
-            SELECT
-             INQ_NO
-           , INQ_CATE
-           , INQ_TITLE
-           , INQ_CONTENT
-           , INQ_CREATE_DATE
-           , INQ_ANSWER
-           , EMAIL 
-           FROM INQUIRE I
-            JOIN MEMBER ON (I.USER_NO = MEMBER.USER_NO)
-            ORDER
-               BY INQ_CREATE_DATE DESC
-               )A
-          )
-      WHERE NO BETWEEN ? AND ?
-</entry>
+	<entry key="selectList">
+	   SELECT  *
+	     FROM(
+	        SELECT
+	                ROWNUM NO
+	        , A.*
+	        FROM(
+	            SELECT
+	             INQ_NO
+	           , INQ_CATE
+	           , INQ_TITLE
+	           , INQ_CONTENT
+	           , INQ_CREATE_DATE
+	           , INQ_ANSWER
+	           , EMAIL 
+	           FROM INQUIRE I
+	            JOIN MEMBER ON (I.USER_NO = MEMBER.USER_NO)
+	            ORDER
+	               BY INQ_CREATE_DATE DESC
+	               )A
+	          )
+	      WHERE NO BETWEEN ? AND ?
+	</entry>
 
 
 
