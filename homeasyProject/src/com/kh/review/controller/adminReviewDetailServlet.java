@@ -33,7 +33,7 @@ public class adminReviewDetailServlet extends HttpServlet {
 		
 		int reNo = Integer.parseInt(request.getParameter("rno"));
 		
-		Review r = new ReviewService().selectReview(reNo); // (x해당공지조회후x) 뷰페이지 보여지게
+		Review r = new ReviewService().selectReview(reNo);
 		
 		request.setAttribute("r", r);
 		request.getRequestDispatcher("views/review/adminReviewDetailView.jsp").forward(request, response);
