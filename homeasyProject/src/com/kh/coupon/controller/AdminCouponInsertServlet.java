@@ -33,15 +33,15 @@ public class AdminCouponInsertServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		String couponName = request.getParameter("cp_name"); // couponName 변수에 엔롤폼 인풋 name에 지정한 cp_name 기록
+		String couponName = request.getParameter("cp_name");
 		String couponPrice = request.getParameter("cp_price");
 		String couponCondition = request.getParameter("cp_condition");
 		String couponLimit = request.getParameter("cp_limit");
 		String couponMemo = request.getParameter("cp_memo");
 		
 		Coupon c = new Coupon();
-		c.setCp_name(couponName); // coupon.vo클래스 변수에 담기
-		c.setCp_price(Integer.parseInt(couponPrice)); // 자료형int에 String담을거라 파싱
+		c.setCp_name(couponName);
+		c.setCp_price(Integer.parseInt(couponPrice));
 		c.setCp_condition(Integer.parseInt(couponCondition));
 		c.setCp_limit(Integer.parseInt(couponLimit));
 		c.setCp_memo(couponMemo);
@@ -50,7 +50,7 @@ public class AdminCouponInsertServlet extends HttpServlet {
 		
 		if(result > 0) {
 			
-			//session.setAttribute("alertMsg", "성공적으로 쿠폰 등록되었습니다."); 세션오류
+			//session.setAttribute("alertMsg", "성공적으로 쿠폰 등록되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/adminlist.co?currentPage=1");
 			
 		}else {
