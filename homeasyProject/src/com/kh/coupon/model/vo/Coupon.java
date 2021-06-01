@@ -11,6 +11,7 @@ public class Coupon {
 	
 	public Coupon() {}
 
+	// 관리자 쿠폰 조회
 	public Coupon(int cp_no, String cp_name, int cp_price, int cp_condition, int cp_limit, String cp_memo) {
 		super();
 		this.cp_no = cp_no;
@@ -21,9 +22,7 @@ public class Coupon {
 		this.cp_memo = cp_memo;
 	}
 	
-	
-	
-
+	// 사용자 쿠폰 조회
 	public Coupon(String cp_name, int cp_price, int cp_condition, String cp_memo) {
 		super();
 		this.cp_name = cp_name;
