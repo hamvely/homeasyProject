@@ -49,7 +49,6 @@ int maxPge = pi.getMaxPage();
     
     
      div {
-        outline: 1px solid violet;
         box-sizing: border-box;
     }
     .wrap {
