@@ -56,18 +56,18 @@
 		  , POST_CATE_NAME
 		  , POST_TITLE
 		  , POST_CONTENT
-		  , POST_UPDATE_DATE <!-- create_date는 기본값 sysdate라서 따로 기재안함 -->
+		  , POST_UPDATE_DATE
 		  , POST_STATUS
 		  )
 		  VALUES
 		  (
-		    SEQ_PONO.NEXTVAL <!-- post no -->
-		  , 1 <!--  user no -->
-		  , '노하우' <!-- cate name -->
-		  , ? <!--1 title -->
-		  , ? <!--2  content -->
-		  , SYSDATE <!-- update -->
-		  , 'Y' <!-- status -->
+		    SEQ_PONO.NEXTVAL
+		  , 1
+		  , '노하우'
+		  , ?
+		  , ?
+		  , SYSDATE
+		  , 'Y'
 		  )
 	</entry>
 	
