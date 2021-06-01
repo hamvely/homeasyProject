@@ -2,7 +2,6 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-
 	<entry key="reviewList">
 	    SELECT 
 	         PRODUCT_NAME
@@ -11,41 +10,34 @@
 	    FROM PRODUCT
 	</entry>
 
-<entry key="selectReview">
+	<entry key="selectReview">
 		SELECT 
-		    PRODUCT_NAME
-		  , PRODUCT_NO 
-		FROM PRODUCT
-        WHERE PRODUCT_NO = ?
-</entry>
+			   PRODUCT_NAME
+			 , PRODUCT_NO 
+		  FROM PRODUCT
+		 WHERE PRODUCT_NO = ?
+	</entry>
 
-
-
-
-<!-- 리뷰작성 --> 
-<entry key="insertReview">
-	INSERT
-	    INTO REVIEW
-	    (
-	     RE_NO
-	   , PRODUCT_NO
-	   , USER_NO
-	   , RE_CONTENT
-       , RE_MARK
-	   )
-	VALUES
-	    (
-	      SEQ_RENO.NEXTVAL
-	    , ?
-	    , ?
-	    , ?
-        , 0
-	    )
-</entry>
-
-
-
-
+	<!-- 리뷰작성 --> 
+	<entry key="insertReview">
+		INSERT
+			   INTO REVIEW
+			 (
+			   RE_NO
+			 , PRODUCT_NO
+			 , USER_NO
+			 , RE_CONTENT
+			 , RE_MARK
+			 )
+		VALUES
+		     (
+		       SEQ_RENO.NEXTVAL
+		     , ?
+		     , ?
+		     , ?
+	         , 0
+		     )
+	</entry>
 
 	<!-- 작성자 : 임지우 -->
 	<entry key="selectListCount">
@@ -99,8 +91,5 @@
 
 
 
-
-
 </properties>
-
 
