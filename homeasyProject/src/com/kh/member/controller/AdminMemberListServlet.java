@@ -59,7 +59,7 @@ public class AdminMemberListServlet extends HttpServlet {
 		
 		ArrayList<Member> list = new MemberService().selectList(pi);
 		
-		/* 나중에 지우기
+		/* 
 		for(Member m : list) {
 			System.out.println(m);
 		}
