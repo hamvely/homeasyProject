@@ -63,7 +63,6 @@ public class AdminQnaListServlet extends HttpServlet {
 		//for(HomeVisit h : list) {
 			//System.out.println(h);
 		//}
-
 		
 		//System.out.println("=========================");
 		
