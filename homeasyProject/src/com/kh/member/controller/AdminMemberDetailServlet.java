@@ -33,7 +33,7 @@ public class AdminMemberDetailServlet extends HttpServlet {
 		
 		int userNo = Integer.parseInt(request.getParameter("uno"));
 		
-		Member m = new MemberService().selectMember(userNo); // (x해당공지조회후x) 뷰페이지 보여지게
+		Member m = new MemberService().selectMember(userNo);
 		
 		request.setAttribute("m", m);
 		request.getRequestDispatcher("views/member/adminMemberDetailView.jsp").forward(request, response);
