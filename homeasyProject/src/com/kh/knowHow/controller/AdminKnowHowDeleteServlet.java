@@ -34,7 +34,7 @@ public class AdminKnowHowDeleteServlet extends HttpServlet {
 		
 		int result = new KnowHowService().deleteKnowHow(postNo);
 		
-		if(result > 0) { // adminlist.kh 재요청 => 리뷰리스트페이지
+		if(result > 0) {
 			
 			request.getSession().setAttribute("alertMsg", "성공적으로 노하우가 삭제되었습니다.");
 			response.sendRedirect(request.getContextPath() + "/adminlist.kh?currentPage=1");
