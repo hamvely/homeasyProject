@@ -2,41 +2,39 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
- <entry key="OrderList">
-	SELECT 
-		   PRODUCT_NO
-		 , PRODUCT_NAME
-	 FROM ORDER_FORM, PRODUCT
-	 WHERE ROWNUM BETWEEN 1 AND 3
-	 
- </entry>
- 
- <entry key="selectDetail">
-		SELECT
-		     O.NAME 
-		    ,O.ADDRESS 
-		    ,O.PHONE 
-		    ,O.ORDER_MEMO 
-		    ,B.BUY_DATE 
-		    ,B.BUY_METHOD 
-		    ,P.PRODUCT_NO
-		FROM ORDER_FORM O
-		JOIN ORDER_LIST L ON (O.ORDER_NO = L.ORDER_NO)
-		JOIN BUY B ON (O.ORDER_NO = B.ORDER_NO)
-		JOIN PRODUCT_OPTION P ON (L.PRODUCT_AMOUNT = P.PRODUCT_NO)
- 
- 
- </entry>
- 
- <entry key="detailList">
- 
-		 SELECT
-		    PRODUCT_NAME
-		  , PRODUCT_PRICE
-		  FROM PRODUCT 
-		  WHERE PRODUCT_NO = '1'
+	 <entry key="OrderList">
+		SELECT 
+			   PRODUCT_NO
+			 , PRODUCT_NAME
+		 FROM ORDER_FORM, PRODUCT
+		 WHERE ROWNUM BETWEEN 1 AND 3
 		 
- </entry>
+	 </entry>
+ 
+	 <entry key="selectDetail">
+			SELECT
+			     O.NAME 
+			    ,O.ADDRESS 
+			    ,O.PHONE 
+			    ,O.ORDER_MEMO 
+			    ,B.BUY_DATE 
+			    ,B.BUY_METHOD 
+			    ,P.PRODUCT_NO
+			FROM ORDER_FORM O
+			JOIN ORDER_LIST L ON (O.ORDER_NO = L.ORDER_NO)
+			JOIN BUY B ON (O.ORDER_NO = B.ORDER_NO)
+			JOIN PRODUCT_OPTION P ON (L.PRODUCT_AMOUNT = P.PRODUCT_NO)
+	 </entry>
+	 
+	 <entry key="detailList">
+	 
+			 SELECT
+			    PRODUCT_NAME
+			  , PRODUCT_PRICE
+			  FROM PRODUCT 
+			  WHERE PRODUCT_NO = '1'
+			 
+	 </entry>
  
 
 
