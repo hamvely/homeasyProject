@@ -63,23 +63,15 @@
 	</entry>
 	
 	
- <entry key="selectCouponList">
- SELECT 
-	   CP_NAME
-	 , CP_PRICE
-	 , CP_CONDITION
-	 , CP_MEMO
- FROM COUPON
-	
- 
- 
- </entry>
-	
-	
+	<entry key="selectCouponList">
+		SELECT 
+			   CP_NAME
+			 , CP_PRICE
+			 , CP_CONDITION
+			 , CP_MEMO
+		  FROM COUPON
+	</entry>
+		
 	
 	
 </properties>
-
-
-
-
