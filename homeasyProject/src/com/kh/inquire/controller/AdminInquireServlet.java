@@ -33,7 +33,6 @@ public class AdminInquireServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 페이징 처리 
 		
 		int listCount; // 현재 총 게시글 갯수
 		int currentPage; //현재 페이지 
@@ -46,37 +45,26 @@ public class AdminInquireServlet extends HttpServlet {
 		
 		
 		
-		// listCount : 총 게시글 갯수 조회해서 담기 
 		listCount = new AdminInquireService().selectCount();
 		
-		// currentPage : 현재 요청한 페이지 
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		
-		// pageLimit : 하단 페이지 최대 갯수
 		pageLimit = 10;
 		
-		// AdminInquire : 한 페이지에 보여질 갯수
 		boardLimit = 10;
 		
-		// maxPage : 마지막 페이지 수 
 		maxPage = (int)Math.ceil((double)listCount / boardLimit);
 		
-		// startPage : 시작 페이지
 		startPage = (currentPage - 1) / pageLimit * pageLimit + 1;
 		
-		// endPage : 페이징바 끝 수 
 		endPage = startPage + pageLimit - 1;
-		
 		
 		if(endPage > maxPage) {
 			endPage = maxPage;
 		}
 		
-		
-		// 페이징 정보 담기  
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
-		// 현재 요청한 페이지 
 		ArrayList<AdminInquire> list = new AdminInquireService().selectList(pi);
 		
 		request.setAttribute("pi", pi);
