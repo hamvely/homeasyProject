@@ -36,7 +36,6 @@ public class ScrapServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/views/scrap/scrap.jsp").forward(request, response);
 		
-		
 	}
 
 	/**
