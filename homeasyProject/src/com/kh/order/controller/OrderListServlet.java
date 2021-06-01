@@ -36,7 +36,6 @@ public class OrderListServlet extends HttpServlet {
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("views/order/orderList.jsp").forward(request, response);
-		
 		 
 	}
 
