@@ -59,7 +59,7 @@ public class AdminReviewListServlet extends HttpServlet {
 		
 		ArrayList<Review> list = new ReviewService().selectList(pi);
 		
-		/* 나중에 지우기
+		/* 
 		for(Review r : list) {
 			System.out.println(r);
 		}
