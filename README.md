@@ -25,11 +25,12 @@
   <img src="https://img.shields.io/badge/HTML-E34F26?style=flat-the-badge&logo=HTML5&logoColor=white"/>&nbsp
   <img src="https://img.shields.io/badge/CSS3-F68212?style=flat-the-badge&logo=CSS3&logoColor=white"/>&nbsp
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-the-badge&logo=JavaScript&logoColor=white"/>&nbsp
-  <img src="https://img.shields.io/badge/JQuery-0769AD?style=flat-the-badge&logo=jQuery&logoColor=white"/>&nbsp
-  <img src="https://img.shields.io/badge/Bootstrap-6e43a3?style=flat-square&logo=Bootstrap&logoColor=white"/></a>&nbsp 
-  <img src="https://img.shields.io/badge/Apache Tomcat-d2a513?style=flat-the-badge&logo=ApacheTomcat&logoColor=white"/>&nbsp
-  <img src="https://img.shields.io/badge/AJAX-1f83c6?style=flat-the-badge&logo=&logoColor=white"/>&nbsp  
+  <img src="https://img.shields.io/badge/jQuery-0769AD?style=flat-the-badge&logo=jQuery&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/Bootstrap-6e43a3?style=flat-the-badge&logo=Bootstrap&logoColor=white"/></a>&nbsp
+  <img src="https://img.shields.io/badge/ApacheTomcat-F8DC75?style=flat-the-badge&logo=ApacheTomcat&logoColor=black"/></a>&nbsp
+  <img src="https://img.shields.io/badge/AJAX-1f83c6?style=flat-the-badge&logo=&logoColor=white"/>&nbsp
 </div>
+
 
 * Language : Java (OpenJDK 8)
 * DBMS : Oracle (11g)
