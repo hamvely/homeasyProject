@@ -9,7 +9,6 @@
 <br>
 
 
-
 ## 📅 프로젝트 기간
  |총 기간|2021년 03월 18일 ~ 2021년 05월 02일|
  |:---|:---|
@@ -31,7 +30,6 @@
   <img src="https://img.shields.io/badge/AJAX-1f83c6?style=flat-the-badge&logo=&logoColor=white"/>&nbsp
 </div>
 
-
 * Language : Java (OpenJDK 8)
 * DBMS : Oracle (11g)
 * Front : HTML5, CSS3, JavaScript, jQuery, Bootstrap
@@ -42,8 +40,10 @@
 * 형상 관리 : Github
 <br>
 
+
 ## 📊 E-R Diagram
 <p align="center"><img src="https://user-images.githubusercontent.com/71883439/121544421-ab922280-ca44-11eb-8eb4-96abe1a9d294.png"></p>
+
 
 ## 👩‍💻 역할 
 
@@ -67,3 +67,4 @@
   + 조회수 기능
   + 페이징 처리
 <br>
+
